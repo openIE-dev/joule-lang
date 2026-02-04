@@ -82,8 +82,8 @@ Rust remains excellent for safety-critical systems. Joule is designed for energy
 ## Platform Support
 
 ### Tier 1 (Full support)
-- Linux x86_64, aarch64
-- macOS x86_64, aarch64 (Apple Silicon)
+- Linux x86_64, arm64
+- macOS x86_64, arm64 (Apple Silicon)
 - Windows x86_64, arm64
 
 ### Tier 2 (Community-tested)
