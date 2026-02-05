@@ -66,6 +66,7 @@ fn matrix_multiply(a: &Matrix, b: &Matrix) -> Matrix {
 | [Technical Overview](docs/technical-overview.pdf) | Language features and architecture |
 | [Energy Crisis Whitepaper](docs/energy-crisis-computing-whitepaper.pdf) | Computing's energy footprint and solutions |
 | [Sustainable Computing Manifesto](docs/sustainable-computing-manifesto.pdf) | Principles for energy-aware development |
+| [AI-First Language Design with SSMs](docs/06-AI-First-Language-SSMs.pdf) | State Space Models for AI-native languages |
 
 ## Comparison with Rust
 
