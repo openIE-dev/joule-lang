@@ -94,9 +94,9 @@ Rust remains excellent for safety-critical systems. Joule is designed for energy
 
 Joule is currently in early development. We are building the compiler infrastructure and core language features.
 
-## Contributing
+## Maintained By
 
-We welcome contributions from developers who share our vision of sustainable computing. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Joule is developed and maintained by [Open Interface Engineering, Inc.](https://openie.dev)
 
 ## License
 
