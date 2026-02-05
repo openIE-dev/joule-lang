@@ -63,8 +63,8 @@ fn matrix_multiply(a: &Matrix, b: &Matrix) -> Matrix {
 | Document | Description |
 |----------|-------------|
 | [The Joule Story](docs/the-joule-story.pdf) | Origins and motivation behind Joule |
-| [Technical Overview](docs/technical-overview.pdf) | Language features and architecture |
-| [Energy Crisis Whitepaper](docs/energy-crisis-computing-whitepaper.pdf) | Computing's energy footprint and solutions |
+| [Technical Overview](docs/Joule-Technical-Overview.pdf) | Language features and architecture |
+| [Energy Crisis in Computing](docs/Energy-Crisis-Computing.pdf) | Computing's energy footprint and solutions |
 | [Sustainable Computing Manifesto](docs/sustainable-computing-manifesto.pdf) | Principles for energy-aware development |
 | [AI-First Language Design with SSMs](docs/06-AI-First-Language-SSMs.pdf) | State Space Models for AI-native languages |
 
