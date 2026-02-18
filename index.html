@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Joule APT Repository</title></head>
+<body>
+<h1>Joule APT Repository</h1>
+<p>This is the official apt repository for the <a href="https://joule-lang.org">Joule programming language</a>.</p>
+<h2>Installation</h2>
+<pre>
+# Import the signing key
+curl -fsSL https://openIE-dev.github.io/joule-lang/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/joule.gpg
+
+# Add the repository
+echo "deb [signed-by=/usr/share/keyrings/joule.gpg] https://openIE-dev.github.io/joule-lang stable main" | sudo tee /etc/apt/sources.list.d/joule.list
+
+# Install
+sudo apt update
+sudo apt install joule
+</pre>
+<p>For more information, visit <a href="https://github.com/openIE-dev/joule-lang">the Joule repository</a>.</p>
+</body>
+</html>
