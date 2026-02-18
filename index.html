@@ -7,10 +7,10 @@
 <h2>Installation</h2>
 <pre>
 # Import the signing key
-curl -fsSL https://openIE-dev.github.io/joule-lang/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/joule.gpg
+curl -fsSL https://openie-dev.github.io/joule-lang/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/joule.gpg
 
 # Add the repository
-echo "deb [signed-by=/usr/share/keyrings/joule.gpg] https://openIE-dev.github.io/joule-lang stable main" | sudo tee /etc/apt/sources.list.d/joule.list
+echo "deb [signed-by=/usr/share/keyrings/joule.gpg] https://openie-dev.github.io/joule-lang stable main" | sudo tee /etc/apt/sources.list.d/joule.list
 
 # Install
 sudo apt update
