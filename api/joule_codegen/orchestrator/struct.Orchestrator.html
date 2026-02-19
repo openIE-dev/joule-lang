@@ -4,17 +4,17 @@
 </div></details><details class="toggle method-toggle" open><summary><section id="method.available_backends" class="method"><a class="src rightside" href="../../src/joule_codegen/orchestrator.rs.html#146-148">Source</a><h4 class="code-header">pub fn <a href="#method.available_backends" class="fn">available_backends</a>(&amp;self) -&gt; &amp;[<a class="enum" href="../backend/enum.Backend.html" title="enum joule_codegen::backend::Backend">Backend</a>]</h4></section></summary><div class="docblock"><p>Get list of available backends</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.select_backend" class="method"><a class="src rightside" href="../../src/joule_codegen/orchestrator.rs.html#151-204">Source</a><h4 class="code-header">pub fn <a href="#method.select_backend" class="fn">select_backend</a>(
     &amp;self,
-    mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
+    mir: &amp;MirContext,
     options: &amp;<a class="struct" href="struct.CompileOptions.html" title="struct joule_codegen::orchestrator::CompileOptions">CompileOptions</a>,
 ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="enum" href="../backend/enum.Backend.html" title="enum joule_codegen::backend::Backend">Backend</a>&gt;</h4></section></summary><div class="docblock"><p>Select the best backend for the given options and code</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.compile" class="method"><a class="src rightside" href="../../src/joule_codegen/orchestrator.rs.html#278-285">Source</a><h4 class="code-header">pub fn <a href="#method.compile" class="fn">compile</a>(
     &amp;self,
-    mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
+    mir: &amp;MirContext,
     options: <a class="struct" href="struct.CompileOptions.html" title="struct joule_codegen::orchestrator::CompileOptions">CompileOptions</a>,
 ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="struct" href="struct.CompileResult.html" title="struct joule_codegen::orchestrator::CompileResult">CompileResult</a>&gt;</h4></section></summary><div class="docblock"><p>Compile MIR to object code</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.compile_with_backend" class="method"><a class="src rightside" href="../../src/joule_codegen/orchestrator.rs.html#288-401">Source</a><h4 class="code-header">pub fn <a href="#method.compile_with_backend" class="fn">compile_with_backend</a>(
     &amp;self,
-    mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
+    mir: &amp;MirContext,
     backend: <a class="enum" href="../backend/enum.Backend.html" title="enum joule_codegen::backend::Backend">Backend</a>,
     options: <a class="struct" href="struct.CompileOptions.html" title="struct joule_codegen::orchestrator::CompileOptions">CompileOptions</a>,
 ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="struct" href="struct.CompileResult.html" title="struct joule_codegen::orchestrator::CompileResult">CompileResult</a>&gt;</h4></section></summary><div class="docblock"><p>Compile with a specific backend</p>
