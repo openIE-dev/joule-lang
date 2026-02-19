@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["emit_operand","emit_operand_typed","emit_place","emit_place_simple","emit_place_typed","needs_pointer"],"struct":["CEmitter","TargetConfig"]};
+window.SIDEBAR_ITEMS = {"fn":["emit_operand","emit_operand_typed","emit_place","emit_place_simple","emit_place_typed","needs_pointer"],"struct":["CEmitter","EnergyAnnotation","TargetConfig"]};

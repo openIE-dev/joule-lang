@@ -19,7 +19,7 @@ appropriate backend, and links the results together.</p>
 <p>By default, Cranelift is used for fast compilation.
 Set this to true for optimized release builds.</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.target" class="method"><a class="src rightside" href="../../src/joule_codegen/hybrid.rs.html#197-199">Source</a><h4 class="code-header">pub fn <a href="#method.target" class="fn">target</a>(&amp;self) -&gt; <a class="enum" href="enum.HybridTarget.html" title="enum joule_codegen::hybrid::HybridTarget">HybridTarget</a></h4></section></summary><div class="docblock"><p>Get the GPU target.</p>
-</div></details><details class="toggle method-toggle" open><summary><section id="method.analyze_targets" class="method"><a class="src rightside" href="../../src/joule_codegen/hybrid.rs.html#218-238">Source</a><h4 class="code-header">pub fn <a href="#method.analyze_targets" class="fn">analyze_targets</a>(&amp;self, mir: &amp;MirContext) -&gt; <a class="struct" href="struct.TargetAnalysis.html" title="struct joule_codegen::hybrid::TargetAnalysis">TargetAnalysis</a></h4></section></summary><div class="docblock"><p>Analyze the MIR to determine which targets are needed.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="method.analyze_targets" class="method"><a class="src rightside" href="../../src/joule_codegen/hybrid.rs.html#218-238">Source</a><h4 class="code-header">pub fn <a href="#method.analyze_targets" class="fn">analyze_targets</a>(&amp;self, mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>) -&gt; <a class="struct" href="struct.TargetAnalysis.html" title="struct joule_codegen::hybrid::TargetAnalysis">TargetAnalysis</a></h4></section></summary><div class="docblock"><p>Analyze the MIR to determine which targets are needed.</p>
 <p>This examines all functions in the MIR and categorizes them as:</p>
 <ul>
 <li>CPU functions: Regular functions compiled for the host</li>
@@ -40,7 +40,7 @@ Set this to true for optimized release builds.</p>
 </ul>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.compile_hybrid" class="method"><a class="src rightside" href="../../src/joule_codegen/hybrid.rs.html#264-309">Source</a><h4 class="code-header">pub fn <a href="#method.compile_hybrid" class="fn">compile_hybrid</a>(
     &amp;self,
-    mir: &amp;MirContext,
+    mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
     opt_level: <a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.u8.html">u8</a>,
 ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="struct" href="struct.HybridCompileResult.html" title="struct joule_codegen::hybrid::HybridCompileResult">HybridCompileResult</a>&gt;</h4></section></summary><div class="docblock"><p>Perform hybrid compilation of the MIR.</p>
 <p>This splits the MIR into CPU and GPU modules, compiles each with
