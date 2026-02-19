@@ -5,19 +5,19 @@
     place: Place,
     is_mut: <a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.bool.html">bool</a>,
     created_at: <a class="struct" href="struct.ProgramPoint.html" title="struct joule_borrowck::lifetimes::ProgramPoint">ProgramPoint</a>,
-    span: <a class="struct" href="../../joule_common/span/struct.Span.html" title="struct joule_common::span::Span">Span</a>,
+    span: Span,
 ) -&gt; <a class="struct" href="struct.LoanId.html" title="struct joule_borrowck::lifetimes::LoanId">LoanId</a></h4></section></summary><div class="docblock"><p>Create a new loan (borrow)</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.add_live_at" class="method"><a class="src rightside" href="../../src/joule_borrowck/lifetimes.rs.html#246-257">Source</a><h4 class="code-header">pub fn <a href="#method.add_live_at" class="fn">add_live_at</a>(
     &amp;mut self,
     lifetime: <a class="struct" href="struct.LifetimeId.html" title="struct joule_borrowck::lifetimes::LifetimeId">LifetimeId</a>,
     point: <a class="struct" href="struct.ProgramPoint.html" title="struct joule_borrowck::lifetimes::ProgramPoint">ProgramPoint</a>,
-    span: <a class="struct" href="../../joule_common/span/struct.Span.html" title="struct joule_common::span::Span">Span</a>,
+    span: Span,
 )</h4></section></summary><div class="docblock"><p>Mark that a lifetime must be live at a program point</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.add_outlives" class="method"><a class="src rightside" href="../../src/joule_borrowck/lifetimes.rs.html#260-266">Source</a><h4 class="code-header">pub fn <a href="#method.add_outlives" class="fn">add_outlives</a>(
     &amp;mut self,
     longer: <a class="struct" href="struct.LifetimeId.html" title="struct joule_borrowck::lifetimes::LifetimeId">LifetimeId</a>,
     shorter: <a class="struct" href="struct.LifetimeId.html" title="struct joule_borrowck::lifetimes::LifetimeId">LifetimeId</a>,
-    span: <a class="struct" href="../../joule_common/span/struct.Span.html" title="struct joule_common::span::Span">Span</a>,
+    span: Span,
 )</h4></section></summary><div class="docblock"><p>Add an outlives constraint: ’a: ’b (a outlives b)</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.active_loans_for_local" class="method"><a class="src rightside" href="../../src/joule_borrowck/lifetimes.rs.html#269-284">Source</a><h4 class="code-header">pub fn <a href="#method.active_loans_for_local" class="fn">active_loans_for_local</a>(
     &amp;self,
