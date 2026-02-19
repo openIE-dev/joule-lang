@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Architecture"],"fn":["all_targets","find_target","is_embedded_target"],"static":["TARGETS"],"struct":["EmbeddedTarget"]};

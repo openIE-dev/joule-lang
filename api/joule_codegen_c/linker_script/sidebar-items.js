@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["generate_linker_script","generate_startup_asm","parse_size"],"struct":["MemoryConfig"]};
