@@ -2,14 +2,14 @@
     // Provided methods
     fn <a href="#method.generate_object" class="fn">generate_object</a>(
         &amp;self,
-        mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
+        mir: &amp;MirContext,
         target: &amp;<a class="struct" href="../backend/struct.Target.html" title="struct joule_codegen::backend::Target">Target</a>,
     ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.93.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.u8.html">u8</a>&gt;&gt; { ... }
 <span class="item-spacer"></span>    fn <a href="#method.object_extension" class="fn">object_extension</a>(&amp;self, target: &amp;<a class="struct" href="../backend/struct.Target.html" title="struct joule_codegen::backend::Target">Target</a>) -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.str.html">str</a> { ... }
 }</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Trait for generators that produce object files</p>
 </div></details><h2 id="provided-methods" class="section-header">Provided Methods<a href="#provided-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="method.generate_object" class="method"><a class="src rightside" href="../../src/joule_codegen/traits.rs.html#33-35">Source</a><h4 class="code-header">fn <a href="#method.generate_object" class="fn">generate_object</a>(
     &amp;self,
-    mir: &amp;<a class="struct" href="../../joule_mir/struct.MirContext.html" title="struct joule_mir::MirContext">MirContext</a>,
+    mir: &amp;MirContext,
     target: &amp;<a class="struct" href="../backend/struct.Target.html" title="struct joule_codegen::backend::Target">Target</a>,
 ) -&gt; <a class="type" href="../type.CodegenResult.html" title="type joule_codegen::CodegenResult">CodegenResult</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.93.1/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.u8.html">u8</a>&gt;&gt;</h4></section></summary><div class="docblock"><p>Generate object code</p>
 </div></details><details class="toggle method-toggle" open><summary><section id="method.object_extension" class="method"><a class="src rightside" href="../../src/joule_codegen/traits.rs.html#38-44">Source</a><h4 class="code-header">fn <a href="#method.object_extension" class="fn">object_extension</a>(&amp;self, target: &amp;<a class="struct" href="../backend/struct.Target.html" title="struct joule_codegen::backend::Target">Target</a>) -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/1.93.1/std/primitive.str.html">str</a></h4></section></summary><div class="docblock"><p>Get the object file extension for this target</p>

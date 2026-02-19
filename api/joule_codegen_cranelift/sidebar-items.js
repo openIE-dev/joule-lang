@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["types"],"struct":["CraneliftCodegen"]};
+window.SIDEBAR_ITEMS = {"mod":["types"],"struct":["CraneliftCodegen","FunctionTranslator"]};
