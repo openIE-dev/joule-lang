@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scheduler - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module scheduler</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct GraphNode</code></h3>
+                <p class="source">Source: scheduler.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(op: ScheduleOp) -&gt; Self</code></h3>
+                <p>Create a new graph node</p>
+                <p class="source">Source: scheduler.joule:49</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HeterogeneousGraph</code></h3>
+                <p class="source">Source: scheduler.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create empty graph</p>
+                <p class="source">Source: scheduler.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_op(&amp;mut self, op: ScheduleOp) -&gt; usize</code></h3>
+                <p>Add an operation to the graph</p>
+                <p class="source">Source: scheduler.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_ops(&amp;mut self, ops: Vec&lt;ScheduleOp&gt;) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p>Add multiple operations</p>
+                <p class="source">Source: scheduler.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn finalize(&amp;mut self)</code></h3>
+                <p>Finalize graph (compute outputs, topo order, critical path)</p>
+                <p class="source">Source: scheduler.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_topo_order(&amp;self) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p>Compute topological order using Kahn&#x27;s algorithm</p>
+                <p class="source">Source: scheduler.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_node(&amp;self, id: usize) -&gt; Option&lt;&amp;GraphNode&gt;</code></h3>
+                <p>Get node by ID</p>
+                <p class="source">Source: scheduler.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_node_mut(&amp;mut self, id: usize) -&gt; Option&lt;&amp;mut GraphNode&gt;</code></h3>
+                <p>Get mutable node by ID</p>
+                <p class="source">Source: scheduler.joule:195</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn topo_order(&amp;self) -&gt; &amp;[usize]</code></h3>
+                <p>Get topological order</p>
+                <p class="source">Source: scheduler.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_flops(&amp;self) -&gt; u64</code></h3>
+                <p>Get total FLOPS</p>
+                <p class="source">Source: scheduler.joule:205</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn aggregate_arithmetic_intensity(&amp;self) -&gt; f64</code></h3>
+                <p>Get aggregate arithmetic intensity</p>
+                <p class="source">Source: scheduler.joule:210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Number of nodes</p>
+                <p class="source">Source: scheduler.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Is graph empty?</p>
+                <p class="source">Source: scheduler.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter_topo(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; &amp;GraphNode&gt;</code></h3>
+                <p>Iterate over nodes in topological order</p>
+                <p class="source">Source: scheduler.joule:229</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: scheduler.joule:235</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ExecutionStep</code></h3>
+                <p class="source">Source: scheduler.joule:246</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ExecutionPlan</code></h3>
+                <p class="source">Source: scheduler.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create empty plan</p>
+                <p class="source">Source: scheduler.joule:284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn utilization(&amp;self, engine: Engine) -&gt; f64</code></h3>
+                <p>Get utilization for an engine</p>
+                <p class="source">Source: scheduler.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ops_on(&amp;self, engine: Engine) -&gt; usize</code></h3>
+                <p>Get operation count for an engine</p>
+                <p class="source">Source: scheduler.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn summary(&amp;self) -&gt; String</code></h3>
+                <p>Summary of the plan</p>
+                <p class="source">Source: scheduler.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: scheduler.joule:325</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SchedulingStrategy</code></h3>
+                <p class="source">Source: scheduler.joule:336</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SchedulerConfig</code></h3>
+                <p class="source">Source: scheduler.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: scheduler.joule:365</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Scheduler</code></h3>
+                <p>Main heterogeneous scheduler</p>
+                <p class="source">Source: scheduler.joule:378</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SchedulerStats</code></h3>
+                <p class="source">Source: scheduler.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(capabilities: Vec&lt;EngineCapabilities&gt;) -&gt; Self</code></h3>
+                <p>Create scheduler with given engine capabilities</p>
+                <p class="source">Source: scheduler.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(capabilities: Vec&lt;EngineCapabilities&gt;, config: SchedulerConfig) -&gt; Self</code></h3>
+                <p>Create with custom config</p>
+                <p class="source">Source: scheduler.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_config(&amp;mut self, config: SchedulerConfig)</code></h3>
+                <p>Update configuration</p>
+                <p class="source">Source: scheduler.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_capabilities(&amp;self, engine: Engine) -&gt; Option&lt;&amp;EngineCapabilities&gt;</code></h3>
+                <p>Get capabilities for an engine</p>
+                <p class="source">Source: scheduler.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_op(&amp;self, op: &amp;ScheduleOp) -&gt; ScheduleDecision</code></h3>
+                <p>Schedule a single operation</p>
+                <p class="source">Source: scheduler.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_min_latency(&amp;self, op: &amp;ScheduleOp) -&gt; ScheduleDecision</code></h3>
+                <p>Schedule for minimum latency</p>
+                <p class="source">Source: scheduler.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_min_energy(&amp;self, op: &amp;ScheduleOp) -&gt; ScheduleDecision</code></h3>
+                <p>Schedule for minimum energy</p>
+                <p class="source">Source: scheduler.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_balanced(&amp;self, op: &amp;ScheduleOp) -&gt; ScheduleDecision</code></h3>
+                <p>Schedule with balanced latency/energy tradeoff</p>
+                <p class="source">Source: scheduler.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_max_throughput(&amp;self, op: &amp;ScheduleOp) -&gt; ScheduleDecision</code></h3>
+                <p>Schedule for maximum throughput</p>
+                <p class="source">Source: scheduler.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn can_execute(&amp;self, cap: &amp;EngineCapabilities, op: &amp;ScheduleOp) -&gt; bool</code></h3>
+                <p>Check if engine can execute operation</p>
+                <p class="source">Source: scheduler.joule:582</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_time(&amp;self, op: &amp;ScheduleOp, cap: &amp;EngineCapabilities) -&gt; u64</code></h3>
+                <p>Estimate execution time (nanoseconds)</p>
+                <p class="source">Source: scheduler.joule:587</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_energy(&amp;self, op: &amp;ScheduleOp, cap: &amp;EngineCapabilities) -&gt; u64</code></h3>
+                <p>Estimate energy consumption (microjoules)</p>
+                <p class="source">Source: scheduler.joule:603</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn make_decision(&amp;self, op: &amp;ScheduleOp, engine: Engine, reason: &amp;str) -&gt; ScheduleDecision</code></h3>
+                <p>Create scheduling decision</p>
+                <p class="source">Source: scheduler.joule:616</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_graph(&amp;self, graph: &amp;mut HeterogeneousGraph) -&gt; ExecutionPlan</code></h3>
+                <p>Schedule an entire graph</p>
+                <p class="source">Source: scheduler.joule:653</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_critical_path(&amp;self, graph: &amp;HeterogeneousGraph) -&gt; u64</code></h3>
+                <p>Compute critical path length through graph</p>
+                <p class="source">Source: scheduler.joule:740</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_transformer(</code></h3>
+                <p>Create optimal schedule for transformer inference</p>
+                <p class="source">Source: scheduler.joule:766</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stats(&amp;self) -&gt; SchedulerStats</code></h3>
+                <p>Get current statistics</p>
+                <p class="source">Source: scheduler.joule:854</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset_stats(&amp;self)</code></h3>
+                <p>Reset statistics</p>
+                <p class="source">Source: scheduler.joule:859</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: scheduler.joule:866</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_gemm(m: usize, n: usize, k: usize, dtype: ComputeDType) -&gt; ScheduleDecision</code></h3>
+                <p>Create a simple GEMM schedule decision</p>
+                <p class="source">Source: scheduler.joule:884</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn schedule_transformer_inference(</code></h3>
+                <p>Create a transformer schedule</p>
+                <p class="source">Source: scheduler.joule:892</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn print_model_schedules()</code></h3>
+                <p>Print recommended schedule for common model sizes</p>
+                <p class="source">Source: scheduler.joule:907</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_graph_construction()</code></h3>
+                <p class="source">Source: scheduler.joule:942</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_scheduler_small_op()</code></h3>
+                <p class="source">Source: scheduler.joule:959</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_scheduler_large_gemm()</code></h3>
+                <p class="source">Source: scheduler.joule:971</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_scheduler_quantized_decode()</code></h3>
+                <p class="source">Source: scheduler.joule:983</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transformer_schedule()</code></h3>
+                <p class="source">Source: scheduler.joule:996</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spi - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module spi</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum SpiMode</code></h3>
+                <p class="source">Source: spi.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpol(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: spi.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpha(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: spi.joule:24</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BitOrder</code></h3>
+                <p class="source">Source: spi.joule:31</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpiConfig</code></h3>
+                <p class="source">Source: spi.joule:40</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: spi.joule:54</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn speed(mut self, hz: u32) -&gt; Self</code></h3>
+                <p>Set speed</p>
+                <p class="source">Source: spi.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mode(mut self, mode: SpiMode) -&gt; Self</code></h3>
+                <p>Set mode</p>
+                <p class="source">Source: spi.joule:73</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpiBus</code></h3>
+                <p>SPI bus handle</p>
+                <p class="source">Source: spi.joule:80</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;(u8, u8)&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(bus: u8, cs: u8) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:113</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_config(bus: u8, cs: u8, config: SpiConfig) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: *const i8, flags: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: spi.joule:123</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_RDWR: i32</code></h3>
+                <p class="source">Source: spi.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bus_num(&amp;self) -&gt; u8</code></h3>
+                <p>Get bus number</p>
+                <p class="source">Source: spi.joule:163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn config(&amp;self) -&gt; &amp;SpiConfig</code></h3>
+                <p>Get current configuration</p>
+                <p class="source">Source: spi.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_speed(&amp;mut self, speed_hz: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:174</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_mode(&amp;mut self, mode: SpiMode) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply_config(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Apply configuration</p>
+                <p class="source">Source: spi.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: spi.joule:191</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_WR_MODE: u64</code></h3>
+                <p class="source">Source: spi.joule:194</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_WR_BITS_PER_WORD: u64</code></h3>
+                <p class="source">Source: spi.joule:195</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_WR_MAX_SPEED_HZ: u64</code></h3>
+                <p class="source">Source: spi.joule:196</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_WR_LSB_FIRST: u64</code></h3>
+                <p class="source">Source: spi.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transfer(&amp;self, tx: &amp;[u8], rx: &amp;mut [u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:237</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: spi.joule:247</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_MESSAGE_1: u64</code></h3>
+                <p class="source">Source: spi.joule:250</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpiIocTransfer</code></h3>
+                <p class="source">Source: spi.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;self, data: &amp;[u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:296</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:303</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transfer_byte(&amp;self, tx: u8) -&gt; Result&lt;u8, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_byte(&amp;self, data: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_byte(&amp;self) -&gt; Result&lt;u8, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_reg(&amp;self, reg: u8, value: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_reg(&amp;self, reg: u8) -&gt; Result&lt;u8, DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:338</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device(&amp;self, config: SpiConfig) -&gt; SpiDevice</code></h3>
+                <p>Get device wrapper for specific chip select (for multi-device buses)</p>
+                <p class="source">Source: spi.joule:345</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: spi.joule:354</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: spi.joule:358</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpiDevice</code></h3>
+                <p>SPI device with specific configuration</p>
+                <p class="source">Source: spi.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transfer(&amp;self, tx: &amp;[u8], rx: &amp;mut [u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: spi.joule:375</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: spi.joule:385</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SPI_IOC_MESSAGE_1: u64</code></h3>
+                <p class="source">Source: spi.joule:388</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpiIocTransfer</code></h3>
+                <p class="source">Source: spi.joule:391</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const WRITE_ENABLE: u8</code></h3>
+                <p class="source">Source: spi.joule:439</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const WRITE_DISABLE: u8</code></h3>
+                <p class="source">Source: spi.joule:440</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const READ_STATUS: u8</code></h3>
+                <p class="source">Source: spi.joule:441</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const WRITE_STATUS: u8</code></h3>
+                <p class="source">Source: spi.joule:442</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const READ_DATA: u8</code></h3>
+                <p class="source">Source: spi.joule:443</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const FAST_READ: u8</code></h3>
+                <p class="source">Source: spi.joule:444</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PAGE_PROGRAM: u8</code></h3>
+                <p class="source">Source: spi.joule:445</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SECTOR_ERASE: u8</code></h3>
+                <p class="source">Source: spi.joule:446</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BLOCK_ERASE: u8</code></h3>
+                <p class="source">Source: spi.joule:447</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CHIP_ERASE: u8</code></h3>
+                <p class="source">Source: spi.joule:448</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const READ_ID: u8</code></h3>
+                <p class="source">Source: spi.joule:449</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const POWER_DOWN: u8</code></h3>
+                <p class="source">Source: spi.joule:450</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const RELEASE_POWER_DOWN: u8</code></h3>
+                <p class="source">Source: spi.joule:451</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD0_GO_IDLE: u8</code></h3>
+                <p class="source">Source: spi.joule:456</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD1_SEND_OP_COND: u8</code></h3>
+                <p class="source">Source: spi.joule:457</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD8_SEND_IF_COND: u8</code></h3>
+                <p class="source">Source: spi.joule:458</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD9_SEND_CSD: u8</code></h3>
+                <p class="source">Source: spi.joule:459</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD10_SEND_CID: u8</code></h3>
+                <p class="source">Source: spi.joule:460</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD12_STOP_TRANSMISSION: u8</code></h3>
+                <p class="source">Source: spi.joule:461</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD16_SET_BLOCKLEN: u8</code></h3>
+                <p class="source">Source: spi.joule:462</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD17_READ_SINGLE_BLOCK: u8</code></h3>
+                <p class="source">Source: spi.joule:463</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD24_WRITE_BLOCK: u8</code></h3>
+                <p class="source">Source: spi.joule:464</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD55_APP_CMD: u8</code></h3>
+                <p class="source">Source: spi.joule:465</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CMD58_READ_OCR: u8</code></h3>
+                <p class="source">Source: spi.joule:466</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ACMD41_SD_SEND_OP_COND: u8</code></h3>
+                <p class="source">Source: spi.joule:467</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>colors - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module colors</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Color</code></h3>
+                <p class="source">Source: colors.joule:10</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn rgba(r: u8, g: u8, b: u8, a: u8) -&gt; Self {</code></h3>
+                <p>Create color from RGBA</p>
+                <p class="source">Source: colors.joule:19</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn rgb(r: u8, g: u8, b: u8) -&gt; Self {</code></h3>
+                <p>Create color from RGB (fully opaque)</p>
+                <p class="source">Source: colors.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_hex(hex: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Create color from hex string (e.g., &quot;#FF0000&quot; or &quot;FF0000&quot;)</p>
+                <p class="source">Source: colors.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_hsv(h: f64, s: f64, v: f64) -&gt; Self</code></h3>
+                <p>Create color from HSV</p>
+                <p class="source">Source: colors.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_hsl(h: f64, s: f64, l: f64) -&gt; Self</code></h3>
+                <p>Create color from HSL</p>
+                <p class="source">Source: colors.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_floats(r: f64, g: f64, b: f64, a: f64) -&gt; Self</code></h3>
+                <p>Create color from floats (0-1 range)</p>
+                <p class="source">Source: colors.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_hex(&amp;self) -&gt; String</code></h3>
+                <p>To hex string</p>
+                <p class="source">Source: colors.joule:114</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_css(&amp;self) -&gt; String</code></h3>
+                <p>To CSS rgba string</p>
+                <p class="source">Source: colors.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_alpha(mut self, alpha: f64) -&gt; Self</code></h3>
+                <p>With alpha</p>
+                <p class="source">Source: colors.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lighten(&amp;self, factor: f64) -&gt; Self</code></h3>
+                <p>Lighten color</p>
+                <p class="source">Source: colors.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn darken(&amp;self, factor: f64) -&gt; Self</code></h3>
+                <p>Darken color</p>
+                <p class="source">Source: colors.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lerp(&amp;self, other: &amp;Color, t: f64) -&gt; Self</code></h3>
+                <p>Interpolate between two colors</p>
+                <p class="source">Source: colors.joule:160</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BLACK: Color</code></h3>
+                <p class="source">Source: colors.joule:171</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const WHITE: Color</code></h3>
+                <p class="source">Source: colors.joule:172</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const RED: Color</code></h3>
+                <p class="source">Source: colors.joule:173</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GREEN: Color</code></h3>
+                <p class="source">Source: colors.joule:174</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BLUE: Color</code></h3>
+                <p class="source">Source: colors.joule:175</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const YELLOW: Color</code></h3>
+                <p class="source">Source: colors.joule:176</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CYAN: Color</code></h3>
+                <p class="source">Source: colors.joule:177</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MAGENTA: Color</code></h3>
+                <p class="source">Source: colors.joule:178</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ORANGE: Color</code></h3>
+                <p class="source">Source: colors.joule:179</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PURPLE: Color</code></h3>
+                <p class="source">Source: colors.joule:180</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PINK: Color</code></h3>
+                <p class="source">Source: colors.joule:181</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BROWN: Color</code></h3>
+                <p class="source">Source: colors.joule:182</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GRAY: Color</code></h3>
+                <p class="source">Source: colors.joule:183</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LIGHT_GRAY: Color</code></h3>
+                <p class="source">Source: colors.joule:184</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DARK_GRAY: Color</code></h3>
+                <p class="source">Source: colors.joule:185</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ALICE_BLUE: Color</code></h3>
+                <p class="source">Source: colors.joule:188</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CORAL: Color</code></h3>
+                <p class="source">Source: colors.joule:189</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CRIMSON: Color</code></h3>
+                <p class="source">Source: colors.joule:190</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DARK_BLUE: Color</code></h3>
+                <p class="source">Source: colors.joule:191</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DARK_GREEN: Color</code></h3>
+                <p class="source">Source: colors.joule:192</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DARK_RED: Color</code></h3>
+                <p class="source">Source: colors.joule:193</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GOLD: Color</code></h3>
+                <p class="source">Source: colors.joule:194</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const INDIGO: Color</code></h3>
+                <p class="source">Source: colors.joule:195</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LIME: Color</code></h3>
+                <p class="source">Source: colors.joule:196</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NAVY: Color</code></h3>
+                <p class="source">Source: colors.joule:197</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const OLIVE: Color</code></h3>
+                <p class="source">Source: colors.joule:198</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SILVER: Color</code></h3>
+                <p class="source">Source: colors.joule:199</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const STEEL_BLUE: Color</code></h3>
+                <p class="source">Source: colors.joule:200</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TEAL: Color</code></h3>
+                <p class="source">Source: colors.joule:201</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TOMATO: Color</code></h3>
+                <p class="source">Source: colors.joule:202</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TURQUOISE: Color</code></h3>
+                <p class="source">Source: colors.joule:203</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const VIOLET: Color</code></h3>
+                <p class="source">Source: colors.joule:204</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TRANSPARENT: Color</code></h3>
+                <p class="source">Source: colors.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: colors.joule:211</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Colormap</code></h3>
+                <p class="source">Source: colors.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn map(&amp;self, value: f64) -&gt; Color</code></h3>
+                <p>Map value (0-1) to color</p>
+                <p class="source">Source: colors.joule:275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn map_array(&amp;self, values: &amp;[f64]) -&gt; Vec&lt;Color&gt;</code></h3>
+                <p>Map array of values</p>
+                <p class="source">Source: colors.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discrete(&amp;self, n: usize) -&gt; Vec&lt;Color&gt;</code></h3>
+                <p>Generate N discrete colors</p>
+                <p class="source">Source: colors.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interpolate_colormap(v: f64, colors: &amp;[(f64, f64, f64)]) -&gt; Color</code></h3>
+                <p class="source">Source: colors.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn jet_colormap(v: f64) -&gt; Color</code></h3>
+                <p class="source">Source: colors.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hot_colormap(v: f64) -&gt; Color</code></h3>
+                <p class="source">Source: colors.joule:370</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bone_colormap(v: f64) -&gt; Color</code></h3>
+                <p class="source">Source: colors.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default_color_cycle() -&gt; Vec&lt;Color&gt;</code></h3>
+                <p>Default color cycle (similar to matplotlib)</p>
+                <p class="source">Source: colors.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tableau10() -&gt; Vec&lt;Color&gt;</code></h3>
+                <p>Tableau 10 colors</p>
+                <p class="source">Source: colors.joule:498</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colorblind_safe() -&gt; Vec&lt;Color&gt;</code></h3>
+                <p>Colorblind-safe palette</p>
+                <p class="source">Source: colors.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_color_from_hex()</code></h3>
+                <p class="source">Source: colors.joule:535</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_color_to_hex()</code></h3>
+                <p class="source">Source: colors.joule:543</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_colormap_viridis()</code></h3>
+                <p class="source">Source: colors.joule:549</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_color_lerp()</code></h3>
+                <p class="source">Source: colors.joule:560</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

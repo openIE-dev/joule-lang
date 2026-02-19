@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["GenericArg"],"struct":["GenericArgs","GenericParam","GenericParams","TypeBound","WhereClause","WherePredicate"]};

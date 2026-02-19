@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>usb - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module usb</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct UsbDevice</code></h3>
+                <p class="source">Source: usb.joule:8</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum UsbSpeed</code></h3>
+                <p class="source">Source: usb.joule:37</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum UsbTransferType</code></h3>
+                <p class="source">Source: usb.joule:54</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum UsbDirection</code></h3>
+                <p class="source">Source: usb.joule:67</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsbInterface</code></h3>
+                <p class="source">Source: usb.joule:76</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsbEndpoint</code></h3>
+                <p class="source">Source: usb.joule:95</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn number(&amp;self) -&gt; u8</code></h3>
+                <p>Get endpoint number (0-15)</p>
+                <p class="source">Source: usb.joule:110</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsbHandle</code></h3>
+                <p>USB device handle for I/O</p>
+                <p class="source">Source: usb.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find(vendor_id: u16, product_id: u16) -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_by_vendor(vendor_id: u16) -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_by_class(class: u8) -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(&amp;self) -&gt; Result&lt;UsbHandle, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn path(&amp;self) -&gt; String</code></h3>
+                <p>Get device path</p>
+                <p class="source">Source: usb.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device(&amp;self) -&gt; &amp;UsbDevice</code></h3>
+                <p>Get device info</p>
+                <p class="source">Source: usb.joule:191</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interfaces(&amp;self) -&gt; Result&lt;Vec&lt;UsbInterface&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn claim_interface(&amp;self, interface: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:211</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn release_interface(&amp;self, interface: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn control_transfer(</code></h3>
+                <p class="source">Source: usb.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bulk_write(</code></h3>
+                <p class="source">Source: usb.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bulk_read(</code></h3>
+                <p class="source">Source: usb.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interrupt_write(</code></h3>
+                <p class="source">Source: usb.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interrupt_read(</code></h3>
+                <p class="source">Source: usb.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:323</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_configuration(&amp;self, config: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:337</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_halt(&amp;self, endpoint: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: usb.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:369</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AUDIO: u8</code></h3>
+                <p class="source">Source: usb.joule:378</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CDC: u8</code></h3>
+                <p class="source">Source: usb.joule:379</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HID: u8</code></h3>
+                <p class="source">Source: usb.joule:380</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PHYSICAL: u8</code></h3>
+                <p class="source">Source: usb.joule:381</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const IMAGE: u8</code></h3>
+                <p class="source">Source: usb.joule:382</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PRINTER: u8</code></h3>
+                <p class="source">Source: usb.joule:383</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MASS_STORAGE: u8</code></h3>
+                <p class="source">Source: usb.joule:384</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HUB: u8</code></h3>
+                <p class="source">Source: usb.joule:385</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CDC_DATA: u8</code></h3>
+                <p class="source">Source: usb.joule:386</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SMART_CARD: u8</code></h3>
+                <p class="source">Source: usb.joule:387</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const VIDEO: u8</code></h3>
+                <p class="source">Source: usb.joule:388</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PERSONAL_HEALTHCARE: u8</code></h3>
+                <p class="source">Source: usb.joule:389</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AUDIO_VIDEO: u8</code></h3>
+                <p class="source">Source: usb.joule:390</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const WIRELESS: u8</code></h3>
+                <p class="source">Source: usb.joule:391</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const VENDOR_SPECIFIC: u8</code></h3>
+                <p class="source">Source: usb.joule:392</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const STANDARD: u8</code></h3>
+                <p class="source">Source: usb.joule:397</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CLASS: u8</code></h3>
+                <p class="source">Source: usb.joule:398</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const VENDOR: u8</code></h3>
+                <p class="source">Source: usb.joule:399</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE: u8</code></h3>
+                <p class="source">Source: usb.joule:401</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const INTERFACE: u8</code></h3>
+                <p class="source">Source: usb.joule:402</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ENDPOINT: u8</code></h3>
+                <p class="source">Source: usb.joule:403</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HOST_TO_DEVICE: u8</code></h3>
+                <p class="source">Source: usb.joule:405</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_TO_HOST: u8</code></h3>
+                <p class="source">Source: usb.joule:406</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GET_STATUS: u8</code></h3>
+                <p class="source">Source: usb.joule:411</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CLEAR_FEATURE: u8</code></h3>
+                <p class="source">Source: usb.joule:412</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SET_FEATURE: u8</code></h3>
+                <p class="source">Source: usb.joule:413</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SET_ADDRESS: u8</code></h3>
+                <p class="source">Source: usb.joule:414</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GET_DESCRIPTOR: u8</code></h3>
+                <p class="source">Source: usb.joule:415</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SET_DESCRIPTOR: u8</code></h3>
+                <p class="source">Source: usb.joule:416</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GET_CONFIGURATION: u8</code></h3>
+                <p class="source">Source: usb.joule:417</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SET_CONFIGURATION: u8</code></h3>
+                <p class="source">Source: usb.joule:418</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GET_INTERFACE: u8</code></h3>
+                <p class="source">Source: usb.joule:419</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SET_INTERFACE: u8</code></h3>
+                <p class="source">Source: usb.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_linux_usb_devices() -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_linux_usb_device(device: &amp;UsbDevice) -&gt; Result&lt;UsbHandle, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:505</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: *const i8, flags: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:507</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_RDWR: i32</code></h3>
+                <p class="source">Source: usb.joule:510</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_usb_interfaces(_fd: i32) -&gt; Result&lt;Vec&lt;UsbInterface&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:532</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn claim_linux_usb_interface(fd: i32, interface: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:538</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:540</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_CLAIMINTERFACE: u64</code></h3>
+                <p class="source">Source: usb.joule:543</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn release_linux_usb_interface(fd: i32, interface: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:554</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:556</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_RELEASEINTERFACE: u64</code></h3>
+                <p class="source">Source: usb.joule:559</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linux_usb_control_transfer(</code></h3>
+                <p class="source">Source: usb.joule:570</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:580</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_CONTROL: u64</code></h3>
+                <p class="source">Source: usb.joule:583</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsbdevfsCtrlTransfer</code></h3>
+                <p class="source">Source: usb.joule:586</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linux_usb_bulk_transfer(</code></h3>
+                <p class="source">Source: usb.joule:615</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:623</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_BULK: u64</code></h3>
+                <p class="source">Source: usb.joule:626</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsbdevfsBulkTransfer</code></h3>
+                <p class="source">Source: usb.joule:629</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset_linux_usb_device(fd: i32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:652</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:654</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_RESET: u64</code></h3>
+                <p class="source">Source: usb.joule:657</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_usb_configuration(fd: i32, config: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:667</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:669</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_SETCONFIGURATION: u64</code></h3>
+                <p class="source">Source: usb.joule:672</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_linux_usb_halt(fd: i32, endpoint: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:683</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: usb.joule:685</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const USBDEVFS_CLEAR_HALT: u64</code></h3>
+                <p class="source">Source: usb.joule:688</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_macos_usb_devices() -&gt; Result&lt;Vec&lt;UsbDevice&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: usb.joule:699</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

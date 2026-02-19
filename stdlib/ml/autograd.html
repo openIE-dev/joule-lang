@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>autograd - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module autograd</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait GradFn</code></h3>
+                <p>Gradient function trait - nodes in computation graph</p>
+                <p class="source">Source: autograd.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;;</code></h3>
+                <p>Compute gradients given upstream gradient</p>
+                <p class="source">Source: autograd.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor];</code></h3>
+                <p>Get input tensors that need gradients</p>
+                <p class="source">Source: autograd.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str;</code></h3>
+                <p>Name for debugging</p>
+                <p class="source">Source: autograd.joule:16</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ComputationGraph</code></h3>
+                <p>Computation graph for automatic differentiation</p>
+                <p class="source">Source: autograd.joule:20</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GraphNode</code></h3>
+                <p>A node in the computation graph</p>
+                <p class="source">Source: autograd.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create a new computation graph</p>
+                <p class="source">Source: autograd.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn register_leaf(&amp;mut self, tensor: &amp;mut Tensor) -&gt; u64</code></h3>
+                <p class="source">Source: autograd.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn register_op(</code></h3>
+                <p class="source">Source: autograd.joule:68</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;mut self, output_id: u64, grad_output: Option&lt;Tensor&gt;)</code></h3>
+                <p class="source">Source: autograd.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_grad(&amp;self, tensor_id: u64) -&gt; Option&lt;&amp;Tensor&gt;</code></h3>
+                <p>Get gradient for a tensor</p>
+                <p class="source">Source: autograd.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p>Clear all gradients</p>
+                <p class="source">Source: autograd.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear(&amp;mut self)</code></h3>
+                <p>Clear entire graph</p>
+                <p class="source">Source: autograd.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_graph() -&gt; &amp;&#x27;static std::cell::RefCell&lt;ComputationGraph&gt;</code></h3>
+                <p>Get current computation graph</p>
+                <p class="source">Source: autograd.joule:173</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn grad(output: &amp;Tensor, inputs: &amp;[&amp;Tensor]) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn grad_single(output: &amp;Tensor, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p>Compute gradient with respect to single input</p>
+                <p class="source">Source: autograd.joule:196</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NoGrad;</code></h3>
+                <p>Disable gradient computation (for inference)</p>
+                <p class="source">Source: autograd.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create no-grad context</p>
+                <p class="source">Source: autograd.joule:205</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: autograd.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_grad_enabled() -&gt; bool</code></h3>
+                <p>Check if gradient computation is enabled</p>
+                <p class="source">Source: autograd.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_grad_enabled(enabled: bool)</code></h3>
+                <p>Set gradient computation state</p>
+                <p class="source">Source: autograd.joule:227</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn no_grad&lt;F, T&gt;(f: F) -&gt; T</code></h3>
+                <p class="source">Source: autograd.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable_grad&lt;F, T&gt;(f: F) -&gt; T</code></h3>
+                <p>Execute closure with gradients enabled</p>
+                <p class="source">Source: autograd.joule:242</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AddGradFn</code></h3>
+                <p>Addition gradient</p>
+                <p class="source">Source: autograd.joule:258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;Tensor, b: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:273</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:280</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:281</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MulGradFn</code></h3>
+                <p>Multiplication gradient</p>
+                <p class="source">Source: autograd.joule:285</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;Tensor, b: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:300</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:308</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MatMulGradFn</code></h3>
+                <p>Matrix multiplication gradient</p>
+                <p class="source">Source: autograd.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;Tensor, b: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:335</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:336</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PowGradFn</code></h3>
+                <p>Power gradient</p>
+                <p class="source">Source: autograd.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(base: &amp;Tensor, exponent: f64) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:346</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:355</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:364</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SumGradFn</code></h3>
+                <p>Sum gradient</p>
+                <p class="source">Source: autograd.joule:368</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(input: &amp;Tensor, dims: Option&lt;Vec&lt;i64&gt;&gt;, keepdim: bool) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:375</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:403</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MeanGradFn</code></h3>
+                <p>Mean gradient</p>
+                <p class="source">Source: autograd.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(input: &amp;Tensor, dims: Option&lt;Vec&lt;i64&gt;&gt;, keepdim: bool) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:415</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:443</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:444</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ReluGradFn</code></h3>
+                <p>ReLU gradient</p>
+                <p class="source">Source: autograd.joule:448</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(input: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:453</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:461</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:467</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SigmoidGradFn</code></h3>
+                <p>Sigmoid gradient</p>
+                <p class="source">Source: autograd.joule:471</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:484</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:491</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:492</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TanhGradFn</code></h3>
+                <p>Tanh gradient</p>
+                <p class="source">Source: autograd.joule:496</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:501</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:516</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:517</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SoftmaxGradFn</code></h3>
+                <p>Softmax gradient</p>
+                <p class="source">Source: autograd.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output: &amp;Tensor, dim: i64) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:545</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LogSoftmaxGradFn</code></h3>
+                <p>Log softmax gradient</p>
+                <p class="source">Source: autograd.joule:549</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output: &amp;Tensor, dim: i64) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:564</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:572</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:573</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ExpGradFn</code></h3>
+                <p>Exp gradient</p>
+                <p class="source">Source: autograd.joule:577</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:582</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:595</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:596</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LogGradFn</code></h3>
+                <p>Log gradient</p>
+                <p class="source">Source: autograd.joule:600</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(input: &amp;Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: autograd.joule:605</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad_output: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: autograd.joule:613</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[&amp;Tensor]</code></h3>
+                <p class="source">Source: autograd.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: autograd.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn maybe_reduce_grad(grad: &amp;Tensor, target_shape: &amp;[usize]) -&gt; Tensor</code></h3>
+                <p>Reduce gradient to match target shape (handles broadcasting)</p>
+                <p class="source">Source: autograd.joule:627</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn jacobian(output: &amp;Tensor, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: autograd.joule:662</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gradcheck(</code></h3>
+                <p class="source">Source: autograd.joule:685</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

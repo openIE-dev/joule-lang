@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["HardwareDomain"],"struct":["BandwidthStats","CpuDomainReader","DomainCorrelations","DomainSample","DomainTelemetry","DramDomainReader","EstimatedDomainReader","FrequencyStats","GpuDomainReader","MultiDomainMonitor","MultiDomainTelemetry","SystemAggregate","UtilizationStats"],"trait":["DomainReader"]};

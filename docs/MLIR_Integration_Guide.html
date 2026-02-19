@@ -1,0 +1,1278 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MLIR Integration Guide - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="energy-cost-database.html"><strong aria-hidden="true">5.</strong> Energy Cost Database</a></li><li class="chapter-item expanded "><a href="MLIR_Integration_Guide.html" class="active"><strong aria-hidden="true">6.</strong> MLIR Integration Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">8.</strong> Types</a></li><li class="chapter-item expanded "><a href="reference/expressions.html"><strong aria-hidden="true">9.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="reference/items.html"><strong aria-hidden="true">10.</strong> Items</a></li><li class="chapter-item expanded "><a href="reference/patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="reference/attributes.html"><strong aria-hidden="true">12.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="reference/memory.html"><strong aria-hidden="true">13.</strong> Memory</a></li><li class="chapter-item expanded "><a href="reference/concurrency.html"><strong aria-hidden="true">14.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="reference/energy.html"><strong aria-hidden="true">15.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">16.</strong> Overview</a></li><li class="chapter-item expanded "><a href="stdlib/string.html"><strong aria-hidden="true">17.</strong> String</a></li><li class="chapter-item expanded "><a href="stdlib/vec.html"><strong aria-hidden="true">18.</strong> Vec</a></li><li class="chapter-item expanded "><a href="stdlib/option.html"><strong aria-hidden="true">19.</strong> Option</a></li><li class="chapter-item expanded "><a href="stdlib/result.html"><strong aria-hidden="true">20.</strong> Result</a></li><li class="chapter-item expanded "><a href="stdlib/hashmap.html"><strong aria-hidden="true">21.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="stdlib/primitives.html"><strong aria-hidden="true">22.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="stdlib/collections.html"><strong aria-hidden="true">23.</strong> Collections</a></li><li class="chapter-item expanded "><a href="stdlib/io.html"><strong aria-hidden="true">24.</strong> I/O</a></li><li class="chapter-item expanded "><a href="stdlib/math.html"><strong aria-hidden="true">25.</strong> Math</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture & Research</li><li class="chapter-item expanded "><a href="heterogeneous_computing_telemetry_analysis.html"><strong aria-hidden="true">26.</strong> Heterogeneous Computing & Hardware Telemetry</a></li><li class="chapter-item expanded "><a href="EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html"><strong aria-hidden="true">27.</strong> Executive Summary: Heterogeneous Computing & Telemetry Strategy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="mlir-integration-guide-for-joule-compiler"><a class="header" href="#mlir-integration-guide-for-joule-compiler">MLIR Integration Guide for Joule Compiler</a></h1>
+<p><strong>Date</strong>: 2026-01-30
+<strong>Status</strong>: Design Phase → Implementation Roadmap
+<strong>Target</strong>: Integrate MLIR as Joule's MIR (Mid-level Intermediate Representation)</p>
+<hr />
+<h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
+<ol>
+<li><a href="#executive-summary">Executive Summary</a></li>
+<li><a href="#why-mlir-for-joule">Why MLIR for Joule</a></li>
+<li><a href="#mlir-architecture-overview">MLIR Architecture Overview</a></li>
+<li><a href="#rust-integration-via-melior">Rust Integration via Melior</a></li>
+<li><a href="#joules-mlir-compilation-pipeline">Joule's MLIR Compilation Pipeline</a></li>
+<li><a href="#gpu-code-generation-paths">GPU Code Generation Paths</a></li>
+<li><a href="#implementation-roadmap">Implementation Roadmap</a></li>
+<li><a href="#code-examples">Code Examples</a></li>
+<li><a href="#performance-expectations">Performance Expectations</a></li>
+<li><a href="#risks-and-mitigations">Risks and Mitigations</a></li>
+</ol>
+<hr />
+<h2 id="executive-summary"><a class="header" href="#executive-summary">Executive Summary</a></h2>
+<p><strong>Decision</strong>: Adopt <strong>MLIR</strong> (Multi-Level Intermediate Representation) as Joule's MIR layer</p>
+<p><strong>Rationale</strong>:</p>
+<ul>
+<li>✅ <strong>Proven technology</strong>: Used by TensorFlow, Mojo, LLVM, major AI frameworks</li>
+<li>✅ <strong>Multi-backend compilation</strong>: Single source → CUDA, HIP, Metal, Vulkan, TPU</li>
+<li>✅ <strong>GPU dialect built-in</strong>: Avoids reinventing GPU abstractions</li>
+<li>✅ <strong>Saves 2-3 years</strong>: Would take years to build equivalent custom IR</li>
+<li>✅ <strong>Active development</strong>: LLVM 21 released 2026, continuous improvements</li>
+</ul>
+<p><strong>Integration Path</strong>: Joule → HIR → <strong>MLIR</strong> → LLVM/NVPTX/AMDGPU/Metal</p>
+<p><strong>Timeline</strong>:</p>
+<ul>
+<li>Month 4: MLIR integration prototype</li>
+<li>Month 7-10: GPU backends via MLIR</li>
+<li>Month 12: Production-ready MLIR pipeline</li>
+</ul>
+<hr />
+<h2 id="why-mlir-for-joule"><a class="header" href="#why-mlir-for-joule">Why MLIR for Joule</a></h2>
+<h3 id="the-multi-backend-challenge"><a class="header" href="#the-multi-backend-challenge">The Multi-Backend Challenge</a></h3>
+<p>Joule promises to compile to:</p>
+<ul>
+<li><strong>NVIDIA GPUs</strong> (CUDA / NVPTX)</li>
+<li><strong>AMD GPUs</strong> (ROCm / AMDGPU)</li>
+<li><strong>Apple GPUs</strong> (Metal / AIR)</li>
+<li><strong>Intel GPUs</strong> (Vulkan Compute / SPIR-V)</li>
+<li><strong>Google TPUs</strong> (XLA)</li>
+<li><strong>Intel NPUs</strong> (OpenVINO)</li>
+<li><strong>Qualcomm NPUs</strong> (SNPE)</li>
+</ul>
+<p><strong>Without MLIR</strong>: We'd need to implement 7+ custom backends and IR lowering paths ourselves.</p>
+<p><strong>With MLIR</strong>: We leverage existing infrastructure:</p>
+<ul>
+<li>GPU dialect → NVVM (CUDA) / ROCDL (HIP) / LLVM IR (Metal)</li>
+<li>Linalg/Tensor dialects → XLA (TPU)</li>
+<li>Existing optimization passes for free</li>
+</ul>
+<hr />
+<h3 id="mlir-vs-custom-ir-cost-benefit-analysis"><a class="header" href="#mlir-vs-custom-ir-cost-benefit-analysis">MLIR vs. Custom IR: Cost-Benefit Analysis</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Aspect</th><th>Custom IR</th><th>MLIR</th></tr></thead><tbody>
+<tr><td><strong>Development Time</strong></td><td>2-3 years</td><td>3-6 months (integration)</td></tr>
+<tr><td><strong>Multi-backend Support</strong></td><td>Manual per backend</td><td>Built-in (GPU, SPIR-V, LLVM)</td></tr>
+<tr><td><strong>Optimization Passes</strong></td><td>Build from scratch</td><td>100+ passes available</td></tr>
+<tr><td><strong>Debugging Tools</strong></td><td>None initially</td><td>mlir-opt, mlir-translate</td></tr>
+<tr><td><strong>Community Support</strong></td><td>None</td><td>LLVM community, Mojo, TensorFlow</td></tr>
+<tr><td><strong>GPU Abstractions</strong></td><td>Manually design</td><td>GPU dialect ready</td></tr>
+<tr><td><strong>Tensor Operations</strong></td><td>Custom</td><td>Linalg, Tensor dialects</td></tr>
+<tr><td><strong>Maintenance Burden</strong></td><td>High (team of 1-2)</td><td>Low (upstream LLVM)</td></tr>
+<tr><td><strong>Risk</strong></td><td>High (unproven)</td><td>Low (battle-tested)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Verdict</strong>: MLIR is the pragmatic choice for a small team (2-3 engineers).</p>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://rcs.uwaterloo.ca/~ali/cs842-s23/papers/mlir.pdf">MLIR: Scaling Compiler Infrastructure for Domain Specific Computation</a></li>
+<li><a href="https://www.modular.com/blog/democratizing-ai-compute-part-8-what-about-the-mlir-compiler-infrastructure">Modular: What about the MLIR compiler infrastructure?</a></li>
+<li><a href="https://medium.com/@princejain_77044/understanding-llvm-v-s-mlir-a-comprehensive-comparison-overview-9afc0214adc1">MLIR vs LLVM Comparison</a></li>
+</ul>
+<hr />
+<h2 id="mlir-architecture-overview"><a class="header" href="#mlir-architecture-overview">MLIR Architecture Overview</a></h2>
+<h3 id="what-is-mlir"><a class="header" href="#what-is-mlir">What is MLIR?</a></h3>
+<p><strong>MLIR (Multi-Level Intermediate Representation)</strong> is a compiler infrastructure that supports multiple abstraction levels in a single IR via <strong>dialects</strong>.</p>
+<p><strong>Key Concept</strong>: <strong>Dialects</strong> = Domain-specific operations, types, and semantics</p>
+<p>Think of dialects as "mini-IRs" that can interoperate:</p>
+<ul>
+<li><strong>arith</strong>: Basic math ops (<code>addi</code>, <code>mulf</code>, <code>divsi</code>)</li>
+<li><strong>func</strong>: Functions and calls</li>
+<li><strong>scf</strong>: Structured control flow (<code>for</code>, <code>if</code>, <code>while</code>)</li>
+<li><strong>memref</strong>: Memory allocation and access</li>
+<li><strong>tensor</strong>: High-level tensor operations</li>
+<li><strong>linalg</strong>: Linear algebra (<code>matmul</code>, <code>conv</code>)</li>
+<li><strong>gpu</strong>: GPU kernels, thread/block abstractions</li>
+<li><strong>nvvm</strong>: NVIDIA-specific ops (mapping to PTX)</li>
+<li><strong>llvm</strong>: LLVM IR as a dialect</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://mlir.llvm.org/">MLIR Official Documentation</a></li>
+<li><a href="https://www.stephendiehl.com/posts/mlir_introduction/">MLIR Introduction - Stephen Diehl</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MLIR_(software)">MLIR Wikipedia</a></li>
+</ul>
+<hr />
+<h3 id="mlir-dialects-a-layered-architecture"><a class="header" href="#mlir-dialects-a-layered-architecture">MLIR Dialects: A Layered Architecture</a></h3>
+<pre><code>┌─────────────────────────────────────────────────┐
+│  Joule Source Code                              │
+└─────────────────────────────────────────────────┘
+                    ↓
+┌─────────────────────────────────────────────────┐
+│  Joule HIR (High-level IR)                      │
+│  - Typed AST with borrow checking info          │
+└─────────────────────────────────────────────────┘
+                    ↓
+┌─────────────────────────────────────────────────┐
+│  MLIR - High-level Dialects                     │
+│  - func: function definitions                   │
+│  - scf: control flow (if, for, while)           │
+│  - tensor: high-level tensor ops                │
+│  - linalg: matrix operations                    │
+└─────────────────────────────────────────────────┘
+                    ↓
+┌─────────────────────────────────────────────────┐
+│  MLIR - Mid-level Dialects                      │
+│  - arith: arithmetic ops                        │
+│  - memref: explicit memory operations           │
+│  - affine: polyhedral optimizations             │
+└─────────────────────────────────────────────────┘
+                    ↓
+         ┌──────────┴──────────┐
+         ↓                     ↓
+┌─────────────────┐   ┌──────────────────┐
+│  GPU Path       │   │  CPU Path        │
+│  - gpu dialect  │   │  - llvm dialect  │
+│  - nvvm/rocdl   │   │                  │
+└─────────────────┘   └──────────────────┘
+         ↓                     ↓
+┌─────────────────┐   ┌──────────────────┐
+│  LLVM NVPTX     │   │  LLVM IR         │
+│  LLVM AMDGPU    │   │                  │
+│  LLVM Metal     │   │                  │
+└─────────────────┘   └──────────────────┘
+         ↓                     ↓
+┌─────────────────┐   ┌──────────────────┐
+│  PTX / GCN      │   │  x86_64          │
+│  AIR            │   │  ARM64           │
+└─────────────────┘   └──────────────────┘
+</code></pre>
+<p><strong>Key Insight</strong>: Each dialect knows how to lower to the next level. We don't have to implement the entire chain—MLIR provides most of it.</p>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Rationale/RationaleLinalgDialect/">Linalg Dialect Rationale</a></li>
+<li><a href="https://mlir.llvm.org/docs/Dialects/GPU/">GPU Dialect Documentation</a></li>
+<li><a href="https://apxml.com/courses/compiler-optimizations-machine-learning/chapter-4-mlir-infrastructure/mlir-architecture-dialects">MLIR Architecture Tutorial</a></li>
+</ul>
+<hr />
+<h2 id="rust-integration-via-melior"><a class="header" href="#rust-integration-via-melior">Rust Integration via Melior</a></h2>
+<h3 id="about-melior"><a class="header" href="#about-melior">About Melior</a></h3>
+<p><strong>Melior</strong> is the Rust bindings for MLIR, providing a safe, high-level API over the MLIR C API.</p>
+<p><strong>Repository</strong>: <a href="https://github.com/mlir-rs/melior">mlir-rs/melior</a></p>
+<p><strong>Status</strong> (2026):</p>
+<ul>
+<li>Alpha stage (API is unstable)</li>
+<li>Supports LLVM/MLIR 21</li>
+<li>Actively maintained</li>
+<li>Used in production by several projects</li>
+</ul>
+<p><strong>Installation</strong>:</p>
+<pre><code class="language-toml">[dependencies]
+melior = "0.21"  # LLVM 21.x compatible
+</code></pre>
+<p><strong>Prerequisites</strong>:</p>
+<ul>
+<li>LLVM/MLIR 21 installed on system</li>
+<li>C++ compiler</li>
+<li>CMake</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://github.com/mlir-rs/melior">Melior GitHub</a></li>
+<li><a href="https://mlir-rs.github.io/melior/melior/">Melior Documentation</a></li>
+<li><a href="https://crates.io/crates/melior">Melior on crates.io</a></li>
+</ul>
+<hr />
+<h3 id="melior-api-overview"><a class="header" href="#melior-api-overview">Melior API Overview</a></h3>
+<p><strong>Core Types</strong>:</p>
+<ul>
+<li><code>Context</code>: MLIR context (like LLVM context)</li>
+<li><code>Module</code>: Top-level container for MLIR operations</li>
+<li><code>Block</code>: Basic block (sequence of operations)</li>
+<li><code>Operation</code>: Single MLIR operation</li>
+<li><code>Value</code>: SSA value</li>
+<li><code>Type</code>: MLIR type</li>
+<li><code>Attribute</code>: Metadata</li>
+<li><code>Location</code>: Source location</li>
+<li><code>Dialect</code>: Dialect handle</li>
+</ul>
+<p><strong>Example</strong> (Adding two numbers):</p>
+<pre><pre class="playground"><code class="language-rust">use melior::{
+    Context,
+    dialect::DialectRegistry,
+    ir::{*, attribute::IntegerAttribute, r#type::IntegerType},
+    utility::register_all_dialects,
+};
+
+fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+    // Create MLIR context
+    let registry = DialectRegistry::new();
+    register_all_dialects(&amp;registry);
+
+    let context = Context::new();
+    context.append_dialect_registry(&amp;registry);
+    context.load_all_available_dialects();
+
+    // Create module
+    let location = Location::unknown(&amp;context);
+    let module = Module::new(location);
+
+    // Create function: func @add(%arg0: i32, %arg1: i32) -&gt; i32
+    let i32_type = IntegerType::new(&amp;context, 32).into();
+
+    let function = {
+        let block = Block::new(&amp;[(i32_type, location), (i32_type, location)]);
+
+        // %0 = arith.addi %arg0, %arg1
+        let result = block.append_operation(
+            OperationBuilder::new("arith.addi", location)
+                .add_operands(&amp;[block.argument(0)?.into(), block.argument(1)?.into()])
+                .add_results(&amp;[i32_type])
+                .build()?
+        ).result(0)?.into();
+
+        // return %0
+        block.append_operation(
+            OperationBuilder::new("func.return", location)
+                .add_operands(&amp;[result])
+                .build()?
+        );
+
+        let region = Region::new();
+        region.append_block(block);
+
+        OperationBuilder::new("func.func", location)
+            .add_attributes(&amp;[
+                (Identifier::new(&amp;context, "sym_name"),
+                 StringAttribute::new(&amp;context, "add").into()),
+                (Identifier::new(&amp;context, "function_type"),
+                 TypeAttribute::new(
+                     FunctionType::new(&amp;context, &amp;[i32_type, i32_type], &amp;[i32_type]).into()
+                 ).into()),
+            ])
+            .add_regions(vec![region])
+            .build()?
+    };
+
+    module.body().append_operation(function);
+
+    // Verify
+    assert!(module.as_operation().verify());
+
+    // Print MLIR
+    println!("{}", module.as_operation());
+
+    Ok(())
+}</code></pre></pre>
+<p><strong>Output</strong>:</p>
+<pre><code class="language-mlir">module {
+  func.func @add(%arg0: i32, %arg1: i32) -&gt; i32 {
+    %0 = arith.addi %arg0, %arg1 : i32
+    func.return %0 : i32
+  }
+}
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://edgl.dev/blog/mlir-with-rust/">Intro to LLVM and MLIR with Rust and Melior</a></li>
+<li><a href="https://gienieczko.com/sourcery/making-languages-in-rust-chapter-0.html">Making Languages In Rust (MLIR) Tutorial</a></li>
+<li><a href="https://lib.rs/crates/autophagy-mlir">autophagy-mlir Example</a></li>
+</ul>
+<hr />
+<h2 id="joules-mlir-compilation-pipeline"><a class="header" href="#joules-mlir-compilation-pipeline">Joule's MLIR Compilation Pipeline</a></h2>
+<h3 id="phase-1-joule-hir--mlir-high-level"><a class="header" href="#phase-1-joule-hir--mlir-high-level">Phase 1: Joule HIR → MLIR (High-level)</a></h3>
+<p><strong>Goal</strong>: Convert Joule's typed HIR to MLIR <code>func</code>, <code>scf</code>, <code>arith</code>, <code>memref</code> dialects</p>
+<p><strong>Example Joule Code</strong>:</p>
+<pre><code class="language-joule">fn add(x: i32, y: i32) -&gt; i32 {
+    x + y
+}
+
+fn main() {
+    let result = add(5, 10);
+    println!("{}", result);
+}
+</code></pre>
+<p><strong>Generated MLIR</strong> (func + arith dialects):</p>
+<pre><code class="language-mlir">module {
+  func.func @add(%arg0: i32, %arg1: i32) -&gt; i32 {
+    %0 = arith.addi %arg0, %arg1 : i32
+    func.return %0 : i32
+  }
+
+  func.func @main() {
+    %c5 = arith.constant 5 : i32
+    %c10 = arith.constant 10 : i32
+    %0 = func.call @add(%c5, %c10) : (i32, i32) -&gt; i32
+    // println lowered to separate pass
+    func.return
+  }
+}
+</code></pre>
+<p><strong>Implementation</strong>: <code>joule-hir-to-mlir</code> pass in <code>compiler/joule-mlir/</code></p>
+<hr />
+<h3 id="phase-2-mlir-optimization-passes"><a class="header" href="#phase-2-mlir-optimization-passes">Phase 2: MLIR Optimization Passes</a></h3>
+<p><strong>Built-in MLIR passes we get for free</strong>:</p>
+<ul>
+<li><code>canonicalize</code>: Simplify operations</li>
+<li><code>cse</code>: Common subexpression elimination</li>
+<li><code>inline</code>: Function inlining</li>
+<li><code>loop-fusion</code>: Fuse adjacent loops</li>
+<li><code>affine-loop-unroll</code>: Unroll affine loops</li>
+<li><code>mem2reg</code>: Promote memory to SSA values</li>
+<li><code>sccp</code>: Sparse conditional constant propagation</li>
+</ul>
+<p><strong>Joule-specific passes</strong>:</p>
+<ul>
+<li><code>joule-energy-optimizer</code>: <strong>Our killer feature</strong>
+<ul>
+<li>Thermal-aware instruction selection</li>
+<li>DRAM row buffer-aware layout</li>
+<li>Power-aware register allocation</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pipeline</strong>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use melior::pass::PassManager;
+
+let pass_manager = PassManager::new(&amp;context);
+
+// Standard MLIR optimizations
+pass_manager.add_pass(Pass::from_name("canonicalize")?);
+pass_manager.add_pass(Pass::from_name("cse")?);
+pass_manager.add_pass(Pass::from_name("inline")?);
+
+// Joule energy optimizer (custom)
+pass_manager.add_pass(joule_energy_optimizer_pass());
+
+// More optimization
+pass_manager.add_pass(Pass::from_name("sccp")?);
+
+pass_manager.run(&amp;mut module)?;
+<span class="boring">}</span></code></pre></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Passes/">MLIR Passes Documentation</a></li>
+<li><a href="https://mlir.llvm.org/docs/Tutorials/Toy/Ch-5/">Chapter 5: Partial Lowering to Lower-Level Dialects for Optimization</a></li>
+</ul>
+<hr />
+<h3 id="phase-3-lowering-to-target-backends"><a class="header" href="#phase-3-lowering-to-target-backends">Phase 3: Lowering to Target Backends</a></h3>
+<p><strong>CPU Path</strong>: MLIR → LLVM Dialect → LLVM IR → x86_64/ARM64</p>
+<p><strong>GPU Path</strong>: MLIR → GPU Dialect → NVVM/ROCDL/LLVM → PTX/GCN/AIR</p>
+<p><strong>Example Pipeline</strong> (CPU):</p>
+<pre><code class="language-bash">mlir-opt input.mlir \
+  --convert-arith-to-llvm \
+  --convert-scf-to-cf \
+  --convert-func-to-llvm \
+  --finalize-memref-to-llvm \
+  --reconcile-unrealized-casts \
+  -o output.mlir
+
+mlir-translate --mlir-to-llvmir output.mlir -o output.ll
+llc output.ll -o output.o
+</code></pre>
+<p><strong>Example Pipeline</strong> (NVIDIA GPU):</p>
+<pre><code class="language-bash">mlir-opt input.mlir \
+  --gpu-kernel-outlining \
+  --convert-gpu-to-nvvm \
+  --gpu-to-llvm \
+  --reconcile-unrealized-casts \
+  -o gpu.mlir
+
+mlir-translate --mlir-to-llvmir gpu.mlir -o gpu.ll
+llc -march=nvptx64 gpu.ll -o kernel.ptx
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Tutorials/Toy/Ch-6/">Chapter 6: Lowering to LLVM and Code Generation</a></li>
+<li><a href="https://www.jeremykun.com/2023/11/01/mlir-lowering-through-llvm/">MLIR — Lowering through LLVM</a></li>
+</ul>
+<hr />
+<h2 id="gpu-code-generation-paths"><a class="header" href="#gpu-code-generation-paths">GPU Code Generation Paths</a></h2>
+<h3 id="nvidia-cuda-path"><a class="header" href="#nvidia-cuda-path">NVIDIA CUDA Path</a></h3>
+<p><strong>Pipeline</strong>: Joule → MLIR GPU Dialect → NVVM Dialect → LLVM NVPTX → PTX → CUDA Binary</p>
+<p><strong>MLIR GPU Dialect Example</strong>:</p>
+<pre><code class="language-mlir">gpu.module @kernels {
+  gpu.func @vector_add(%arg0: memref&lt;?xf32&gt;, %arg1: memref&lt;?xf32&gt;,
+                       %arg2: memref&lt;?xf32&gt;) kernel {
+    %idx = gpu.thread_id x
+    %0 = memref.load %arg0[%idx] : memref&lt;?xf32&gt;
+    %1 = memref.load %arg1[%idx] : memref&lt;?xf32&gt;
+    %2 = arith.addf %0, %1 : f32
+    memref.store %2, %arg2[%idx] : memref&lt;?xf32&gt;
+    gpu.return
+  }
+}
+
+func.func @main() {
+  %c1024 = arith.constant 1024 : index
+  %a = memref.alloc(%c1024) : memref&lt;?xf32&gt;
+  %b = memref.alloc(%c1024) : memref&lt;?xf32&gt;
+  %c = memref.alloc(%c1024) : memref&lt;?xf32&gt;
+
+  gpu.launch_func @kernels::@vector_add
+    blocks in (%c1, %c1, %c1)
+    threads in (%c1024, %c1, %c1)
+    args(%a, %b, %c)
+
+  memref.dealloc %a : memref&lt;?xf32&gt;
+  memref.dealloc %b : memref&lt;?xf32&gt;
+  memref.dealloc %c : memref&lt;?xf32&gt;
+  return
+}
+</code></pre>
+<p><strong>Lowering to NVVM</strong>:</p>
+<pre><code class="language-mlir">llvm.func @vector_add(%arg0: !llvm.ptr&lt;f32&gt;, %arg1: !llvm.ptr&lt;f32&gt;,
+                      %arg2: !llvm.ptr&lt;f32&gt;) {
+  %0 = nvvm.read.ptx.sreg.tid.x : i32
+  %1 = llvm.sext %0 : i32 to i64
+
+  %2 = llvm.getelementptr %arg0[%1] : (!llvm.ptr&lt;f32&gt;, i64) -&gt; !llvm.ptr&lt;f32&gt;
+  %3 = llvm.load %2 : !llvm.ptr&lt;f32&gt;
+
+  %4 = llvm.getelementptr %arg1[%1] : (!llvm.ptr&lt;f32&gt;, i64) -&gt; !llvm.ptr&lt;f32&gt;
+  %5 = llvm.load %4 : !llvm.ptr&lt;f32&gt;
+
+  %6 = llvm.fadd %3, %5 : f32
+
+  %7 = llvm.getelementptr %arg2[%1] : (!llvm.ptr&lt;f32&gt;, i64) -&gt; !llvm.ptr&lt;f32&gt;
+  llvm.store %6, %7 : !llvm.ptr&lt;f32&gt;
+
+  llvm.return
+}
+</code></pre>
+<p><strong>Compilation Pipeline</strong>:</p>
+<pre><code class="language-bash"># Step 1: Lower to NVVM
+mlir-opt --gpu-kernel-outlining \
+         --convert-gpu-to-nvvm \
+         --gpu-to-llvm \
+         kernel.mlir -o nvvm.mlir
+
+# Step 2: Translate to LLVM IR
+mlir-translate --mlir-to-llvmir nvvm.mlir -o kernel.ll
+
+# Step 3: Compile to PTX
+llc -march=nvptx64 -mcpu=sm_80 kernel.ll -o kernel.ptx
+
+# Step 4: Link with CUDA runtime (done by Joule runtime)
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Dialects/GPU/">GPU Dialect Documentation</a></li>
+<li><a href="https://mlir.llvm.org/docs/Dialects/NVVMDialect/">NVVM Dialect Documentation</a></li>
+<li><a href="https://www.stephendiehl.com/posts/mlir_gpu/">MLIR Part 8 - GPU Compilation</a></li>
+</ul>
+<hr />
+<h3 id="amd-rocm--hip-path"><a class="header" href="#amd-rocm--hip-path">AMD ROCm / HIP Path</a></h3>
+<p><strong>Pipeline</strong>: Joule → MLIR GPU Dialect → ROCDL Dialect → LLVM AMDGPU → GCN/RDNA ISA</p>
+<p><strong>Same GPU dialect as NVIDIA</strong>, but lower to <code>rocdl</code> instead of <code>nvvm</code>:</p>
+<pre><code class="language-bash">mlir-opt --gpu-kernel-outlining \
+         --convert-gpu-to-rocdl \
+         --gpu-to-llvm \
+         kernel.mlir -o rocdl.mlir
+
+mlir-translate --mlir-to-llvmir rocdl.mlir -o kernel.ll
+
+llc -march=amdgcn -mcpu=gfx1030 kernel.ll -o kernel.o
+</code></pre>
+<p><strong>Key Insight</strong>: Same high-level MLIR GPU code → Different lowering → Runs on AMD GPUs</p>
+<hr />
+<h3 id="apple-metal-path"><a class="header" href="#apple-metal-path">Apple Metal Path</a></h3>
+<p><strong>Pipeline</strong>: Joule → MLIR GPU Dialect → LLVM Dialect → LLVM Metal Backend → AIR → Metal Binary</p>
+<p>Metal uses standard LLVM backend (not a special dialect like NVVM/ROCDL):</p>
+<pre><code class="language-bash">mlir-opt --convert-gpu-to-llvm kernel.mlir -o llvm.mlir
+
+mlir-translate --mlir-to-llvmir llvm.mlir -o kernel.ll
+
+llc -march=amdgcn -mtriple=air64-apple-macosx kernel.ll -o kernel.metallib
+</code></pre>
+<hr />
+<h3 id="intel-vulkan-compute--spir-v-path"><a class="header" href="#intel-vulkan-compute--spir-v-path">Intel Vulkan Compute / SPIR-V Path</a></h3>
+<p><strong>Pipeline</strong>: Joule → MLIR GPU Dialect → SPIR-V Dialect → SPIR-V Binary → Vulkan</p>
+<pre><code class="language-bash">mlir-opt --convert-gpu-to-spirv kernel.mlir -o spirv.mlir
+
+mlir-translate --mlir-to-spirv spirv.mlir -o kernel.spv
+</code></pre>
+<p><strong>Key Advantage</strong>: SPIR-V runs on Intel, ARM Mali, Qualcomm Adreno, any Vulkan-capable GPU</p>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://discourse.llvm.org/t/lowering-gpu-dialect/3609">MLIR GPU Lowering Discussion</a></li>
+<li><a href="https://arxiv.org/pdf/2108.13191">High Performance GPU Code Generation</a></li>
+</ul>
+<hr />
+<h2 id="implementation-roadmap"><a class="header" href="#implementation-roadmap">Implementation Roadmap</a></h2>
+<h3 id="month-4-mlir-integration-prototype"><a class="header" href="#month-4-mlir-integration-prototype">Month 4: MLIR Integration Prototype</a></h3>
+<p><strong>Week 1-2: Setup and Basic Integration</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Add <code>melior</code> dependency to workspace</li>
+<li>Install LLVM/MLIR 21 on development machines</li>
+<li>Create <code>compiler/joule-mlir/</code> crate</li>
+<li>Implement basic MLIR context initialization</li>
+<li>Write "Hello MLIR" test (generate simple function)</li>
+</ol>
+<p><strong>Deliverable</strong>: Can generate MLIR from Rust, verify with <code>mlir-opt</code></p>
+<p><strong>Code Skeleton</strong>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// compiler/joule-mlir/src/lib.rs
+
+use melior::{Context, Module, dialect::DialectRegistry};
+
+pub struct MLIRContext {
+    context: Context,
+}
+
+impl MLIRContext {
+    pub fn new() -&gt; Self {
+        let registry = DialectRegistry::new();
+        melior::utility::register_all_dialects(&amp;registry);
+
+        let context = Context::new();
+        context.append_dialect_registry(&amp;registry);
+        context.load_all_available_dialects();
+
+        Self { context }
+    }
+
+    pub fn create_module(&amp;self) -&gt; Module {
+        Module::new(Location::unknown(&amp;self.context))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_mlir_context() {
+        let ctx = MLIRContext::new();
+        let module = ctx.create_module();
+        assert!(module.as_operation().verify());
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<hr />
+<p><strong>Week 3-4: HIR → MLIR Lowering</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Design HIR → MLIR mapping for basic constructs</li>
+<li>Implement <code>HirToMlirLowering</code> pass</li>
+<li>Lower functions, arithmetic, control flow</li>
+<li>Write tests for each Joule construct</li>
+</ol>
+<p><strong>Example Mapping</strong>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Joule HIR</th><th>MLIR Dialect</th></tr></thead><tbody>
+<tr><td><code>fn foo()</code></td><td><code>func.func @foo()</code></td></tr>
+<tr><td><code>let x = 5</code></td><td><code>%x = arith.constant 5 : i32</code></td></tr>
+<tr><td><code>x + y</code></td><td><code>%0 = arith.addi %x, %y : i32</code></td></tr>
+<tr><td><code>if cond { ... }</code></td><td><code>scf.if %cond { ... }</code></td></tr>
+<tr><td><code>for i in 0..10 { ... }</code></td><td><code>scf.for %i = %c0 to %c10 { ... }</code></td></tr>
+<tr><td><code>x[i]</code></td><td><code>memref.load %x[%i]</code></td></tr>
+<tr><td><code>return x</code></td><td><code>func.return %x : i32</code></td></tr>
+</tbody></table>
+</div>
+<p><strong>Deliverable</strong>: Simple Joule programs compile to valid MLIR</p>
+<hr />
+<h3 id="month-7-gpu-dialect-support"><a class="header" href="#month-7-gpu-dialect-support">Month 7: GPU Dialect Support</a></h3>
+<p><strong>Week 1-2: GPU Kernel Abstraction</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Design Joule's <code>#[kernel]</code> attribute syntax</li>
+<li>Lower Joule kernels to MLIR <code>gpu</code> dialect</li>
+<li>Implement thread/block index intrinsics</li>
+<li>Test basic GPU kernels (vector add)</li>
+</ol>
+<p><strong>Joule Kernel Example</strong>:</p>
+<pre><code class="language-joule">use compute::gpu::{ThreadIdx, BlockIdx, BlockDim};
+
+#[kernel]
+fn vector_add(a: &amp;[f32], b: &amp;[f32], c: &amp;mut [f32]) {
+    let idx = ThreadIdx::x() + BlockIdx::x() * BlockDim::x();
+    if idx &lt; a.len() {
+        c[idx] = a[idx] + b[idx];
+    }
+}
+</code></pre>
+<p><strong>Generated MLIR</strong>:</p>
+<pre><code class="language-mlir">gpu.module @kernels {
+  gpu.func @vector_add(%a: memref&lt;?xf32&gt;, %b: memref&lt;?xf32&gt;, %c: memref&lt;?xf32&gt;) kernel {
+    %tx = gpu.thread_id x
+    %bx = gpu.block_id x
+    %bdx = gpu.block_dim x
+    %idx = arith.muli %bx, %bdx : index
+    %idx2 = arith.addi %idx, %tx : index
+
+    %len = memref.dim %a, 0 : memref&lt;?xf32&gt;
+    %cond = arith.cmpi ult, %idx2, %len : index
+
+    scf.if %cond {
+      %v_a = memref.load %a[%idx2] : memref&lt;?xf32&gt;
+      %v_b = memref.load %b[%idx2] : memref&lt;?xf32&gt;
+      %sum = arith.addf %v_a, %v_b : f32
+      memref.store %sum, %c[%idx2] : memref&lt;?xf32&gt;
+    }
+
+    gpu.return
+  }
+}
+</code></pre>
+<hr />
+<p><strong>Week 3-4: NVPTX Backend</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Implement lowering pipeline: GPU dialect → NVVM → PTX</li>
+<li>Integrate with CUDA runtime for kernel launches</li>
+<li>Memory management (cudaMalloc, cudaMemcpy)</li>
+<li>Test end-to-end GPU execution</li>
+</ol>
+<p><strong>Compilation Pipeline</strong>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// compiler/joule-codegen-cuda/src/lib.rs
+
+use melior::pass::{PassManager, Pass};
+
+pub fn compile_to_ptx(module: &amp;Module) -&gt; Result&lt;String, Error&gt; {
+    let pm = PassManager::new(module.context());
+
+    // Outline GPU kernels
+    pm.add_pass(Pass::from_name("gpu-kernel-outlining")?);
+
+    // Lower to NVVM
+    pm.add_pass(Pass::from_name("convert-gpu-to-nvvm")?);
+    pm.add_pass(Pass::from_name("gpu-to-llvm")?);
+    pm.add_pass(Pass::from_name("reconcile-unrealized-casts")?);
+
+    pm.run(module)?;
+
+    // Translate to LLVM IR
+    let llvm_ir = translate_to_llvm_ir(module)?;
+
+    // Compile to PTX using LLVM
+    let ptx = llvm_compile_to_ptx(&amp;llvm_ir, "sm_80")?;
+
+    Ok(ptx)
+}
+<span class="boring">}</span></code></pre></pre>
+<p><strong>Deliverable</strong>: Can compile Joule GPU kernels to PTX and execute on NVIDIA GPUs</p>
+<hr />
+<h3 id="month-8-9-multi-gpu-backend-support"><a class="header" href="#month-8-9-multi-gpu-backend-support">Month 8-9: Multi-GPU Backend Support</a></h3>
+<p><strong>Month 8: AMD HIP Backend</strong></p>
+<ul>
+<li>Lower GPU dialect → ROCDL</li>
+<li>Integrate with ROCm runtime</li>
+<li>Test on AMD GPUs</li>
+</ul>
+<p><strong>Month 9: Metal Backend</strong></p>
+<ul>
+<li>Lower GPU dialect → LLVM Metal backend</li>
+<li>Integrate with Metal framework</li>
+<li>Test on Apple Silicon</li>
+</ul>
+<p><strong>Deliverable</strong>: Same Joule kernel runs on NVIDIA, AMD, and Apple GPUs</p>
+<hr />
+<h3 id="month-10-energy-optimizer-as-mlir-pass"><a class="header" href="#month-10-energy-optimizer-as-mlir-pass">Month 10: Energy Optimizer as MLIR Pass</a></h3>
+<p><strong>Week 1-2: Thermal-Aware Pass</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Implement custom MLIR pass: <code>joule-thermal-aware-select</code></li>
+<li>Query CPU thermal state at compile time (if available)</li>
+<li>Select scalar vs. SIMD based on thermal budget</li>
+<li>Insert runtime thermal checks for dynamic selection</li>
+</ol>
+<p><strong>Pass Logic</strong>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// compiler/joule-energy/src/mlir_passes/thermal_aware.rs
+
+use melior::ir::Operation;
+
+pub fn thermal_aware_pass(op: &amp;Operation) -&gt; Result&lt;(), Error&gt; {
+    // Walk all operations
+    op.walk(|inner_op: &amp;Operation| {
+        if is_simd_operation(inner_op) {
+            // Check if we can determine thermal state at compile time
+            if let Some(thermal_state) = get_compile_time_thermal_state() {
+                if thermal_state.should_avoid_simd() {
+                    // Replace SIMD with scalar equivalent
+                    replace_with_scalar(inner_op)?;
+                }
+            } else {
+                // Insert runtime thermal check
+                insert_runtime_thermal_check(inner_op)?;
+            }
+        }
+        Ok(())
+    })?;
+
+    Ok(())
+}
+
+fn insert_runtime_thermal_check(op: &amp;Operation) -&gt; Result&lt;(), Error&gt; {
+    // Generate:
+    // %thermal = call @joule_get_thermal_state() : () -&gt; i32
+    // %is_hot = arith.cmpi sge, %thermal, 3 : i32  // 3 = Hot
+    // scf.if %is_hot {
+    //   %result = call @scalar_version(...)
+    // } else {
+    //   %result = call @simd_version(...)
+    // }
+
+    // ... MLIR code generation ...
+    Ok(())
+}
+<span class="boring">}</span></code></pre></pre>
+<hr />
+<p><strong>Week 3-4: DRAM-Aware Layout Pass</strong></p>
+<p><strong>Tasks</strong>:</p>
+<ol>
+<li>Implement custom pass: <code>joule-dram-aware-layout</code></li>
+<li>Analyze memory access patterns</li>
+<li>Reorder accesses to maximize row buffer hits</li>
+<li>Insert prefetch hints</li>
+</ol>
+<p><strong>Expected Impact</strong>: 20-40% energy reduction on memory-bound workloads</p>
+<p><strong>Deliverable</strong>: Energy optimizer integrated into MLIR pipeline, validated with benchmarks</p>
+<hr />
+<h2 id="code-examples"><a class="header" href="#code-examples">Code Examples</a></h2>
+<h3 id="example-1-simple-function-compilation"><a class="header" href="#example-1-simple-function-compilation">Example 1: Simple Function Compilation</a></h3>
+<p><strong>Joule Source</strong>:</p>
+<pre><code class="language-joule">fn factorial(n: i32) -&gt; i32 {
+    if n &lt;= 1 {
+        return 1;
+    }
+    n * factorial(n - 1)
+}
+</code></pre>
+<p><strong>Generated MLIR</strong> (func + scf + arith):</p>
+<pre><code class="language-mlir">module {
+  func.func @factorial(%arg0: i32) -&gt; i32 {
+    %c1 = arith.constant 1 : i32
+    %cond = arith.cmpi sle, %arg0, %c1 : i32
+    %result = scf.if %cond -&gt; (i32) {
+      scf.yield %c1 : i32
+    } else {
+      %n_minus_1 = arith.subi %arg0, %c1 : i32
+      %rec = func.call @factorial(%n_minus_1) : (i32) -&gt; i32
+      %prod = arith.muli %arg0, %rec : i32
+      scf.yield %prod : i32
+    }
+    func.return %result : i32
+  }
+}
+</code></pre>
+<hr />
+<h3 id="example-2-gpu-kernel-compilation"><a class="header" href="#example-2-gpu-kernel-compilation">Example 2: GPU Kernel Compilation</a></h3>
+<p><strong>Joule Source</strong>:</p>
+<pre><code class="language-joule">#[kernel]
+fn matrix_add(a: &amp;[f32], b: &amp;[f32], c: &amp;mut [f32], width: usize) {
+    let row = BlockIdx::y() * BlockDim::y() + ThreadIdx::y();
+    let col = BlockIdx::x() * BlockDim::x() + ThreadIdx::x();
+    let idx = row * width + col;
+
+    c[idx] = a[idx] + b[idx];
+}
+
+fn main() {
+    let n = 1024;
+    let a = vec![1.0f32; n * n];
+    let b = vec![2.0f32; n * n];
+    let mut c = vec![0.0f32; n * n];
+
+    // Launch kernel: 32x32 blocks, 32x32 threads per block
+    matrix_add.launch((32, 32), (32, 32), &amp;a, &amp;b, &amp;mut c, n);
+}
+</code></pre>
+<p><strong>Generated MLIR</strong> (GPU dialect):</p>
+<pre><code class="language-mlir">gpu.module @kernels {
+  gpu.func @matrix_add(%a: memref&lt;?xf32&gt;, %b: memref&lt;?xf32&gt;,
+                       %c: memref&lt;?xf32&gt;, %width: index) kernel {
+    %ty = gpu.thread_id y
+    %by = gpu.block_id y
+    %bdy = gpu.block_dim y
+    %row_idx = arith.addi %ty, arith.muli %by, %bdy : index
+
+    %tx = gpu.thread_id x
+    %bx = gpu.block_id x
+    %bdx = gpu.block_dim x
+    %col_idx = arith.addi %tx, arith.muli %bx, %bdx : index
+
+    %row_offset = arith.muli %row_idx, %width : index
+    %idx = arith.addi %row_offset, %col_idx : index
+
+    %v_a = memref.load %a[%idx] : memref&lt;?xf32&gt;
+    %v_b = memref.load %b[%idx] : memref&lt;?xf32&gt;
+    %sum = arith.addf %v_a, %v_b : f32
+    memref.store %sum, %c[%idx] : memref&lt;?xf32&gt;
+
+    gpu.return
+  }
+}
+
+func.func @main() {
+  %n = arith.constant 1024 : index
+  %size = arith.muli %n, %n : index
+
+  %a = memref.alloc(%size) : memref&lt;?xf32&gt;
+  %b = memref.alloc(%size) : memref&lt;?xf32&gt;
+  %c = memref.alloc(%size) : memref&lt;?xf32&gt;
+
+  // Initialize a, b (omitted for brevity)
+
+  %grid_x = arith.constant 32 : index
+  %grid_y = arith.constant 32 : index
+  %block_x = arith.constant 32 : index
+  %block_y = arith.constant 32 : index
+
+  gpu.launch_func @kernels::@matrix_add
+    blocks in (%grid_x, %grid_y, %c1)
+    threads in (%block_x, %block_y, %c1)
+    args(%a, %b, %c, %n)
+
+  memref.dealloc %a : memref&lt;?xf32&gt;
+  memref.dealloc %b : memref&lt;?xf32&gt;
+  memref.dealloc %c : memref&lt;?xf32&gt;
+
+  return
+}
+</code></pre>
+<p><strong>Lowered to NVVM</strong> (for CUDA):</p>
+<pre><code class="language-mlir">llvm.func @matrix_add(%a: !llvm.ptr&lt;f32&gt;, %b: !llvm.ptr&lt;f32&gt;,
+                      %c: !llvm.ptr&lt;f32&gt;, %width: i64) {
+  %ty = nvvm.read.ptx.sreg.tid.y : i32
+  %by = nvvm.read.ptx.sreg.ctaid.y : i32
+  %bdy = nvvm.read.ptx.sreg.ntid.y : i32
+  // ... rest of GPU kernel in NVVM dialect ...
+}
+</code></pre>
+<p><strong>Final PTX</strong> (NVIDIA assembly):</p>
+<pre><code class="language-ptx">.version 7.8
+.target sm_80
+.address_size 64
+
+.visible .entry matrix_add(
+    .param .u64 a,
+    .param .u64 b,
+    .param .u64 c,
+    .param .u64 width
+) {
+    .reg .pred %p&lt;1&gt;;
+    .reg .b32 %r&lt;10&gt;;
+    .reg .b64 %rd&lt;10&gt;;
+    .reg .f32 %f&lt;5&gt;;
+
+    // Load parameters
+    ld.param.u64 %rd1, [a];
+    ld.param.u64 %rd2, [b];
+    ld.param.u64 %rd3, [c];
+    ld.param.u64 %rd4, [width];
+
+    // Calculate thread index
+    mov.u32 %r1, %tid.y;
+    mov.u32 %r2, %ctaid.y;
+    mov.u32 %r3, %ntid.y;
+    mad.lo.s32 %r4, %r2, %r3, %r1;  // row = by * bdy + ty
+
+    mov.u32 %r5, %tid.x;
+    mov.u32 %r6, %ctaid.x;
+    mov.u32 %r7, %ntid.x;
+    mad.lo.s32 %r8, %r6, %r7, %r5;  // col = bx * bdx + tx
+
+    // Calculate linear index
+    mul.wide.s32 %rd5, %r4, %rd4;   // row * width
+    cvt.s64.s32 %rd6, %r8;
+    add.s64 %rd7, %rd5, %rd6;       // idx = row * width + col
+
+    // Load a[idx]
+    shl.b64 %rd8, %rd7, 2;          // idx * sizeof(float)
+    add.s64 %rd9, %rd1, %rd8;
+    ld.global.f32 %f1, [%rd9];
+
+    // Load b[idx]
+    add.s64 %rd10, %rd2, %rd8;
+    ld.global.f32 %f2, [%rd10];
+
+    // Add
+    add.f32 %f3, %f1, %f2;
+
+    // Store c[idx]
+    add.s64 %rd11, %rd3, %rd8;
+    st.global.f32 [%rd11], %f3;
+
+    ret;
+}
+</code></pre>
+<p><strong>This entire chain is automated by MLIR</strong>—we just generate the high-level GPU dialect!</p>
+<hr />
+<h2 id="performance-expectations"><a class="header" href="#performance-expectations">Performance Expectations</a></h2>
+<h3 id="compilation-speed"><a class="header" href="#compilation-speed">Compilation Speed</a></h3>
+<p><strong>MLIR overhead</strong>:</p>
+<ul>
+<li><strong>Low</strong>: 2-3% increase in compile time vs direct LLVM IR generation</li>
+<li><strong>Transform dialect</strong>: ≤2.6% overhead for auto-tuning</li>
+</ul>
+<p><strong>Evidence</strong>:</p>
+<ul>
+<li>Recent MLIR-based compilers (TPP-MLIR, LAPIS) achieve compilation times competitive with hand-written code</li>
+<li>Mojo demonstrates fast compilation with MLIR</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/2404.15204">Towards a high-performance AI compiler with upstream MLIR</a></li>
+<li><a href="https://discourse.llvm.org/t/speeding-up-compilation-of-mlir-based-projects/60869">Speeding up compilation of MLIR-based projects</a></li>
+</ul>
+<hr />
+<h3 id="runtime-performance"><a class="header" href="#runtime-performance">Runtime Performance</a></h3>
+<p><strong>Benchmarks</strong> (2025-2026 research):</p>
+<div class="table-wrapper"><table><thead><tr><th>Framework</th><th>Target</th><th>Performance vs Hand-Written</th></tr></thead><tbody>
+<tr><td>TPP-MLIR</td><td>CPU (x86)</td><td>90-95% (within 5% deviation)</td></tr>
+<tr><td>LAPIS</td><td>CPU/GPU</td><td>95-100% (matches vendor kernels)</td></tr>
+<tr><td>Mojo</td><td>NVIDIA GPU</td><td>Competitive (memory-bound), gaps on atomics/fast-math</td></tr>
+<tr><td>ARIES</td><td>Versal FPGA</td><td>15.86 TOPS (1.59× vs baseline)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Takeaway</strong>: MLIR-based compilers achieve <strong>&gt;90% of hand-optimized performance</strong> when done well.</p>
+<p><strong>For Joule</strong>: We expect:</p>
+<ul>
+<li><strong>CPU</strong>: Match LLVM -O3 (MLIR lowers to LLVM IR)</li>
+<li><strong>NVIDIA GPU</strong>: 90-95% of hand-written CUDA (MLIR → NVPTX is mature)</li>
+<li><strong>AMD GPU</strong>: 85-90% of hand-written HIP (less mature than NVPTX)</li>
+<li><strong>Energy savings</strong>: <strong>50-70% reduction</strong> via energy optimizer passes (our differentiator)</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/2404.15204">MLIR compilation speed performance benchmarks</a></li>
+<li><a href="https://www.arxiv.org/pdf/2509.21039">Mojo: MLIR-based Performance-Portable HPC Science Kernels</a></li>
+</ul>
+<hr />
+<h2 id="risks-and-mitigations"><a class="header" href="#risks-and-mitigations">Risks and Mitigations</a></h2>
+<h3 id="risk-1-mlir-api-instability"><a class="header" href="#risk-1-mlir-api-instability">Risk 1: MLIR API Instability</a></h3>
+<p><strong>Impact</strong>: Medium
+<strong>Probability</strong>: Low</p>
+<p><strong>Issue</strong>: Melior tracks MLIR C API, which is still evolving (alpha stage)</p>
+<p><strong>Mitigation</strong>:</p>
+<ul>
+<li>Pin to specific MLIR version (21.x)</li>
+<li>Budget time for API updates each LLVM release</li>
+<li>Follow mlir-rs/melior closely for breaking changes</li>
+</ul>
+<hr />
+<h3 id="risk-2-learning-curve"><a class="header" href="#risk-2-learning-curve">Risk 2: Learning Curve</a></h3>
+<p><strong>Impact</strong>: High (short-term)
+<strong>Probability</strong>: High</p>
+<p><strong>Issue</strong>: MLIR is complex; team needs to learn dialects, lowering passes, etc.</p>
+<p><strong>Mitigation</strong>:</p>
+<ul>
+<li>Invest Month 4 in learning/prototyping</li>
+<li>Use existing tutorials (Stephen Diehl, Jeremy Kun, Toy Tutorial)</li>
+<li>Reference Mojo's approach (open-source in 2026)</li>
+<li>Start simple: func + arith only, expand later</li>
+</ul>
+<hr />
+<h3 id="risk-3-debugging-complexity"><a class="header" href="#risk-3-debugging-complexity">Risk 3: Debugging Complexity</a></h3>
+<p><strong>Impact</strong>: Medium
+<strong>Probability</strong>: Medium</p>
+<p><strong>Issue</strong>: Multi-dialect lowering makes errors hard to trace</p>
+<p><strong>Mitigation</strong>:</p>
+<ul>
+<li>Use <code>mlir-opt --mlir-print-ir-after-all</code> to see each pass</li>
+<li>Implement Joule-specific error messages wrapping MLIR errors</li>
+<li>Build tooling: <code>joulec --emit-mlir</code>, <code>joulec --emit-llvm</code></li>
+</ul>
+<hr />
+<h3 id="risk-4-gpu-backend-fragmentation"><a class="header" href="#risk-4-gpu-backend-fragmentation">Risk 4: GPU Backend Fragmentation</a></h3>
+<p><strong>Impact</strong>: Low
+<strong>Probability</strong>: Low</p>
+<p><strong>Issue</strong>: NVPTX works well, but Metal/ROCDL might have gaps</p>
+<p><strong>Mitigation</strong>:</p>
+<ul>
+<li>Prioritize NVIDIA (largest ecosystem)</li>
+<li>AMD as secondary target (HIP is mature)</li>
+<li>Metal as tertiary (smaller market share, but good for demos)</li>
+<li>Accept some vendor-specific extensions (<code>#[target(cuda)]</code>)</li>
+</ul>
+<hr />
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p><strong>MLIR integration is the right architectural choice for Joule</strong>:</p>
+<p>✅ <strong>Proven</strong>: TensorFlow, Mojo, major AI frameworks rely on it
+✅ <strong>Multi-backend</strong>: Single path to CUDA, HIP, Metal, Vulkan, TPU
+✅ <strong>Time-saving</strong>: 2-3 years of work avoided
+✅ <strong>Performance</strong>: 90-95% of hand-optimized code
+✅ <strong>Community</strong>: LLVM ecosystem, active development</p>
+<p><strong>Timeline</strong>:</p>
+<ul>
+<li><strong>Month 4</strong>: MLIR integration prototype</li>
+<li><strong>Month 7</strong>: GPU dialect + NVPTX backend</li>
+<li><strong>Month 8-9</strong>: AMD HIP + Apple Metal</li>
+<li><strong>Month 10</strong>: Energy optimizer as MLIR pass</li>
+<li><strong>Month 12</strong>: Production-ready multi-backend compiler</li>
+</ul>
+<p><strong>Next Steps</strong>:</p>
+<ol>
+<li>Install LLVM/MLIR 21 on development machines</li>
+<li>Add <code>melior</code> to <code>Cargo.toml</code></li>
+<li>Create <code>compiler/joule-mlir/</code> crate</li>
+<li>Prototype HIR → MLIR lowering for simple functions</li>
+<li>Write comprehensive tests</li>
+</ol>
+<p>Let's build Joule on the strongest foundation available. 🚀</p>
+<hr />
+<h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
+<h3 id="mlir-architecture"><a class="header" href="#mlir-architecture">MLIR Architecture</a></h3>
+<ul>
+<li><a href="https://mlir.llvm.org/">MLIR Official Documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MLIR_(software)">MLIR Wikipedia</a></li>
+<li><a href="https://www.stephendiehl.com/posts/mlir_introduction/">MLIR Introduction - Stephen Diehl</a></li>
+<li><a href="https://rcs.uwaterloo.ca/~ali/cs842-s23/papers/mlir.pdf">MLIR: Scaling Compiler Infrastructure</a></li>
+</ul>
+<h3 id="rust-integration"><a class="header" href="#rust-integration">Rust Integration</a></h3>
+<ul>
+<li><a href="https://github.com/mlir-rs/melior">Melior GitHub</a></li>
+<li><a href="https://edgl.dev/blog/mlir-with-rust/">Intro to LLVM and MLIR with Rust and Melior</a></li>
+<li><a href="https://gienieczko.com/sourcery/making-languages-in-rust-chapter-0.html">Making Languages In Rust (MLIR) Tutorial</a></li>
+</ul>
+<h3 id="gpu-compilation"><a class="header" href="#gpu-compilation">GPU Compilation</a></h3>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Dialects/GPU/">GPU Dialect Documentation</a></li>
+<li><a href="https://mlir.llvm.org/docs/Dialects/NVVMDialect/">NVVM Dialect Documentation</a></li>
+<li><a href="https://www.stephendiehl.com/posts/mlir_gpu/">MLIR Part 8 - GPU Compilation</a></li>
+</ul>
+<h3 id="performance"><a class="header" href="#performance">Performance</a></h3>
+<ul>
+<li><a href="https://arxiv.org/pdf/2404.15204">Towards a high-performance AI compiler with upstream MLIR</a></li>
+<li><a href="https://www.arxiv.org/pdf/2509.21039">Mojo: MLIR-based Performance-Portable HPC Science Kernels</a></li>
+</ul>
+<h3 id="tutorials"><a class="header" href="#tutorials">Tutorials</a></h3>
+<ul>
+<li><a href="https://mlir.llvm.org/docs/Tutorials/Toy/Ch-5/">Chapter 5: Partial Lowering to Lower-Level Dialects</a></li>
+<li><a href="https://mlir.llvm.org/docs/Tutorials/Toy/Ch-6/">Chapter 6: Lowering to LLVM and Code Generation</a></li>
+<li><a href="https://www.jeremykun.com/2023/11/01/mlir-lowering-through-llvm/">MLIR — Lowering through LLVM</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="energy-cost-database.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="reference/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="energy-cost-database.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="reference/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

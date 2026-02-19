@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["expand_builtin","is_builtin_macro"]};

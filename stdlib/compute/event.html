@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module event</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct GpuEvent</code></h3>
+                <p>GPU event for timing and synchronization</p>
+                <p class="source">Source: gpu/event.joule:7</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum EventHandle</code></h3>
+                <p>Internal event handle (backend-specific)</p>
+                <p class="source">Source: gpu/event.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device: &amp;GpuDevice) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventCreate(event: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:37</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventCreate(event: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record(queue: &amp;GpuQueue) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_on(&amp;self, queue: &amp;GpuQueue) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:87</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventRecord(</code></h3>
+                <p class="source">Source: gpu/event.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventRecord(</code></h3>
+                <p class="source">Source: gpu/event.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn synchronize(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventSynchronize(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventSynchronize(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_complete(&amp;self) -&gt; bool</code></h3>
+                <p>Check if event has completed (non-blocking)</p>
+                <p class="source">Source: gpu/event.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventQuery(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventQuery(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn elapsed_ms(&amp;self, start: &amp;GpuEvent) -&gt; Result&lt;f32, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:180</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventElapsedTime(</code></h3>
+                <p class="source">Source: gpu/event.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventElapsedTime(</code></h3>
+                <p class="source">Source: gpu/event.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpu/event.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:240</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/event.joule:259</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuFence</code></h3>
+                <p>GPU fence for CPU-GPU synchronization</p>
+                <p class="source">Source: gpu/event.joule:268</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum FenceHandle</code></h3>
+                <p>Internal fence handle</p>
+                <p class="source">Source: gpu/event.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device: &amp;GpuDevice) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventCreateWithFlags(</code></h3>
+                <p class="source">Source: gpu/event.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_new_shared_event(</code></h3>
+                <p class="source">Source: gpu/event.joule:319</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventCreateWithFlags(</code></h3>
+                <p class="source">Source: gpu/event.joule:333</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn signal(&amp;mut self, queue: &amp;GpuQueue) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:357</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventRecord(</code></h3>
+                <p class="source">Source: gpu/event.joule:362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventRecord(</code></h3>
+                <p class="source">Source: gpu/event.joule:382</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:401</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventSynchronize(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventSynchronize(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:417</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_timeout(&amp;self, timeout_ms: u64) -&gt; Result&lt;bool, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_signaled(&amp;self) -&gt; bool</code></h3>
+                <p>Check if fence has been signaled (non-blocking)</p>
+                <p class="source">Source: gpu/event.joule:453</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventQuery(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:458</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventQuery(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:477</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventCreateWithFlags(</code></h3>
+                <p class="source">Source: gpu/event.joule:484</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:506</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventCreateWithFlags(</code></h3>
+                <p class="source">Source: gpu/event.joule:507</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpu/event.joule:529</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:534</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipEventDestroy(event: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/event.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/event.joule:553</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuBarrier</code></h3>
+                <p>Barrier for synchronizing multiple queues</p>
+                <p class="source">Source: gpu/event.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(queues: &amp;[&amp;GpuQueue]) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:569</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:579</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_on(&amp;self, queue: &amp;GpuQueue) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/event.joule:588</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quic - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module quic</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Version(pub u32);</code></h3>
+                <p class="source">Source: quic.joule:18</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const V1: Version</code></h3>
+                <p>QUIC version 1 (RFC 9000)</p>
+                <p class="source">Source: quic.joule:22</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const V2: Version</code></h3>
+                <p>QUIC version 2 (RFC 9369)</p>
+                <p class="source">Source: quic.joule:24</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NEGOTIATION: Version</code></h3>
+                <p>Version negotiation</p>
+                <p class="source">Source: quic.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_supported(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: quic.joule:28</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConnectionId</code></h3>
+                <p class="source">Source: quic.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(bytes: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn empty() -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:48</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn random(len: usize) -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: quic.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: quic.joule:65</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StreamId(pub u64);</code></h3>
+                <p class="source">Source: quic.joule:76</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_client_initiated(&amp;self) -&gt; bool</code></h3>
+                <p>Check if client-initiated</p>
+                <p class="source">Source: quic.joule:80</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_server_initiated(&amp;self) -&gt; bool</code></h3>
+                <p>Check if server-initiated</p>
+                <p class="source">Source: quic.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_bidirectional(&amp;self) -&gt; bool</code></h3>
+                <p>Check if bidirectional</p>
+                <p class="source">Source: quic.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_unidirectional(&amp;self) -&gt; bool</code></h3>
+                <p>Check if unidirectional</p>
+                <p class="source">Source: quic.joule:95</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn client_bidi(n: u64) -&gt; Self</code></h3>
+                <p>Create client-initiated bidirectional stream ID</p>
+                <p class="source">Source: quic.joule:100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn server_bidi(n: u64) -&gt; Self</code></h3>
+                <p>Create server-initiated bidirectional stream ID</p>
+                <p class="source">Source: quic.joule:105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn client_uni(n: u64) -&gt; Self</code></h3>
+                <p>Create client-initiated unidirectional stream ID</p>
+                <p class="source">Source: quic.joule:110</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn server_uni(n: u64) -&gt; Self</code></h3>
+                <p>Create server-initiated unidirectional stream ID</p>
+                <p class="source">Source: quic.joule:115</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TransportParameters</code></h3>
+                <p class="source">Source: quic.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:156</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuicConfig</code></h3>
+                <p class="source">Source: quic.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:199</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CongestionControl</code></h3>
+                <p class="source">Source: quic.joule:214</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ConnectionState</code></h3>
+                <p class="source">Source: quic.joule:231</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CloseReason</code></h3>
+                <p class="source">Source: quic.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn code(&amp;self) -&gt; u64</code></h3>
+                <p class="source">Source: quic.joule:282</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum StreamState</code></h3>
+                <p class="source">Source: quic.joule:309</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuicStream</code></h3>
+                <p>QUIC stream</p>
+                <p class="source">Source: quic.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: StreamId, conn: Arc&lt;Mutex&lt;ConnectionInner&gt;&gt;, max_send_data: u64) -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; StreamId</code></h3>
+                <p>Get stream ID</p>
+                <p class="source">Source: quic.joule:368</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn can_send(&amp;self) -&gt; bool</code></h3>
+                <p>Check if stream can send</p>
+                <p class="source">Source: quic.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn can_recv(&amp;self) -&gt; bool</code></h3>
+                <p>Check if stream can receive</p>
+                <p class="source">Source: quic.joule:379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, data: &amp;[u8]) -&gt; Result&lt;usize, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:386</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn finish(&amp;mut self) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self, error_code: u64) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:434</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop_sending(&amp;mut self, error_code: u64) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_finished(&amp;self) -&gt; bool</code></h3>
+                <p>Check if stream is finished (both directions closed)</p>
+                <p class="source">Source: quic.joule:448</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConnectionInner</code></h3>
+                <p>Internal connection state</p>
+                <p class="source">Source: quic.joule:459</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuicConnection</code></h3>
+                <p>QUIC connection</p>
+                <p class="source">Source: quic.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(</code></h3>
+                <p class="source">Source: quic.joule:507</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn perform_handshake(&amp;self, server_name: &amp;str, config: &amp;QuicConfig) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:550</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_initial_packet(&amp;self, inner: &amp;ConnectionInner) -&gt; Result&lt;Vec&lt;u8&gt;, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn process_handshake_packet(</code></h3>
+                <p class="source">Source: quic.joule:601</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; ConnectionState</code></h3>
+                <p>Get connection state</p>
+                <p class="source">Source: quic.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_established(&amp;self) -&gt; bool</code></h3>
+                <p>Check if connection is established</p>
+                <p class="source">Source: quic.joule:622</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_stream(&amp;self) -&gt; Result&lt;QuicStream, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:628</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_uni_stream(&amp;self) -&gt; Result&lt;QuicStream, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:650</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept_stream(&amp;self) -&gt; Result&lt;Option&lt;QuicStream&gt;, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:672</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_datagram(&amp;self, data: &amp;[u8]) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:686</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_datagram(&amp;self) -&gt; Result&lt;Option&lt;Vec&lt;u8&gt;&gt;, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:712</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(&amp;self, reason: CloseReason) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:724</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rtt(&amp;self) -&gt; Duration</code></h3>
+                <p>Get RTT estimate</p>
+                <p class="source">Source: quic.joule:741</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; Result&lt;SocketAddr, QuicError&gt;</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: quic.joule:746</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peer_addr(&amp;self) -&gt; SocketAddr</code></h3>
+                <p>Get peer address</p>
+                <p class="source">Source: quic.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stats(&amp;self) -&gt; ConnectionStats</code></h3>
+                <p>Get connection statistics</p>
+                <p class="source">Source: quic.joule:756</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poll(&amp;self) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:768</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn process_packet(&amp;self, packet: &amp;[u8]) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:788</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flush_pending(&amp;self) -&gt; Result&lt;(), QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:794</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConnectionStats</code></h3>
+                <p class="source">Source: quic.joule:803</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuicEndpoint</code></h3>
+                <p>QUIC server endpoint</p>
+                <p class="source">Source: quic.joule:815</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(addr: &amp;str, config: QuicConfig) -&gt; Result&lt;Self, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:824</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(&amp;mut self) -&gt; Result&lt;QuicConnection, QuicError&gt;</code></h3>
+                <p class="source">Source: quic.joule:836</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extract_cid(&amp;self, packet: &amp;[u8]) -&gt; Option&lt;ConnectionId&gt;</code></h3>
+                <p class="source">Source: quic.joule:858</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_initial_packet(&amp;self, packet: &amp;[u8]) -&gt; bool</code></h3>
+                <p class="source">Source: quic.joule:874</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle_initial(</code></h3>
+                <p class="source">Source: quic.joule:883</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; Result&lt;SocketAddr, QuicError&gt;</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: quic.joule:929</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SessionTicket</code></h3>
+                <p class="source">Source: quic.joule:940</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_valid(&amp;self) -&gt; bool</code></h3>
+                <p>Check if ticket is valid</p>
+                <p class="source">Source: quic.joule:953</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EarlyData</code></h3>
+                <p>0-RTT data</p>
+                <p class="source">Source: quic.joule:959</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum QuicError</code></h3>
+                <p class="source">Source: quic.joule:971</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:987</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: super::udp::UdpError) -&gt; Self</code></h3>
+                <p class="source">Source: quic.joule:993</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum FrameType</code></h3>
+                <p class="source">Source: quic.joule:1005</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_stream_id_types()</code></h3>
+                <p class="source">Source: quic.joule:1041</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_connection_id()</code></h3>
+                <p class="source">Source: quic.joule:1052</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_version()</code></h3>
+                <p class="source">Source: quic.joule:1062</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transport_parameters()</code></h3>
+                <p class="source">Source: quic.joule:1069</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_close_reason_code()</code></h3>
+                <p class="source">Source: quic.joule:1076</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

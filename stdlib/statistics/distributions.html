@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>distributions - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module distributions</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait Distribution</code></h3>
+                <p>Distribution trait</p>
+                <p class="source">Source: distributions.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64;</code></h3>
+                <p>Probability density function (continuous) or probability mass function (discrete)</p>
+                <p class="source">Source: distributions.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64;</code></h3>
+                <p>Cumulative distribution function</p>
+                <p class="source">Source: distributions.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64;</code></h3>
+                <p>Inverse CDF (quantile function)</p>
+                <p class="source">Source: distributions.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64;</code></h3>
+                <p>Generate a random sample</p>
+                <p class="source">Source: distributions.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample_n(&amp;self, n: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Generate multiple samples</p>
+                <p class="source">Source: distributions.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64;</code></h3>
+                <p>Expected value (mean)</p>
+                <p class="source">Source: distributions.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64;</code></h3>
+                <p>Variance</p>
+                <p class="source">Source: distributions.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std_dev(&amp;self) -&gt; f64</code></h3>
+                <p>Standard deviation</p>
+                <p class="source">Source: distributions.joule:33</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Normal</code></h3>
+                <p>Normal (Gaussian) distribution</p>
+                <p class="source">Source: distributions.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(mu: f64, sigma: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn standard() -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:54</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:87</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Uniform</code></h3>
+                <p>Uniform distribution</p>
+                <p class="source">Source: distributions.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: f64, b: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:127</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:141</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Exponential</code></h3>
+                <p>Exponential distribution</p>
+                <p class="source">Source: distributions.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(lambda: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:188</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:192</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Gamma</code></h3>
+                <p>Gamma distribution</p>
+                <p class="source">Source: distributions.joule:198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(alpha: f64, beta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:204</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:280</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:284</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Beta</code></h3>
+                <p>Beta distribution</p>
+                <p class="source">Source: distributions.joule:290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(alpha: f64, beta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:296</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:304</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:345</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:355</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StudentT</code></h3>
+                <p>Student&#x27;s t-distribution</p>
+                <p class="source">Source: distributions.joule:362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(df: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:375</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:382</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:422</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:430</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ChiSquared</code></h3>
+                <p>Chi-squared distribution</p>
+                <p class="source">Source: distributions.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(k: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:458</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:462</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:470</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:474</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FDistribution</code></h3>
+                <p>F-distribution</p>
+                <p class="source">Source: distributions.joule:480</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(d1: f64, d2: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:486</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:510</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:519</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:546</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:554</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Bernoulli</code></h3>
+                <p>Bernoulli distribution</p>
+                <p class="source">Source: distributions.joule:570</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:582</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:592</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, prob: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:602</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:610</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:614</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:618</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Binomial</code></h3>
+                <p>Binomial distribution</p>
+                <p class="source">Source: distributions.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(n: u64, p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:630</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:638</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:654</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, prob: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:671</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:683</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:693</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:697</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Poisson</code></h3>
+                <p>Poisson distribution</p>
+                <p class="source">Source: distributions.joule:703</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(lambda: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:708</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:716</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:727</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, prob: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:741</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:758</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:781</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:785</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Geometric</code></h3>
+                <p>Geometric distribution (number of trials until first success)</p>
+                <p class="source">Source: distributions.joule:791</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: distributions.joule:796</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:803</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cdf(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:811</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, prob: f64) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:819</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:823</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:827</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: distributions.joule:831</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erf(x: f64) -&gt; f64</code></h3>
+                <p>Error function</p>
+                <p class="source">Source: distributions.joule:841</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfinv(x: f64) -&gt; f64</code></h3>
+                <p>Inverse error function</p>
+                <p class="source">Source: distributions.joule:859</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gamma(x: f64) -&gt; f64</code></h3>
+                <p>Gamma function</p>
+                <p class="source">Source: distributions.joule:892</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ln_gamma(x: f64) -&gt; f64</code></h3>
+                <p>Log gamma function (Lanczos approximation)</p>
+                <p class="source">Source: distributions.joule:897</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn beta(a: f64, b: f64) -&gt; f64</code></h3>
+                <p>Beta function</p>
+                <p class="source">Source: distributions.joule:926</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ln_beta(a: f64, b: f64) -&gt; f64</code></h3>
+                <p>Log beta function</p>
+                <p class="source">Source: distributions.joule:931</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lower_incomplete_gamma(s: f64, x: f64) -&gt; f64</code></h3>
+                <p>Lower incomplete gamma function</p>
+                <p class="source">Source: distributions.joule:936</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn regularized_incomplete_beta(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p>Regularized incomplete beta function</p>
+                <p class="source">Source: distributions.joule:958</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

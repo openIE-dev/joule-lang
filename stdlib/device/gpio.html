@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gpio - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module gpio</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum PinMode</code></h3>
+                <p class="source">Source: gpio.joule:8</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PinValue</code></h3>
+                <p class="source">Source: gpio.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_high(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: gpio.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_low(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: gpio.joule:35</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(value: bool) -&gt; Self</code></h3>
+                <p class="source">Source: gpio.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(value: PinValue) -&gt; Self</code></h3>
+                <p class="source">Source: gpio.joule:47</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Edge</code></h3>
+                <p class="source">Source: gpio.joule:54</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioChip</code></h3>
+                <p>GPIO chip (controller)</p>
+                <p class="source">Source: gpio.joule:66</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;GpioChipInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(name: &amp;str) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:91</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get chip name</p>
+                <p class="source">Source: gpio.joule:110</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn label(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get chip label</p>
+                <p class="source">Source: gpio.joule:115</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_lines(&amp;self) -&gt; u32</code></h3>
+                <p>Get number of lines</p>
+                <p class="source">Source: gpio.joule:120</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn line_info(&amp;self, offset: u32) -&gt; Result&lt;LineInfo, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn request_line(</code></h3>
+                <p class="source">Source: gpio.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn request_lines(</code></h3>
+                <p class="source">Source: gpio.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpio.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:175</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioChipInfo</code></h3>
+                <p class="source">Source: gpio.joule:184</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LineInfo</code></h3>
+                <p class="source">Source: gpio.joule:192</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioPin</code></h3>
+                <p>GPIO pin handle</p>
+                <p class="source">Source: gpio.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn offset(&amp;self) -&gt; u32</code></h3>
+                <p>Get pin offset</p>
+                <p class="source">Source: gpio.joule:210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mode(&amp;self) -&gt; PinMode</code></h3>
+                <p>Get current mode</p>
+                <p class="source">Source: gpio.joule:215</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self) -&gt; Result&lt;PinValue, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;self, value: PinValue) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_high(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_low(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn toggle(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_for_edge(&amp;self, edge: Edge, timeout_ms: Option&lt;u32&gt;) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_edge(&amp;mut self, edge: Edge) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_debounce(&amp;mut self, debounce_us: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:303</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpio.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_linux_gpio_chips() -&gt; Result&lt;Vec&lt;GpioChipInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:331</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_linux_gpio_chip(name: &amp;str) -&gt; Result&lt;GpioChip, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: *const i8, flags: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:353</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:354</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_RDONLY: i32</code></h3>
+                <p class="source">Source: gpio.joule:357</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_CLOEXEC: i32</code></h3>
+                <p class="source">Source: gpio.joule:358</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_GET_CHIPINFO_IOCTL: u64</code></h3>
+                <p class="source">Source: gpio.joule:359</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpiochipInfo</code></h3>
+                <p class="source">Source: gpio.joule:362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_line_info(fd: i32, offset: u32) -&gt; Result&lt;LineInfo, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:411</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:413</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_GET_LINEINFO_IOCTL: u64</code></h3>
+                <p class="source">Source: gpio.joule:416</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioV2LineInfo</code></h3>
+                <p class="source">Source: gpio.joule:419</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_USED: u64</code></h3>
+                <p class="source">Source: gpio.joule:446</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OUTPUT: u64</code></h3>
+                <p class="source">Source: gpio.joule:447</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_BIAS_PULL_UP: u64</code></h3>
+                <p class="source">Source: gpio.joule:448</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_BIAS_PULL_DOWN: u64</code></h3>
+                <p class="source">Source: gpio.joule:449</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OPEN_DRAIN: u64</code></h3>
+                <p class="source">Source: gpio.joule:450</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OPEN_SOURCE: u64</code></h3>
+                <p class="source">Source: gpio.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn request_linux_gpio_lines(</code></h3>
+                <p class="source">Source: gpio.joule:481</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:488</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_GET_LINE_IOCTL: u64</code></h3>
+                <p class="source">Source: gpio.joule:491</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OUTPUT: u64</code></h3>
+                <p class="source">Source: gpio.joule:492</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_BIAS_PULL_UP: u64</code></h3>
+                <p class="source">Source: gpio.joule:493</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_BIAS_PULL_DOWN: u64</code></h3>
+                <p class="source">Source: gpio.joule:494</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OPEN_DRAIN: u64</code></h3>
+                <p class="source">Source: gpio.joule:495</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_FLAG_OPEN_SOURCE: u64</code></h3>
+                <p class="source">Source: gpio.joule:496</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioV2LineRequest</code></h3>
+                <p class="source">Source: gpio.joule:508</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioV2LineConfig</code></h3>
+                <p class="source">Source: gpio.joule:519</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_linux_gpio_value(fd: i32) -&gt; Result&lt;PinValue, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:556</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:558</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_GET_VALUES_IOCTL: u64</code></h3>
+                <p class="source">Source: gpio.joule:561</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioV2LineValues</code></h3>
+                <p class="source">Source: gpio.joule:564</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_linux_gpio_value(fd: i32, value: PinValue) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:583</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:585</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GPIO_V2_LINE_SET_VALUES_IOCTL: u64</code></h3>
+                <p class="source">Source: gpio.joule:588</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpioV2LineValues</code></h3>
+                <p class="source">Source: gpio.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_linux_gpio_edge(fd: i32, _edge: Edge, timeout_ms: Option&lt;u32&gt;) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poll(fds: *mut PollFd, nfds: u64, timeout: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpio.joule:611</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PollFd</code></h3>
+                <p class="source">Source: gpio.joule:615</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const POLLIN: i16</code></h3>
+                <p class="source">Source: gpio.joule:621</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_gpio_edge(_fd: i32, _edge: Edge) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:640</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_gpio_debounce(_fd: i32, _debounce_us: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: gpio.joule:646</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

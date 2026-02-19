@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>descriptive - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module descriptive</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn mean(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:9</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn weighted_mean(data: &amp;[f64], weights: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn geometric_mean(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn harmonic_mean(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn median(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mode(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:91</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:110</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn population_variance(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance_impl(data: &amp;[f64], ddof: usize) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:120</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std_dev(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn population_std_dev(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficient_of_variation(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn standard_error(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn skewness(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kurtosis(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(data: &amp;[f64], q: f64) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantiles(data: &amp;[f64], qs: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iqr(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn range(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:286</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:292</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(data: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: descriptive.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn product(data: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: descriptive.joule:304</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean_absolute_deviation(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn median_absolute_deviation(data: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn five_number_summary(data: &amp;[f64]) -&gt; Option&lt;(f64, f64, f64, f64, f64)&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn z_scores(data: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:338</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn outliers_iqr(data: &amp;[f64], k: f64) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn covariance(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:369</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RunningStats</code></h3>
+                <p>Running/online mean and variance (Welford&#x27;s algorithm)</p>
+                <p class="source">Source: descriptive.joule:386</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: descriptive.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn push(&amp;mut self, value: f64)</code></h3>
+                <p class="source">Source: descriptive.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn count(&amp;self) -&gt; u64</code></h3>
+                <p>Get count</p>
+                <p class="source">Source: descriptive.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Get mean</p>
+                <p class="source">Source: descriptive.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Get variance</p>
+                <p class="source">Source: descriptive.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std_dev(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Get standard deviation</p>
+                <p class="source">Source: descriptive.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Get minimum</p>
+                <p class="source">Source: descriptive.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Get maximum</p>
+                <p class="source">Source: descriptive.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn merge(&amp;mut self, other: &amp;RunningStats)</code></h3>
+                <p>Merge another RunningStats</p>
+                <p class="source">Source: descriptive.joule:465</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Histogram</code></h3>
+                <p>Histogram bins</p>
+                <p class="source">Source: descriptive.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: &amp;[f64], num_bins: usize) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:491</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bins(&amp;self) -&gt; &amp;[usize]</code></h3>
+                <p class="source">Source: descriptive.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn edges(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p class="source">Source: descriptive.joule:525</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn density(&amp;self, total: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: descriptive.joule:529</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

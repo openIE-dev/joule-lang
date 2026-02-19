@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resampling - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module resampling</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn upsample(signal: &amp;Signal, factor: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn downsample(signal: &amp;Signal, factor: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interpolate(signal: &amp;Signal, factor: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decimate(signal: &amp;Signal, factor: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:65</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resample(signal: &amp;Signal, up_factor: usize, down_factor: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:91</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resample_to_rate(signal: &amp;Signal, target_rate: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resample_linear(signal: &amp;Signal, new_length: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:127</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resample_cubic(signal: &amp;Signal, new_length: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resample_sinc(signal: &amp;Signal, new_length: usize, kernel_size: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:188</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PolyphaseFilter</code></h3>
+                <p class="source">Source: resampling.joule:232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(prototype: &amp;[f64], num_phases: usize) -&gt; Self</code></h3>
+                <p class="source">Source: resampling.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn design(up_factor: usize, down_factor: usize, filter_len: usize) -&gt; Self</code></h3>
+                <p class="source">Source: resampling.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interpolate(&amp;self, signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn time_stretch(signal: &amp;Signal, stretch_factor: f64, frame_size: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pitch_shift(signal: &amp;Signal, semitones: f64, frame_size: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: resampling.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinc(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: resampling.joule:382</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_window(x: f64, a: f64) -&gt; f64</code></h3>
+                <p class="source">Source: resampling.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rational_approximation(x: f64, max_denom: usize) -&gt; (usize, usize)</code></h3>
+                <p class="source">Source: resampling.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gcd(a: usize, b: usize) -&gt; usize</code></h3>
+                <p class="source">Source: resampling.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_best_overlap(output: &amp;[f64], out_pos: usize, frame: &amp;[f64], search_range: usize) -&gt; i32</code></h3>
+                <p class="source">Source: resampling.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_upsample()</code></h3>
+                <p class="source">Source: resampling.joule:472</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_downsample()</code></h3>
+                <p class="source">Source: resampling.joule:484</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_resample_linear()</code></h3>
+                <p class="source">Source: resampling.joule:495</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_rational_approximation()</code></h3>
+                <p class="source">Source: resampling.joule:506</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

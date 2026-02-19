@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Spiking Neural Networks
+Neuromorphic computing with biologically-inspired neuron models
+Energy-efficient computation via event-driven processing&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Spike</code></h3>
+                <p>A spike event at a specific time</p>
+                <p class="source">Source: lib.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(neuron_id: usize, time: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:24</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpikeTrain</code></h3>
+                <p>Spike train: a sequence of spikes from one or more neurons</p>
+                <p class="source">Source: lib.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(duration: f64) -&gt; Self</code></h3>
+                <p>Create an empty spike train</p>
+                <p class="source">Source: lib.joule:37</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_times(neuron_id: usize, times: &amp;[f64], duration: f64) -&gt; Self</code></h3>
+                <p>Create from list of spike times for a single neuron</p>
+                <p class="source">Source: lib.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_spike(&amp;mut self, spike: Spike)</code></h3>
+                <p>Add a spike</p>
+                <p class="source">Source: lib.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn firing_rate(&amp;self, neuron_id: usize) -&gt; f64</code></h3>
+                <p>Get firing rate (Hz)</p>
+                <p class="source">Source: lib.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn isi(&amp;self, neuron_id: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Get inter-spike intervals</p>
+                <p class="source">Source: lib.joule:63</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait NeuronModel</code></h3>
+                <p>Trait for neuron models</p>
+                <p class="source">Source: lib.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn membrane_potential(&amp;self) -&gt; f64;</code></h3>
+                <p>Get current membrane potential</p>
+                <p class="source">Source: lib.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;mut self, input_current: f64, dt: f64) -&gt; Option&lt;Spike&gt;;</code></h3>
+                <p>Update neuron state with input current</p>
+                <p class="source">Source: lib.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self);</code></h3>
+                <p>Reset to resting state</p>
+                <p class="source">Source: lib.joule:89</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LIF</code></h3>
+                <p>Leaky Integrate-and-Fire (LIF) neuron
+Simple, computationally efficient, widely used</p>
+                <p class="source">Source: lib.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: usize) -&gt; Self</code></h3>
+                <p>Create a new LIF neuron with default parameters</p>
+                <p class="source">Source: lib.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_params(</code></h3>
+                <p>Create with custom parameters</p>
+                <p class="source">Source: lib.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; usize</code></h3>
+                <p>Get the neuron ID</p>
+                <p class="source">Source: lib.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn membrane_potential(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;mut self, input_current: f64, dt: f64) -&gt; Option&lt;Spike&gt;</code></h3>
+                <p class="source">Source: lib.joule:166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self)</code></h3>
+                <p class="source">Source: lib.joule:188</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Izhikevich</code></h3>
+                <p>Izhikevich neuron model
+Rich dynamics, can reproduce many biological patterns</p>
+                <p class="source">Source: lib.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn regular_spiking(id: usize) -&gt; Self</code></h3>
+                <p>Regular spiking (RS) neuron</p>
+                <p class="source">Source: lib.joule:215</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intrinsically_bursting(id: usize) -&gt; Self</code></h3>
+                <p>Intrinsically bursting (IB) neuron</p>
+                <p class="source">Source: lib.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chattering(id: usize) -&gt; Self</code></h3>
+                <p>Chattering (CH) neuron</p>
+                <p class="source">Source: lib.joule:241</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fast_spiking(id: usize) -&gt; Self</code></h3>
+                <p>Fast spiking (FS) neuron</p>
+                <p class="source">Source: lib.joule:254</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn low_threshold_spiking(id: usize) -&gt; Self</code></h3>
+                <p>Low-threshold spiking (LTS) neuron</p>
+                <p class="source">Source: lib.joule:267</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn membrane_potential(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;mut self, input_current: f64, dt: f64) -&gt; Option&lt;Spike&gt;</code></h3>
+                <p class="source">Source: lib.joule:286</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self)</code></h3>
+                <p class="source">Source: lib.joule:305</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HodgkinHuxley</code></h3>
+                <p>Hodgkin-Huxley neuron model
+Biophysically detailed, includes ion channel dynamics</p>
+                <p class="source">Source: lib.joule:313</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn membrane_potential(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;mut self, input_current: f64, dt: f64) -&gt; Option&lt;Spike&gt;</code></h3>
+                <p class="source">Source: lib.joule:344</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self)</code></h3>
+                <p class="source">Source: lib.joule:348</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Synapse</code></h3>
+                <p>Synapse connecting two neurons</p>
+                <p class="source">Source: lib.joule:361</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(pre: usize, post: usize, weight: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_delay(pre: usize, post: usize, weight: f64, delay: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn excitatory(pre: usize, post: usize, weight: f64) -&gt; Self</code></h3>
+                <p>Excitatory synapse</p>
+                <p class="source">Source: lib.joule:382</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inhibitory(pre: usize, post: usize, weight: f64) -&gt; Self</code></h3>
+                <p>Inhibitory synapse</p>
+                <p class="source">Source: lib.joule:387</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait PlasticityRule</code></h3>
+                <p>Trait for synaptic plasticity rules</p>
+                <p class="source">Source: lib.joule:397</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;self, synapse: &amp;mut Synapse, pre_spike: f64, post_spike: f64);</code></h3>
+                <p class="source">Source: lib.joule:398</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct STDP</code></h3>
+                <p>Spike-Timing-Dependent Plasticity (STDP)</p>
+                <p class="source">Source: lib.joule:402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create STDP with default parameters</p>
+                <p class="source">Source: lib.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asymmetric() -&gt; Self</code></h3>
+                <p>Asymmetric STDP (stronger LTD)</p>
+                <p class="source">Source: lib.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update(&amp;self, synapse: &amp;mut Synapse, pre_spike: f64, post_spike: f64)</code></h3>
+                <p class="source">Source: lib.joule:445</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RewardSTDP</code></h3>
+                <p>Reward-modulated STDP (R-STDP)</p>
+                <p class="source">Source: lib.joule:461</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply_reward(&amp;self, synapse: &amp;mut Synapse, eligibility: f64, reward: f64)</code></h3>
+                <p class="source">Source: lib.joule:477</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SpikingNetwork</code></h3>
+                <p>Spiking neural network</p>
+                <p class="source">Source: lib.joule:488</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create a new network</p>
+                <p class="source">Source: lib.joule:496</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_neuron(&amp;mut self, neuron: N) -&gt; usize</code></h3>
+                <p>Add a neuron</p>
+                <p class="source">Source: lib.joule:505</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_synapse(&amp;mut self, synapse: Synapse)</code></h3>
+                <p>Add a synapse</p>
+                <p class="source">Source: lib.joule:512</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(&amp;mut self, pre: usize, post: usize, weight: f64)</code></h3>
+                <p>Connect two neurons</p>
+                <p class="source">Source: lib.joule:517</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_plasticity&lt;P: PlasticityRule + &#x27;static&gt;(mut self, rule: P) -&gt; Self</code></h3>
+                <p>Set plasticity rule</p>
+                <p class="source">Source: lib.joule:522</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_neurons(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of neurons</p>
+                <p class="source">Source: lib.joule:528</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_synapses(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of synapses</p>
+                <p class="source">Source: lib.joule:533</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self)</code></h3>
+                <p>Reset all neurons</p>
+                <p class="source">Source: lib.joule:538</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn feedforward&lt;N: NeuronModel, F: Fn(usize) -&gt; N&gt;(</code></h3>
+                <p class="source">Source: lib.joule:551</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reservoir&lt;N: NeuronModel, F: Fn(usize) -&gt; N&gt;(</code></h3>
+                <p class="source">Source: lib.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn small_world&lt;N: NeuronModel, F: Fn(usize) -&gt; N&gt;(</code></h3>
+                <p class="source">Source: lib.joule:572</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SNNBackend</code></h3>
+                <p>Backend for SNN simulation</p>
+                <p class="source">Source: lib.joule:587</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SNNSimulator</code></h3>
+                <p>SNN Simulator</p>
+                <p class="source">Source: lib.joule:599</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(backend: SNNBackend) -&gt; Self</code></h3>
+                <p>Create a new simulator</p>
+                <p class="source">Source: lib.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_dt(mut self, dt: f64) -&gt; Self</code></h3>
+                <p>Set time step (for clock-driven)</p>
+                <p class="source">Source: lib.joule:611</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run&lt;N: NeuronModel&gt;(</code></h3>
+                <p class="source">Source: lib.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_energy&lt;N: NeuronModel&gt;(</code></h3>
+                <p>Estimate energy cost</p>
+                <p class="source">Source: lib.joule:628</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rate(value: f64, duration: f64, max_rate: f64) -&gt; SpikeTrain</code></h3>
+                <p class="source">Source: lib.joule:658</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn temporal(value: f64, max_value: f64, max_time: f64) -&gt; SpikeTrain</code></h3>
+                <p class="source">Source: lib.joule:664</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn population(value: f64, num_neurons: usize, sigma: f64, duration: f64) -&gt; SpikeTrain</code></h3>
+                <p class="source">Source: lib.joule:670</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rank_order(values: &amp;[f64]) -&gt; SpikeTrain</code></h3>
+                <p class="source">Source: lib.joule:676</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn phase(value: f64, oscillation_freq: f64, duration: f64) -&gt; SpikeTrain</code></h3>
+                <p class="source">Source: lib.joule:682</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rate(spikes: &amp;SpikeTrain, neuron_id: usize, max_rate: f64) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:693</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn first_spike(spikes: &amp;SpikeTrain, neuron_id: usize, max_time: f64) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn population(spikes: &amp;SpikeTrain, neuron_ids: &amp;[usize]) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:705</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

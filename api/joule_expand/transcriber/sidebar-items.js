@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["collect_used_metavars","count_repetitions","find_rep_metavar","tokens_to_string","transcribe","transcribe_with_hygiene","validate_transcription"]};

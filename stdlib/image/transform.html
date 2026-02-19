@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transform - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module transform</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Transform2D</code></h3>
+                <p class="source">Source: transform.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn identity() -&gt; Self</code></h3>
+                <p>Identity transformation</p>
+                <p class="source">Source: transform.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn translation(tx: f64, ty: f64) -&gt; Self</code></h3>
+                <p>Translation transformation</p>
+                <p class="source">Source: transform.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(sx: f64, sy: f64) -&gt; Self</code></h3>
+                <p>Scaling transformation</p>
+                <p class="source">Source: transform.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn uniform_scale(s: f64) -&gt; Self</code></h3>
+                <p>Uniform scaling</p>
+                <p class="source">Source: transform.joule:53</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotation(angle: f64) -&gt; Self</code></h3>
+                <p>Rotation transformation (angle in radians)</p>
+                <p class="source">Source: transform.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotation_around(angle: f64, cx: f64, cy: f64) -&gt; Self</code></h3>
+                <p>Rotation around a point (angle in radians)</p>
+                <p class="source">Source: transform.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shear(shx: f64, shy: f64) -&gt; Self</code></h3>
+                <p>Shear transformation</p>
+                <p class="source">Source: transform.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flip_horizontal(width: f64) -&gt; Self</code></h3>
+                <p>Horizontal flip</p>
+                <p class="source">Source: transform.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flip_vertical(height: f64) -&gt; Self</code></h3>
+                <p>Vertical flip</p>
+                <p class="source">Source: transform.joule:101</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_points(src: [(f64, f64); 3], dst: [(f64, f64); 3]) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Create affine transformation from 3 point correspondences</p>
+                <p class="source">Source: transform.joule:112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compose(&amp;self, other: &amp;Transform2D) -&gt; Self</code></h3>
+                <p>Compose two transformations (self * other)</p>
+                <p class="source">Source: transform.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inverse(&amp;self) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Compute inverse transformation</p>
+                <p class="source">Source: transform.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform_point(&amp;self, x: f64, y: f64) -&gt; (f64, f64)</code></h3>
+                <p>Transform a point</p>
+                <p class="source">Source: transform.joule:204</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_affine(&amp;self) -&gt; bool</code></h3>
+                <p>Check if this is an affine transformation</p>
+                <p class="source">Source: transform.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn perspective_from_points(src: [(f64, f64); 4], dst: [(f64, f64); 4]) -&gt; Option&lt;Transform2D&gt;</code></h3>
+                <p class="source">Source: transform.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_linear_system(a: &amp;[[f64; 8]; 8], b: &amp;[f64; 8]) -&gt; Option&lt;[f64; 8]&gt;</code></h3>
+                <p class="source">Source: transform.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn warp(</code></h3>
+                <p class="source">Source: transform.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotate(image: &amp;Image, angle: f64, interpolation: Interpolation) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotate_crop(image: &amp;Image, angle: f64, interpolation: Interpolation) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn perspective_warp(</code></h3>
+                <p class="source">Source: transform.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remap(</code></h3>
+                <p class="source">Source: transform.joule:503</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn radial_distort(image: &amp;Image, k1: f64, k2: f64, k3: f64) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:545</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn radial_undistort(image: &amp;Image, k1: f64, k2: f64, k3: f64) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:583</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cartesian_to_polar(image: &amp;Image, radius_bins: usize, angle_bins: usize) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:593</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polar_to_cartesian(</code></h3>
+                <p class="source">Source: transform.joule:626</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log_polar(image: &amp;Image, radius_bins: usize, angle_bins: usize) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:684</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gaussian_pyramid(image: &amp;Image, levels: usize) -&gt; Vec&lt;Image&gt;</code></h3>
+                <p class="source">Source: transform.joule:723</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pyrdown(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:740</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pyrup(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:763</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laplacian_pyramid(image: &amp;Image, levels: usize) -&gt; Vec&lt;Image&gt;</code></h3>
+                <p class="source">Source: transform.joule:785</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reconstruct_laplacian(pyramid: &amp;[Image]) -&gt; Image</code></h3>
+                <p class="source">Source: transform.joule:810</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transform_identity()</code></h3>
+                <p class="source">Source: transform.joule:842</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transform_translation()</code></h3>
+                <p class="source">Source: transform.joule:850</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transform_rotation()</code></h3>
+                <p class="source">Source: transform.joule:858</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_transform_inverse()</code></h3>
+                <p class="source">Source: transform.joule:866</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_gaussian_pyramid()</code></h3>
+                <p class="source">Source: transform.joule:883</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

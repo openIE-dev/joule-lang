@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkpoint - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module checkpoint</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Const">
+                <h3><code>const CHECKPOINT_VERSION: u32</code></h3>
+                <p>Checkpoint format version</p>
+                <p class="source">Source: checkpoint.joule:12</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CHECKPOINT_MAGIC: [u8; 4]</code></h3>
+                <p>Magic bytes for checkpoint files</p>
+                <p class="source">Source: checkpoint.joule:15</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CheckpointMetadata</code></h3>
+                <p class="source">Source: checkpoint.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(epoch: u64, global_step: u64) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_metric(mut self, name: &amp;str, value: f64) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_model_name(mut self, name: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(mut self, key: &amp;str, value: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:55</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StateDict</code></h3>
+                <p class="source">Source: checkpoint.joule:63</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TensorData</code></h3>
+                <p class="source">Source: checkpoint.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_tensor(tensor: &amp;Tensor) -&gt; Self</code></h3>
+                <p>Create from tensor</p>
+                <p class="source">Source: checkpoint.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_tensor(&amp;self) -&gt; Tensor</code></h3>
+                <p>Convert to tensor</p>
+                <p class="source">Source: checkpoint.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create empty state dict</p>
+                <p class="source">Source: checkpoint.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn insert(&amp;mut self, name: &amp;str, tensor: &amp;Tensor)</code></h3>
+                <p>Add a tensor</p>
+                <p class="source">Source: checkpoint.joule:101</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, name: &amp;str) -&gt; Option&lt;Tensor&gt;</code></h3>
+                <p>Get a tensor</p>
+                <p class="source">Source: checkpoint.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn keys(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; &amp;String&gt;</code></h3>
+                <p>Get tensor names</p>
+                <p class="source">Source: checkpoint.joule:111</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Number of tensors</p>
+                <p class="source">Source: checkpoint.joule:116</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Checkpoint</code></h3>
+                <p class="source">Source: checkpoint.joule:123</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new checkpoint</p>
+                <p class="source">Source: checkpoint.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_optimizer(mut self, state: HashMap&lt;String, Tensor&gt;) -&gt; Self</code></h3>
+                <p>Add optimizer state</p>
+                <p class="source">Source: checkpoint.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_scheduler(mut self, state: HashMap&lt;String, f64&gt;) -&gt; Self</code></h3>
+                <p>Add scheduler state</p>
+                <p class="source">Source: checkpoint.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_rng_state(mut self) -&gt; Self</code></h3>
+                <p>Add RNG state for reproducibility</p>
+                <p class="source">Source: checkpoint.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save(&amp;self, path: &amp;str) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p class="source">Source: checkpoint.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load(path: &amp;str) -&gt; Result&lt;Self, CheckpointError&gt;</code></h3>
+                <p class="source">Source: checkpoint.joule:190</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CheckpointError</code></h3>
+                <p class="source">Source: checkpoint.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: serde_json::Error) -&gt; Self</code></h3>
+                <p class="source">Source: checkpoint.joule:241</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CheckpointManager</code></h3>
+                <p>Manages checkpoint saving and loading with best model tracking</p>
+                <p class="source">Source: checkpoint.joule:251</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CheckpointInfo</code></h3>
+                <p class="source">Source: checkpoint.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(save_dir: &amp;str) -&gt; Self</code></h3>
+                <p>Create new checkpoint manager</p>
+                <p class="source">Source: checkpoint.joule:272</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max_to_keep(mut self, n: usize) -&gt; Self</code></h3>
+                <p>Set maximum checkpoints to keep</p>
+                <p class="source">Source: checkpoint.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save_best_only(mut self, metric_name: &amp;str, mode: &amp;str) -&gt; Self</code></h3>
+                <p>Only save when metric improves</p>
+                <p class="source">Source: checkpoint.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_better(&amp;self, metric: f64) -&gt; bool</code></h3>
+                <p>Check if metric improved</p>
+                <p class="source">Source: checkpoint.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save(</code></h3>
+                <p class="source">Source: checkpoint.joule:316</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cleanup(&amp;mut self) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p>Remove old checkpoints</p>
+                <p class="source">Source: checkpoint.joule:368</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_latest(&amp;self) -&gt; Result&lt;Checkpoint, CheckpointError&gt;</code></h3>
+                <p>Load latest checkpoint</p>
+                <p class="source">Source: checkpoint.joule:379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_best(&amp;self) -&gt; Result&lt;Checkpoint, CheckpointError&gt;</code></h3>
+                <p>Load best checkpoint</p>
+                <p class="source">Source: checkpoint.joule:386</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_epoch(&amp;self, epoch: u64) -&gt; Result&lt;Checkpoint, CheckpointError&gt;</code></h3>
+                <p>Load checkpoint by epoch</p>
+                <p class="source">Source: checkpoint.joule:392</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list(&amp;self) -&gt; &amp;[CheckpointInfo]</code></h3>
+                <p>List all checkpoints</p>
+                <p class="source">Source: checkpoint.joule:400</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan(&amp;mut self) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p>Scan directory for existing checkpoints</p>
+                <p class="source">Source: checkpoint.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_state_dict&lt;M: Module&gt;(module: &amp;M) -&gt; StateDict</code></h3>
+                <p>Extract state dict from a module</p>
+                <p class="source">Source: checkpoint.joule:448</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict&lt;M: Module&gt;(module: &amp;mut M, state: &amp;StateDict) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p>Load state dict into a module</p>
+                <p class="source">Source: checkpoint.joule:459</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save_model&lt;M: Module&gt;(module: &amp;M, path: &amp;str) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p class="source">Source: checkpoint.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_model&lt;M: Module&gt;(module: &amp;mut M, path: &amp;str) -&gt; Result&lt;(), CheckpointError&gt;</code></h3>
+                <p class="source">Source: checkpoint.joule:485</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn export_onnx&lt;M: Module&gt;(</code></h3>
+                <p class="source">Source: checkpoint.joule:492</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn export_script&lt;M: Module&gt;(</code></h3>
+                <p class="source">Source: checkpoint.joule:513</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

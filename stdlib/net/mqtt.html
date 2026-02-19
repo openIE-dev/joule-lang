@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mqtt - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module mqtt</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum ProtocolVersion</code></h3>
+                <p class="source">Source: mqtt.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn level(&amp;self) -&gt; u8</code></h3>
+                <p class="source">Source: mqtt.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;&#x27;static [u8]</code></h3>
+                <p class="source">Source: mqtt.joule:37</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum QoS</code></h3>
+                <p class="source">Source: mqtt.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u8(value: u8) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:61</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PacketType</code></h3>
+                <p class="source">Source: mqtt.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u8(value: u8) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:97</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConnectOptions</code></h3>
+                <p class="source">Source: mqtt.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn client_id(mut self, id: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn keep_alive(mut self, seconds: u16) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clean_session(mut self, clean: bool) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn credentials(mut self, username: &amp;str, password: &amp;[u8]) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn will(mut self, will: LastWill) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn use_tls(mut self, tls: bool) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn v5(mut self) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:213</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LastWill</code></h3>
+                <p class="source">Source: mqtt.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(topic: &amp;str, payload: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:237</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qos(mut self, qos: QoS) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn retain(mut self, retain: bool) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:253</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Message</code></h3>
+                <p class="source">Source: mqtt.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(topic: &amp;str, payload: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qos(mut self, qos: QoS) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:313</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn retain(mut self, retain: bool) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn payload_str(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get payload as string</p>
+                <p class="source">Source: mqtt.joule:324</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PayloadFormat</code></h3>
+                <p class="source">Source: mqtt.joule:331</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TopicFilter</code></h3>
+                <p class="source">Source: mqtt.joule:342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(filter: &amp;str, qos: QoS) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:356</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum RetainHandling</code></h3>
+                <p class="source">Source: mqtt.joule:369</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ConnectReturnCode</code></h3>
+                <p class="source">Source: mqtt.joule:384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u8(value: u8) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:394</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ReasonCode</code></h3>
+                <p class="source">Source: mqtt.joule:409</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ClientState</code></h3>
+                <p class="source">Source: mqtt.joule:463</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MqttClient</code></h3>
+                <p>MQTT client</p>
+                <p class="source">Source: mqtt.joule:471</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MqttConnection</code></h3>
+                <p class="source">Source: mqtt.joule:482</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ConnectionStream</code></h3>
+                <p class="source">Source: mqtt.joule:487</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PendingAck</code></h3>
+                <p class="source">Source: mqtt.joule:492</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(options: ConnectOptions) -&gt; Self</code></h3>
+                <p>Create new MQTT client</p>
+                <p class="source">Source: mqtt.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(&amp;self, host: &amp;str, port: u16) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:516</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_connect(&amp;self) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_connect_properties(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:643</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_will_properties(&amp;self, will: &amp;LastWill) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_connack(&amp;self) -&gt; Result&lt;bool, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:680</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn publish(&amp;self, message: &amp;Message) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:718</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_publish_properties(&amp;self, message: &amp;Message) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:786</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn subscribe(&amp;self, filters: &amp;[TopicFilter]) -&gt; Result&lt;Vec&lt;QoS&gt;, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:822</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_suback(&amp;self, expected_id: u16) -&gt; Result&lt;Vec&lt;QoS&gt;, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:873</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unsubscribe(&amp;self, topics: &amp;[&amp;str]) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:912</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(&amp;self) -&gt; Result&lt;Message, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:948</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_publish(&amp;self, packet: &amp;[u8], flags: u8) -&gt; Result&lt;Message, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:975</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disconnect(&amp;self) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1037</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ping(&amp;self) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1058</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ensure_connected(&amp;self) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1070</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next_packet_id(&amp;self) -&gt; u16</code></h3>
+                <p class="source">Source: mqtt.joule:1077</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_packet(&amp;self, header: &amp;[u8], payload: &amp;[u8]) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1087</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_packet(&amp;self) -&gt; Result&lt;Vec&lt;u8&gt;, MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_for_ack(&amp;self, _packet_id: u16) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle_packet(&amp;self, _packet: &amp;[u8]) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1128</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_puback(&amp;self, packet_id: u16) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_pubrec(&amp;self, packet_id: u16) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_pubrel(&amp;self, packet_id: u16) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_pingresp(&amp;self) -&gt; Result&lt;(), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_fixed_header(packet_type: PacketType, flags: u8, remaining_len: usize) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_variable_int(value: u32) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1194</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_variable_int(data: &amp;[u8]) -&gt; Result&lt;(u32, usize), MqttError&gt;</code></h3>
+                <p class="source">Source: mqtt.joule:1216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn topic_matches(filter: &amp;str, topic: &amp;str) -&gt; bool</code></h3>
+                <p>Check if a topic matches a filter pattern</p>
+                <p class="source">Source: mqtt.joule:1241</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum MqttError</code></h3>
+                <p class="source">Source: mqtt.joule:1274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:1289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: TcpError) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:1295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: super::tls::TlsError) -&gt; Self</code></h3>
+                <p class="source">Source: mqtt.joule:1301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_qos_ordering()</code></h3>
+                <p class="source">Source: mqtt.joule:1315</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_variable_int_encoding()</code></h3>
+                <p class="source">Source: mqtt.joule:1321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_variable_int_decoding()</code></h3>
+                <p class="source">Source: mqtt.joule:1329</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_topic_matching()</code></h3>
+                <p class="source">Source: mqtt.joule:1336</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_message_creation()</code></h3>
+                <p class="source">Source: mqtt.joule:1350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_connect_options()</code></h3>
+                <p class="source">Source: mqtt.joule:1362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_last_will()</code></h3>
+                <p class="source">Source: mqtt.joule:1376</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

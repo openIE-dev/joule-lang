@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>groupby - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module groupby</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct GroupBy</code></h3>
+                <p class="source">Source: groupby.joule:14</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(df: &amp;&#x27;a DataFrame, by: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: groupby.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ngroups(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of groups</p>
+                <p class="source">Source: groupby.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn group_keys(&amp;self) -&gt; &amp;[String]</code></h3>
+                <p>Get group keys</p>
+                <p class="source">Source: groupby.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_group(&amp;self, key: &amp;str) -&gt; Option&lt;DataFrame&gt;</code></h3>
+                <p>Get group by key</p>
+                <p class="source">Source: groupby.joule:75</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; (&amp;str, DataFrame)&gt; + &#x27;_</code></h3>
+                <p>Iterate over groups</p>
+                <p class="source">Source: groupby.joule:80</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn agg(&amp;self, funcs: &amp;[(&amp;str, AggFunc)]) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn count(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:164</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn var(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:170</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn first(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn agg_all(&amp;self, func: AggFunc) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform&lt;F&gt;(&amp;self, column: &amp;str, f: F) -&gt; Column</code></h3>
+                <p class="source">Source: groupby.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cumsum(&amp;self, column: &amp;str) -&gt; Column</code></h3>
+                <p class="source">Source: groupby.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rank(&amp;self, column: &amp;str, ascending: bool) -&gt; Column</code></h3>
+                <p class="source">Source: groupby.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pct_of_total(&amp;self, column: &amp;str) -&gt; Column</code></h3>
+                <p class="source">Source: groupby.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zscore(&amp;self, column: &amp;str) -&gt; Column</code></h3>
+                <p class="source">Source: groupby.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter&lt;F&gt;(&amp;self, predicate: F) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nlargest(&amp;self, n: usize) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:353</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nsmallest(&amp;self, n: usize) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:376</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply&lt;F&gt;(&amp;self, f: F) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn func_name(func: &amp;AggFunc) -&gt; &amp;&#x27;static str</code></h3>
+                <p class="source">Source: groupby.joule:426</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MultiGroupBy</code></h3>
+                <p class="source">Source: groupby.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(df: &amp;&#x27;a DataFrame, by: &amp;[&amp;str]) -&gt; Self</code></h3>
+                <p class="source">Source: groupby.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ngroups(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of groups</p>
+                <p class="source">Source: groupby.joule:484</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:490</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn agg(&amp;self, funcs: &amp;[(&amp;str, AggFunc)]) -&gt; DataFrame</code></h3>
+                <p class="source">Source: groupby.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_groupby_sum()</code></h3>
+                <p class="source">Source: groupby.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_groupby_mean()</code></h3>
+                <p class="source">Source: groupby.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_groupby_count()</code></h3>
+                <p class="source">Source: groupby.joule:601</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_groupby_transform()</code></h3>
+                <p class="source">Source: groupby.joule:614</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

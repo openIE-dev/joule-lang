@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Multi-Party Computation
+Secure computation among multiple parties
+No party learns anything beyond the output&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct PartyId</code></h3>
+                <p>A party in the MPC protocol</p>
+                <p class="source">Source: lib.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: u32) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; u32</code></h3>
+                <p class="source">Source: lib.joule:24</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Share</code></h3>
+                <p>A share of a secret value</p>
+                <p class="source">Source: lib.joule:34</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value(&amp;self) -&gt; &amp;FieldElement</code></h3>
+                <p class="source">Source: lib.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn party(&amp;self) -&gt; &amp;PartyId</code></h3>
+                <p class="source">Source: lib.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn index(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:49</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FieldElement</code></h3>
+                <p>Field element for MPC computations</p>
+                <p class="source">Source: lib.joule:55</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MODULUS: u128</code></h3>
+                <p>Prime modulus (Mersenne prime 2^127 - 1)</p>
+                <p class="source">Source: lib.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u64(value: u64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:63</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u128(value: u128) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value(&amp;self) -&gt; u128</code></h3>
+                <p class="source">Source: lib.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;FieldElement) -&gt; FieldElement</code></h3>
+                <p class="source">Source: lib.joule:75</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;FieldElement) -&gt; FieldElement</code></h3>
+                <p class="source">Source: lib.joule:80</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;FieldElement) -&gt; FieldElement</code></h3>
+                <p class="source">Source: lib.joule:89</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inverse(&amp;self) -&gt; Option&lt;FieldElement&gt;</code></h3>
+                <p class="source">Source: lib.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn random() -&gt; FieldElement</code></h3>
+                <p class="source">Source: lib.joule:97</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ShamirScheme</code></h3>
+                <p>Shamir (t, n) threshold secret sharing
+Any t parties can reconstruct, t-1 learn nothing</p>
+                <p class="source">Source: lib.joule:108</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(threshold: usize, num_parties: usize) -&gt; Result&lt;Self, MpcError&gt;</code></h3>
+                <p>Create a new Shamir scheme
+- &#x60;threshold&#x60;: minimum shares needed to reconstruct
+- &#x60;num_parties&#x60;: total number of shares to create</p>
+                <p class="source">Source: lib.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn threshold(&amp;self) -&gt; usize</code></h3>
+                <p>Get the threshold</p>
+                <p class="source">Source: lib.joule:129</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_parties(&amp;self) -&gt; usize</code></h3>
+                <p>Get the number of parties</p>
+                <p class="source">Source: lib.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn share(&amp;self, secret: u64) -&gt; Vec&lt;Share&gt;</code></h3>
+                <p class="source">Source: lib.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reconstruct(&amp;self, shares: &amp;[Share]) -&gt; Result&lt;u64, MpcError&gt;</code></h3>
+                <p class="source">Source: lib.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_shares(a: &amp;Share, b: &amp;Share) -&gt; Result&lt;Share, MpcError&gt;</code></h3>
+                <p>Add two shared values (locally, no communication)</p>
+                <p class="source">Source: lib.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_scalar(share: &amp;Share, scalar: u64) -&gt; Share</code></h3>
+                <p>Multiply a share by a public constant</p>
+                <p class="source">Source: lib.joule:163</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AdditiveScheme</code></h3>
+                <p>Additive (n-out-of-n) secret sharing
+All parties must participate</p>
+                <p class="source">Source: lib.joule:174</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_parties: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn share(&amp;self, secret: u64) -&gt; Vec&lt;Share&gt;</code></h3>
+                <p class="source">Source: lib.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reconstruct(&amp;self, shares: &amp;[Share]) -&gt; Result&lt;u64, MpcError&gt;</code></h3>
+                <p class="source">Source: lib.joule:191</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_shares(a: &amp;Share, b: &amp;Share) -&gt; Result&lt;Share, MpcError&gt;</code></h3>
+                <p>Add two additive shares</p>
+                <p class="source">Source: lib.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub_shares(a: &amp;Share, b: &amp;Share) -&gt; Result&lt;Share, MpcError&gt;</code></h3>
+                <p>Subtract two additive shares</p>
+                <p class="source">Source: lib.joule:207</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GateType</code></h3>
+                <p>Gate types for circuits</p>
+                <p class="source">Source: lib.joule:217</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Gate</code></h3>
+                <p>A gate in a boolean circuit</p>
+                <p class="source">Source: lib.joule:227</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn and(a: usize, b: usize, out: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn or(a: usize, b: usize, out: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn xor(a: usize, b: usize, out: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn not(a: usize, out: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:246</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BooleanCircuit</code></h3>
+                <p>Boolean circuit for garbling</p>
+                <p class="source">Source: lib.joule:252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_inputs: usize, output_wires: Vec&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_gate(&amp;mut self, gate: Gate)</code></h3>
+                <p class="source">Source: lib.joule:267</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate(&amp;self, inputs: &amp;[bool]) -&gt; Vec&lt;bool&gt;</code></h3>
+                <p>Evaluate on plaintext inputs</p>
+                <p class="source">Source: lib.joule:272</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GarbledCircuit</code></h3>
+                <p>Garbled circuit (encrypted boolean circuit)</p>
+                <p class="source">Source: lib.joule:278</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WireLabel</code></h3>
+                <p>Wire label (128-bit secret)</p>
+                <p class="source">Source: lib.joule:283</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Garbler;</code></h3>
+                <p>Garbler: creates the garbled circuit</p>
+                <p class="source">Source: lib.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn garble(circuit: &amp;BooleanCircuit) -&gt; (GarbledCircuit, Vec&lt;WireLabelPair&gt;)</code></h3>
+                <p class="source">Source: lib.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_inputs(inputs: &amp;[bool], labels: &amp;[WireLabelPair]) -&gt; Vec&lt;WireLabel&gt;</code></h3>
+                <p>Get input labels for garbler&#x27;s inputs</p>
+                <p class="source">Source: lib.joule:298</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WireLabelPair</code></h3>
+                <p>Pair of wire labels (for 0 and 1)</p>
+                <p class="source">Source: lib.joule:304</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, bit: bool) -&gt; &amp;WireLabel</code></h3>
+                <p class="source">Source: lib.joule:310</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Evaluator;</code></h3>
+                <p>Evaluator: evaluates the garbled circuit</p>
+                <p class="source">Source: lib.joule:316</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate(</code></h3>
+                <p class="source">Source: lib.joule:321</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OTSender</code></h3>
+                <p>1-out-of-2 Oblivious Transfer sender</p>
+                <p class="source">Source: lib.joule:335</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setup(&amp;mut self, n: usize) -&gt; Vec&lt;[u8; 32]&gt;</code></h3>
+                <p class="source">Source: lib.joule:346</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(</code></h3>
+                <p class="source">Source: lib.joule:352</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OTReceiver</code></h3>
+                <p>1-out-of-2 Oblivious Transfer receiver</p>
+                <p class="source">Source: lib.joule:362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn choose(&amp;mut self, sender_keys: &amp;[[u8; 32]], choices: &amp;[bool]) -&gt; Vec&lt;[u8; 32]&gt;</code></h3>
+                <p class="source">Source: lib.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(</code></h3>
+                <p class="source">Source: lib.joule:379</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MpcContext</code></h3>
+                <p>MPC context for a party</p>
+                <p class="source">Source: lib.joule:393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(my_id: PartyId, num_parties: usize, threshold: usize) -&gt; Result&lt;Self, MpcError&gt;</code></h3>
+                <p>Create an MPC context</p>
+                <p class="source">Source: lib.joule:401</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn my_id(&amp;self) -&gt; &amp;PartyId</code></h3>
+                <p class="source">Source: lib.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_parties(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:414</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn threshold(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:418</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SecretValue</code></h3>
+                <p>Secret-shared value in an MPC protocol</p>
+                <p class="source">Source: lib.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_share(share: Share, context: MpcContext) -&gt; Self</code></h3>
+                <p>Create from a local share</p>
+                <p class="source">Source: lib.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;SecretValue) -&gt; Result&lt;SecretValue, MpcError&gt;</code></h3>
+                <p>Add two secret values (local operation)</p>
+                <p class="source">Source: lib.joule:436</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_public(&amp;self, scalar: u64) -&gt; SecretValue</code></h3>
+                <p>Multiply by a public constant (local operation)</p>
+                <p class="source">Source: lib.joule:442</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Network</code></h3>
+                <p>Network connection for MPC protocol</p>
+                <p class="source">Source: lib.joule:465</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum MpcError</code></h3>
+                <p>Errors from MPC operations</p>
+                <p class="source">Source: lib.joule:503</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loss - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module loss</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum Reduction</code></h3>
+                <p class="source">Source: loss.joule:9</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, tensor: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p>Apply reduction to tensor</p>
+                <p class="source">Source: loss.joule:17</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MSELoss</code></h3>
+                <p>Mean Squared Error Loss
+
+L &#x3D; (1/n) * sum((y_pred - y_true)^2)</p>
+                <p class="source">Source: loss.joule:33</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:38</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:43</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct L1Loss</code></h3>
+                <p>L1 Loss (Mean Absolute Error)
+
+L &#x3D; (1/n) * sum(|y_pred - y_true|)</p>
+                <p class="source">Source: loss.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:62</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SmoothL1Loss</code></h3>
+                <p>Smooth L1 Loss (Huber Loss)
+
+L &#x3D; 0.5 * (y_pred - y_true)^2 / beta   if |y_pred - y_true| &lt; beta
+&#x3D; |y_pred - y_true| - 0.5 * beta     otherwise</p>
+                <p class="source">Source: loss.joule:72</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, beta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:83</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HuberLoss</code></h3>
+                <p>Huber Loss (same as Smooth L1 with delta instead of beta)</p>
+                <p class="source">Source: loss.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, delta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:110</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CrossEntropyLoss</code></h3>
+                <p>Cross Entropy Loss
+
+L &#x3D; -sum(y_true * log(softmax(y_pred)))</p>
+                <p class="source">Source: loss.joule:131</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:139</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_weight(mut self, weight: Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_ignore_index(mut self, index: i64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_label_smoothing(mut self, smoothing: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:164</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BCELoss</code></h3>
+                <p>Binary Cross Entropy Loss
+
+L &#x3D; -(y_true * log(y_pred) + (1 - y_true) * log(1 - y_pred))</p>
+                <p class="source">Source: loss.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_weight(mut self, weight: Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:239</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BCEWithLogitsLoss</code></h3>
+                <p>Binary Cross Entropy with Logits Loss
+
+More numerically stable version that combines sigmoid with BCE</p>
+                <p class="source">Source: loss.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_weight(mut self, weight: Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_pos_weight(mut self, pos_weight: Tensor) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:285</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NLLLoss</code></h3>
+                <p>Negative Log Likelihood Loss
+
+L &#x3D; -log(p[target])</p>
+                <p class="source">Source: loss.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:333</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FocalLoss</code></h3>
+                <p>Focal Loss (for class imbalance)
+
+L &#x3D; -alpha * (1 - p)^gamma * log(p)</p>
+                <p class="source">Source: loss.joule:360</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, alpha: f64, gamma: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:372</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TripletMarginLoss</code></h3>
+                <p>Triplet Margin Loss
+
+L &#x3D; max(0, ||anchor - positive|| - ||anchor - negative|| + margin)</p>
+                <p class="source">Source: loss.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, margin: f64, p: f64, swap: bool) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, anchor: &amp;Tensor, positive: &amp;Tensor, negative: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:412</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ContrastiveLoss</code></h3>
+                <p>Contrastive Loss
+
+L &#x3D; (1 - y) * d^2 + y * max(0, margin - d)^2</p>
+                <p class="source">Source: loss.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, margin: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, x1: &amp;Tensor, x2: &amp;Tensor, y: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:444</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CosineEmbeddingLoss</code></h3>
+                <p>Cosine Embedding Loss
+
+L &#x3D; 1 - cos(x1, x2)  if y &#x3D; 1
+&#x3D; max(0, cos(x1, x2) - margin)  if y &#x3D; -1</p>
+                <p class="source">Source: loss.joule:462</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, margin: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, x1: &amp;Tensor, x2: &amp;Tensor, y: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:473</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MarginRankingLoss</code></h3>
+                <p>Margin Ranking Loss
+
+L &#x3D; max(0, -y * (x1 - x2) + margin)</p>
+                <p class="source">Source: loss.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, margin: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, x1: &amp;Tensor, x2: &amp;Tensor, y: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:505</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HingeEmbeddingLoss</code></h3>
+                <p>Hinge Embedding Loss
+
+L &#x3D; x           if y &#x3D; 1
+&#x3D; max(0, margin - x)  if y &#x3D; -1</p>
+                <p class="source">Source: loss.joule:519</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, margin: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:525</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:530</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct KLDivLoss</code></h3>
+                <p>KL Divergence Loss
+
+L &#x3D; sum(p * log(p / q))</p>
+                <p class="source">Source: loss.joule:548</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, log_target: bool) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:554</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:559</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GaussianNLLLoss</code></h3>
+                <p>Gaussian NLL Loss
+
+L &#x3D; 0.5 * (log(var) + (input - target)^2 / var + log(2*pi))</p>
+                <p class="source">Source: loss.joule:585</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, full: bool, eps: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:592</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor, var: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:597</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PoissonNLLLoss</code></h3>
+                <p>Poisson NLL Loss
+
+L &#x3D; exp(input) - target * input</p>
+                <p class="source">Source: loss.joule:616</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, log_input: bool, full: bool, eps: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:629</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DiceLoss</code></h3>
+                <p>Dice Loss (for segmentation)
+
+L &#x3D; 1 - 2 * |A ∩ B| / (|A| + |B|)</p>
+                <p class="source">Source: loss.joule:654</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, smooth: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:660</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:665</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IoULoss</code></h3>
+                <p>IoU Loss (Intersection over Union)
+
+L &#x3D; 1 - IoU</p>
+                <p class="source">Source: loss.joule:685</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction, smooth: f64) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:691</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:696</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AdversarialLoss</code></h3>
+                <p>Adversarial Loss (original GAN)
+
+D loss: -log(D(x)) - log(1 - D(G(z)))
+G loss: -log(D(G(z)))</p>
+                <p class="source">Source: loss.joule:717</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:722</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discriminator_loss(&amp;self, real_output: &amp;Tensor, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:728</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generator_loss(&amp;self, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:739</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WGANLoss</code></h3>
+                <p>WGAN Loss (Wasserstein GAN)
+
+D loss: D(G(z)) - D(x)
+G loss: -D(G(z))</p>
+                <p class="source">Source: loss.joule:749</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:754</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discriminator_loss(&amp;self, real_output: &amp;Tensor, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generator_loss(&amp;self, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:767</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gradient_penalty(</code></h3>
+                <p class="source">Source: loss.joule:773</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LSGANLoss</code></h3>
+                <p>Least Squares GAN Loss
+
+D loss: (D(x) - 1)^2 + D(G(z))^2
+G loss: (D(G(z)) - 1)^2</p>
+                <p class="source">Source: loss.joule:805</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:810</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discriminator_loss(&amp;self, real_output: &amp;Tensor, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:816</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generator_loss(&amp;self, fake_output: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:825</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PerceptualLoss</code></h3>
+                <p>Perceptual Loss (using VGG features)</p>
+                <p class="source">Source: loss.joule:836</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(layers: Vec&lt;usize&gt;, weights: Vec&lt;f64&gt;, reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:843</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(</code></h3>
+                <p class="source">Source: loss.joule:850</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SSIMLoss</code></h3>
+                <p>SSIM Loss (Structural Similarity)</p>
+                <p class="source">Source: loss.joule:875</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(window_size: usize, reduction: Reduction) -&gt; Self</code></h3>
+                <p class="source">Source: loss.joule:881</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor, target: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: loss.joule:886</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

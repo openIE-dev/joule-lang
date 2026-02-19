@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AttributeArgs","AttributeValue"],"struct":["Attribute","AttributeArg","EnergyBudget"]};

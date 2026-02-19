@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>precond - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module precond</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait Preconditioner</code></h3>
+                <p>Preconditioner trait</p>
+                <p class="source">Source: precond.joule:11</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;;</code></h3>
+                <p>Apply preconditioner: z &#x3D; M^(-1) * r</p>
+                <p class="source">Source: precond.joule:13</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IdentityPreconditioner;</code></h3>
+                <p>Identity preconditioner (no preconditioning)</p>
+                <p class="source">Source: precond.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:30</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct JacobiPreconditioner</code></h3>
+                <p>Jacobi (diagonal) preconditioner: M &#x3D; diag(A)</p>
+                <p class="source">Source: precond.joule:40</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;CsrMatrix) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:59</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SsorPreconditioner</code></h3>
+                <p>SSOR (Symmetric Successive Over-Relaxation) preconditioner</p>
+                <p class="source">Source: precond.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;CsrMatrix, omega: f64) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:112</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ilu0Preconditioner</code></h3>
+                <p>ILU(0) preconditioner (no fill-in)</p>
+                <p class="source">Source: precond.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;CsrMatrix) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_l(&amp;self, b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_u(&amp;self, b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:244</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:270</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ic0Preconditioner</code></h3>
+                <p>IC(0) preconditioner for SPD matrices</p>
+                <p class="source">Source: precond.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;CsrMatrix) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_l(&amp;self, b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_lt(&amp;self, b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:376</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:414</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PolynomialPreconditioner</code></h3>
+                <p>Polynomial preconditioner based on Chebyshev or Neumann series</p>
+                <p class="source">Source: precond.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neumann(a: &amp;CsrMatrix, degree: usize) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:434</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chebyshev(a: &amp;CsrMatrix, degree: usize, lambda_min: f64, lambda_max: f64) -&gt; Self</code></h3>
+                <p>Create polynomial preconditioner with Chebyshev coefficients</p>
+                <p class="source">Source: precond.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:466</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BlockJacobiPreconditioner</code></h3>
+                <p>Block Jacobi preconditioner</p>
+                <p class="source">Source: precond.joule:493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(a: &amp;CsrMatrix, block_size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: precond.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply(&amp;self, r: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: precond.joule:533</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn invert_dense(a: &amp;[Vec&lt;f64&gt;]) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Invert dense matrix using Gauss-Jordan elimination</p>
+                <p class="source">Source: precond.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn make_test_matrix() -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: precond.joule:620</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_jacobi_precond()</code></h3>
+                <p class="source">Source: precond.joule:630</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_identity_precond()</code></h3>
+                <p class="source">Source: precond.joule:644</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

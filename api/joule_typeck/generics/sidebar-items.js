@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["BoundCheckResult","InferenceError","PrimitiveType","Type","TypeConstraint","UnificationError"],"fn":["check_well_formed","instantiate"],"struct":["DefId","GenericContext","InferVar","InferenceContext","Subst","TraitBound","TraitId","TraitImpl","TypeConstructor","TypeParamDef","WellFormedError"]};

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filters - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module filters</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum FilterType</code></h3>
+                <p class="source">Source: filters.joule:14</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FirFilter</code></h3>
+                <p class="source">Source: filters.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(coeffs: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p>Create FIR filter from coefficients</p>
+                <p class="source">Source: filters.joule:38</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn design(</code></h3>
+                <p class="source">Source: filters.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn differentiator(order: usize, window_type: WindowType) -&gt; Self</code></h3>
+                <p class="source">Source: filters.joule:112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hilbert(order: usize, window_type: WindowType) -&gt; Self</code></h3>
+                <p class="source">Source: filters.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter(&amp;self, signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filtfilt(&amp;self, signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn order(&amp;self) -&gt; usize</code></h3>
+                <p>Get filter order</p>
+                <p class="source">Source: filters.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frequency_response(&amp;self, num_points: usize) -&gt; Vec&lt;(f64, f64)&gt;</code></h3>
+                <p class="source">Source: filters.joule:192</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IirFilter</code></h3>
+                <p class="source">Source: filters.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(b: Vec&lt;f64&gt;, a: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p>Create IIR filter from transfer function coefficients</p>
+                <p class="source">Source: filters.joule:229</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn butterworth(filter_type: FilterType, cutoff: f64, cutoff2: Option&lt;f64&gt;, order: usize) -&gt; Self</code></h3>
+                <p class="source">Source: filters.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chebyshev1(filter_type: FilterType, cutoff: f64, order: usize, ripple_db: f64) -&gt; Self</code></h3>
+                <p class="source">Source: filters.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn first_order_lowpass(cutoff: f64) -&gt; Self</code></h3>
+                <p>Design first-order lowpass filter</p>
+                <p class="source">Source: filters.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn first_order_highpass(cutoff: f64) -&gt; Self</code></h3>
+                <p>Design first-order highpass filter</p>
+                <p class="source">Source: filters.joule:308</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn biquad(</code></h3>
+                <p>Design biquad (second-order section) filter</p>
+                <p class="source">Source: filters.joule:319</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn notch(center_freq: f64, bandwidth: f64) -&gt; Self</code></h3>
+                <p>Design notch filter</p>
+                <p class="source">Source: filters.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peaking_eq(center_freq: f64, bandwidth: f64, gain_db: f64) -&gt; Self</code></h3>
+                <p>Design peak/dip (parametric EQ) filter</p>
+                <p class="source">Source: filters.joule:381</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn low_shelf(cutoff: f64, gain_db: f64, q: f64) -&gt; Self</code></h3>
+                <p>Design low shelf filter</p>
+                <p class="source">Source: filters.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn high_shelf(cutoff: f64, gain_db: f64, q: f64) -&gt; Self</code></h3>
+                <p>Design high shelf filter</p>
+                <p class="source">Source: filters.joule:414</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter(&amp;self, signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filtfilt(&amp;self, signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_stable(&amp;self) -&gt; bool</code></h3>
+                <p>Check if filter is stable</p>
+                <p class="source">Source: filters.joule:463</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frequency_response(&amp;self, num_points: usize) -&gt; Vec&lt;(f64, f64)&gt;</code></h3>
+                <p class="source">Source: filters.joule:479</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn butterworth_lowpass_digital(poles: &amp;[(f64, f64)], wc: f64) -&gt; IirFilter</code></h3>
+                <p class="source">Source: filters.joule:516</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn butterworth_highpass_digital(poles: &amp;[(f64, f64)], wc: f64) -&gt; IirFilter</code></h3>
+                <p class="source">Source: filters.joule:556</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn butterworth_bandpass_digital(poles: &amp;[(f64, f64)], wc1: f64, wc2: f64) -&gt; IirFilter</code></h3>
+                <p class="source">Source: filters.joule:567</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn butterworth_bandstop_digital(poles: &amp;[(f64, f64)], wc1: f64, wc2: f64) -&gt; IirFilter</code></h3>
+                <p class="source">Source: filters.joule:580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chebyshev_lowpass_digital(poles: &amp;[(f64, f64)], wc: f64, eps: f64) -&gt; IirFilter</code></h3>
+                <p class="source">Source: filters.joule:586</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_poly(a: &amp;[f64], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: filters.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn moving_average(signal: &amp;Signal, window_size: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:613</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exponential_moving_average(signal: &amp;Signal, alpha: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:643</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn median_filter(signal: &amp;Signal, window_size: usize) -&gt; Signal</code></h3>
+                <p class="source">Source: filters.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_fir_lowpass()</code></h3>
+                <p class="source">Source: filters.joule:687</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_iir_butterworth()</code></h3>
+                <p class="source">Source: filters.joule:698</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_filter_signal()</code></h3>
+                <p class="source">Source: filters.joule:704</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_moving_average()</code></h3>
+                <p class="source">Source: filters.joule:713</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

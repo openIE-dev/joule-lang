@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["GenericType","MonoType","PrimitiveType"],"fn":["demangle_name","mangle_name","monomorphize_type"],"struct":["ItemId","MonoCollector","MonoItem","MonoStats","MonoSubst"]};

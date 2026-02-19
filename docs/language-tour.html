@@ -1,0 +1,553 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Language Tour - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="language-tour.html" class="active"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="energy-cost-database.html"><strong aria-hidden="true">5.</strong> Energy Cost Database</a></li><li class="chapter-item expanded "><a href="MLIR_Integration_Guide.html"><strong aria-hidden="true">6.</strong> MLIR Integration Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">8.</strong> Types</a></li><li class="chapter-item expanded "><a href="reference/expressions.html"><strong aria-hidden="true">9.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="reference/items.html"><strong aria-hidden="true">10.</strong> Items</a></li><li class="chapter-item expanded "><a href="reference/patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="reference/attributes.html"><strong aria-hidden="true">12.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="reference/memory.html"><strong aria-hidden="true">13.</strong> Memory</a></li><li class="chapter-item expanded "><a href="reference/concurrency.html"><strong aria-hidden="true">14.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="reference/energy.html"><strong aria-hidden="true">15.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">16.</strong> Overview</a></li><li class="chapter-item expanded "><a href="stdlib/string.html"><strong aria-hidden="true">17.</strong> String</a></li><li class="chapter-item expanded "><a href="stdlib/vec.html"><strong aria-hidden="true">18.</strong> Vec</a></li><li class="chapter-item expanded "><a href="stdlib/option.html"><strong aria-hidden="true">19.</strong> Option</a></li><li class="chapter-item expanded "><a href="stdlib/result.html"><strong aria-hidden="true">20.</strong> Result</a></li><li class="chapter-item expanded "><a href="stdlib/hashmap.html"><strong aria-hidden="true">21.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="stdlib/primitives.html"><strong aria-hidden="true">22.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="stdlib/collections.html"><strong aria-hidden="true">23.</strong> Collections</a></li><li class="chapter-item expanded "><a href="stdlib/io.html"><strong aria-hidden="true">24.</strong> I/O</a></li><li class="chapter-item expanded "><a href="stdlib/math.html"><strong aria-hidden="true">25.</strong> Math</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture & Research</li><li class="chapter-item expanded "><a href="heterogeneous_computing_telemetry_analysis.html"><strong aria-hidden="true">26.</strong> Heterogeneous Computing & Hardware Telemetry</a></li><li class="chapter-item expanded "><a href="EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html"><strong aria-hidden="true">27.</strong> Executive Summary: Heterogeneous Computing & Telemetry Strategy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="language-tour"><a class="header" href="#language-tour">Language Tour</a></h1>
+<p>A quick introduction to Joule's syntax and features through examples.</p>
+<h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
+<p>Variables are immutable by default. Use <code>mut</code> for mutable bindings.</p>
+<pre><code class="language-joule">let x = 42;              // immutable, type inferred as i32
+let name: String = "Jo"; // explicit type annotation
+let mut count = 0;        // mutable
+count = count + 1;
+</code></pre>
+<h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive Types</a></h2>
+<pre><code class="language-joule">let a: i8  = -128;        // signed integers: i8, i16, i32, i64, isize
+let b: u32 = 42;          // unsigned integers: u8, u16, u32, u64, usize
+let c: f64 = 3.14159;     // floats: f32, f64
+let d: bool = true;       // boolean
+let e: char = 'A';        // unicode character
+let s: String = "hello";  // string
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<pre><code class="language-joule">// Basic function with parameters and return type
+fn add(a: i32, b: i32) -&gt; i32 {
+    a + b   // last expression is the return value
+}
+
+// Public function (visible outside the module)
+pub fn greet(name: String) {
+    println!("Hello, {}", name);
+}
+
+// Mutable self parameter for methods that modify state
+fn advance(mut self) -&gt; Token {
+    let token = self.peek();
+    self.pos = self.pos + 1;
+    token
+}
+</code></pre>
+<h2 id="structs"><a class="header" href="#structs">Structs</a></h2>
+<pre><code class="language-joule">pub struct Point {
+    pub x: f64,
+    pub y: f64,
+}
+
+// Construction
+let p = Point { x: 3.0, y: 4.0 };
+
+// Field access
+let dist = p.x * p.x + p.y * p.y;
+</code></pre>
+<h2 id="impl-blocks"><a class="header" href="#impl-blocks">Impl Blocks</a></h2>
+<p>Methods are defined in <code>impl</code> blocks, separate from the struct definition.</p>
+<pre><code class="language-joule">impl Point {
+    // Associated function (constructor)
+    pub fn new(x: f64, y: f64) -&gt; Point {
+        Point { x, y }
+    }
+
+    // Method on self
+    pub fn distance(self) -&gt; f64 {
+        (self.x * self.x + self.y * self.y).sqrt()
+    }
+
+    // Mutable method
+    pub fn translate(mut self, dx: f64, dy: f64) {
+        self.x = self.x + dx;
+        self.y = self.y + dy;
+    }
+}
+
+let p = Point::new(3.0, 4.0);
+let d = p.distance();
+</code></pre>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<p>Enums can hold data in each variant, making them sum types (tagged unions).</p>
+<pre><code class="language-joule">pub enum Shape {
+    Circle { radius: f64 },
+    Rectangle { width: f64, height: f64 },
+    Triangle { base: f64, height: f64 },
+}
+
+let s = Shape::Circle { radius: 5.0 };
+</code></pre>
+<h2 id="pattern-matching"><a class="header" href="#pattern-matching">Pattern Matching</a></h2>
+<p><code>match</code> is exhaustive -- the compiler ensures you handle every variant.</p>
+<pre><code class="language-joule">fn area(shape: Shape) -&gt; f64 {
+    match shape {
+        Shape::Circle { radius } =&gt; {
+            3.14159 * radius * radius
+        }
+        Shape::Rectangle { width, height } =&gt; {
+            width * height
+        }
+        Shape::Triangle { base, height } =&gt; {
+            0.5 * base * height
+        }
+    }
+}
+</code></pre>
+<p>Match with a wildcard:</p>
+<pre><code class="language-joule">match token.kind {
+    TokenKind::Fn =&gt; parse_function(),
+    TokenKind::Struct =&gt; parse_struct(),
+    TokenKind::Enum =&gt; parse_enum(),
+    _ =&gt; parse_expression(),
+}
+</code></pre>
+<h2 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h2>
+<pre><code class="language-joule">// if-else (these are expressions -- they return values)
+let max = if a &gt; b { a } else { b };
+
+// while loop
+let mut i = 0;
+while i &lt; 10 {
+    i = i + 1;
+}
+
+// for loop
+for item in items {
+    process(item);
+}
+
+// loop (infinite, break to exit)
+loop {
+    if done() {
+        break;
+    }
+}
+</code></pre>
+<h2 id="option-and-result"><a class="header" href="#option-and-result">Option and Result</a></h2>
+<p><code>Option&lt;T&gt;</code> represents a value that may or may not exist. <code>Result&lt;T, E&gt;</code> represents an operation that can succeed or fail.</p>
+<pre><code class="language-joule">// Option
+fn find(items: Vec&lt;i32&gt;, target: i32) -&gt; Option&lt;usize&gt; {
+    let mut i = 0;
+    while i &lt; items.len() {
+        if items[i] == target {
+            return Option::Some(i);
+        }
+        i = i + 1;
+    }
+    Option::None
+}
+
+// Handling an Option
+match find(items, 42) {
+    Option::Some(index) =&gt; println!("Found at {}", index),
+    Option::None =&gt; println!("Not found"),
+}
+
+// Result
+fn parse_number(s: String) -&gt; Result&lt;i32, String&gt; {
+    // ...
+    Result::Ok(42)
+}
+
+match parse_number(input) {
+    Result::Ok(n) =&gt; println!("Got: {}", n),
+    Result::Err(e) =&gt; println!("Error: {}", e),
+}
+</code></pre>
+<h2 id="generics"><a class="header" href="#generics">Generics</a></h2>
+<p>Functions and types can be parameterized over types.</p>
+<pre><code class="language-joule">pub struct Pair&lt;A, B&gt; {
+    pub first: A,
+    pub second: B,
+}
+
+fn swap&lt;A, B&gt;(pair: Pair&lt;A, B&gt;) -&gt; Pair&lt;B, A&gt; {
+    Pair { first: pair.second, second: pair.first }
+}
+</code></pre>
+<h2 id="traits"><a class="header" href="#traits">Traits</a></h2>
+<p>Traits define shared behavior. Types implement traits with <code>impl</code>.</p>
+<pre><code class="language-joule">pub trait Display {
+    fn to_string(self) -&gt; String;
+}
+
+impl Display for Point {
+    fn to_string(self) -&gt; String {
+        "(" + self.x.to_string() + ", " + self.y.to_string() + ")"
+    }
+}
+</code></pre>
+<h2 id="collections"><a class="header" href="#collections">Collections</a></h2>
+<pre><code class="language-joule">// Vec -- dynamic array
+let mut v: Vec&lt;i32&gt; = Vec::new();
+v.push(1);
+v.push(2);
+v.push(3);
+let first = v[0];       // indexing
+let len = v.len();       // length
+
+// HashMap -- key-value store
+let mut map: HashMap&lt;String, i32&gt; = HashMap::new();
+map.insert("alice", 42);
+map.insert("bob", 17);
+</code></pre>
+<h2 id="closures"><a class="header" href="#closures">Closures</a></h2>
+<p>Anonymous functions that can capture variables from their enclosing scope:</p>
+<pre><code class="language-joule">let double = |x: i32| -&gt; i32 { x * 2 };
+let result = double(21);  // 42
+
+// Closures capture variables
+let multiplier = 3;
+let multiply = |x: i32| -&gt; i32 { x * multiplier };
+</code></pre>
+<h2 id="range-based-for-loops"><a class="header" href="#range-based-for-loops">Range-Based For Loops</a></h2>
+<p>Iterate over numeric ranges with <code>..</code>:</p>
+<pre><code class="language-joule">// Exclusive range: 0, 1, 2, ..., 9
+for i in 0..10 {
+    println!("{}", i);
+}
+
+// Use in accumulation
+let mut sum = 0;
+for i in 1..101 {
+    sum = sum + i;
+}
+// sum = 5050
+</code></pre>
+<h2 id="iterator-methods"><a class="header" href="#iterator-methods">Iterator Methods</a></h2>
+<p>Vec supports functional-style iterator methods:</p>
+<pre><code class="language-joule">let numbers = vec![1, 2, 3, 4, 5];
+
+// Transform elements
+let doubled = numbers.map(|x: i32| -&gt; i32 { x * 2 });
+
+// Filter elements
+let evens = numbers.filter(|x: i32| -&gt; bool { x % 2 == 0 });
+
+// Check conditions
+let has_negative = numbers.any(|x: i32| -&gt; bool { x &lt; 0 });
+let all_positive = numbers.all(|x: i32| -&gt; bool { x &gt; 0 });
+
+// Reduce to single value
+let sum = numbers.fold(0, |acc: i32, x: i32| -&gt; i32 { acc + x });
+</code></pre>
+<h2 id="option-and-result-methods"><a class="header" href="#option-and-result-methods">Option and Result Methods</a></h2>
+<p>Rich combinator APIs for safe value handling:</p>
+<pre><code class="language-joule">let opt: Option&lt;i32&gt; = Option::Some(42);
+
+// Query
+let is_there = opt.is_some();     // true
+let is_empty = opt.is_none();     // false
+
+// Extract with default
+let val = opt.unwrap_or(0);       // 42
+
+// Transform
+let doubled = opt.map(|x: i32| -&gt; i32 { x * 2 });  // Some(84)
+
+// Chain operations
+let result = opt.and_then(|x: i32| -&gt; Option&lt;i32&gt; {
+    if x &gt; 0 { Option::Some(x * 10) } else { Option::None }
+});
+</code></pre>
+<h2 id="box-heap-allocation"><a class="header" href="#box-heap-allocation">Box (Heap Allocation)</a></h2>
+<p><code>Box&lt;T&gt;</code> puts data on the heap. Required for recursive types.</p>
+<pre><code class="language-joule">pub enum Expr {
+    Literal(i32),
+    Add {
+        left: Box&lt;Expr&gt;,
+        right: Box&lt;Expr&gt;,
+    },
+}
+</code></pre>
+<h2 id="type-aliases"><a class="header" href="#type-aliases">Type Aliases</a></h2>
+<pre><code class="language-joule">pub type Token = Spanned&lt;TokenKind&gt;;
+pub type ParseResult&lt;T&gt; = Result&lt;T, ParseError&gt;;
+</code></pre>
+<h2 id="modules-and-imports"><a class="header" href="#modules-and-imports">Modules and Imports</a></h2>
+<pre><code class="language-joule">// Import specific items
+use crate::ast::{File, AstItem};
+use std::collections::HashMap;
+
+// Module declarations
+mod lexer;
+mod parser;
+mod typeck;
+</code></pre>
+<h2 id="energy-budgets"><a class="header" href="#energy-budgets">Energy Budgets</a></h2>
+<p>Joule's defining feature. Declare the maximum energy a function is allowed to consume:</p>
+<pre><code class="language-joule">#[energy_budget(max_joules = 0.0001)]
+fn efficient_add(x: i32, y: i32) -&gt; i32 {
+    x + y
+}
+</code></pre>
+<p>The compiler estimates energy consumption at compile time. If a function exceeds its budget, compilation fails.</p>
+<p>Power and thermal budgets are also available:</p>
+<pre><code class="language-joule">#[energy_budget(max_joules = 0.0002)]
+#[thermal_aware]
+fn thermal_safe_compute(n: i32) -&gt; i32 {
+    let result = n * n;
+    result + 1
+}
+</code></pre>
+<p>Compile with <code>--energy-check</code> to enable verification:</p>
+<pre><code class="language-bash">joulec program.joule -o program --energy-check
+</code></pre>
+<p>See <a href="energy-guide.html">Energy System Guide</a> for a deep dive.</p>
+<h2 id="built-in-macros"><a class="header" href="#built-in-macros">Built-in Macros</a></h2>
+<p>Joule provides built-in macros for common operations:</p>
+<pre><code class="language-joule">// Output
+println!("Hello, {}!", name);       // print with newline
+print!("no newline");               // print without newline
+
+// Formatting
+let s = format!("{} + {} = {}", a, b, a + b);
+
+// Collections
+let nums = vec![1, 2, 3, 4, 5];
+
+// Assertions (for testing)
+assert!(x &gt; 0);
+assert_eq!(result, expected);
+</code></pre>
+<p>For FFI with C libraries, use <code>extern</code> declarations:</p>
+<pre><code class="language-joule">extern fn sqrt(x: f64) -&gt; f64;
+</code></pre>
+<h2 id="whats-next"><a class="header" href="#whats-next">What's Next</a></h2>
+<ul>
+<li><a href="energy-guide.html">Energy System Guide</a> -- Deep dive into energy budgets</li>
+<li><a href="compiler.html">Compiler Reference</a> -- CLI flags and options</li>
+<li><a href="stdlib/">Standard Library</a> -- All 110+ modules</li>
+<li><a href="reference/">Language Reference</a> -- Formal specification</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="energy-guide.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="energy-guide.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

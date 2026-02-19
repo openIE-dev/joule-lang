@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chart - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module chart</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct PolarPlot</code></h3>
+                <p class="source">Source: chart.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(theta: &amp;[f64], r: &amp;[f64]) -&gt; Self</code></h3>
+                <p>Create new polar plot</p>
+                <p class="source">Source: chart.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn style(mut self, style: PlotStyle) -&gt; Self</code></h3>
+                <p>Set style</p>
+                <p class="source">Source: chart.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_cartesian(&amp;self) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p>Convert to Cartesian coordinates for plotting</p>
+                <p class="source">Source: chart.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p>Add to axes as regular line plot (converts to Cartesian)</p>
+                <p class="source">Source: chart.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polar_grid(axes: &amp;mut Axes, r_max: f64, num_rings: usize, num_spokes: usize)</code></h3>
+                <p class="source">Source: chart.joule:63</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct KdePlot</code></h3>
+                <p class="source">Source: chart.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: &amp;[f64]) -&gt; Self</code></h3>
+                <p>Create new KDE plot</p>
+                <p class="source">Source: chart.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bandwidth(mut self, bw: f64) -&gt; Self</code></h3>
+                <p>Set bandwidth</p>
+                <p class="source">Source: chart.joule:127</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill(mut self, fill: bool) -&gt; Self</code></h3>
+                <p>Enable fill</p>
+                <p class="source">Source: chart.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn style(mut self, style: PlotStyle) -&gt; Self</code></h3>
+                <p>Set style</p>
+                <p class="source">Source: chart.joule:139</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:146</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StackedArea</code></h3>
+                <p class="source">Source: chart.joule:199</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], y_series: Vec&lt;Vec&lt;f64&gt;&gt;) -&gt; Self</code></h3>
+                <p>Create new stacked area chart</p>
+                <p class="source">Source: chart.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn labels(mut self, labels: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Set labels</p>
+                <p class="source">Source: chart.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colors(mut self, colors: Vec&lt;Color&gt;) -&gt; Self</code></h3>
+                <p>Set colors</p>
+                <p class="source">Source: chart.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:235</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GroupedBar</code></h3>
+                <p class="source">Source: chart.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], heights: Vec&lt;Vec&lt;f64&gt;&gt;) -&gt; Self</code></h3>
+                <p>Create new grouped bar chart</p>
+                <p class="source">Source: chart.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn labels(mut self, labels: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Set labels</p>
+                <p class="source">Source: chart.joule:308</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colors(mut self, colors: Vec&lt;Color&gt;) -&gt; Self</code></h3>
+                <p>Set colors</p>
+                <p class="source">Source: chart.joule:314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn category_width(mut self, width: f64) -&gt; Self</code></h3>
+                <p>Set category width</p>
+                <p class="source">Source: chart.joule:320</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:327</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StackedBar</code></h3>
+                <p class="source">Source: chart.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], heights: Vec&lt;Vec&lt;f64&gt;&gt;) -&gt; Self</code></h3>
+                <p>Create new stacked bar chart</p>
+                <p class="source">Source: chart.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn labels(mut self, labels: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Set labels</p>
+                <p class="source">Source: chart.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colors(mut self, colors: Vec&lt;Color&gt;) -&gt; Self</code></h3>
+                <p>Set colors</p>
+                <p class="source">Source: chart.joule:396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:403</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OhlcPoint</code></h3>
+                <p class="source">Source: chart.joule:447</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CandlestickChart</code></h3>
+                <p class="source">Source: chart.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], data: Vec&lt;OhlcPoint&gt;) -&gt; Self</code></h3>
+                <p>Create new candlestick chart</p>
+                <p class="source">Source: chart.joule:471</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colors(mut self, up: Color, down: Color) -&gt; Self</code></h3>
+                <p>Set colors</p>
+                <p class="source">Source: chart.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:491</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OhlcChart</code></h3>
+                <p class="source">Source: chart.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], data: Vec&lt;OhlcPoint&gt;) -&gt; Self</code></h3>
+                <p>Create new OHLC chart</p>
+                <p class="source">Source: chart.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:555</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RadarChart</code></h3>
+                <p class="source">Source: chart.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(labels: Vec&lt;String&gt;, series: Vec&lt;Vec&lt;f64&gt;&gt;) -&gt; Self</code></h3>
+                <p>Create new radar chart</p>
+                <p class="source">Source: chart.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn series_names(mut self, names: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Set series names</p>
+                <p class="source">Source: chart.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn colors(mut self, colors: Vec&lt;Color&gt;) -&gt; Self</code></h3>
+                <p>Set colors</p>
+                <p class="source">Source: chart.joule:623</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:630</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WaterfallChart</code></h3>
+                <p class="source">Source: chart.joule:777</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(labels: Vec&lt;String&gt;, values: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p>Create new waterfall chart</p>
+                <p class="source">Source: chart.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_to_axes(&amp;self, axes: &amp;mut Axes)</code></h3>
+                <p class="source">Source: chart.joule:801</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TreemapRect</code></h3>
+                <p class="source">Source: chart.joule:863</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Treemap</code></h3>
+                <p class="source">Source: chart.joule:871</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(rectangles: Vec&lt;TreemapRect&gt;) -&gt; Self</code></h3>
+                <p>Create new treemap</p>
+                <p class="source">Source: chart.joule:877</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render(&amp;self, width: f64, height: f64) -&gt; Figure</code></h3>
+                <p class="source">Source: chart.joule:883</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn squarify(</code></h3>
+                <p class="source">Source: chart.joule:939</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SankeyFlow</code></h3>
+                <p class="source">Source: chart.joule:990</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SankeyNode</code></h3>
+                <p class="source">Source: chart.joule:999</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SankeyDiagram</code></h3>
+                <p class="source">Source: chart.joule:1006</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nodes: Vec&lt;SankeyNode&gt;, flows: Vec&lt;SankeyFlow&gt;) -&gt; Self</code></h3>
+                <p>Create new Sankey diagram</p>
+                <p class="source">Source: chart.joule:1013</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn moving_average(data: &amp;[f64], window: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: chart.joule:1024</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bollinger_bands(data: &amp;[f64], window: usize, num_std: f64) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p class="source">Source: chart.joule:1048</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn date_range(start: f64, periods: usize, freq: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: chart.joule:1072</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn axhspan(axes: &amp;mut Axes, y_min: f64, y_max: f64, color: Color, alpha: f64)</code></h3>
+                <p class="source">Source: chart.joule:1082</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn axvspan(axes: &amp;mut Axes, x_min: f64, x_max: f64, color: Color, alpha: f64)</code></h3>
+                <p class="source">Source: chart.joule:1094</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_polar_to_cartesian()</code></h3>
+                <p class="source">Source: chart.joule:1113</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_moving_average()</code></h3>
+                <p class="source">Source: chart.joule:1126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bollinger_bands()</code></h3>
+                <p class="source">Source: chart.joule:1136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_grouped_bar()</code></h3>
+                <p class="source">Source: chart.joule:1152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_candlestick()</code></h3>
+                <p class="source">Source: chart.joule:1167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_radar_chart()</code></h3>
+                <p class="source">Source: chart.joule:1181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_kde_plot()</code></h3>
+                <p class="source">Source: chart.joule:1194</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

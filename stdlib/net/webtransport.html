@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webtransport - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module webtransport</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportConfig</code></h3>
+                <p class="source">Source: webtransport.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: webtransport.joule:42</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SessionState</code></h3>
+                <p class="source">Source: webtransport.joule:58</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportSession</code></h3>
+                <p>WebTransport session</p>
+                <p class="source">Source: webtransport.joule:70</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(url: &amp;str, config: WebTransportConfig) -&gt; Result&lt;Self, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn perform_connect(</code></h3>
+                <p class="source">Source: webtransport.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; SessionState</code></h3>
+                <p>Get session state</p>
+                <p class="source">Source: webtransport.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_connected(&amp;self) -&gt; bool</code></h3>
+                <p>Check if connected</p>
+                <p class="source">Source: webtransport.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn url(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get session URL</p>
+                <p class="source">Source: webtransport.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_bidi_stream(&amp;self) -&gt; Result&lt;WebTransportBidiStream, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept_bidi_stream(&amp;self) -&gt; Result&lt;Option&lt;WebTransportBidiStream&gt;, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_uni_stream(&amp;self) -&gt; Result&lt;WebTransportSendStream, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept_uni_stream(&amp;self) -&gt; Result&lt;Option&lt;WebTransportRecvStream&gt;, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_datagram(&amp;self, data: &amp;[u8]) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_datagram(&amp;self) -&gt; Result&lt;Option&lt;Vec&lt;u8&gt;&gt;, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:257</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max_datagram_size(&amp;self) -&gt; usize</code></h3>
+                <p>Get maximum datagram size</p>
+                <p class="source">Source: webtransport.joule:284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(&amp;self, code: u32, reason: &amp;str) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:296</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close_info(&amp;self) -&gt; Option&lt;SessionCloseInfo&gt;</code></h3>
+                <p>Get close info if session was closed</p>
+                <p class="source">Source: webtransport.joule:324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poll(&amp;self) -&gt; Result&lt;Vec&lt;SessionEvent&gt;, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:330</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SessionCloseInfo</code></h3>
+                <p class="source">Source: webtransport.joule:362</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SessionEvent</code></h3>
+                <p class="source">Source: webtransport.joule:369</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportBidiStream</code></h3>
+                <p class="source">Source: webtransport.joule:386</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportStreamInner</code></h3>
+                <p class="source">Source: webtransport.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(quic_stream: QuicStream, session_id: u64) -&gt; Self</code></h3>
+                <p class="source">Source: webtransport.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; StreamId</code></h3>
+                <p>Get stream ID</p>
+                <p class="source">Source: webtransport.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;self, data: &amp;[u8]) -&gt; Result&lt;usize, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_all(&amp;self, data: &amp;[u8]) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:428</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_exact(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:459</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn finish(&amp;self) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;self, code: u32) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop_sending(&amp;self, code: u32) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:491</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportSendStream</code></h3>
+                <p>Send-only WebTransport stream</p>
+                <p class="source">Source: webtransport.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(quic_stream: QuicStream, session_id: u64) -&gt; Self</code></h3>
+                <p class="source">Source: webtransport.joule:506</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; StreamId</code></h3>
+                <p>Get stream ID</p>
+                <p class="source">Source: webtransport.joule:515</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, data: &amp;[u8]) -&gt; Result&lt;usize, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_all(&amp;mut self, data: &amp;[u8]) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:531</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn finish(&amp;mut self) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self, code: u32) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:549</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportRecvStream</code></h3>
+                <p>Receive-only WebTransport stream</p>
+                <p class="source">Source: webtransport.joule:556</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(quic_stream: QuicStream, session_id: u64) -&gt; Self</code></h3>
+                <p class="source">Source: webtransport.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; StreamId</code></h3>
+                <p>Get stream ID</p>
+                <p class="source">Source: webtransport.joule:572</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:578</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_to_end(&amp;mut self) -&gt; Result&lt;Vec&lt;u8&gt;, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:596</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop_sending(&amp;mut self, code: u32) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:614</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebTransportServer</code></h3>
+                <p>WebTransport server</p>
+                <p class="source">Source: webtransport.joule:625</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ServerSession</code></h3>
+                <p class="source">Source: webtransport.joule:631</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(addr: &amp;str, config: WebTransportConfig) -&gt; Result&lt;Self, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:640</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(&amp;mut self) -&gt; Result&lt;WebTransportSession, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:652</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_for_connect(&amp;self, quic: &amp;QuicConnection) -&gt; Result&lt;(u64, String), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:676</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_connect_response(&amp;self, quic: &amp;QuicConnection, session_id: u64) -&gt; Result&lt;(), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:682</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; Result&lt;SocketAddr, WebTransportError&gt;</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: webtransport.joule:689</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CapsuleType</code></h3>
+                <p class="source">Source: webtransport.joule:700</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_close_frame(code: u32, reason: &amp;str) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Build CLOSE_WEBTRANSPORT_SESSION capsule</p>
+                <p class="source">Source: webtransport.joule:708</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ParsedUrl</code></h3>
+                <p class="source">Source: webtransport.joule:731</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_webtransport_url(url: &amp;str) -&gt; Result&lt;ParsedUrl, WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:737</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_connect_request(url: &amp;ParsedUrl, headers: &amp;Headers) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Build HTTP/3 CONNECT request</p>
+                <p class="source">Source: webtransport.joule:754</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_varint(value: u64) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:805</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_varint(data: &amp;[u8]) -&gt; Result&lt;(u64, usize), WebTransportError&gt;</code></h3>
+                <p class="source">Source: webtransport.joule:834</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn varint_size(value: u64) -&gt; usize</code></h3>
+                <p class="source">Source: webtransport.joule:854</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WebTransportError</code></h3>
+                <p class="source">Source: webtransport.joule:866</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: QuicError) -&gt; Self</code></h3>
+                <p class="source">Source: webtransport.joule:878</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_varint_encoding()</code></h3>
+                <p class="source">Source: webtransport.joule:892</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_varint_decoding()</code></h3>
+                <p class="source">Source: webtransport.joule:900</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_url_parsing()</code></h3>
+                <p class="source">Source: webtransport.joule:907</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_session_config()</code></h3>
+                <p class="source">Source: webtransport.joule:918</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_close_frame()</code></h3>
+                <p class="source">Source: webtransport.joule:925</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

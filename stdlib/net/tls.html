@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tls - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module tls</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum TlsVersion</code></h3>
+                <p class="source">Source: tls.joule:9</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TlsConfig</code></h3>
+                <p>TLS configuration</p>
+                <p class="source">Source: tls.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: tls.joule:29</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Certificate</code></h3>
+                <p>TLS certificate</p>
+                <p class="source">Source: tls.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_der(der: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Load from DER bytes</p>
+                <p class="source">Source: tls.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_pem(pem: &amp;str) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Load from PEM string</p>
+                <p class="source">Source: tls.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_file(path: &amp;str) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Load from file</p>
+                <p class="source">Source: tls.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn der(&amp;self) -&gt; &amp;[u8]</code></h3>
+                <p class="source">Source: tls.joule:71</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PrivateKey</code></h3>
+                <p>Private key</p>
+                <p class="source">Source: tls.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_der(der: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Load from DER bytes</p>
+                <p class="source">Source: tls.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_pem(pem: &amp;str) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Load from PEM string</p>
+                <p class="source">Source: tls.joule:88</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_file(path: &amp;str) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Load from file</p>
+                <p class="source">Source: tls.joule:96</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TlsConnector</code></h3>
+                <p>TLS connector for client connections</p>
+                <p class="source">Source: tls.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Create new TLS connector</p>
+                <p class="source">Source: tls.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(config: TlsConfig) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Create with config</p>
+                <p class="source">Source: tls.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_CTX_new(method: *const std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn TLS_client_method() -&gt; *const std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(&amp;self, hostname: &amp;str, stream: TcpStream) -&gt; Result&lt;TlsStream, TlsError&gt;</code></h3>
+                <p class="source">Source: tls.joule:162</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TlsAcceptor</code></h3>
+                <p>TLS acceptor for server connections</p>
+                <p class="source">Source: tls.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(cert: Certificate, key: PrivateKey) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p>Create new TLS acceptor</p>
+                <p class="source">Source: tls.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(</code></h3>
+                <p>Create with config</p>
+                <p class="source">Source: tls.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(&amp;self, stream: TcpStream) -&gt; Result&lt;TlsStream, TlsError&gt;</code></h3>
+                <p class="source">Source: tls.joule:191</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TlsStream</code></h3>
+                <p>TLS stream wrapping a TCP stream</p>
+                <p class="source">Source: tls.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(hostname: &amp;str, stream: TcpStream) -&gt; Result&lt;Self, TlsError&gt;</code></h3>
+                <p class="source">Source: tls.joule:206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_with_connector(</code></h3>
+                <p class="source">Source: tls.joule:211</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_new(ctx: *mut std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_set_fd(ssl: *mut std::ffi::c_void, fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_set_tlsext_host_name(ssl: *mut std::ffi::c_void, name: *const i8) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_connect(ssl: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSLCreateContext(</code></h3>
+                <p class="source">Source: tls.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSLSetIOFuncs(</code></h3>
+                <p class="source">Source: tls.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSLSetPeerDomainName(</code></h3>
+                <p class="source">Source: tls.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSLHandshake(context: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept_with_acceptor(</code></h3>
+                <p class="source">Source: tls.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_CTX_new(method: *const std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:315</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn TLS_server_method() -&gt; *const std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:316</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_CTX_use_certificate_ASN1(</code></h3>
+                <p class="source">Source: tls.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_CTX_use_PrivateKey_ASN1(</code></h3>
+                <p class="source">Source: tls.joule:322</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_new(ctx: *mut std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:328</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_set_fd(ssl: *mut std::ffi::c_void, fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:329</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_accept(ssl: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:330</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn negotiated_protocol(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get negotiated ALPN protocol</p>
+                <p class="source">Source: tls.joule:380</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peer_certificate(&amp;self) -&gt; Option&lt;Certificate&gt;</code></h3>
+                <p>Get peer certificate</p>
+                <p class="source">Source: tls.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_get_peer_certificate(ssl: *mut std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: tls.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn i2d_X509(cert: *mut std::ffi::c_void, out: *mut *mut u8) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn X509_free(cert: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: tls.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_ref(&amp;self) -&gt; &amp;TcpStream</code></h3>
+                <p>Get underlying TCP stream</p>
+                <p class="source">Source: tls.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: tls.joule:427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_read(ssl: *mut std::ffi::c_void, buf: *mut u8, num: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, buf: &amp;[u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: tls.joule:452</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_write(ssl: *mut std::ffi::c_void, buf: *const u8, num: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flush(&amp;mut self) -&gt; Result&lt;(), std::io::Error&gt;</code></h3>
+                <p class="source">Source: tls.joule:473</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: tls.joule:479</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_shutdown(ssl: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: tls.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn SSL_free(ssl: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: tls.joule:484</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TlsError</code></h3>
+                <p class="source">Source: tls.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: tls.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_pem(pem: &amp;str, expected_label: &amp;str) -&gt; Result&lt;Vec&lt;u8&gt;, TlsError&gt;</code></h3>
+                <p>Decode PEM to DER</p>
+                <p class="source">Source: tls.joule:515</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

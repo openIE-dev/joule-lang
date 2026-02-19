@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>i2c - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module i2c</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct I2cAddress(u16);</code></h3>
+                <p class="source">Source: i2c.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new_7bit(addr: u8) -&gt; Self</code></h3>
+                <p>Create 7-bit address</p>
+                <p class="source">Source: i2c.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new_10bit(addr: u16) -&gt; Self</code></h3>
+                <p>Create 10-bit address</p>
+                <p class="source">Source: i2c.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value(&amp;self) -&gt; u16</code></h3>
+                <p>Get raw address value</p>
+                <p class="source">Source: i2c.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_10bit(&amp;self) -&gt; bool</code></h3>
+                <p>Check if 10-bit address</p>
+                <p class="source">Source: i2c.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(addr: u8) -&gt; Self</code></h3>
+                <p class="source">Source: i2c.joule:33</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct I2cBus</code></h3>
+                <p>I2C bus handle</p>
+                <p class="source">Source: i2c.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;u8&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:48</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(bus_num: u8) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: *const i8, flags: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: i2c.joule:73</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_RDWR: i32</code></h3>
+                <p class="source">Source: i2c.joule:76</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bus_num(&amp;self) -&gt; u8</code></h3>
+                <p>Get bus number</p>
+                <p class="source">Source: i2c.joule:105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan(&amp;self) -&gt; Result&lt;Vec&lt;I2cAddress&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:111</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device_present(&amp;self, addr: I2cAddress) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: i2c.joule:129</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const I2C_SLAVE: u64</code></h3>
+                <p class="source">Source: i2c.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(fd: i32, buf: *mut u8, count: usize) -&gt; isize;</code></h3>
+                <p class="source">Source: i2c.joule:143</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device(&amp;self, addr: I2cAddress) -&gt; Result&lt;I2cDevice, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: i2c.joule:162</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const I2C_SLAVE: u64</code></h3>
+                <p class="source">Source: i2c.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self, addr: I2cAddress, buf: &amp;mut [u8]) -&gt; Result&lt;usize, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;self, addr: I2cAddress, buf: &amp;[u8]) -&gt; Result&lt;usize, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_read(</code></h3>
+                <p class="source">Source: i2c.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: i2c.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: i2c.joule:216</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct I2cDevice</code></h3>
+                <p>I2C device handle (specific address on bus)</p>
+                <p class="source">Source: i2c.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn address(&amp;self) -&gt; I2cAddress</code></h3>
+                <p>Get device address</p>
+                <p class="source">Source: i2c.joule:232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(fd: i32, buf: *mut u8, count: usize) -&gt; isize;</code></h3>
+                <p class="source">Source: i2c.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;self, buf: &amp;[u8]) -&gt; Result&lt;usize, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:260</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(fd: i32, buf: *const u8, count: usize) -&gt; isize;</code></h3>
+                <p class="source">Source: i2c.joule:264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_read(&amp;self, write_buf: &amp;[u8], read_buf: &amp;mut [u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: i2c.joule:286</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const I2C_RDWR: u64</code></h3>
+                <p class="source">Source: i2c.joule:289</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const I2C_M_RD: u16</code></h3>
+                <p class="source">Source: i2c.joule:290</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct I2cMsg</code></h3>
+                <p class="source">Source: i2c.joule:293</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct I2cRdwrIoctlData</code></h3>
+                <p class="source">Source: i2c.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_reg(&amp;self, reg: u8) -&gt; Result&lt;u8, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_reg(&amp;self, reg: u8, value: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_regs(&amp;self, start_reg: u8, buf: &amp;mut [u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:357</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_regs(&amp;self, start_reg: u8, values: &amp;[u8]) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_reg16_be(&amp;self, reg: u8) -&gt; Result&lt;u16, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_reg16_le(&amp;self, reg: u8) -&gt; Result&lt;u16, DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:381</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_reg16_be(&amp;self, reg: u8, value: u16) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_reg16_le(&amp;self, reg: u8, value: u16) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:397</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn modify_reg&lt;F&gt;(&amp;self, reg: u8, f: F) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_bits(&amp;self, reg: u8, mask: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_bits(&amp;self, reg: u8, mask: u8) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: i2c.joule:422</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const EEPROM_24C02: I2cAddress</code></h3>
+                <p>EEPROM (24CXX series)</p>
+                <p class="source">Source: i2c.joule:432</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const EEPROM_24C04: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:433</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const EEPROM_24C08: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:434</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LM75: I2cAddress</code></h3>
+                <p>Temperature sensors</p>
+                <p class="source">Source: i2c.joule:437</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TMP102: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:438</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TMP117: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:439</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MPU6050: I2cAddress</code></h3>
+                <p>IMU sensors</p>
+                <p class="source">Source: i2c.joule:442</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BMI160: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:443</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LSM6DS3: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:444</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BMP280: I2cAddress</code></h3>
+                <p>Pressure sensors</p>
+                <p class="source">Source: i2c.joule:447</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BME280: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:448</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BMP388: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:449</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DS1307: I2cAddress</code></h3>
+                <p>Real-time clocks</p>
+                <p class="source">Source: i2c.joule:452</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DS3231: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:453</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PCF8523: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:454</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ADS1115: I2cAddress</code></h3>
+                <p>ADCs</p>
+                <p class="source">Source: i2c.joule:457</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MCP3421: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:458</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MCP4725: I2cAddress</code></h3>
+                <p>DACs</p>
+                <p class="source">Source: i2c.joule:461</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PCF8574: I2cAddress</code></h3>
+                <p>IO Expanders</p>
+                <p class="source">Source: i2c.joule:464</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MCP23017: I2cAddress</code></h3>
+                <p class="source">Source: i2c.joule:465</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SSD1306: I2cAddress</code></h3>
+                <p>OLED displays</p>
+                <p class="source">Source: i2c.joule:468</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

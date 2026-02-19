@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nn - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module nn</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait Module</code></h3>
+                <p>Trait for all neural network modules</p>
+                <p class="source">Source: nn.joule:9</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor;</code></h3>
+                <p>Forward pass</p>
+                <p class="source">Source: nn.joule:11</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;;</code></h3>
+                <p>Get all trainable parameters</p>
+                <p class="source">Source: nn.joule:14</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;;</code></h3>
+                <p>Get mutable references to parameters</p>
+                <p class="source">Source: nn.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool);</code></h3>
+                <p>Set training mode</p>
+                <p class="source">Source: nn.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool;</code></h3>
+                <p>Check if in training mode</p>
+                <p class="source">Source: nn.joule:23</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device);</code></h3>
+                <p>Move module to device</p>
+                <p class="source">Source: nn.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_parameters(&amp;self) -&gt; usize</code></h3>
+                <p>Number of parameters</p>
+                <p class="source">Source: nn.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p>Zero gradients</p>
+                <p class="source">Source: nn.joule:34</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Linear</code></h3>
+                <p>Linear (fully connected) layer: y &#x3D; xW^T + b</p>
+                <p class="source">Source: nn.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(in_features: usize, out_features: usize, bias: bool) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:98</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:110</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:114</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Bilinear</code></h3>
+                <p>Bilinear layer: y &#x3D; x1 A x2 + b</p>
+                <p class="source">Source: nn.joule:123</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, x1: &amp;Tensor, x2: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:160</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Conv1d</code></h3>
+                <p>1D Convolution</p>
+                <p class="source">Source: nn.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:257</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:268</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Conv2d</code></h3>
+                <p>2D Convolution</p>
+                <p class="source">Source: nn.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn simple(</code></h3>
+                <p>Create with simple parameters (kernel_size, stride, padding as single values)</p>
+                <p class="source">Source: nn.joule:329</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:381</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConvTranspose2d</code></h3>
+                <p>Transposed 2D Convolution (for upsampling)</p>
+                <p class="source">Source: nn.joule:388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:445</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:460</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:472</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:473</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:475</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BatchNorm1d</code></h3>
+                <p>Batch Normalization</p>
+                <p class="source">Source: nn.joule:486</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_features: usize, eps: f64, momentum: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:498</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:543</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:547</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:551</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:552</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:554</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BatchNorm2d</code></h3>
+                <p>Batch Normalization 2D</p>
+                <p class="source">Source: nn.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_features: usize, eps: f64, momentum: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:623</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:627</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:628</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:630</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LayerNorm</code></h3>
+                <p>Layer Normalization</p>
+                <p class="source">Source: nn.joule:639</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(normalized_shape: &amp;[usize], eps: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:648</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:677</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:681</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:685</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:686</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:688</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GroupNorm</code></h3>
+                <p>Group Normalization</p>
+                <p class="source">Source: nn.joule:695</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_groups: usize, num_channels: usize, eps: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:705</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:753</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:757</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:761</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:762</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:764</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ReLU;</code></h3>
+                <p>ReLU activation</p>
+                <p class="source">Source: nn.joule:775</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:779</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:783</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:784</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:785</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:786</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:787</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LeakyReLU</code></h3>
+                <p>Leaky ReLU activation</p>
+                <p class="source">Source: nn.joule:791</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(negative_slope: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:796</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:803</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:807</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:808</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:809</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:810</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:811</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GELU;</code></h3>
+                <p>GELU activation</p>
+                <p class="source">Source: nn.joule:815</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:819</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:823</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:824</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:825</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:826</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:827</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SiLU;</code></h3>
+                <p>SiLU (Swish) activation</p>
+                <p class="source">Source: nn.joule:831</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:835</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:839</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:840</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:841</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:842</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:843</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Sigmoid;</code></h3>
+                <p>Sigmoid activation</p>
+                <p class="source">Source: nn.joule:847</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:851</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:855</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:856</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:857</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:858</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:859</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Tanh;</code></h3>
+                <p>Tanh activation</p>
+                <p class="source">Source: nn.joule:863</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:867</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:871</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:872</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:873</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:874</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:875</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Softmax</code></h3>
+                <p>Softmax activation</p>
+                <p class="source">Source: nn.joule:879</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(dim: i64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:884</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:891</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:895</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:896</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:897</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:898</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:899</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MaxPool2d</code></h3>
+                <p>Max Pooling 2D</p>
+                <p class="source">Source: nn.joule:907</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:914</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn simple(kernel_size: usize, stride: Option&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:926</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:934</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:938</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:939</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:940</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:941</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:942</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AvgPool2d</code></h3>
+                <p>Average Pooling 2D</p>
+                <p class="source">Source: nn.joule:946</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:953</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:968</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:972</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:973</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:974</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:975</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:976</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AdaptiveAvgPool2d</code></h3>
+                <p>Adaptive Average Pooling 2D</p>
+                <p class="source">Source: nn.joule:980</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(output_size: (usize, usize)) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:985</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:992</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:996</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:997</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, _mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:998</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:999</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1000</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Dropout</code></h3>
+                <p>Dropout</p>
+                <p class="source">Source: nn.joule:1008</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1014</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1021</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1029</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1030</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:1031</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:1032</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1033</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Dropout2d</code></h3>
+                <p>Dropout 2D (spatial dropout for CNNs)</p>
+                <p class="source">Source: nn.joule:1037</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1043</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1050</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1059</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1060</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:1061</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:1062</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, _device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1063</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LSTMCell</code></h3>
+                <p>LSTM cell</p>
+                <p class="source">Source: nn.joule:1071</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(input_size: usize, hidden_size: usize, bias: bool) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1082</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward_step(</code></h3>
+                <p class="source">Source: nn.joule:1106</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LSTM</code></h3>
+                <p>Full LSTM layer</p>
+                <p class="source">Source: nn.joule:1131</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: nn.joule:1141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(</code></h3>
+                <p class="source">Source: nn.joule:1176</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MultiheadAttention</code></h3>
+                <p>Multi-Head Attention</p>
+                <p class="source">Source: nn.joule:1251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(embed_dim: usize, num_heads: usize, dropout: f64) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(</code></h3>
+                <p class="source">Source: nn.joule:1284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1344</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1353</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:1362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:1370</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1372</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Embedding</code></h3>
+                <p>Embedding lookup table</p>
+                <p class="source">Source: nn.joule:1385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_embeddings: usize, embedding_dim: usize, padding_idx: Option&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1394</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_pretrained(weight: Tensor, freeze: bool, padding_idx: Option&lt;usize&gt;) -&gt; Self</code></h3>
+                <p>Create from pretrained weights</p>
+                <p class="source">Source: nn.joule:1407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:1439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:1440</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1442</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Sequential</code></h3>
+                <p>Sequential container</p>
+                <p class="source">Source: nn.joule:1452</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: nn.joule:1458</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add&lt;M: Module + &#x27;static&gt;(&amp;mut self, module: M)</code></h3>
+                <p class="source">Source: nn.joule:1465</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1471</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1479</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
+                <p class="source">Source: nn.joule:1483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
+                <p class="source">Source: nn.joule:1487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: nn.joule:1494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
+                <p class="source">Source: nn.joule:1496</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linear(input: &amp;Tensor, weight: &amp;Tensor, bias: Option&lt;&amp;Tensor&gt;) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1512</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conv2d(</code></h3>
+                <p class="source">Source: nn.joule:1522</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn batch_norm(</code></h3>
+                <p class="source">Source: nn.joule:1540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dropout(input: &amp;Tensor, p: f64, training: bool) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max_pool2d(</code></h3>
+                <p class="source">Source: nn.joule:1590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn softmax(input: &amp;Tensor, dim: i64) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1601</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log_softmax(input: &amp;Tensor, dim: i64) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1607</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn relu(input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1613</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gelu(input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sigmoid(input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1625</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tanh(input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1631</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cross_entropy(</code></h3>
+                <p class="source">Source: nn.joule:1637</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn binary_cross_entropy_with_logits(</code></h3>
+                <p class="source">Source: nn.joule:1668</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mse_loss(input: &amp;Tensor, target: &amp;Tensor, reduction: &amp;str) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1695</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn l1_loss(input: &amp;Tensor, target: &amp;Tensor, reduction: &amp;str) -&gt; Tensor</code></h3>
+                <p class="source">Source: nn.joule:1708</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

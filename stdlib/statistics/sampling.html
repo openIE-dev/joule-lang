@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sampling - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module sampling</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn simple_random_sample&lt;T: Clone&gt;(population: &amp;[T], n: usize) -&gt; Vec&lt;T&gt;</code></h3>
+                <p class="source">Source: sampling.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample_with_replacement&lt;T: Clone&gt;(population: &amp;[T], n: usize) -&gt; Vec&lt;T&gt;</code></h3>
+                <p class="source">Source: sampling.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn systematic_sample&lt;T: Clone&gt;(population: &amp;[T], n: usize) -&gt; Vec&lt;T&gt;</code></h3>
+                <p class="source">Source: sampling.joule:34</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stratified_sample&lt;T: Clone&gt;(</code></h3>
+                <p class="source">Source: sampling.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn proportional_stratified_sample&lt;T: Clone&gt;(</code></h3>
+                <p class="source">Source: sampling.joule:65</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cluster_sample&lt;T: Clone&gt;(</code></h3>
+                <p class="source">Source: sampling.joule:84</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ReservoirSampler</code></h3>
+                <p>Reservoir sampling (for streaming data)</p>
+                <p class="source">Source: sampling.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(k: usize) -&gt; Self</code></h3>
+                <p>Create new reservoir sampler</p>
+                <p class="source">Source: sampling.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;mut self, item: T)</code></h3>
+                <p class="source">Source: sampling.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self) -&gt; &amp;[T]</code></h3>
+                <p>Get current sample</p>
+                <p class="source">Source: sampling.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn count(&amp;self) -&gt; usize</code></h3>
+                <p>Get count of items seen</p>
+                <p class="source">Source: sampling.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn weighted_sample&lt;T: Clone&gt;(</code></h3>
+                <p class="source">Source: sampling.joule:144</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Bootstrap</code></h3>
+                <p>Bootstrap resampling</p>
+                <p class="source">Source: sampling.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: &amp;&#x27;a [T], n_bootstrap: usize) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run&lt;F, R&gt;(&amp;self, statistic: F) -&gt; Vec&lt;R&gt;</code></h3>
+                <p class="source">Source: sampling.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn confidence_interval&lt;F&gt;(&amp;self, statistic: F, alpha: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: sampling.joule:216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bca_confidence_interval&lt;F&gt;(&amp;self, statistic: F, alpha: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: sampling.joule:231</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Jackknife</code></h3>
+                <p>Jackknife resampling</p>
+                <p class="source">Source: sampling.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: &amp;&#x27;a [T]) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:296</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimates&lt;F, R&gt;(&amp;self, statistic: F) -&gt; Vec&lt;R&gt;</code></h3>
+                <p class="source">Source: sampling.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bias&lt;F&gt;(&amp;self, statistic: F) -&gt; f64</code></h3>
+                <p class="source">Source: sampling.joule:320</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn standard_error&lt;F&gt;(&amp;self, statistic: F) -&gt; f64</code></h3>
+                <p class="source">Source: sampling.joule:333</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PermutationTest</code></h3>
+                <p>Permutation test</p>
+                <p class="source">Source: sampling.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(group1: &amp;&#x27;a [f64], group2: &amp;&#x27;a [f64], n_permutations: usize) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:357</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test&lt;F&gt;(&amp;self, statistic: F) -&gt; f64</code></h3>
+                <p class="source">Source: sampling.joule:367</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CrossValidator</code></h3>
+                <p>Cross-validation splits</p>
+                <p class="source">Source: sampling.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(n_splits: usize, shuffle_data: bool) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:401</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn split(&amp;self, n_samples: usize) -&gt; Vec&lt;(Vec&lt;usize&gt;, Vec&lt;usize&gt;)&gt;</code></h3>
+                <p class="source">Source: sampling.joule:407</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LeaveOneOut;</code></h3>
+                <p>Leave-one-out cross-validation</p>
+                <p class="source">Source: sampling.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn split(n_samples: usize) -&gt; Vec&lt;(Vec&lt;usize&gt;, Vec&lt;usize&gt;)&gt;</code></h3>
+                <p class="source">Source: sampling.joule:442</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StratifiedKFold</code></h3>
+                <p>Stratified k-fold cross-validation</p>
+                <p class="source">Source: sampling.joule:454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(n_splits: usize) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:459</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn split(&amp;self, labels: &amp;[usize]) -&gt; Vec&lt;(Vec&lt;usize&gt;, Vec&lt;usize&gt;)&gt;</code></h3>
+                <p class="source">Source: sampling.joule:465</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MonteCarlo</code></h3>
+                <p>Monte Carlo simulation</p>
+                <p class="source">Source: sampling.joule:503</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(n_simulations: usize) -&gt; Self</code></h3>
+                <p class="source">Source: sampling.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run&lt;F, R&gt;(&amp;self, simulation: F) -&gt; Vec&lt;R&gt;</code></h3>
+                <p class="source">Source: sampling.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_probability&lt;F&gt;(&amp;self, event: F) -&gt; f64</code></h3>
+                <p class="source">Source: sampling.joule:525</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_expectation&lt;F&gt;(&amp;self, random_variable: F) -&gt; f64</code></h3>
+                <p class="source">Source: sampling.joule:538</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

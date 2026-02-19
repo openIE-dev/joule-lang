@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Backend Orchestrator for Joule Compiler"><title>joule_codegen - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-ca0dd0c4.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="joule_codegen" data-themes="" data-resource-suffix="" data-rustdoc-version="1.93.1 (01f6ddf75 2026-02-11)" data-channel="1.93.1" data-search-js="search-9e2438ea.js" data-stringdex-js="stringdex-a3946164.js" data-settings-js="settings-c38705f0.js" ><script src="../static.files/storage-e2aeef58.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-a410ff4d.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-263c88ec.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Crate joule_codegen</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../joule_codegen/index.html">joule_<wbr>codegen</a><span class="version">1.0.0</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#backend-selection" title="Backend Selection">Backend Selection</a></li><li><a href="#hybrid-compilation" title="Hybrid Compilation">Hybrid Compilation</a></li><li><a href="#example" title="Example">Example</a></li></ul><h3><a href="#reexports">Crate Items</a></h3><ul class="block"><li><a href="#reexports" title="Re-exports">Re-exports</a></li><li><a href="#modules" title="Modules">Modules</a></li><li><a href="#enums" title="Enums">Enums</a></li><li><a href="#types" title="Type Aliases">Type Aliases</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>joule_<wbr>codegen</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/joule_codegen/lib.rs.html#1-102">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Backend Orchestrator for Joule Compiler</p>
+<p>This crate provides unified access to all Joule codegen backends:</p>
+<ul>
+<li>Cranelift: Fast compilation for debug builds</li>
+<li>LLVM: Optimized compilation for release builds</li>
+<li>MLIR: Heterogeneous computing (GPU, accelerators)</li>
+</ul>
+<h2 id="backend-selection"><a class="doc-anchor" href="#backend-selection">§</a>Backend Selection</h2>
+<p>The orchestrator can automatically select the best backend based on:</p>
+<ul>
+<li>Build profile (debug vs release)</li>
+<li>Target architecture</li>
+<li>Code characteristics (contains GPU kernels, etc.)</li>
+<li>User preferences (–backend flag)</li>
+</ul>
+<h2 id="hybrid-compilation"><a class="doc-anchor" href="#hybrid-compilation">§</a>Hybrid Compilation</h2>
+<p>For programs with mixed CPU and GPU code, the hybrid compiler can:</p>
+<ul>
+<li>Analyze MIR to detect GPU-annotated functions</li>
+<li>Split code into CPU and GPU modules</li>
+<li>Compile each with the appropriate backend</li>
+<li>Link the results into a unified executable</li>
+</ul>
+<p>See the <a href="hybrid/index.html" title="mod joule_codegen::hybrid"><code>hybrid</code></a> module for more details.</p>
+<h2 id="example"><a class="doc-anchor" href="#example">§</a>Example</h2>
+<div class="example-wrap ignore"><a href="#" class="tooltip" title="This example is not tested">ⓘ</a><pre class="rust rust-example-rendered"><code><span class="kw">use </span>joule_codegen::{Orchestrator, Backend, CompileOptions};
+
+<span class="kw">let </span>orchestrator = Orchestrator::new();
+
+<span class="comment">// Auto-select backend
+</span><span class="kw">let </span>result = orchestrator.compile(<span class="kw-2">&amp;</span>mir_context, CompileOptions::default())<span class="question-mark">?</span>;
+
+<span class="comment">// Or specify backend explicitly
+</span><span class="kw">let </span>result = orchestrator.compile_with_backend(
+    <span class="kw-2">&amp;</span>mir_context,
+    Backend::Llvm,
+    CompileOptions::release(),
+)<span class="question-mark">?</span>;
+
+<span class="comment">// For hybrid CPU/GPU compilation
+</span><span class="kw">use </span>joule_codegen::hybrid::{HybridCompiler, HybridTarget};
+<span class="kw">let </span>hybrid = HybridCompiler::new(HybridTarget::Cuda);
+<span class="kw">let </span>result = hybrid.compile_hybrid(<span class="kw-2">&amp;</span>mir_context, <span class="number">2</span>)<span class="question-mark">?</span>;</code></pre></div></div></details><h2 id="reexports" class="section-header">Re-exports<a href="#reexports" class="anchor">§</a></h2><dl class="item-table reexports"><dt id="reexport.Backend"><code>pub use backend::<a class="enum" href="backend/enum.Backend.html" title="enum joule_codegen::backend::Backend">Backend</a>;</code></dt><dt id="reexport.BackendCapabilities"><code>pub use backend::<a class="struct" href="backend/struct.BackendCapabilities.html" title="struct joule_codegen::backend::BackendCapabilities">BackendCapabilities</a>;</code></dt><dt id="reexport.CompileOptions"><code>pub use orchestrator::<a class="struct" href="orchestrator/struct.CompileOptions.html" title="struct joule_codegen::orchestrator::CompileOptions">CompileOptions</a>;</code></dt><dt id="reexport.CompileResult"><code>pub use orchestrator::<a class="struct" href="orchestrator/struct.CompileResult.html" title="struct joule_codegen::orchestrator::CompileResult">CompileResult</a>;</code></dt><dt id="reexport.Orchestrator"><code>pub use orchestrator::<a class="struct" href="orchestrator/struct.Orchestrator.html" title="struct joule_codegen::orchestrator::Orchestrator">Orchestrator</a>;</code></dt><dt id="reexport.CodeGenerator"><code>pub use traits::<a class="trait" href="traits/trait.CodeGenerator.html" title="trait joule_codegen::traits::CodeGenerator">CodeGenerator</a>;</code></dt></dl><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="backend/index.html" title="mod joule_codegen::backend">backend</a></dt><dd>Backend definitions and capabilities</dd><dt><a class="mod" href="hybrid/index.html" title="mod joule_codegen::hybrid">hybrid</a></dt><dd>Hybrid Compilation Support</dd><dt><a class="mod" href="orchestrator/index.html" title="mod joule_codegen::orchestrator">orchestrator</a></dt><dd>Backend orchestrator - intelligent backend selection</dd><dt><a class="mod" href="traits/index.html" title="mod joule_codegen::traits">traits</a></dt><dd>Code generator trait definitions</dd></dl><h2 id="enums" class="section-header">Enums<a href="#enums" class="anchor">§</a></h2><dl class="item-table"><dt><a class="enum" href="enum.CodegenError.html" title="enum joule_codegen::CodegenError">Codegen<wbr>Error</a></dt><dd>Errors that can occur during code generation</dd></dl><h2 id="types" class="section-header">Type Aliases<a href="#types" class="anchor">§</a></h2><dl class="item-table"><dt><a class="type" href="type.CodegenResult.html" title="type joule_codegen::CodegenResult">Codegen<wbr>Result</a></dt></dl></section></div></main></body></html>

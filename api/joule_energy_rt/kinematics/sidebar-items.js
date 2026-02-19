@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["DerivativeChain","DerivativeComputer","EfficiencyMetrics","EnergyDerivatives","KinematicConfig","KinematicMonitor","KinematicTelemetry","Sample","TelemetryStats","ThermalDerivatives","ThermodynamicCoupling"]};

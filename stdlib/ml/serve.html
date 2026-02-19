@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>serve - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module serve</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct ServerConfig</code></h3>
+                <p class="source">Source: serve.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:57</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CorsConfig</code></h3>
+                <p class="source">Source: serve.joule:76</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn permissive() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:84</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TlsConfig</code></h3>
+                <p class="source">Source: serve.joule:96</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RateLimitConfig</code></h3>
+                <p class="source">Source: serve.joule:103</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyTrackingConfig</code></h3>
+                <p class="source">Source: serve.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:132</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SloConfig</code></h3>
+                <p class="source">Source: serve.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:162</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CompletionRequest</code></h3>
+                <p class="source">Source: serve.joule:180</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CompletionResponse</code></h3>
+                <p class="source">Source: serve.joule:205</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CompletionChoice</code></h3>
+                <p class="source">Source: serve.joule:224</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UsageStats</code></h3>
+                <p class="source">Source: serve.joule:232</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyUsage</code></h3>
+                <p class="source">Source: serve.joule:240</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ChatMessage</code></h3>
+                <p class="source">Source: serve.joule:255</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ChatCompletionRequest</code></h3>
+                <p class="source">Source: serve.joule:262</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ChatCompletionResponse</code></h3>
+                <p class="source">Source: serve.joule:277</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ChatChoice</code></h3>
+                <p class="source">Source: serve.joule:289</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StreamChunk</code></h3>
+                <p class="source">Source: serve.joule:297</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StreamChoice</code></h3>
+                <p class="source">Source: serve.joule:307</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LoadedModel</code></h3>
+                <p>Loaded model entry</p>
+                <p class="source">Source: serve.joule:318</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelVersion</code></h3>
+                <p class="source">Source: serve.joule:333</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelRegistry</code></h3>
+                <p>Model registry for managing multiple models</p>
+                <p class="source">Source: serve.joule:342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_engine(&amp;self, model_id: &amp;str) -&gt; Option&lt;Arc&lt;Engine&gt;&gt;</code></h3>
+                <p class="source">Source: serve.joule:357</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_models(&amp;self) -&gt; Vec&lt;String&gt;</code></h3>
+                <p class="source">Source: serve.joule:362</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ServerMetrics</code></h3>
+                <p class="source">Source: serve.joule:374</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SloCompliance</code></h3>
+                <p class="source">Source: serve.joule:407</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MetricsCollector</code></h3>
+                <p>Metrics collector</p>
+                <p class="source">Source: serve.joule:418</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_request(</code></h3>
+                <p class="source">Source: serve.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_metrics(&amp;self, slo: &amp;SloConfig, active_requests: usize) -&gt; ServerMetrics</code></h3>
+                <p class="source">Source: serve.joule:506</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn percentile(values: &amp;[Duration], p: f64) -&gt; Duration</code></h3>
+                <p class="source">Source: serve.joule:603</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn average_duration(values: &amp;[Duration]) -&gt; Duration</code></h3>
+                <p class="source">Source: serve.joule:613</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ServeError</code></h3>
+                <p class="source">Source: serve.joule:627</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: InferenceError) -&gt; Self</code></h3>
+                <p class="source">Source: serve.joule:638</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Server</code></h3>
+                <p>Model server</p>
+                <p class="source">Source: serve.joule:644</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(config: ServerConfig) -&gt; Self</code></h3>
+                <p>Create new server</p>
+                <p class="source">Source: serve.joule:654</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unload_model(&amp;self, model_id: &amp;str) -&gt; Result&lt;(), ServeError&gt;</code></h3>
+                <p>Unload model</p>
+                <p class="source">Source: serve.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_models(&amp;self) -&gt; Vec&lt;ModelInfo&gt;</code></h3>
+                <p>List loaded models</p>
+                <p class="source">Source: serve.joule:729</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metrics(&amp;self) -&gt; ServerMetrics</code></h3>
+                <p>Get server metrics</p>
+                <p class="source">Source: serve.joule:735</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop(&amp;self)</code></h3>
+                <p>Stop server</p>
+                <p class="source">Source: serve.joule:1018</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn health(&amp;self) -&gt; HealthStatus</code></h3>
+                <p>Health check</p>
+                <p class="source">Source: serve.joule:1023</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn format_chat_prompt(&amp;self, messages: &amp;[ChatMessage]) -&gt; String</code></h3>
+                <p class="source">Source: serve.joule:1037</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HealthStatus</code></h3>
+                <p class="source">Source: serve.joule:1057</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_request_energy(</code></h3>
+                <p>Get energy cost estimate for a request</p>
+                <p class="source">Source: serve.joule:1110</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

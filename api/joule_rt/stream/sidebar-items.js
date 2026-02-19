@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["empty","iter","once","repeat"],"struct":["All","Any","Chain","CollectVec","Count","Empty","Enumerate","Filter","FilterMap","Fold","ForEach","Inspect","Iter","Map","Next","Once","ReceiverStream","Repeat","Skip","Take"],"trait":["Stream","StreamExt"]};

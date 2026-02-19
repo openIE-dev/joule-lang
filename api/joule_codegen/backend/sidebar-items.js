@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Backend","CompileSpeed","OptLevel"],"struct":["BackendCapabilities","Target","TargetOptions"]};

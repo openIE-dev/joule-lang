@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>morphology - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module morphology</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum StructuringElement</code></h3>
+                <p class="source">Source: morphology.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_structuring_element(shape: StructuringElement, width: usize, height: usize) -&gt; Vec&lt;Vec&lt;bool&gt;&gt;</code></h3>
+                <p class="source">Source: morphology.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erode(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dilate(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn opening(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn closing(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn morphological_gradient(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn top_hat(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn black_hat(image: &amp;Image, kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn skeletonize(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hit_or_miss(image: &amp;Image, hit_kernel: &amp;[Vec&lt;bool&gt;], miss_kernel: &amp;[Vec&lt;bool&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn distance_transform(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn watershed(image: &amp;Image, markers: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: morphology.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connected_components(image: &amp;Image, connectivity: u8) -&gt; (Image, usize)</code></h3>
+                <p class="source">Source: morphology.joule:312</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

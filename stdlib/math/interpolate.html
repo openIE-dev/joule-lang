@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>interpolate - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module interpolate</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum InterpolationMethod</code></h3>
+                <p class="source">Source: interpolate.joule:12</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ExtrapolationMode</code></h3>
+                <p class="source">Source: interpolate.joule:33</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Interp1d</code></h3>
+                <p>1D interpolator</p>
+                <p class="source">Source: interpolate.joule:47</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SplineCoeffs</code></h3>
+                <p>Cubic spline coefficients</p>
+                <p class="source">Source: interpolate.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], y: &amp;[f64], method: InterpolationMethod) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extrapolate(mut self, mode: ExtrapolationMode) -&gt; Self</code></h3>
+                <p>Set extrapolation mode</p>
+                <p class="source">Source: interpolate.joule:96</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval_array(&amp;self, xi: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:128</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn derivative(&amp;self, xi: f64, order: usize) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn integral(&amp;self, a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:170</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_interval(&amp;self, xi: f64) -&gt; usize</code></h3>
+                <p class="source">Source: interpolate.joule:218</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linear_interp(&amp;self, i: usize, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nearest_interp(&amp;self, i: usize, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spline_interp(&amp;self, i: usize, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lagrange_interp(&amp;self, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extrapolate_value(&amp;self, xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_natural_spline(x: &amp;[f64], y: &amp;[f64]) -&gt; SplineCoeffs</code></h3>
+                <p>Compute natural cubic spline coefficients</p>
+                <p class="source">Source: interpolate.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_not_a_knot_spline(x: &amp;[f64], y: &amp;[f64]) -&gt; SplineCoeffs</code></h3>
+                <p>Compute not-a-knot cubic spline</p>
+                <p class="source">Source: interpolate.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_akima_spline(x: &amp;[f64], y: &amp;[f64]) -&gt; SplineCoeffs</code></h3>
+                <p>Compute Akima spline (less oscillation)</p>
+                <p class="source">Source: interpolate.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_pchip(x: &amp;[f64], y: &amp;[f64]) -&gt; SplineCoeffs</code></h3>
+                <p>Compute PCHIP (monotone preserving)</p>
+                <p class="source">Source: interpolate.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pchip_end_derivative(h1: f64, h2: f64, del1: f64, del2: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:461</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Interp2dMethod</code></h3>
+                <p class="source">Source: interpolate.joule:479</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Interp2d</code></h3>
+                <p>Regular grid 2D interpolator</p>
+                <p class="source">Source: interpolate.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: &amp;[f64], y: &amp;[f64], z: &amp;[Vec&lt;f64&gt;], method: Interp2dMethod) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, xi: f64, yi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:515</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval_array(&amp;self, xi: &amp;[f64], yi: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:525</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_interval(arr: &amp;[f64], val: f64) -&gt; usize</code></h3>
+                <p class="source">Source: interpolate.joule:529</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bilinear(&amp;self, xi: f64, yi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nearest(&amp;self, xi: f64, yi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bicubic(&amp;self, xi: f64, yi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:572</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cubic_interp(t: f64, p0: f64, p1: f64, p2: f64, p3: f64) -&gt; f64</code></h3>
+                <p>Cubic interpolation helper</p>
+                <p class="source">Source: interpolate.joule:604</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Interp2dScattered</code></h3>
+                <p>Scattered data interpolation</p>
+                <p class="source">Source: interpolate.joule:614</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ScatteredMethod</code></h3>
+                <p class="source">Source: interpolate.joule:622</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum RbfKernel</code></h3>
+                <p class="source">Source: interpolate.joule:633</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(points: &amp;[(f64, f64)], values: &amp;[f64], method: ScatteredMethod) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:649</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, x: f64, y: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn idw_interp(&amp;self, x: f64, y: f64, power: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rbf_interp(&amp;self, x: f64, y: f64, kernel: RbfKernel) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:688</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linear_interp(&amp;self, x: f64, y: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:708</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, r: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:727</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BSpline</code></h3>
+                <p>B-spline curve</p>
+                <p class="source">Source: interpolate.joule:749</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(control_points: &amp;[f64], degree: usize) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:761</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_knots(control_points: &amp;[f64], knots: &amp;[f64], degree: usize) -&gt; Self</code></h3>
+                <p>Create B-spline with custom knot vector</p>
+                <p class="source">Source: interpolate.joule:789</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, t: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:801</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn basis(&amp;self, i: usize, k: usize, t: f64) -&gt; f64</code></h3>
+                <p>B-spline basis function (Cox-de Boor recursion)</p>
+                <p class="source">Source: interpolate.joule:814</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn derivative(&amp;self, t: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:842</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn basis_deriv(&amp;self, i: usize, k: usize, t: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:871</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BSpline2d</code></h3>
+                <p>2D B-spline curve (parametric)</p>
+                <p class="source">Source: interpolate.joule:898</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(control_x: &amp;[f64], control_y: &amp;[f64], degree: usize) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:906</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, t: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: interpolate.joule:917</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample(&amp;self, num_points: usize) -&gt; Vec&lt;(f64, f64)&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:923</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Polynomial</code></h3>
+                <p class="source">Source: interpolate.joule:939</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(coeffs: &amp;[f64]) -&gt; Self</code></h3>
+                <p>Create polynomial from coefficients</p>
+                <p class="source">Source: interpolate.joule:945</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(x: &amp;[f64], y: &amp;[f64], degree: usize) -&gt; Self</code></h3>
+                <p class="source">Source: interpolate.joule:953</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:988</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eval_array(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:999</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn derivative(&amp;self) -&gt; Polynomial</code></h3>
+                <p>Get derivative polynomial</p>
+                <p class="source">Source: interpolate.joule:1004</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn antiderivative(&amp;self) -&gt; Polynomial</code></h3>
+                <p>Get antiderivative polynomial (constant &#x3D; 0)</p>
+                <p class="source">Source: interpolate.joule:1019</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn roots(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1029</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn newton_root(&amp;self, x0: f64, deriv: &amp;Polynomial) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1078</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_system(a: &amp;[Vec&lt;f64&gt;], b: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1105</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interp(x: &amp;[f64], y: &amp;[f64], xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:1157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interp_array(x: &amp;[f64], y: &amp;[f64], xi: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spline(x: &amp;[f64], y: &amp;[f64], xi: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1170</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polyinterp(x: &amp;[f64], y: &amp;[f64], xi: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:1177</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polyfit(x: &amp;[f64], y: &amp;[f64], degree: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: interpolate.joule:1183</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polyval(coeffs: &amp;[f64], x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: interpolate.joule:1189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_linear_interp()</code></h3>
+                <p class="source">Source: interpolate.joule:1202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_cubic_spline()</code></h3>
+                <p class="source">Source: interpolate.joule:1213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_polynomial_fit()</code></h3>
+                <p class="source">Source: interpolate.joule:1226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bspline()</code></h3>
+                <p class="source">Source: interpolate.joule:1239</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

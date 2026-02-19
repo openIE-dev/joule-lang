@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Quantum Computing&lt;/p&gt;
+&lt;p&gt;Post-quantum simulation on heterogeneous compute (CPU/GPU/NPU/TPU)&lt;/p&gt;
+&lt;p&gt;This module provides quantum computing primitives including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Statevector simulation with GPU acceleration&lt;/li&gt;
+&lt;li&gt;Quantum gates (Pauli, Hadamard, CNOT, Toffoli, etc.)&lt;/li&gt;
+&lt;li&gt;Quantum circuit builder with fluent API&lt;/li&gt;
+&lt;li&gt;Quantum algorithms (Grover, Shor, VQE, QAOA)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Energy Considerations&lt;/h1&gt;
+&lt;p&gt;Quantum simulation is computationally intensive with O(2^n) memory and time.
+Operations are annotated with energy costs for optimization.&lt;/p&gt;
+&lt;h1&gt;Example&lt;/h1&gt;
+&lt;pre&gt;&lt;code class&#x3D;&quot;language-joule&quot;&gt;use quantum::{QuantumCircuit, Simulator, SimulatorBackend};
+
+// Create a Bell state
+let circuit &#x3D; QuantumCircuit::new(2, 2)
+.h(0)           // Hadamard on qubit 0
+.cx(0, 1)       // CNOT: control&#x3D;0, target&#x3D;1
+.measure_all();
+
+// Run simulation with 1000 shots
+let result &#x3D; Simulator::new(SimulatorBackend::GpuStatevector)
+.run(circuit, 1000);
+
+// Check measurement outcomes
+println(&quot;Counts: {}&quot;, result.counts);
+// Output: {&quot;00&quot;: ~500, &quot;11&quot;: ~500}
+&lt;/code&gt;&lt;/pre&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Complex</code></h3>
+                <p>Complex number for quantum amplitudes.</p>
+                <p class="source">Source: lib.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(re: f64, im: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn i() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:59</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm_sqr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:63</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj(&amp;self) -&gt; Complex</code></h3>
+                <p class="source">Source: lib.joule:71</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Statevector</code></h3>
+                <p>Quantum statevector representation.
+
+For n qubits, contains 2^n complex amplitudes.</p>
+                <p class="source">Source: lib.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_qubits: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:91</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn probability(&amp;self, index: usize) -&gt; f64</code></h3>
+                <p>Get probability of measuring a basis state.</p>
+                <p class="source">Source: lib.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn probabilities(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Get all probabilities.</p>
+                <p class="source">Source: lib.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_normalized(&amp;self, tolerance: f64) -&gt; bool</code></h3>
+                <p>Check if normalized.</p>
+                <p class="source">Source: lib.joule:112</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait QuantumGate</code></h3>
+                <p>Trait for quantum gates.</p>
+                <p class="source">Source: lib.joule:123</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_qubits(&amp;self) -&gt; usize;</code></h3>
+                <p class="source">Source: lib.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; String;</code></h3>
+                <p class="source">Source: lib.joule:125</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PauliX;</code></h3>
+                <p class="source">Source: lib.joule:129</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PauliY;</code></h3>
+                <p class="source">Source: lib.joule:130</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PauliZ;</code></h3>
+                <p class="source">Source: lib.joule:131</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Hadamard;</code></h3>
+                <p class="source">Source: lib.joule:132</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SGate;</code></h3>
+                <p class="source">Source: lib.joule:133</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TGate;</code></h3>
+                <p class="source">Source: lib.joule:134</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RX</code></h3>
+                <p class="source">Source: lib.joule:135</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RY</code></h3>
+                <p class="source">Source: lib.joule:136</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RZ</code></h3>
+                <p class="source">Source: lib.joule:137</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct U3</code></h3>
+                <p class="source">Source: lib.joule:138</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CNOT;</code></h3>
+                <p class="source">Source: lib.joule:141</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CZ;</code></h3>
+                <p class="source">Source: lib.joule:142</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SWAP;</code></h3>
+                <p class="source">Source: lib.joule:143</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CPhase</code></h3>
+                <p class="source">Source: lib.joule:144</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Toffoli;</code></h3>
+                <p class="source">Source: lib.joule:147</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Fredkin;</code></h3>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn x() -&gt; PauliX</code></h3>
+                <p class="source">Source: lib.joule:151</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn y() -&gt; PauliY</code></h3>
+                <p class="source">Source: lib.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn z() -&gt; PauliZ</code></h3>
+                <p class="source">Source: lib.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn h() -&gt; Hadamard</code></h3>
+                <p class="source">Source: lib.joule:154</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn s() -&gt; SGate</code></h3>
+                <p class="source">Source: lib.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn t() -&gt; TGate</code></h3>
+                <p class="source">Source: lib.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rx(theta: f64) -&gt; RX</code></h3>
+                <p class="source">Source: lib.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ry(theta: f64) -&gt; RY</code></h3>
+                <p class="source">Source: lib.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rz(theta: f64) -&gt; RZ</code></h3>
+                <p class="source">Source: lib.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn u3(theta: f64, phi: f64, lambda: f64) -&gt; U3</code></h3>
+                <p class="source">Source: lib.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cx() -&gt; CNOT</code></h3>
+                <p class="source">Source: lib.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cz() -&gt; CZ</code></h3>
+                <p class="source">Source: lib.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn swap() -&gt; SWAP</code></h3>
+                <p class="source">Source: lib.joule:163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cp(theta: f64) -&gt; CPhase</code></h3>
+                <p class="source">Source: lib.joule:164</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ccx() -&gt; Toffoli</code></h3>
+                <p class="source">Source: lib.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cswap() -&gt; Fredkin</code></h3>
+                <p class="source">Source: lib.joule:166</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Operation</code></h3>
+                <p>Operation in a quantum circuit.</p>
+                <p class="source">Source: lib.joule:173</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuantumCircuit</code></h3>
+                <p>Quantum circuit with fluent builder API.</p>
+                <p class="source">Source: lib.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_qubits: usize, num_clbits: usize) -&gt; Self</code></h3>
+                <p>Create a new quantum circuit.</p>
+                <p class="source">Source: lib.joule:189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn h(&amp;mut self, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn x(&amp;mut self, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn y(&amp;mut self, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn z(&amp;mut self, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rx(&amp;mut self, theta: f64, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:218</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ry(&amp;mut self, theta: f64, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rz(&amp;mut self, theta: f64, qubit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cx(&amp;mut self, control: usize, target: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cz(&amp;mut self, q1: usize, q2: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn swap(&amp;mut self, q1: usize, q2: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:244</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ccx(&amp;mut self, c1: usize, c2: usize, target: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn measure(&amp;mut self, qubit: usize, clbit: usize) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:256</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn measure_all(&amp;mut self) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn depth(&amp;self) -&gt; usize</code></h3>
+                <p>Get circuit depth.</p>
+                <p class="source">Source: lib.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gate_count(&amp;self) -&gt; usize</code></h3>
+                <p>Count total gates.</p>
+                <p class="source">Source: lib.joule:275</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SimulatorBackend</code></h3>
+                <p>Simulator backend selection.</p>
+                <p class="source">Source: lib.joule:287</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SimulationResult</code></h3>
+                <p>Simulation result.</p>
+                <p class="source">Source: lib.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn probability(&amp;self, bitstring: String) -&gt; f64</code></h3>
+                <p>Get probability of a measurement outcome.</p>
+                <p class="source">Source: lib.joule:305</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Simulator</code></h3>
+                <p>Quantum circuit simulator.</p>
+                <p class="source">Source: lib.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(backend: SimulatorBackend) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run(&amp;self, circuit: &amp;QuantumCircuit, shots: usize) -&gt; SimulationResult</code></h3>
+                <p class="source">Source: lib.joule:323</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn statevector(&amp;self, circuit: &amp;QuantumCircuit) -&gt; Statevector</code></h3>
+                <p class="source">Source: lib.joule:334</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Grover</code></h3>
+                <p>Grover&#x27;s search algorithm.</p>
+                <p class="source">Source: lib.joule:344</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_qubits: usize, marked_items: Vec&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn optimal_iterations(&amp;self) -&gt; usize</code></h3>
+                <p>Optimal number of Grover iterations.</p>
+                <p class="source">Source: lib.joule:355</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn circuit(&amp;self, iterations: usize) -&gt; QuantumCircuit</code></h3>
+                <p>Build the Grover circuit.</p>
+                <p class="source">Source: lib.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run(&amp;self, iterations: Option&lt;usize&gt;, shots: usize) -&gt; SimulationResult</code></h3>
+                <p class="source">Source: lib.joule:369</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct VQE</code></h3>
+                <p>Variational Quantum Eigensolver (VQE).</p>
+                <p class="source">Source: lib.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_qubits: usize, depth: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_parameters(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_parameters(&amp;mut self, params: Vec&lt;f64&gt;)</code></h3>
+                <p class="source">Source: lib.joule:397</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ansatz(&amp;self) -&gt; QuantumCircuit</code></h3>
+                <p>Build the variational ansatz circuit.</p>
+                <p class="source">Source: lib.joule:402</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QAOA</code></h3>
+                <p>Quantum Approximate Optimization Algorithm (QAOA).</p>
+                <p class="source">Source: lib.joule:408</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn maxcut(num_qubits: usize, edges: Vec&lt;(usize, usize, f64)&gt;, p: usize) -&gt; Self</code></h3>
+                <p>Create QAOA for MaxCut problem.</p>
+                <p class="source">Source: lib.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_parameters(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn circuit(&amp;self, gamma: &amp;[f64], beta: &amp;[f64]) -&gt; QuantumCircuit</code></h3>
+                <p>Build the QAOA circuit.</p>
+                <p class="source">Source: lib.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn expected_cut(&amp;self, gamma: &amp;[f64], beta: &amp;[f64], shots: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:431</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QFT</code></h3>
+                <p>Quantum Fourier Transform.</p>
+                <p class="source">Source: lib.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_qubits: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:443</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inverse(num_qubits: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn circuit(&amp;self) -&gt; QuantumCircuit</code></h3>
+                <p class="source">Source: lib.joule:451</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

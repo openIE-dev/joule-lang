@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>device - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module device</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum DeviceType</code></h3>
+                <p class="source">Source: device.joule:19</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceId</code></h3>
+                <p class="source">Source: device.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpu() -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:38</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda(index: u32) -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal() -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coreml() -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:50</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceProperties</code></h3>
+                <p class="source">Source: device.joule:61</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceFeatures</code></h3>
+                <p class="source">Source: device.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn theoretical_efficiency(&amp;self) -&gt; f64</code></h3>
+                <p>Compute theoretical efficiency (FLOP/J)</p>
+                <p class="source">Source: device.joule:115</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ridge_point(&amp;self) -&gt; f64</code></h3>
+                <p>Compute arithmetic intensity for roofline (FLOP/byte)</p>
+                <p class="source">Source: device.joule:120</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceState</code></h3>
+                <p class="source">Source: device.joule:131</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ThrottleReason</code></h3>
+                <p class="source">Source: device.joule:163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn now() -&gt; Self</code></h3>
+                <p>Create new state with current values</p>
+                <p class="source">Source: device.joule:174</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Device</code></h3>
+                <p>Handle to a compute device with monitoring capabilities</p>
+                <p class="source">Source: device.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: DeviceId) -&gt; Result&lt;Arc&lt;Self&gt;, DeviceError&gt;</code></h3>
+                <p>Create device handle</p>
+                <p class="source">Source: device.joule:232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; &amp;DeviceId</code></h3>
+                <p>Get device identifier</p>
+                <p class="source">Source: device.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn properties(&amp;self) -&gt; &amp;DeviceProperties</code></h3>
+                <p>Get device properties</p>
+                <p class="source">Source: device.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; DeviceState</code></h3>
+                <p>Get current state</p>
+                <p class="source">Source: device.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_tracker(&amp;self) -&gt; Arc&lt;EnergyTracker&gt;</code></h3>
+                <p>Get energy tracker</p>
+                <p class="source">Source: device.joule:276</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update_state(&amp;self)</code></h3>
+                <p>Update device state (called by monitor)</p>
+                <p class="source">Source: device.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_power(&amp;self) -&gt; Watts</code></h3>
+                <p>Get current power draw</p>
+                <p class="source">Source: device.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_temperature(&amp;self) -&gt; f32</code></h3>
+                <p>Get current temperature</p>
+                <p class="source">Source: device.joule:315</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn memory_info(&amp;self) -&gt; (u64, u64)</code></h3>
+                <p>Get memory info</p>
+                <p class="source">Source: device.joule:320</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_throttled(&amp;self) -&gt; bool</code></h3>
+                <p>Check if device is throttled</p>
+                <p class="source">Source: device.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_power_limit(&amp;self, limit: Watts) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Set power limit</p>
+                <p class="source">Source: device.joule:331</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn power_limit(&amp;self) -&gt; Option&lt;Watts&gt;</code></h3>
+                <p>Get power limit</p>
+                <p class="source">Source: device.joule:354</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_temp_limit(&amp;self, limit: f32)</code></h3>
+                <p>Set temperature limit for throttling</p>
+                <p class="source">Source: device.joule:359</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_since(&amp;self, start: Instant) -&gt; Joules</code></h3>
+                <p>Calculate energy consumed over time period</p>
+                <p class="source">Source: device.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn avg_power_since(&amp;self, start: Instant) -&gt; Watts</code></h3>
+                <p>Get average power over time period</p>
+                <p class="source">Source: device.joule:380</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peak_power_since(&amp;self, start: Instant) -&gt; Watts</code></h3>
+                <p>Get peak power over time period</p>
+                <p class="source">Source: device.joule:396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn efficiency(&amp;self) -&gt; DeviceEfficiency</code></h3>
+                <p>Get efficiency metrics</p>
+                <p class="source">Source: device.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn synchronize(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Synchronize device (wait for all operations)</p>
+                <p class="source">Source: device.joule:428</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Reset device</p>
+                <p class="source">Source: device.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: device.joule:450</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceEfficiency</code></h3>
+                <p class="source">Source: device.joule:459</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceManager</code></h3>
+                <p>Global device manager</p>
+                <p class="source">Source: device.joule:475</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create new device manager</p>
+                <p class="source">Source: device.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Initialize and enumerate all devices</p>
+                <p class="source">Source: device.joule:511</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start_monitoring(&amp;self, interval: Duration)</code></h3>
+                <p>Start background monitoring</p>
+                <p class="source">Source: device.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop_monitoring(&amp;self)</code></h3>
+                <p>Stop monitoring</p>
+                <p class="source">Source: device.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, id: &amp;DeviceId) -&gt; Option&lt;Arc&lt;Device&gt;&gt;</code></h3>
+                <p>Get device by ID</p>
+                <p class="source">Source: device.joule:583</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(&amp;self) -&gt; Arc&lt;Device&gt;</code></h3>
+                <p>Get default device</p>
+                <p class="source">Source: device.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_default(&amp;self, id: DeviceId) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Set default device</p>
+                <p class="source">Source: device.joule:594</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn all(&amp;self) -&gt; Vec&lt;Arc&lt;Device&gt;&gt;</code></h3>
+                <p>Get all devices</p>
+                <p class="source">Source: device.joule:604</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn of_type(&amp;self, device_type: DeviceType) -&gt; Vec&lt;Arc&lt;Device&gt;&gt;</code></h3>
+                <p>Get devices of specific type</p>
+                <p class="source">Source: device.joule:609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn select_for_workload(&amp;self, workload: &amp;WorkloadProfile) -&gt; Arc&lt;Device&gt;</code></h3>
+                <p>Select best device for workload</p>
+                <p class="source">Source: device.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn score_device_for_workload(&amp;self, device: &amp;Device, workload: &amp;WorkloadProfile) -&gt; f64</code></h3>
+                <p class="source">Source: device.joule:636</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_power(&amp;self) -&gt; Watts</code></h3>
+                <p>Get total power consumption across all devices</p>
+                <p class="source">Source: device.joule:671</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Get total energy consumed since start</p>
+                <p class="source">Source: device.joule:681</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:692</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WorkloadProfile</code></h3>
+                <p class="source">Source: device.joule:699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_model_params(</code></h3>
+                <p>Estimate from model parameters</p>
+                <p class="source">Source: device.joule:714</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device_manager() -&gt; &amp;&#x27;static DeviceManager</code></h3>
+                <p>Get global device manager</p>
+                <p class="source">Source: device.joule:746</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default_device() -&gt; Arc&lt;Device&gt;</code></h3>
+                <p>Get default device</p>
+                <p class="source">Source: device.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_device(id: &amp;DeviceId) -&gt; Option&lt;Arc&lt;Device&gt;&gt;</code></h3>
+                <p>Get device by ID</p>
+                <p class="source">Source: device.joule:756</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn query_device_properties(id: &amp;DeviceId) -&gt; Result&lt;DeviceProperties, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:764</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn query_device_state(id: &amp;DeviceId) -&gt; Result&lt;DeviceState, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:774</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init_device_backend(id: &amp;DeviceId) -&gt; Result&lt;*mut std::ffi::c_void, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:783</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cleanup_device_backend(id: &amp;DeviceId, handle: *mut std::ffi::c_void)</code></h3>
+                <p class="source">Source: device.joule:791</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpu_properties() -&gt; DeviceProperties</code></h3>
+                <p class="source">Source: device.joule:800</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpu_state() -&gt; DeviceState</code></h3>
+                <p class="source">Source: device.joule:831</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_properties(index: u32) -&gt; Result&lt;DeviceProperties, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:849</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_state(index: u32) -&gt; Result&lt;DeviceState, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:887</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_init(_index: u32) -&gt; Result&lt;*mut std::ffi::c_void, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:898</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_cleanup(_handle: *mut std::ffi::c_void)</code></h3>
+                <p class="source">Source: device.joule:909</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_synchronize(_index: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:916</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_reset(_index: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:927</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nvidia_power_limit(_index: u32, _limit: Watts) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:938</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_properties() -&gt; Result&lt;DeviceProperties, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:950</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_state() -&gt; Result&lt;DeviceState, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:987</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_init() -&gt; Result&lt;*mut std::ffi::c_void, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:997</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_cleanup(_handle: *mut std::ffi::c_void)</code></h3>
+                <p class="source">Source: device.joule:1007</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_synchronize() -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1009</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coreml_properties() -&gt; Result&lt;DeviceProperties, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1020</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_amd_power_limit(_index: u32, _limit: Watts) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1058</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rocm_synchronize(_index: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1062</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rocm_reset(_index: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1066</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_cuda_device_count() -&gt; Result&lt;u32, DeviceError&gt;</code></h3>
+                <p class="source">Source: device.joule:1071</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DeviceError</code></h3>
+                <p class="source">Source: device.joule:1081</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: device.joule:1091</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(w: f64) -&gt; Self</code></h3>
+                <p class="source">Source: device.joule:1107</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

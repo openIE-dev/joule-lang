@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module svg</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn render_figure(fig: &amp;Figure) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_defs(fig: &amp;Figure) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:74</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_axes(axes: &amp;Axes) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:112</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CoordTransform</code></h3>
+                <p class="source">Source: svg.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_pixel_x(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: svg.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_pixel_y(&amp;self, y: f64) -&gt; f64</code></h3>
+                <p class="source">Source: svg.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_pixel(&amp;self, x: f64, y: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: svg.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn symlog(x: f64, _min: f64, _max: f64) -&gt; f64</code></h3>
+                <p class="source">Source: svg.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_grid(axes: &amp;Axes, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_axis_frame(axes: &amp;Axes, _transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_ticks(axes: &amp;Axes, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:333</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_ticks(min: f64, max: f64, target_count: usize, scale: Scale) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: svg.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_linear_ticks(min: f64, max: f64, target_count: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: svg.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_log_ticks(min: f64, max: f64, _target_count: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: svg.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn format_tick(value: f64) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_element(element: &amp;PlotElement, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:472</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_line(x: &amp;[f64], y: &amp;[f64], style: &amp;PlotStyle, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:510</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_markers(</code></h3>
+                <p class="source">Source: svg.joule:566</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn star_points(cx: f64, cy: f64, outer_r: f64, inner_r: f64, points: usize) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:630</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_scatter(x: &amp;[f64], y: &amp;[f64], style: &amp;ScatterStyle, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:651</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_bars(</code></h3>
+                <p class="source">Source: svg.joule:703</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_bars_h(</code></h3>
+                <p class="source">Source: svg.joule:741</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_fill(</code></h3>
+                <p class="source">Source: svg.joule:779</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_errorbars(</code></h3>
+                <p class="source">Source: svg.joule:824</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_stem(x: &amp;[f64], y: &amp;[f64], style: &amp;PlotStyle, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:912</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_pie(</code></h3>
+                <p class="source">Source: svg.joule:951</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_image(</code></h3>
+                <p class="source">Source: svg.joule:1045</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_contour(</code></h3>
+                <p class="source">Source: svg.joule:1104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_contour_line(</code></h3>
+                <p class="source">Source: svg.joule:1180</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn marching_square(</code></h3>
+                <p class="source">Source: svg.joule:1223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_boxplot(data: &amp;[Vec&lt;f64&gt;], positions: &amp;[f64], transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1268</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_violin(data: &amp;[Vec&lt;f64&gt;], positions: &amp;[f64], transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_hline(y: f64, style: &amp;PlotStyle, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1457</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_vline(x: f64, style: &amp;PlotStyle, transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1470</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn line_style_to_dash(style: &amp;LineStyle) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_annotation(</code></h3>
+                <p class="source">Source: svg.joule:1493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_text(x: f64, y: f64, text: &amp;str, style: &amp;TextStyle) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1522</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn render_legend(axes: &amp;Axes, _transform: &amp;CoordTransform) -&gt; String</code></h3>
+                <p class="source">Source: svg.joule:1565</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_coord_transform()</code></h3>
+                <p class="source">Source: svg.joule:1667</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_linear_ticks()</code></h3>
+                <p class="source">Source: svg.joule:1687</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_render_text()</code></h3>
+                <p class="source">Source: svg.joule:1694</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_render_figure()</code></h3>
+                <p class="source">Source: svg.joule:1701</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_format_tick()</code></h3>
+                <p class="source">Source: svg.joule:1714</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

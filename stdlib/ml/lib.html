@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Machine Learning
+Energy-aware machine learning primitives&lt;/p&gt;
+&lt;p&gt;The Joule ML module treats energy consumption as a first-class optimization
+target. Every operation is annotated with energy costs, and the framework
+provides tools for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Real-time power monitoring and energy tracking&lt;/li&gt;
+&lt;li&gt;Energy-budget constrained training&lt;/li&gt;
+&lt;li&gt;Cost models for operation energy estimation&lt;/li&gt;
+&lt;li&gt;Roofline analysis for identifying bottlenecks&lt;/li&gt;
+&lt;li&gt;Energy-aware optimizers that adapt based on efficiency&lt;/li&gt;
+&lt;li&gt;Device abstraction with thermal awareness&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Core philosophy: “Joules per compute” matters as much as accuracy.&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn cuda_available() -&gt; bool</code></h3>
+                <p>Check if CUDA is available</p>
+                <p class="source">Source: lib.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_available() -&gt; bool</code></h3>
+                <p>Check if Metal is available</p>
+                <p class="source">Source: lib.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neural_engine_available() -&gt; bool</code></h3>
+                <p>Check if Neural Engine is available</p>
+                <p class="source">Source: lib.joule:357</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn best_device() -&gt; DeviceId</code></h3>
+                <p>Get best available device for ML workloads</p>
+                <p class="source">Source: lib.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), device::DeviceError&gt;</code></h3>
+                <p>Initialize ML subsystem</p>
+                <p class="source">Source: lib.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start_power_monitoring(interval_ms: u64)</code></h3>
+                <p>Start power monitoring on all devices</p>
+                <p class="source">Source: lib.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop_power_monitoring()</code></h3>
+                <p>Stop power monitoring</p>
+                <p class="source">Source: lib.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_energy() -&gt; Joules</code></h3>
+                <p>Get total energy consumed across all devices</p>
+                <p class="source">Source: lib.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_power() -&gt; Watts</code></h3>
+                <p>Get current total power draw</p>
+                <p class="source">Source: lib.joule:408</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_model_source(source: &amp;str) -&gt; Result&lt;ModelSource, InferenceError&gt;</code></h3>
+                <p>Parse model source string into ModelSource enum</p>
+                <p class="source">Source: lib.joule:435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_model_efficiency(model_path: &amp;str) -&gt; Result&lt;f64, FormatError&gt;</code></h3>
+                <p class="source">Source: lib.joule:501</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

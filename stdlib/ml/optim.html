@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>optim - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module optim</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait Optimizer</code></h3>
+                <p>Optimizer trait</p>
+                <p class="source">Source: optim.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self);</code></h3>
+                <p>Perform optimization step</p>
+                <p class="source">Source: optim.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self);</code></h3>
+                <p>Zero all parameter gradients</p>
+                <p class="source">Source: optim.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64;</code></h3>
+                <p>Get current learning rate</p>
+                <p class="source">Source: optim.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64);</code></h3>
+                <p>Set learning rate</p>
+                <p class="source">Source: optim.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;;</code></h3>
+                <p>Get state dict for checkpointing</p>
+                <p class="source">Source: optim.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;);</code></h3>
+                <p>Load state dict</p>
+                <p class="source">Source: optim.joule:27</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ParamGroup</code></h3>
+                <p class="source">Source: optim.joule:32</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SGD</code></h3>
+                <p>Stochastic Gradient Descent with momentum</p>
+                <p class="source">Source: optim.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new SGD optimizer</p>
+                <p class="source">Source: optim.joule:54</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn simple(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with simple parameters</p>
+                <p class="source">Source: optim.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_momentum(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64, momentum: f64) -&gt; Self</code></h3>
+                <p>Create with momentum</p>
+                <p class="source">Source: optim.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:164</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Adam</code></h3>
+                <p>Adam optimizer (Adaptive Moment Estimation)</p>
+                <p class="source">Source: optim.joule:180</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new Adam optimizer</p>
+                <p class="source">Source: optim.joule:193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with default parameters</p>
+                <p class="source">Source: optim.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:229</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:280</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:299</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:315</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct AdamW</code></h3>
+                <p>AdamW optimizer (Adam with decoupled weight decay)</p>
+                <p class="source">Source: optim.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new AdamW optimizer</p>
+                <p class="source">Source: optim.joule:345</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with default parameters</p>
+                <p class="source">Source: optim.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:368</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:369</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RMSprop</code></h3>
+                <p>RMSprop optimizer</p>
+                <p class="source">Source: optim.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new RMSprop optimizer</p>
+                <p class="source">Source: optim.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with default parameters</p>
+                <p class="source">Source: optim.joule:422</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:429</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:480</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:507</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Adagrad</code></h3>
+                <p>Adagrad optimizer</p>
+                <p class="source">Source: optim.joule:523</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new Adagrad optimizer</p>
+                <p class="source">Source: optim.joule:534</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with default parameters</p>
+                <p class="source">Source: optim.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:568</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:605</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:614</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:632</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LBFGS</code></h3>
+                <p>Limited-memory BFGS optimizer</p>
+                <p class="source">Source: optim.joule:648</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create new LBFGS optimizer</p>
+                <p class="source">Source: optim.joule:665</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default(params: Vec&lt;&amp;mut Tensor&gt;, lr: f64) -&gt; Self</code></h3>
+                <p>Create with default parameters</p>
+                <p class="source">Source: optim.joule:696</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:703</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:720</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:729</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: optim.joule:733</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: optim.joule:739</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, _state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: optim.joule:743</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait LRScheduler</code></h3>
+                <p>Learning rate scheduler trait</p>
+                <p class="source">Source: optim.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self);</code></h3>
+                <p>Update learning rate</p>
+                <p class="source">Source: optim.joule:753</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64;</code></h3>
+                <p>Get current learning rate</p>
+                <p class="source">Source: optim.joule:756</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64;</code></h3>
+                <p>Get last epoch</p>
+                <p class="source">Source: optim.joule:759</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StepLR</code></h3>
+                <p>Step learning rate scheduler</p>
+                <p class="source">Source: optim.joule:763</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(optimizer: O, step_size: u64, gamma: f64) -&gt; Self</code></h3>
+                <p class="source">Source: optim.joule:772</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:785</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:791</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:795</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ExponentialLR</code></h3>
+                <p>Exponential learning rate scheduler</p>
+                <p class="source">Source: optim.joule:801</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(optimizer: O, gamma: f64) -&gt; Self</code></h3>
+                <p class="source">Source: optim.joule:809</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:821</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:827</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:831</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CosineAnnealingLR</code></h3>
+                <p>Cosine annealing learning rate scheduler</p>
+                <p class="source">Source: optim.joule:837</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(optimizer: O, t_max: u64, eta_min: f64) -&gt; Self</code></h3>
+                <p class="source">Source: optim.joule:846</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:859</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:870</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:874</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ReduceLROnPlateau</code></h3>
+                <p>Reduce learning rate on plateau</p>
+                <p class="source">Source: optim.joule:880</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: optim.joule:896</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step_with_metric(&amp;mut self, metric: f64)</code></h3>
+                <p>Call with current metric value</p>
+                <p class="source">Source: optim.joule:921</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:959</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:963</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:967</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LinearWarmup</code></h3>
+                <p>Warmup with linear schedule</p>
+                <p class="source">Source: optim.joule:973</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(optimizer: O, warmup_steps: u64, start_lr: f64) -&gt; Self</code></h3>
+                <p class="source">Source: optim.joule:982</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:995</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:1005</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:1009</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WarmupCosineSchedule</code></h3>
+                <p>Warmup + cosine decay (common in transformers)</p>
+                <p class="source">Source: optim.joule:1015</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(optimizer: O, warmup_steps: u64, total_steps: u64, min_lr: f64) -&gt; Self</code></h3>
+                <p class="source">Source: optim.joule:1025</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: optim.joule:1039</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: optim.joule:1057</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn last_epoch(&amp;self) -&gt; i64</code></h3>
+                <p class="source">Source: optim.joule:1061</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

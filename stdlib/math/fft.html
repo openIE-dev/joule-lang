@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fft - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module fft</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum FftAlgorithm</code></h3>
+                <p class="source">Source: fft.joule:13</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FftConfig</code></h3>
+                <p class="source">Source: fft.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:40</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FftPlan</code></h3>
+                <p>Precomputed FFT plan for repeated transforms of same size</p>
+                <p class="source">Source: fft.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:65</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new_inverse(size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(size: usize, config: FftConfig, inverse: bool) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; usize</code></h3>
+                <p>Get the size this plan was created for</p>
+                <p class="source">Source: fft.joule:111</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute(&amp;self, input: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: fft.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_inplace(&amp;self, data: &amp;mut [Complex])</code></h3>
+                <p class="source">Source: fft.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cooley_tukey_fft(&amp;self, input: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p>Cooley-Tukey radix-2 FFT</p>
+                <p class="source">Source: fft.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cooley_tukey_inplace(&amp;self, data: &amp;mut [Complex])</code></h3>
+                <p>In-place Cooley-Tukey FFT</p>
+                <p class="source">Source: fft.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bluestein_fft(&amp;self, input: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p>Bluestein&#x27;s algorithm for arbitrary-length FFT</p>
+                <p class="source">Source: fft.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft(input: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: fft.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ifft(input: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: fft.joule:272</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft_inplace(data: &amp;mut [Complex])</code></h3>
+                <p class="source">Source: fft.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ifft_inplace(data: &amp;mut [Complex])</code></h3>
+                <p class="source">Source: fft.joule:286</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rfft(input: &amp;[f64]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: fft.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn irfft(input: &amp;[Complex], n: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:306</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fftfreq(n: usize, sample_rate: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rfftfreq(n: usize, sample_rate: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fftshift&lt;T: Clone&gt;(input: &amp;[T]) -&gt; Vec&lt;T&gt;</code></h3>
+                <p class="source">Source: fft.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ifftshift&lt;T: Clone&gt;(input: &amp;[T]) -&gt; Vec&lt;T&gt;</code></h3>
+                <p class="source">Source: fft.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft2(input: &amp;[Vec&lt;Complex&gt;]) -&gt; Vec&lt;Vec&lt;Complex&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ifft2(input: &amp;[Vec&lt;Complex&gt;]) -&gt; Vec&lt;Vec&lt;Complex&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:400</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fftshift2&lt;T: Clone&gt;(input: &amp;[Vec&lt;T&gt;]) -&gt; Vec&lt;Vec&lt;T&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:427</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NdArray</code></h3>
+                <p>N-dimensional array for FFT</p>
+                <p class="source">Source: fft.joule:453</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: Vec&lt;Complex&gt;, shape: Vec&lt;usize&gt;) -&gt; Self</code></h3>
+                <p>Create from flat data and shape</p>
+                <p class="source">Source: fft.joule:461</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, indices: &amp;[usize]) -&gt; Complex</code></h3>
+                <p>Get element at index</p>
+                <p class="source">Source: fft.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, indices: &amp;[usize], value: Complex)</code></h3>
+                <p>Set element at index</p>
+                <p class="source">Source: fft.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fftn(input: &amp;NdArray) -&gt; NdArray</code></h3>
+                <p class="source">Source: fft.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft_axis(array: &amp;mut NdArray, axis: usize)</code></h3>
+                <p>FFT along a specific axis</p>
+                <p class="source">Source: fft.joule:506</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DctType</code></h3>
+                <p class="source">Source: fft.joule:566</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct(input: &amp;[f64], dct_type: DctType) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:579</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn idct(input: &amp;[f64], dct_type: DctType) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct1(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>DCT-I</p>
+                <p class="source">Source: fft.joule:600</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct2(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>DCT-II (the most common DCT)</p>
+                <p class="source">Source: fft.joule:622</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct3(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>DCT-III (inverse of DCT-II)</p>
+                <p class="source">Source: fft.joule:641</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct4(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>DCT-IV</p>
+                <p class="source">Source: fft.joule:657</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dct2d(input: &amp;[Vec&lt;f64&gt;]) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:674</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn idct2d(input: &amp;[Vec&lt;f64&gt;]) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:700</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DstType</code></h3>
+                <p class="source">Source: fft.joule:730</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dst(input: &amp;[f64], dst_type: DstType) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:739</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WaveletFamily</code></h3>
+                <p class="source">Source: fft.joule:792</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WaveletFilters</code></h3>
+                <p>Wavelet filter bank</p>
+                <p class="source">Source: fft.joule:812</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(wavelet: WaveletFamily) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:826</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn daubechies(n: u8) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:844</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn symlet(n: u8) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:895</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coiflet(n: u8) -&gt; Self</code></h3>
+                <p class="source">Source: fft.joule:901</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DwtResult</code></h3>
+                <p>Discrete Wavelet Transform result</p>
+                <p class="source">Source: fft.joule:935</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dwt(input: &amp;[f64], wavelet: WaveletFamily, level: usize) -&gt; DwtResult</code></h3>
+                <p class="source">Source: fft.joule:946</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dwt_single_level(input: &amp;[f64], filters: &amp;WaveletFilters) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p>Single-level DWT</p>
+                <p class="source">Source: fft.joule:965</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn idwt(result: &amp;DwtResult, wavelet: WaveletFamily) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:992</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn idwt_single_level(approx: &amp;[f64], detail: &amp;[f64], filters: &amp;WaveletFilters) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Single-level IDWT</p>
+                <p class="source">Source: fft.joule:1005</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn swt(input: &amp;[f64], wavelet: WaveletFamily, level: usize) -&gt; (Vec&lt;Vec&lt;f64&gt;&gt;, Vec&lt;Vec&lt;f64&gt;&gt;)</code></h3>
+                <p class="source">Source: fft.joule:1022</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cwt(input: &amp;[f64], scales: &amp;[f64], wavelet: WaveletFamily) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:1055</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wavelet_function(t: f64, wavelet: WaveletFamily) -&gt; f64</code></h3>
+                <p>Wavelet mother function</p>
+                <p class="source">Source: fft.joule:1078</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn welch(</code></h3>
+                <p class="source">Source: fft.joule:1102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn periodogram(input: &amp;[f64], sample_rate: f64) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p class="source">Source: fft.joule:1141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectrogram(</code></h3>
+                <p class="source">Source: fft.joule:1155</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Spectrogram</code></h3>
+                <p>Spectrogram result</p>
+                <p class="source">Source: fft.joule:1196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_db(&amp;self, ref_val: f64) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Convert magnitude to decibels</p>
+                <p class="source">Source: fft.joule:1211</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_mel(&amp;self, num_mel_bins: usize, fmin: f64, fmax: f64) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: fft.joule:1221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hann_window(size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hamming_window(size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blackman_window(size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kaiser_window(size: usize, beta: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gaussian_window(size: usize, sigma: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flattop_window(size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bartlett_window(size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve(a: &amp;[f64], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1331</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_circular(a: &amp;[f64], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn correlate(a: &amp;[f64], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn autocorrelate(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1392</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn correlate_normalized(a: &amp;[f64], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hz_to_mel(hz: f64) -&gt; f64</code></h3>
+                <p class="source">Source: fft.joule:1418</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mel_to_hz(mel: f64) -&gt; f64</code></h3>
+                <p class="source">Source: fft.joule:1424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mel_filters(</code></h3>
+                <p class="source">Source: fft.joule:1430</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mfcc(</code></h3>
+                <p class="source">Source: fft.joule:1481</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_power_of_two(n: usize) -&gt; bool</code></h3>
+                <p class="source">Source: fft.joule:1521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_bit_reversal(n: usize) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p>Compute bit-reversal permutation</p>
+                <p class="source">Source: fft.joule:1526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bessel_i0(x: f64) -&gt; f64</code></h3>
+                <p>Modified Bessel function I_0 (for Kaiser window)</p>
+                <p class="source">Source: fft.joule:1534</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hilbert(input: &amp;[f64]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: fft.joule:1555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn instantaneous_frequency(analytic: &amp;[Complex], sample_rate: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1581</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn envelope(input: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: fft.joule:1604</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_fft_ifft()</code></h3>
+                <p class="source">Source: fft.joule:1617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_parseval()</code></h3>
+                <p class="source">Source: fft.joule:1632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_dct_idct()</code></h3>
+                <p class="source">Source: fft.joule:1646</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_convolution()</code></h3>
+                <p class="source">Source: fft.joule:1657</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_window_functions()</code></h3>
+                <p class="source">Source: fft.joule:1671</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

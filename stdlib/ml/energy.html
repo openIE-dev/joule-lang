@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>energy - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module energy</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Joules(pub f64);</code></h3>
+                <p class="source">Source: energy.joule:18</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ZERO: Joules</code></h3>
+                <p class="source">Source: energy.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_millijoules(mj: f64) -&gt; Self</code></h3>
+                <p>Create from millijoules</p>
+                <p class="source">Source: energy.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_microjoules(uj: f64) -&gt; Self</code></h3>
+                <p>Create from microjoules</p>
+                <p class="source">Source: energy.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_watt_seconds(ws: f64) -&gt; Self</code></h3>
+                <p>Create from watt-seconds (equivalent to joules)</p>
+                <p class="source">Source: energy.joule:34</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_millijoules(&amp;self) -&gt; f64</code></h3>
+                <p>Convert to millijoules</p>
+                <p class="source">Source: energy.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_kwh(&amp;self) -&gt; f64</code></h3>
+                <p>Convert to kilowatt-hours (for large-scale training)</p>
+                <p class="source">Source: energy.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimated_co2_kg(&amp;self, carbon_intensity: f64) -&gt; f64</code></h3>
+                <p>Estimate CO2 emissions (kg) assuming average grid intensity
+Default: 0.5 kg CO2 per kWh (varies by region)</p>
+                <p class="source">Source: energy.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(self, other: Joules) -&gt; Joules</code></h3>
+                <p class="source">Source: energy.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_assign(&amp;mut self, other: Joules)</code></h3>
+                <p class="source">Source: energy.joule:63</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(self, other: Joules) -&gt; Joules</code></h3>
+                <p class="source">Source: energy.joule:70</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(self, scalar: f64) -&gt; Joules</code></h3>
+                <p class="source">Source: energy.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(self, scalar: f64) -&gt; Joules</code></h3>
+                <p class="source">Source: energy.joule:84</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Watts(pub f64);</code></h3>
+                <p class="source">Source: energy.joule:91</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ZERO: Watts</code></h3>
+                <p class="source">Source: energy.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_milliwatts(&amp;self) -&gt; f64</code></h3>
+                <p>Convert to milliwatts</p>
+                <p class="source">Source: energy.joule:97</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_kilowatts(&amp;self) -&gt; f64</code></h3>
+                <p>Convert to kilowatts</p>
+                <p class="source">Source: energy.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_over(&amp;self, duration: Duration) -&gt; Joules</code></h3>
+                <p>Energy consumed over duration</p>
+                <p class="source">Source: energy.joule:107</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyMetrics</code></h3>
+                <p class="source">Source: energy.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create new metrics</p>
+                <p class="source">Source: energy.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_efficiency(&amp;mut self)</code></h3>
+                <p>Compute derived efficiency metrics</p>
+                <p class="source">Source: energy.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn merge(&amp;mut self, other: &amp;EnergyMetrics)</code></h3>
+                <p>Merge with another metrics instance (accumulate)</p>
+                <p class="source">Source: energy.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn summary(&amp;self) -&gt; String</code></h3>
+                <p>Create summary string</p>
+                <p class="source">Source: energy.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: energy.joule:233</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CostModel</code></h3>
+                <p>Cost model for estimating energy consumption of operations</p>
+                <p class="source">Source: energy.joule:243</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceCostParams</code></h3>
+                <p class="source">Source: energy.joule:256</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cpu_default() -&gt; Self</code></h3>
+                <p>Parameters for CPU (approximate Intel/AMD desktop)</p>
+                <p class="source">Source: energy.joule:290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gpu_a100() -&gt; Self</code></h3>
+                <p>Parameters for GPU (approximate NVIDIA A100)</p>
+                <p class="source">Source: energy.joule:306</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apple_npu() -&gt; Self</code></h3>
+                <p>Parameters for Apple M-series NPU</p>
+                <p class="source">Source: energy.joule:322</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tpu_v4() -&gt; Self</code></h3>
+                <p>Parameters for TPU v4</p>
+                <p class="source">Source: energy.joule:338</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OpCost</code></h3>
+                <p class="source">Source: energy.joule:356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device_params: DeviceCostParams) -&gt; Self</code></h3>
+                <p>Create cost model for device</p>
+                <p class="source">Source: energy.joule:375</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init_default_costs(&amp;mut self)</code></h3>
+                <p>Initialize default operation costs</p>
+                <p class="source">Source: energy.joule:387</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate(&amp;self, op_name: &amp;str, numel: usize, extra_dims: &amp;[usize]) -&gt; Joules</code></h3>
+                <p>Estimate energy for operation</p>
+                <p class="source">Source: energy.joule:475</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_matmul(&amp;self, m: usize, n: usize, k: usize) -&gt; Joules</code></h3>
+                <p>Estimate energy for matmul specifically</p>
+                <p class="source">Source: energy.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn calibrate(&amp;mut self, op_name: &amp;str, predicted: Joules, measured: Joules)</code></h3>
+                <p>Calibrate model against measured values</p>
+                <p class="source">Source: energy.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn roofline_analysis(&amp;self, op_name: &amp;str, numel: usize) -&gt; RooflineResult</code></h3>
+                <p>Get roofline analysis for operation</p>
+                <p class="source">Source: energy.joule:532</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RooflineResult</code></h3>
+                <p class="source">Source: energy.joule:565</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyTracker</code></h3>
+                <p>Global energy tracker for monitoring ML workloads</p>
+                <p class="source">Source: energy.joule:579</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device: Device) -&gt; Self</code></h3>
+                <p>Create new energy tracker</p>
+                <p class="source">Source: energy.joule:604</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn begin_scope(&amp;self, name: &amp;str)</code></h3>
+                <p>Begin tracking a named scope</p>
+                <p class="source">Source: energy.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn end_scope(&amp;self) -&gt; Option&lt;EnergyMetrics&gt;</code></h3>
+                <p>End current scope and record metrics</p>
+                <p class="source">Source: energy.joule:636</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_power(&amp;self, power: Watts)</code></h3>
+                <p>Record power sample (called by power monitoring thread)</p>
+                <p class="source">Source: energy.joule:688</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_op(&amp;self, op_name: &amp;str, numel: usize, extra_dims: &amp;[usize])</code></h3>
+                <p>Record operation with estimated energy</p>
+                <p class="source">Source: energy.joule:699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_measured(&amp;self, energy: Joules)</code></h3>
+                <p>Record operation with measured energy</p>
+                <p class="source">Source: energy.joule:708</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Get total energy consumed</p>
+                <p class="source">Source: energy.joule:716</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_scope(&amp;self, name: &amp;str) -&gt; Option&lt;EnergyMetrics&gt;</code></h3>
+                <p>Get metrics for a scope</p>
+                <p class="source">Source: energy.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn all_scopes(&amp;self) -&gt; HashMap&lt;String, EnergyMetrics&gt;</code></h3>
+                <p>Get all scope metrics</p>
+                <p class="source">Source: energy.joule:726</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;self)</code></h3>
+                <p>Reset all metrics</p>
+                <p class="source">Source: energy.joule:731</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn report(&amp;self) -&gt; EnergyReport</code></h3>
+                <p>Generate report</p>
+                <p class="source">Source: energy.joule:737</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn check_hw_power_available(device: Device) -&gt; bool</code></h3>
+                <p>Check if hardware power monitoring is available</p>
+                <p class="source">Source: energy.joule:756</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyReport</code></h3>
+                <p class="source">Source: energy.joule:780</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn print(&amp;self)</code></h3>
+                <p>Print report to stdout</p>
+                <p class="source">Source: energy.joule:787</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_json(&amp;self) -&gt; String</code></h3>
+                <p>Export to JSON</p>
+                <p class="source">Source: energy.joule:802</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyBudget</code></h3>
+                <p class="source">Source: energy.joule:826</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BudgetAction</code></h3>
+                <p class="source">Source: energy.joule:848</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(total: Joules) -&gt; Self</code></h3>
+                <p>Create new budget</p>
+                <p class="source">Source: energy.joule:861</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_kwh(kwh: f64) -&gt; Self</code></h3>
+                <p>Create from kWh</p>
+                <p class="source">Source: energy.joule:873</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_epoch_budget(mut self, budget: Joules) -&gt; Self</code></h3>
+                <p>Set per-epoch budget</p>
+                <p class="source">Source: energy.joule:878</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_step_budget(mut self, budget: Joules) -&gt; Self</code></h3>
+                <p>Set per-step budget</p>
+                <p class="source">Source: energy.joule:884</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_exceed(mut self, action: BudgetAction) -&gt; Self</code></h3>
+                <p>Set action on exceed</p>
+                <p class="source">Source: energy.joule:890</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn consume(&amp;mut self, energy: Joules) -&gt; BudgetStatus</code></h3>
+                <p>Consume energy from budget</p>
+                <p class="source">Source: energy.joule:896</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remaining(&amp;self) -&gt; Joules</code></h3>
+                <p>Get remaining budget</p>
+                <p class="source">Source: energy.joule:909</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn consumed_fraction(&amp;self) -&gt; f64</code></h3>
+                <p>Get fraction of budget consumed</p>
+                <p class="source">Source: energy.joule:914</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn check_step(&amp;self, step_energy: Joules) -&gt; bool</code></h3>
+                <p>Check if step is within budget</p>
+                <p class="source">Source: energy.joule:919</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset(&amp;mut self)</code></h3>
+                <p>Reset budget</p>
+                <p class="source">Source: energy.joule:927</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BudgetStatus</code></h3>
+                <p class="source">Source: energy.joule:934</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_energy_tracker(tracker: Arc&lt;EnergyTracker&gt;)</code></h3>
+                <p>Set energy tracker for current thread</p>
+                <p class="source">Source: energy.joule:951</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_energy_tracker() -&gt; Option&lt;Arc&lt;EnergyTracker&gt;&gt;</code></h3>
+                <p>Get energy tracker for current thread</p>
+                <p class="source">Source: energy.joule:958</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyScope</code></h3>
+                <p>RAII guard for energy scope</p>
+                <p class="source">Source: energy.joule:963</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn begin(name: &amp;str) -&gt; Self</code></h3>
+                <p>Begin new scope</p>
+                <p class="source">Source: energy.joule:970</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: energy.joule:983</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_energy_tracking&lt;F, T&gt;(name: &amp;str, f: F) -&gt; (T, Option&lt;EnergyMetrics&gt;)</code></h3>
+                <p>Track energy of a closure</p>
+                <p class="source">Source: energy.joule:999</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PowerMonitor</code></h3>
+                <p>Power monitor that samples power in background</p>
+                <p class="source">Source: energy.joule:1014</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start(device: Device, tracker: Arc&lt;EnergyTracker&gt;, interval: Duration) -&gt; Self</code></h3>
+                <p>Start power monitoring for device</p>
+                <p class="source">Source: energy.joule:1027</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop(&amp;mut self)</code></h3>
+                <p>Stop monitoring</p>
+                <p class="source">Source: energy.joule:1048</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: energy.joule:1057</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_power(device: Device) -&gt; Option&lt;Watts&gt;</code></h3>
+                <p>Read current power draw for device</p>
+                <p class="source">Source: energy.joule:1063</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_gpu_power(device_idx: u32) -&gt; Option&lt;Watts&gt;</code></h3>
+                <p class="source">Source: energy.joule:1072</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetPowerUsage(device: *mut std::ffi::c_void, power: *mut u32) -&gt; i32;</code></h3>
+                <p class="source">Source: energy.joule:1077</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_cpu_power() -&gt; Option&lt;Watts&gt;</code></h3>
+                <p class="source">Source: energy.joule:1087</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_npu_power() -&gt; Option&lt;Watts&gt;</code></h3>
+                <p class="source">Source: energy.joule:1111</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_tpu_power(_device_idx: u32) -&gt; Option&lt;Watts&gt;</code></h3>
+                <p class="source">Source: energy.joule:1122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_joules_arithmetic()</code></h3>
+                <p class="source">Source: energy.joule:1136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_cost_model_estimation()</code></h3>
+                <p class="source">Source: energy.joule:1147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_roofline_analysis()</code></h3>
+                <p class="source">Source: energy.joule:1158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_energy_budget()</code></h3>
+                <p class="source">Source: energy.joule:1169</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

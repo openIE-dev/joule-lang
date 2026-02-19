@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ethernet - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module ethernet</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct MacAddress([u8; 6]);</code></h3>
+                <p class="source">Source: ethernet.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(bytes: [u8; 6]) -&gt; Self</code></h3>
+                <p>Create from bytes</p>
+                <p class="source">Source: ethernet.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_string(s: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Parse from string (colon or hyphen separated)</p>
+                <p class="source">Source: ethernet.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bytes(&amp;self) -&gt; &amp;[u8; 6]</code></h3>
+                <p>Get bytes</p>
+                <p class="source">Source: ethernet.joule:35</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_broadcast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if broadcast address</p>
+                <p class="source">Source: ethernet.joule:40</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_multicast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if multicast address</p>
+                <p class="source">Source: ethernet.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_local(&amp;self) -&gt; bool</code></h3>
+                <p>Check if locally administered</p>
+                <p class="source">Source: ethernet.joule:50</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BROADCAST: MacAddress</code></h3>
+                <p>Broadcast address</p>
+                <p class="source">Source: ethernet.joule:55</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ZERO: MacAddress</code></h3>
+                <p>Zero address</p>
+                <p class="source">Source: ethernet.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: ethernet.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: ethernet.joule:71</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LinkSpeed</code></h3>
+                <p class="source">Source: ethernet.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mbps(&amp;self) -&gt; u32</code></h3>
+                <p>Get speed in Mbps</p>
+                <p class="source">Source: ethernet.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_mbps(mbps: u32) -&gt; Self</code></h3>
+                <p>Create from Mbps value</p>
+                <p class="source">Source: ethernet.joule:119</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LinkStatus</code></h3>
+                <p class="source">Source: ethernet.joule:137</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Duplex</code></h3>
+                <p class="source">Source: ethernet.joule:148</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct InterfaceInfo</code></h3>
+                <p class="source">Source: ethernet.joule:159</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct InterfaceStats</code></h3>
+                <p class="source">Source: ethernet.joule:184</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EthernetInterface</code></h3>
+                <p>Ethernet interface handle</p>
+                <p class="source">Source: ethernet.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(name: &amp;str) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn info(name: &amp;str) -&gt; Result&lt;Option&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get interface name</p>
+                <p class="source">Source: ethernet.joule:268</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn link_status(&amp;self) -&gt; Result&lt;LinkStatus, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn link_speed(&amp;self) -&gt; Result&lt;LinkSpeed, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mac_address(&amp;self) -&gt; Result&lt;MacAddress, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn statistics(&amp;self) -&gt; Result&lt;InterfaceStats, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn up(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:335</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn down(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_mtu(&amp;self, mtu: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtu(&amp;self) -&gt; Result&lt;u32, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_promiscuous(&amp;self, enable: bool) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_link_up(&amp;self, timeout_ms: u32) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_linux_interfaces() -&gt; Result&lt;Vec&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_interface_info(name: &amp;str) -&gt; Result&lt;Option&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:453</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_link_status(name: &amp;str) -&gt; Result&lt;LinkStatus, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_link_speed_eth(name: &amp;str) -&gt; Result&lt;LinkSpeed, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:550</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_mac(name: &amp;str) -&gt; Result&lt;MacAddress, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:564</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_interface_stats(name: &amp;str) -&gt; Result&lt;InterfaceStats, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:572</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_mtu(name: &amp;str) -&gt; Result&lt;u32, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:598</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_mtu(name: &amp;str, mtu: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, socket_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:608</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:610</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AF_INET: i32</code></h3>
+                <p class="source">Source: ethernet.joule:613</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SOCK_DGRAM: i32</code></h3>
+                <p class="source">Source: ethernet.joule:614</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCSIFMTU: u64</code></h3>
+                <p class="source">Source: ethernet.joule:615</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ifreq</code></h3>
+                <p class="source">Source: ethernet.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_if_up(name: &amp;str) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:647</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, socket_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:649</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:650</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:651</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AF_INET: i32</code></h3>
+                <p class="source">Source: ethernet.joule:654</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SOCK_DGRAM: i32</code></h3>
+                <p class="source">Source: ethernet.joule:655</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCGIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:656</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCSIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:657</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const IFF_UP: i16</code></h3>
+                <p class="source">Source: ethernet.joule:658</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ifreq</code></h3>
+                <p class="source">Source: ethernet.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_if_down(name: &amp;str) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:697</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, socket_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:700</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:701</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AF_INET: i32</code></h3>
+                <p class="source">Source: ethernet.joule:704</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SOCK_DGRAM: i32</code></h3>
+                <p class="source">Source: ethernet.joule:705</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCGIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:706</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCSIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:707</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const IFF_UP: i16</code></h3>
+                <p class="source">Source: ethernet.joule:708</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ifreq</code></h3>
+                <p class="source">Source: ethernet.joule:711</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_promisc(name: &amp;str, enable: bool) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:746</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, socket_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:748</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:749</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: ethernet.joule:750</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AF_INET: i32</code></h3>
+                <p class="source">Source: ethernet.joule:753</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SOCK_DGRAM: i32</code></h3>
+                <p class="source">Source: ethernet.joule:754</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCGIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:755</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCSIFFLAGS: u64</code></h3>
+                <p class="source">Source: ethernet.joule:756</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const IFF_PROMISC: i16</code></h3>
+                <p class="source">Source: ethernet.joule:757</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ifreq</code></h3>
+                <p class="source">Source: ethernet.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_macos_interfaces() -&gt; Result&lt;Vec&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:801</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_interface_info(_name: &amp;str) -&gt; Result&lt;Option&lt;InterfaceInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:807</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_mac(_name: &amp;str) -&gt; Result&lt;MacAddress, DeviceError&gt;</code></h3>
+                <p class="source">Source: ethernet.joule:812</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

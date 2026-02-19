@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regression - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module regression</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct LinearRegressionResult</code></h3>
+                <p class="source">Source: regression.joule:11</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LinearRegression</code></h3>
+                <p>Simple linear regression</p>
+                <p class="source">Source: regression.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: regression.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict_all(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: regression.joule:84</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn summary(&amp;self, x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;LinearRegressionResult&gt;</code></h3>
+                <p class="source">Source: regression.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intercept(&amp;self) -&gt; f64</code></h3>
+                <p>Get intercept</p>
+                <p class="source">Source: regression.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn slope(&amp;self) -&gt; f64</code></h3>
+                <p>Get slope</p>
+                <p class="source">Source: regression.joule:151</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn r_squared(&amp;self) -&gt; f64</code></h3>
+                <p>Get R-squared</p>
+                <p class="source">Source: regression.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn residuals(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p>Get residuals</p>
+                <p class="source">Source: regression.joule:161</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MultipleRegression</code></h3>
+                <p>Multiple linear regression</p>
+                <p class="source">Source: regression.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(x: &amp;[&amp;[f64]], y: &amp;[f64]) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: regression.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:255</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficients(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p>Get coefficients</p>
+                <p class="source">Source: regression.joule:268</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intercept(&amp;self) -&gt; f64</code></h3>
+                <p>Get intercept</p>
+                <p class="source">Source: regression.joule:273</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn r_squared(&amp;self) -&gt; f64</code></h3>
+                <p>Get R-squared</p>
+                <p class="source">Source: regression.joule:278</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn residuals(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p>Get residuals</p>
+                <p class="source">Source: regression.joule:283</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PolynomialRegression</code></h3>
+                <p>Polynomial regression</p>
+                <p class="source">Source: regression.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(x: &amp;[f64], y: &amp;[f64], degree: usize) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: regression.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficients(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p>Get coefficients</p>
+                <p class="source">Source: regression.joule:336</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn degree(&amp;self) -&gt; usize</code></h3>
+                <p>Get degree</p>
+                <p class="source">Source: regression.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn r_squared(&amp;self) -&gt; f64</code></h3>
+                <p>Get R-squared</p>
+                <p class="source">Source: regression.joule:346</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LogisticRegression</code></h3>
+                <p>Logistic regression (binary classification)</p>
+                <p class="source">Source: regression.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(</code></h3>
+                <p class="source">Source: regression.joule:361</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict_proba(&amp;self, x: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:423</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: &amp;[f64], threshold: f64) -&gt; u8</code></h3>
+                <p class="source">Source: regression.joule:434</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficients(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p>Get coefficients</p>
+                <p class="source">Source: regression.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn converged(&amp;self) -&gt; bool</code></h3>
+                <p>Check if converged</p>
+                <p class="source">Source: regression.joule:444</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RidgeRegression</code></h3>
+                <p>Ridge regression (L2 regularized)</p>
+                <p class="source">Source: regression.joule:450</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(x: &amp;[&amp;[f64]], y: &amp;[f64], alpha: f64) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: regression.joule:458</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Predict</p>
+                <p class="source">Source: regression.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficients(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p class="source">Source: regression.joule:517</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LassoRegression</code></h3>
+                <p>LASSO regression (L1 regularized) using coordinate descent</p>
+                <p class="source">Source: regression.joule:523</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fit(</code></h3>
+                <p class="source">Source: regression.joule:531</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict(&amp;self, x: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:607</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coefficients(&amp;self) -&gt; &amp;[f64]</code></h3>
+                <p class="source">Source: regression.joule:615</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_linear_system(a: &amp;[Vec&lt;f64&gt;], b: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Solve linear system Ax &#x3D; b using Gaussian elimination with partial pivoting</p>
+                <p class="source">Source: regression.joule:625</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn soft_threshold(x: f64, lambda: f64) -&gt; f64</code></h3>
+                <p>Soft thresholding for LASSO</p>
+                <p class="source">Source: regression.joule:679</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: regression.joule:689</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

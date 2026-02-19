@@ -1,0 +1,1213 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Heterogeneous Computing &amp; Hardware Telemetry - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="energy-cost-database.html"><strong aria-hidden="true">5.</strong> Energy Cost Database</a></li><li class="chapter-item expanded "><a href="MLIR_Integration_Guide.html"><strong aria-hidden="true">6.</strong> MLIR Integration Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">8.</strong> Types</a></li><li class="chapter-item expanded "><a href="reference/expressions.html"><strong aria-hidden="true">9.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="reference/items.html"><strong aria-hidden="true">10.</strong> Items</a></li><li class="chapter-item expanded "><a href="reference/patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="reference/attributes.html"><strong aria-hidden="true">12.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="reference/memory.html"><strong aria-hidden="true">13.</strong> Memory</a></li><li class="chapter-item expanded "><a href="reference/concurrency.html"><strong aria-hidden="true">14.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="reference/energy.html"><strong aria-hidden="true">15.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">16.</strong> Overview</a></li><li class="chapter-item expanded "><a href="stdlib/string.html"><strong aria-hidden="true">17.</strong> String</a></li><li class="chapter-item expanded "><a href="stdlib/vec.html"><strong aria-hidden="true">18.</strong> Vec</a></li><li class="chapter-item expanded "><a href="stdlib/option.html"><strong aria-hidden="true">19.</strong> Option</a></li><li class="chapter-item expanded "><a href="stdlib/result.html"><strong aria-hidden="true">20.</strong> Result</a></li><li class="chapter-item expanded "><a href="stdlib/hashmap.html"><strong aria-hidden="true">21.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="stdlib/primitives.html"><strong aria-hidden="true">22.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="stdlib/collections.html"><strong aria-hidden="true">23.</strong> Collections</a></li><li class="chapter-item expanded "><a href="stdlib/io.html"><strong aria-hidden="true">24.</strong> I/O</a></li><li class="chapter-item expanded "><a href="stdlib/math.html"><strong aria-hidden="true">25.</strong> Math</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture & Research</li><li class="chapter-item expanded "><a href="heterogeneous_computing_telemetry_analysis.html" class="active"><strong aria-hidden="true">26.</strong> Heterogeneous Computing & Hardware Telemetry</a></li><li class="chapter-item expanded "><a href="EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html"><strong aria-hidden="true">27.</strong> Executive Summary: Heterogeneous Computing & Telemetry Strategy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="heterogeneous-computing--hardware-telemetry-deep-dive-analysis-for-joule"><a class="header" href="#heterogeneous-computing--hardware-telemetry-deep-dive-analysis-for-joule">Heterogeneous Computing &amp; Hardware Telemetry: Deep Dive Analysis for Joule</a></h1>
+<p><strong>Date</strong>: 2026-01-30
+<strong>Purpose</strong>: Define Joule's strategy for GPU/TPU/NPU programming and comprehensive hardware telemetry</p>
+<hr />
+<h2 id="executive-summary"><a class="header" href="#executive-summary">Executive Summary</a></h2>
+<p>To achieve Joule's mission of <strong>"Faster than C++. Safer than Rust. More efficient than anything,"</strong> we must:</p>
+<ol>
+<li><strong>Support all major compute accelerators</strong>: GPU (NVIDIA, AMD, Intel, Apple), TPU (Google), NPU (Intel, AMD, Qualcomm, Apple)</li>
+<li><strong>Provide deep hardware telemetry</strong>: Not surface-level metrics, but comprehensive monitoring of energy, temperature, bandwidth, utilization across ALL hardware components</li>
+<li><strong>Cross-platform portability</strong>: Windows, macOS, Linux, bare metal</li>
+<li><strong>Energy-first optimization</strong>: Use telemetry data to make thermal-aware, energy-optimal decisions at compile-time and runtime</li>
+</ol>
+<p>This document synthesizes 2026 state-of-the-art research on GPU programming models and hardware telemetry APIs to inform Joule's architecture.</p>
+<hr />
+<h2 id="1-gpu-programming-language-landscape"><a class="header" href="#1-gpu-programming-language-landscape">1. GPU Programming Language Landscape</a></h2>
+<h3 id="11-mojo-the-current-leader-in-heterogeneous-computing"><a class="header" href="#11-mojo-the-current-leader-in-heterogeneous-computing">1.1 Mojo: The Current Leader in Heterogeneous Computing</a></h3>
+<p><strong>Architecture</strong>: Built entirely on <strong>MLIR</strong> (Multi-Level Intermediate Representation), enabling compilation to CPUs, GPUs, TPUs, ASICs, FPGAs, and custom accelerators.</p>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li><strong>Performance portability</strong>: Single codebase targets NVIDIA GPUs, AMD MI300 GPUs, TPUs, and custom ASICs</li>
+<li><strong>Python ecosystem compatibility</strong>: Can reuse Python libraries while achieving C/C++ performance</li>
+<li><strong>AOT and JIT compilation</strong>: Flexibility for different deployment scenarios</li>
+<li><strong>Production-ready in Q1 2026</strong>: Compiler open-sourced in 2026</li>
+</ul>
+<p><strong>What Joule Must Match</strong>:</p>
+<ul>
+<li>✅ MLIR-based or equivalent multi-backend IR</li>
+<li>✅ Zero Python overhead (Joule doesn't need Python compat, but must be equally ergonomic)</li>
+<li>✅ Portable abstractions that compile to optimal code on each backend</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://arxiv.org/html/2509.21039v1">Mojo: MLIR-Based Performance-Portable HPC Science Kernels on GPUs for the Python Ecosystem</a></li>
+<li><a href="https://www.modular.com/mojo">Mojo 🔥: Powerful CPU+GPU Programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mojo_(programming_language)">Mojo (programming language) - Wikipedia</a></li>
+</ul>
+<hr />
+<h3 id="12-nvidia-cuda-ecosystem-2026-state"><a class="header" href="#12-nvidia-cuda-ecosystem-2026-state">1.2 NVIDIA CUDA Ecosystem (2026 State)</a></h3>
+<p><strong>CUDA 13.1</strong> (released 2025-2026) is the largest update to CUDA in 20 years:</p>
+<h4 id="key-technologies"><a class="header" href="#key-technologies">Key Technologies:</a></h4>
+<ol>
+<li>
+<p><strong>CUDA Tile</strong>: New tile-based programming model abstracting tensor cores and specialized hardware</p>
+<ul>
+<li>Simplifies programming of tensor cores</li>
+<li>Portable across NVIDIA GPU generations</li>
+</ul>
+</li>
+<li>
+<p><strong>cuDNN</strong> (CUDA Deep Neural Network library):</p>
+<ul>
+<li>High-performance GPU acceleration for neural networks</li>
+<li><strong>DEPRECATED</strong> on Blackwell+ GPUs when using CUDA 13</li>
+<li>Being replaced by TensorRT for modern workloads</li>
+</ul>
+</li>
+<li>
+<p><strong>TensorRT</strong>:</p>
+<ul>
+<li>Inference compiler with quantization, layer fusion, kernel tuning</li>
+<li>Low latency, high throughput for production AI</li>
+<li>Now the preferred path over cuDNN</li>
+</ul>
+</li>
+<li>
+<p><strong>Nsight Tools</strong> (2026.1.1):</p>
+<ul>
+<li><strong>Nsight Systems</strong>: CUDA API tracing, library profiling (cuBLAS, cuDNN, TensorRT)</li>
+<li><strong>Nsight Compute 2025.4</strong>: Profiling for CUDA Tile kernels, static SM partitioning</li>
+<li><strong>Multi-Process Service</strong>: Static SM partitioning for fine-grained GPU sharing</li>
+<li><strong>Compute Sanitizer</strong>: Compile-time memory error detection via NVCC</li>
+</ul>
+</li>
+<li>
+<p><strong>CUDA-X Libraries</strong>:</p>
+<ul>
+<li>cuBLAS: FP8/BF16 group GEMM on Blackwell</li>
+<li>cuSPARSE: Sparse matrix operations</li>
+<li>CUB/CCCL 3.1: Multi-phase determinism, collective primitives</li>
+</ul>
+</li>
+</ol>
+<p><strong>What Joule Must Match</strong>:</p>
+<ul>
+<li>✅ Tile-based abstractions for tensor cores</li>
+<li>✅ Deep integration with profiling/telemetry (match Nsight's capabilities)</li>
+<li>✅ First-class tensor operations with automatic fusion</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://developer.nvidia.com/blog/nvidia-cuda-13-1-powers-next-gen-gpu-programming-with-nvidia-cuda-tile-and-performance-gains">NVIDIA CUDA 13.1 Powers Next-Gen GPU Programming with NVIDIA CUDA Tile and Performance Gains</a></li>
+<li><a href="https://developer.nvidia.com/nsight-systems">Nsight Systems | NVIDIA Developer</a></li>
+<li><a href="https://developer.nvidia.com/cudnn">CUDA Deep Neural Network (cuDNN) | NVIDIA Developer</a></li>
+<li><a href="https://developer.nvidia.com/tensorrt">TensorRT SDK | NVIDIA Developer</a></li>
+</ul>
+<hr />
+<h3 id="13-multi-vendor-gpu-programming-apis"><a class="header" href="#13-multi-vendor-gpu-programming-apis">1.3 Multi-Vendor GPU Programming APIs</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>Platforms</th><th>Pros</th><th>Cons</th><th>2026 Status</th></tr></thead><tbody>
+<tr><td><strong>CUDA</strong></td><td>NVIDIA only</td><td>Mature ecosystem, best performance on NVIDIA</td><td>Vendor lock-in</td><td>CUDA 13.1, Tile abstractions</td></tr>
+<tr><td><strong>OpenCL</strong></td><td>CPU, GPU, FPGA (multi-vendor)</td><td>Cross-platform, open standard</td><td>Verbose, lower-level, fragmented implementations</td><td>Still widely used</td></tr>
+<tr><td><strong>Vulkan Compute</strong></td><td>Multi-vendor GPU</td><td>Low-level control, SPIR-V IR</td><td>Steep learning curve</td><td>Shares SPIR-V with OpenCL 2.1</td></tr>
+<tr><td><strong>SYCL</strong></td><td>CPU, GPU, FPGA (multi-vendor)</td><td>Single-source C++, portable</td><td>Less mature than CUDA</td><td>Can target CUDA, HIP, OpenCL backends</td></tr>
+<tr><td><strong>HIP</strong></td><td>AMD ROCm, NVIDIA CUDA</td><td>CUDA-like API, portable AMD↔NVIDIA</td><td>Smaller ecosystem than CUDA</td><td>ROCm 7.2.0 active development</td></tr>
+<tr><td><strong>Metal</strong></td><td>Apple (macOS, iOS)</td><td>Excellent Apple performance</td><td>Apple ecosystem only</td><td>Active, best for Apple Silicon</td></tr>
+</tbody></table>
+</div>
+<p><strong>Key Insight</strong>: <strong>SYCL</strong> is the most promising <strong>vendor-neutral</strong> path:</p>
+<ul>
+<li>Single-source C++ code</li>
+<li>Backends for CUDA, HIP, OpenCL, Vulkan</li>
+<li>Can leverage existing CUDA/HIP ecosystems while staying portable</li>
+</ul>
+<p><strong>What Joule Should Do</strong>:</p>
+<ul>
+<li><strong>Short-term</strong>: Target CUDA (NVIDIA), HIP (AMD), Metal (Apple) directly</li>
+<li><strong>Mid-term</strong>: Provide SYCL-like abstractions in Joule syntax</li>
+<li><strong>Long-term</strong>: Joule becomes the source language that compiles to SYCL/SPIR-V/MLIR</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/SYCL">SYCL - Wikipedia</a></li>
+<li><a href="https://thechipletter.substack.com/p/demystifying-gpu-compute-software">Demystifying GPU Compute Software</a></li>
+<li><a href="https://medium.com/@1kg/cuda-vs-opencl-vs-apple-metal-a-deep-dive-into-gpu-acceleration-technologies-634cdcc0e5da">CUDA vs OpenCL vs Apple Metal</a></li>
+<li><a href="https://www.modular.com/blog/democratizing-ai-compute-part-5-what-about-cuda-c-alternatives">Modular: What about OpenCL and CUDA C++ alternatives?</a></li>
+</ul>
+<hr />
+<h2 id="2-hardware-telemetry-comprehensive-monitoring-architecture"><a class="header" href="#2-hardware-telemetry-comprehensive-monitoring-architecture">2. Hardware Telemetry: Comprehensive Monitoring Architecture</a></h2>
+<h3 id="21-gpu-telemetry"><a class="header" href="#21-gpu-telemetry">2.1 GPU Telemetry</a></h3>
+<h4 id="nvidia-nvml---nvidia-management-library"><a class="header" href="#nvidia-nvml---nvidia-management-library">NVIDIA (NVML - NVIDIA Management Library)</a></h4>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li>GPU utilization (compute, memory, encoder, decoder)</li>
+<li>GPU memory usage (used/free/total)</li>
+<li>Temperature (GPU die, memory)</li>
+<li>Power consumption (current, limit, average)</li>
+<li>Clock speeds (core, memory)</li>
+<li>Thermal throttling status</li>
+<li>PCIe bandwidth utilization</li>
+<li>ECC errors</li>
+<li><strong>Per-process GPU usage</strong> (which process is using which GPU)</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>C library: <code>libnvidia-ml.so</code> (Linux), <code>nvml.dll</code> (Windows)</li>
+<li>Python: <code>pynvml</code></li>
+<li>Cross-platform: Works on Linux, Windows, limited macOS support</li>
+</ul>
+<p><strong>Example Metrics</strong>:</p>
+<pre><code class="language-c">nvmlDeviceGetUtilizationRates(device, &amp;utilization);
+// utilization.gpu (0-100%)
+// utilization.memory (0-100%)
+
+nvmlDeviceGetTemperature(device, NVML_TEMPERATURE_GPU, &amp;temp);
+// temp in Celsius
+
+nvmlDeviceGetPowerUsage(device, &amp;power);
+// power in milliwatts
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://github.com/NVIDIA/gpu-monitoring-tools">NVIDIA gpu-monitoring-tools</a></li>
+<li><a href="https://docs.cloud.google.com/compute/docs/gpus/monitor-gpus">Monitoring GPU performance on Linux VMs</a></li>
+</ul>
+<hr />
+<h4 id="amd-rocm--amd-smi"><a class="header" href="#amd-rocm--amd-smi">AMD (ROCm / AMD SMI)</a></h4>
+<p><strong>Capabilities</strong> (amd-smi tool, replacing rocm-smi):</p>
+<ul>
+<li>GPU utilization</li>
+<li>Memory usage and bandwidth</li>
+<li>Temperature (junction, memory, edge)</li>
+<li>Power consumption and power cap</li>
+<li>Clock frequencies (core, memory)</li>
+<li>PCIe bandwidth</li>
+<li><strong>Node Power Management (NPM)</strong>: Optimizes power allocation across multiple GPUs using telemetry and advanced control (ROCm 7.2.0)</li>
+<li><strong>Device Metrics Exporter</strong>: Prometheus-format telemetry for HPC/AI environments</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>C library: <code>libamd_smi.so</code></li>
+<li>CLI: <code>amd-smi</code></li>
+<li>Python bindings available</li>
+</ul>
+<p><strong>Example Usage</strong>:</p>
+<pre><code class="language-bash">amd-smi metric --gpu 0 --power --temperature --usage
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://rocm.docs.amd.com/projects/amdsmi/en/latest/how-to/amdsmi-cli-tool.html">AMD SMI CLI tool usage</a></li>
+<li><a href="https://www.amd.com/en/products/software/rocm.html">AMD ROCm™ Software</a></li>
+<li><a href="https://github.com/ROCm/device-metrics-exporter">ROCm Device Metrics Exporter</a></li>
+</ul>
+<hr />
+<h4 id="intel-gpu"><a class="header" href="#intel-gpu">Intel GPU</a></h4>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li>GPU load</li>
+<li>Frequency</li>
+<li>❌ <strong>Temperature telemetry unavailable</strong> for Intel integrated graphics (major limitation)</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>Linux: <code>intel_gpu_top</code> (command-line)</li>
+<li>OpenVINO integration for NPU</li>
+</ul>
+<p><strong>Sources</strong>: <a href="https://www.softwaretestinghelp.com/top-cpu-temp-monitor/">Test 11 CPU Temp Monitor Tools: PC Temperature Monitor 2026</a></p>
+<hr />
+<h4 id="apple-metal"><a class="header" href="#apple-metal">Apple Metal</a></h4>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li>GPU utilization</li>
+<li>Memory usage</li>
+<li>Limited temperature data (via IOKit)</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>Metal Performance Shaders (MPS)</li>
+<li>Core ML for neural engines (NPU)</li>
+<li>IOKit for low-level access</li>
+</ul>
+<p><strong>Cross-platform tool</strong>: <a href="https://github.com/Syllo/nvtop">nvtop</a> includes initial Apple Metal support</p>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://github.com/Syllo/nvtop">nvtop - GPU &amp; Accelerator process monitoring</a></li>
+</ul>
+<hr />
+<h3 id="22-tpunpu-telemetry"><a class="header" href="#22-tpunpu-telemetry">2.2 TPU/NPU Telemetry</a></h3>
+<h4 id="google-cloud-tpu"><a class="header" href="#google-cloud-tpu">Google Cloud TPU</a></h4>
+<p><strong>Architecture</strong>: Application-specific integrated circuits (ASICs) for ML workloads</p>
+<p><strong>Telemetry</strong>:</p>
+<ul>
+<li>Accessible through Google Cloud Platform APIs</li>
+<li>Cloud-based monitoring (not local access)</li>
+</ul>
+<p><strong>Limitations</strong>: No local hardware access (cloud-only deployment)</p>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">Tensor Processing Unit - Wikipedia</a></li>
+<li><a href="https://docs.google.com/tpu/docs/system-architecture-tpu-vm">TPU architecture | Google Cloud Documentation</a></li>
+</ul>
+<hr />
+<h4 id="intel-npu-via-openvino"><a class="header" href="#intel-npu-via-openvino">Intel NPU (via OpenVINO)</a></h4>
+<p><strong>Capabilities</strong>:</p>
+<ul>
+<li>NPU utilization tracking</li>
+<li>Profiling with Intel VTune Profiler</li>
+<li><strong>NPU Exploration analysis</strong>: Understand NPU usage in Platform window</li>
+<li>OpenVINO telemetry built-in</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>OpenVINO Runtime API</li>
+<li>Intel VTune Profiler integration</li>
+<li><strong>torch.compile</strong> NPU backend support (new in 2025)</li>
+</ul>
+<p><strong>Example Platforms</strong>:</p>
+<ul>
+<li>Intel Core Ultra processors (Meteor Lake, Lunar Lake)</li>
+<li>Intel Data Center GPUs with integrated NPUs</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://github.com/openvinotoolkit/openvino">OpenVINO™ Toolkit</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2025-0/profiling-openvino-applications.html">Profiling OpenVINO™ Applications</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/release-notes/openvino/2025-0.html">Release Notes for Intel Distribution of OpenVINO Toolkit 2025.0</a></li>
+</ul>
+<hr />
+<h4 id="amd-ryzen-ai--qualcomm-snpe--apple-coreml"><a class="header" href="#amd-ryzen-ai--qualcomm-snpe--apple-coreml">AMD Ryzen AI / Qualcomm SNPE / Apple CoreML</a></h4>
+<p><strong>Access</strong>: Each vendor has proprietary NPU APIs:</p>
+<ul>
+<li>AMD: Ryzen AI SDK</li>
+<li>Qualcomm: Snapdragon Neural Processing Engine (SNPE)</li>
+<li>Apple: Core ML (unified API for Neural Engine)</li>
+</ul>
+<p><strong>Telemetry</strong>: Vendor-specific, generally limited compared to GPU telemetry</p>
+<p><strong>Sources</strong>: <a href="https://www.fluence.network/blog/cpu-gpu-tpu-npu-guide/">CPU, GPU, TPU &amp; NPU: What to Use for AI Workloads (2026 Guide)</a></p>
+<hr />
+<h3 id="23-cpu-telemetry"><a class="header" href="#23-cpu-telemetry">2.3 CPU Telemetry</a></h3>
+<h4 id="intel-rapl--performance-counters"><a class="header" href="#intel-rapl--performance-counters">Intel (RAPL + Performance Counters)</a></h4>
+<p><strong>RAPL (Running Average Power Limit)</strong> - Already implemented in Joule:</p>
+<ul>
+<li>Package energy (CPU + integrated GPU)</li>
+<li>DRAM energy</li>
+<li>PP0 (cores), PP1 (GPU) on some platforms</li>
+</ul>
+<p><strong>Performance Monitoring Unit (PMU)</strong>:</p>
+<ul>
+<li>Cache misses (L1, L2, L3)</li>
+<li>Branch mispredictions</li>
+<li>Instructions retired</li>
+<li>Cycles (total, idle)</li>
+<li><strong>Memory Bandwidth Monitoring (MBM)</strong>: Per-thread local/remote bandwidth (NUMA-aware)</li>
+<li><strong>Cache Monitoring Technology (CMT)</strong>: L3 cache occupancy per thread</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li>Linux: <code>perf_event_open()</code>, <code>/sys/class/powercap/intel-rapl/</code></li>
+<li>Intel Performance Counter Monitor (PCM)</li>
+<li><strong>Resource Director Technology (RDT)</strong>: MBM, CMT, Cache Allocation Technology (CAT)</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/introduction-to-memory-bandwidth-monitoring.html">Introduction to Memory Bandwidth Monitoring</a></li>
+<li><a href="https://arxiv.org/abs/2106.08026">Modeling memory bandwidth patterns on NUMA machines</a></li>
+</ul>
+<hr />
+<h4 id="amd-rapl-equivalent--pmu"><a class="header" href="#amd-rapl-equivalent--pmu">AMD (RAPL equivalent + PMU)</a></h4>
+<p><strong>Energy Monitoring</strong>:</p>
+<ul>
+<li>AMD Energy Driver: <code>/sys/class/hwmon/hwmon*/energy*_input</code></li>
+<li>Similar to Intel RAPL but different sysfs paths</li>
+</ul>
+<p><strong>Performance Counters</strong>:</p>
+<ul>
+<li>AMD Infinity Fabric monitoring</li>
+<li>Cache hierarchy events</li>
+<li>NUMA topology awareness</li>
+</ul>
+<hr />
+<h3 id="24-memory-ram-telemetry"><a class="header" href="#24-memory-ram-telemetry">2.4 Memory (RAM) Telemetry</a></h3>
+<p><strong>Metrics</strong>:</p>
+<ul>
+<li><strong>Bandwidth utilization</strong> (GB/s): Read/write rates</li>
+<li><strong>NUMA locality</strong>: Local vs. remote memory access patterns</li>
+<li><strong>Latency</strong>: CAS latency, row buffer hit rate</li>
+<li><strong>Capacity</strong>: Used/free/total, per-NUMA node</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li><strong>Linux</strong>: <code>perf_event_open()</code> with PMU events
+<ul>
+<li><code>MEM_LOAD_RETIRED.LOCAL_PMM</code></li>
+<li><code>MEM_LOAD_RETIRED.REMOTE_PMM</code></li>
+<li><code>UNC_M_CAS_COUNT.*</code> (integrated memory controller)</li>
+</ul>
+</li>
+<li><strong>Windows</strong>: Performance Counters</li>
+<li><strong>Cross-platform</strong>: <code>numactl</code>, <code>lstopo</code> (hwloc library)</li>
+</ul>
+<p><strong>Tools</strong>:</p>
+<ul>
+<li>Intel Memory Latency Checker (MLC)</li>
+<li><code>likwid-perfctr</code> (Linux)</li>
+<li><code>pcm-memory</code> (Intel PCM suite)</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://docs.kernel.org/admin-guide/mm/numaperf.html">NUMA Memory Performance — The Linux Kernel documentation</a></li>
+<li><a href="https://access.redhat.com/articles/3359051">Monitoring NUMA Remote Memory Traffic - Red Hat</a></li>
+</ul>
+<hr />
+<h3 id="25-storage-telemetry"><a class="header" href="#25-storage-telemetry">2.5 Storage Telemetry</a></h3>
+<h4 id="nvmessd-smart"><a class="header" href="#nvmessd-smart">NVMe/SSD SMART</a></h4>
+<p><strong>Metrics</strong>:</p>
+<ul>
+<li><strong>Percentage Used</strong>: Endurance wear-out (like a gas gauge)</li>
+<li><strong>Temperature</strong>: Current, max, critical thresholds</li>
+<li><strong>Power consumption</strong>: Active power states</li>
+<li><strong>Read/write bandwidth</strong>: Current I/O rates</li>
+<li><strong>Latency</strong>: Command completion time</li>
+<li><strong>Error rates</strong>: Media errors, CRC errors</li>
+<li><strong>Total bytes written (TBW)</strong>: Lifetime write volume</li>
+</ul>
+<p><strong>NVMe-Specific</strong>:</p>
+<ul>
+<li><strong>Telemetry logs</strong>: Internal logs on device failure (vendor-specific)</li>
+<li><strong>SMART/Health Information Log Page</strong>: Standardized across NVMe devices</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li><strong>Linux</strong>: <code>nvme-cli</code> (<code>nvme smart-log /dev/nvme0n1</code>)</li>
+<li><strong>Cross-platform</strong>: <code>smartctl</code> from <a href="https://sourceforge.net/projects/smartmontools/">smartmontools</a></li>
+<li><strong>Programmatic</strong>: <code>libnvme</code> (C library)</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre><code class="language-bash">smartctl -a /dev/nvme0n1  # All SMART data
+nvme smart-log /dev/nvme0n1 -o json  # JSON output
+</code></pre>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://www.techtarget.com/searchstorage/post/Monitoring-the-Health-of-NVMe-SSDs">Monitoring the Health of NVMe SSDs</a></li>
+<li><a href="https://nvmexpress.org/resource/features-for-error-reporting-smart-log-pages-failures-and-management-capabilities-in-nvme-architectures/">Features for Error Reporting, SMART, Log Pages in NVMe</a></li>
+<li><a href="https://sourceforge.net/projects/smartmontools/">S.M.A.R.T. Monitoring Tools</a></li>
+</ul>
+<hr />
+<h3 id="26-network-telemetry"><a class="header" href="#26-network-telemetry">2.6 Network Telemetry</a></h3>
+<p><strong>Metrics</strong>:</p>
+<ul>
+<li><strong>Bandwidth</strong>: Current throughput (Mbps/Gbps)</li>
+<li><strong>Packet rates</strong>: Packets/sec (tx/rx)</li>
+<li><strong>Error rates</strong>: CRC errors, dropped packets</li>
+<li><strong>Latency</strong>: Round-trip time (RTT)</li>
+<li><strong>Utilization</strong>: % of link capacity used</li>
+<li><strong>Per-process network usage</strong>: Which process is using how much bandwidth</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li><strong>Linux</strong>:
+<ul>
+<li><code>/sys/class/net/&lt;interface&gt;/statistics/*</code></li>
+<li><code>AF_PACKET</code> sockets for packet capture</li>
+<li><code>netlink</code> for interface state</li>
+<li><code>perf_event</code> for network PMU events</li>
+</ul>
+</li>
+<li><strong>Windows</strong>:
+<ul>
+<li>Performance Counters API (<code>PdhOpenQuery</code>)</li>
+<li>WMI (Windows Management Instrumentation)</li>
+</ul>
+</li>
+<li><strong>macOS</strong>:
+<ul>
+<li><code>getifaddrs()</code>, <code>ioctl()</code> with <code>SIOCGIFDATA</code></li>
+<li>Network Statistics API</li>
+</ul>
+</li>
+<li><strong>Cross-platform</strong>: <a href="https://opentelemetry.io/">OpenTelemetry</a> for application-level metrics</li>
+</ul>
+<p><strong>Tools</strong>:</p>
+<ul>
+<li><code>nethogs</code> (per-process, Linux)</li>
+<li><code>nload</code> (interface-level, Linux)</li>
+<li><code>iftop</code> (connections, Linux/macOS)</li>
+<li><code>bandwhich</code> (per-process, cross-platform Rust tool)</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://phoenixnap.com/kb/linux-network-bandwidth-monitor-traffic">How to Monitor Network Traffic in Linux</a></li>
+<li><a href="https://github.com/imsnif/bandwhich">bandwhich - Terminal bandwidth utilization tool</a></li>
+<li><a href="https://opentelemetry.io/">OpenTelemetry</a></li>
+</ul>
+<hr />
+<h3 id="27-temperature-telemetry"><a class="header" href="#27-temperature-telemetry">2.7 Temperature Telemetry</a></h3>
+<p><strong>Zones to Monitor</strong>:</p>
+<ul>
+<li><strong>CPU die</strong> (per-core, per-package)</li>
+<li><strong>GPU die</strong></li>
+<li><strong>Memory modules</strong> (DDR5 has temp sensors)</li>
+<li><strong>NVMe SSD</strong></li>
+<li><strong>Motherboard</strong> (chipset, VRM)</li>
+<li><strong>Ambient</strong> (chassis temperature)</li>
+</ul>
+<p><strong>APIs</strong>:</p>
+<ul>
+<li><strong>Linux</strong>:
+<ul>
+<li><code>/sys/class/thermal/thermal_zone*/temp</code> (CPU, GPU)</li>
+<li><code>/sys/class/hwmon/hwmon*/temp*_input</code> (all sensors)</li>
+<li><code>sensors</code> command (lm-sensors library)</li>
+</ul>
+</li>
+<li><strong>Windows</strong>:
+<ul>
+<li>WMI (<code>Win32_TemperatureProbe</code>)</li>
+<li>Vendor-specific (OpenHardwareMonitor library)</li>
+</ul>
+</li>
+<li><strong>macOS</strong>:
+<ul>
+<li>IOKit (<code>SMCReadKey</code> for System Management Controller)</li>
+<li>Apple's built-in sensors</li>
+</ul>
+</li>
+<li><strong>Bare Metal</strong>:
+<ul>
+<li>Direct SMBus/I2C access to thermal sensors</li>
+<li>IPMI (Intelligent Platform Management Interface) on servers</li>
+</ul>
+</li>
+</ul>
+<p><strong>Cross-Platform Tools</strong>:</p>
+<ul>
+<li><a href="https://www.cpuid.com/softwares/hwmonitor.html">HWMonitor</a> (Windows, Linux)</li>
+<li><a href="https://www.hwinfo.com/">HWiNFO</a> (Windows, Linux)</li>
+<li><a href="https://openhardwaremonitor.org/">Open Hardware Monitor</a> (Windows, Linux)</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://www.softwaretestinghelp.com/top-cpu-temp-monitor/">Test 11 CPU Temp Monitor Tools: PC Temperature Monitor 2026</a></li>
+<li><a href="https://openhardwaremonitor.org/">Open Hardware Monitor</a></li>
+<li><a href="https://www.cpuid.com/softwares/hwmonitor.html">HWMONITOR | CPUID</a></li>
+</ul>
+<hr />
+<h3 id="28-bare-metal--enterprise-monitoring"><a class="header" href="#28-bare-metal--enterprise-monitoring">2.8 Bare Metal &amp; Enterprise Monitoring</a></h3>
+<p><strong>Capabilities Beyond OS-Level</strong>:</p>
+<ul>
+<li><strong>IPMI (Intelligent Platform Management Interface)</strong>: Server hardware monitoring (BMC)
+<ul>
+<li>Power consumption</li>
+<li>Fan speeds</li>
+<li>Voltage rails</li>
+<li>Chassis intrusion</li>
+</ul>
+</li>
+<li><strong>Redfish API</strong>: Modern replacement for IPMI (RESTful API)</li>
+<li><strong>NVIDIA DCGM (Data Center GPU Manager)</strong>:
+<ul>
+<li>Fleet-wide GPU management</li>
+<li>Real-time telemetry including power spikes, thermals, airflow</li>
+<li>Location tracking for GPUs in data centers</li>
+</ul>
+</li>
+<li><strong>OpenBMC</strong>: Open-source BMC firmware</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://www.tomshardware.com/pc-components/gpus/nvidia-details-new-software-that-enables-location-tracking-for-ai-gpus-opt-in-remote-data-center-gpu-fleet-management-includes-power-usage-and-thermal-monitoring">Nvidia details new software that enables location tracking for AI GPUs</a></li>
+<li><a href="https://www.atlantic.net/gpu-server-hosting/bare-metal-gpu-architecture-the-engine-of-modern-ai-and-gaming/">Bare Metal GPU Architecture</a></li>
+</ul>
+<hr />
+<h2 id="3-proposed-joule-telemetry-architecture"><a class="header" href="#3-proposed-joule-telemetry-architecture">3. Proposed Joule Telemetry Architecture</a></h2>
+<h3 id="31-design-principles"><a class="header" href="#31-design-principles">3.1 Design Principles</a></h3>
+<ol>
+<li><strong>Zero-Cost Abstraction</strong>: Telemetry APIs compile to direct hardware access with no runtime overhead</li>
+<li><strong>Opt-In by Default</strong>: Users explicitly request telemetry (avoid surprise overhead)</li>
+<li><strong>Compile-Time and Runtime</strong>: Support both static (compile-time energy estimates) and dynamic (runtime monitoring)</li>
+<li><strong>Cross-Platform Portability</strong>: Single Joule API works across Windows, macOS, Linux, bare metal</li>
+<li><strong>Granular Control</strong>: Per-thread, per-device, per-operation monitoring</li>
+</ol>
+<hr />
+<h3 id="32-proposed-joule-telemetry-api"><a class="header" href="#32-proposed-joule-telemetry-api">3.2 Proposed Joule Telemetry API</a></h3>
+<pre><code class="language-joule">// Core telemetry module
+mod energy {
+    // Hardware energy readers (already implemented)
+    pub struct EnergyMonitor { ... }
+    pub enum ThermalState { Cool, Nominal, Elevated, Hot, Critical }
+}
+
+mod telemetry {
+    use energy::{EnergyMonitor, ThermalState};
+
+    // GPU telemetry
+    pub trait GpuTelemetry {
+        fn utilization(&amp;self) -&gt; Result&lt;f64, Error&gt;;  // 0.0-100.0%
+        fn memory_used(&amp;self) -&gt; Result&lt;u64, Error&gt;;  // bytes
+        fn temperature(&amp;self) -&gt; Result&lt;f64, Error&gt;;  // Celsius
+        fn power_usage(&amp;self) -&gt; Result&lt;f64, Error&gt;;  // Watts
+        fn clock_speed(&amp;self) -&gt; Result&lt;(u32, u32), Error&gt;;  // (core_mhz, mem_mhz)
+    }
+
+    // CPU telemetry
+    pub struct CpuTelemetry {
+        pub energy: EnergyMonitor,        // RAPL/equivalent
+        pub thermal: ThermalState,
+        pub frequency: Vec&lt;u32&gt;,          // Per-core MHz
+        pub utilization: Vec&lt;f64&gt;,        // Per-core 0-100%
+        pub cache_misses: u64,            // PMU counter
+        pub instructions_retired: u64,    // PMU counter
+    }
+
+    // Memory telemetry
+    pub struct MemoryTelemetry {
+        pub bandwidth_read: f64,   // GB/s
+        pub bandwidth_write: f64,  // GB/s
+        pub numa_local_ratio: f64, // 0.0-1.0 (higher is better)
+        pub capacity_used: u64,    // bytes
+        pub capacity_total: u64,
+    }
+
+    // Storage telemetry
+    pub struct StorageTelemetry {
+        pub device_path: String,
+        pub temperature: f64,              // Celsius
+        pub wear_level: f64,               // 0.0-100.0% (percentage used)
+        pub read_bandwidth: f64,           // MB/s
+        pub write_bandwidth: f64,
+        pub total_bytes_written: u64,
+        pub errors: u64,
+    }
+
+    // Network telemetry
+    pub struct NetworkTelemetry {
+        pub interface: String,
+        pub rx_bandwidth: f64,     // Mbps
+        pub tx_bandwidth: f64,
+        pub rx_packets: u64,
+        pub tx_packets: u64,
+        pub rx_errors: u64,
+        pub tx_errors: u64,
+    }
+
+    // Unified system telemetry
+    pub struct SystemTelemetry {
+        pub cpu: CpuTelemetry,
+        pub gpus: Vec&lt;Box&lt;dyn GpuTelemetry&gt;&gt;,
+        pub memory: MemoryTelemetry,
+        pub storage: Vec&lt;StorageTelemetry&gt;,
+        pub network: Vec&lt;NetworkTelemetry&gt;,
+    }
+
+    impl SystemTelemetry {
+        // Snapshot current state
+        pub fn snapshot() -&gt; Result&lt;Self, Error&gt;;
+
+        // Continuous monitoring
+        pub fn monitor(interval_ms: u64, callback: fn(Self)) -&gt; MonitorHandle;
+    }
+}
+
+// Example usage
+fn main() {
+    // Single snapshot
+    let telemetry = telemetry::SystemTelemetry::snapshot()?;
+    println!("GPU 0 temp: {:.1}°C", telemetry.gpus[0].temperature()?);
+    println!("CPU energy: {:.3} J", telemetry.cpu.energy.read_energy()?);
+
+    // Continuous monitoring
+    let handle = telemetry::SystemTelemetry::monitor(1000, |snapshot| {
+        if snapshot.cpu.thermal == ThermalState::Hot {
+            warn!("CPU overheating, throttling workload");
+        }
+    });
+
+    // ... do work ...
+
+    handle.stop();
+}
+</code></pre>
+<hr />
+<h3 id="33-implementation-strategy"><a class="header" href="#33-implementation-strategy">3.3 Implementation Strategy</a></h3>
+<h4 id="phase-1-core-telemetry-current"><a class="header" href="#phase-1-core-telemetry-current">Phase 1: Core Telemetry (Current)</a></h4>
+<ul>
+<li>✅ Linux RAPL energy monitoring</li>
+<li>✅ Thermal state detection (5-level)</li>
+<li>✅ Cross-platform abstraction (Linux, macOS stub, Windows stub)</li>
+</ul>
+<h4 id="phase-2-gpu-telemetry-month-7-8"><a class="header" href="#phase-2-gpu-telemetry-month-7-8">Phase 2: GPU Telemetry (Month 7-8)</a></h4>
+<p><strong>Linux</strong>:</p>
+<ul>
+<li>NVIDIA: Link against <code>libnvidia-ml.so</code> (NVML)</li>
+<li>AMD: Link against <code>libamd_smi.so</code></li>
+<li>Intel: Parse <code>intel_gpu_top</code> output or use OpenVINO</li>
+</ul>
+<p><strong>Windows</strong>:</p>
+<ul>
+<li>NVIDIA: <code>nvml.dll</code></li>
+<li>AMD: <code>amd_smi.dll</code></li>
+<li>Query via WMI as fallback</li>
+</ul>
+<p><strong>macOS</strong>:</p>
+<ul>
+<li>Metal: IOKit queries</li>
+<li>Limited support (Metal is proprietary)</li>
+</ul>
+<h4 id="phase-3-full-system-telemetry-month-9-10"><a class="header" href="#phase-3-full-system-telemetry-month-9-10">Phase 3: Full System Telemetry (Month 9-10)</a></h4>
+<ul>
+<li><strong>CPU</strong>: PMU via <code>perf_event_open()</code> (Linux), Performance Counters API (Windows), kperf (macOS)</li>
+<li><strong>Memory</strong>: NUMA awareness via hwloc, PMU events for bandwidth</li>
+<li><strong>Storage</strong>: NVMe via <code>libnvme</code> (Linux), SMART via <code>smartctl</code> wrapper</li>
+<li><strong>Network</strong>: <code>/sys/class/net/</code> (Linux), Performance Counters (Windows), <code>ioctl</code> (macOS)</li>
+</ul>
+<h4 id="phase-4-bare-metal--enterprise-year-2"><a class="header" href="#phase-4-bare-metal--enterprise-year-2">Phase 4: Bare Metal &amp; Enterprise (Year 2)</a></h4>
+<ul>
+<li>IPMI/Redfish support for server environments</li>
+<li>NVIDIA DCGM integration for GPU clusters</li>
+<li>Custom kernel modules for lowest-latency access</li>
+</ul>
+<hr />
+<h3 id="34-cross-platform-abstraction-layer-rust"><a class="header" href="#34-cross-platform-abstraction-layer-rust">3.4 Cross-Platform Abstraction Layer (Rust)</a></h3>
+<p><strong>Leverage existing Rust crates</strong>:</p>
+<ul>
+<li><code>sysinfo</code>: Cross-platform system information (CPU, memory, processes)</li>
+<li><code>hwloc</code>: NUMA topology and affinity</li>
+<li><code>nvml-wrapper</code>: Rust bindings for NVIDIA NVML</li>
+<li><code>opencl3</code>: OpenCL bindings for GPU detection</li>
+<li><code>perf-event</code>: Linux PMU access</li>
+<li><code>windows</code>: Windows API bindings</li>
+<li><code>core-foundation-sys</code>: macOS/iOS system APIs</li>
+</ul>
+<p><strong>Custom Implementations</strong>:</p>
+<ul>
+<li>AMD ROCm: Write custom FFI bindings to <code>libamd_smi.so</code></li>
+<li>NVMe SMART: Wrap <code>nvme-cli</code> or use <code>libnvme</code> FFI</li>
+<li>Network: Platform-specific syscalls</li>
+</ul>
+<p><strong>Sources</strong>:</p>
+<ul>
+<li><a href="https://adancurusul.github.io/Rust-Embedded-Tutorial-for-Engineers/book-en/chapter/embedded-hal.html">Embedded-HAL: Cross-Platform Ecosystem</a></li>
+<li><a href="https://opentelemetry.io/docs/languages/rust/">OpenTelemetry Rust</a></li>
+</ul>
+<hr />
+<h2 id="4-competitive-analysis-joule-vs-mojo-vs-cuda"><a class="header" href="#4-competitive-analysis-joule-vs-mojo-vs-cuda">4. Competitive Analysis: Joule vs. Mojo vs. CUDA</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Feature</th><th>Mojo</th><th>CUDA/C++</th><th><strong>Joule (Target)</strong></th></tr></thead><tbody>
+<tr><td><strong>Multi-vendor GPU</strong></td><td>✅ NVIDIA, AMD, Intel via MLIR</td><td>❌ NVIDIA only</td><td>✅ NVIDIA, AMD, Intel, Apple</td></tr>
+<tr><td><strong>TPU/NPU Support</strong></td><td>✅ Via MLIR</td><td>❌ No</td><td>✅ OpenVINO, CoreML, cloud TPU</td></tr>
+<tr><td><strong>Energy Monitoring</strong></td><td>❌ Not built-in</td><td>⚠️ Manual NVML usage</td><td>✅ First-class language feature</td></tr>
+<tr><td><strong>Thermal-Aware Compilation</strong></td><td>❌ No</td><td>❌ No</td><td>✅ SIMD/scalar selection based on temp</td></tr>
+<tr><td><strong>Memory Safety</strong></td><td>⚠️ Python-like (GC optional)</td><td>❌ Manual (unsafe)</td><td>✅ Ownership + borrow checking</td></tr>
+<tr><td><strong>Performance</strong></td><td>⚡ Competitive with C++</td><td>⚡ Gold standard</td><td>⚡ Match/exceed (energy-optimal code)</td></tr>
+<tr><td><strong>Productivity</strong></td><td>✅ Python syntax</td><td>❌ Complex template meta-programming</td><td>✅ Rust-like ergonomics</td></tr>
+<tr><td><strong>Profiling Integration</strong></td><td>⚠️ External tools</td><td>✅ Nsight suite</td><td>✅ Built-in telemetry API</td></tr>
+<tr><td><strong>Bare Metal</strong></td><td>❌ High-level only</td><td>✅ Yes</td><td>✅ Yes (with safety)</td></tr>
+</tbody></table>
+</div>
+<p><strong>Joule's Unique Advantages</strong>:</p>
+<ol>
+<li><strong>Energy-first design</strong>: Only language with compile-time energy optimization</li>
+<li><strong>Deep telemetry</strong>: GPU, CPU, RAM, storage, network monitoring in standard library</li>
+<li><strong>Thermal awareness</strong>: Dynamically choose scalar vs. SIMD based on CPU temperature</li>
+<li><strong>Memory safety</strong>: Prevent entire classes of bugs (use-after-free, data races)</li>
+<li><strong>Cross-platform heterogeneous</strong>: Single codebase targets all accelerators</li>
+</ol>
+<hr />
+<h2 id="5-recommended-joule-architecture"><a class="header" href="#5-recommended-joule-architecture">5. Recommended Joule Architecture</a></h2>
+<h3 id="51-compiler-backend-strategy"><a class="header" href="#51-compiler-backend-strategy">5.1 Compiler Backend Strategy</a></h3>
+<p><strong>Three-tier approach</strong>:</p>
+<ol>
+<li>
+<p><strong>Tier 1 (Direct native support)</strong>:</p>
+<ul>
+<li>NVIDIA CUDA (via LLVM NVPTX backend)</li>
+<li>AMD HIP (via LLVM AMDGPU backend)</li>
+<li>Apple Metal (via LLVM Metal backend or AIR)</li>
+</ul>
+</li>
+<li>
+<p><strong>Tier 2 (SPIR-V/SYCL abstraction)</strong>:</p>
+<ul>
+<li>Compile Joule → SPIR-V → Vulkan Compute (Intel, mobile GPUs)</li>
+<li>Provide SYCL-like kernel syntax</li>
+</ul>
+</li>
+<li>
+<p><strong>Tier 3 (Cloud/API-based)</strong>:</p>
+<ul>
+<li>Google Cloud TPU (via XLA/JAX codegen)</li>
+<li>Intel NPU (via OpenVINO IR)</li>
+<li>Qualcomm NPU (via SNPE)</li>
+</ul>
+</li>
+</ol>
+<p><strong>MLIR Integration</strong>:</p>
+<ul>
+<li>Use MLIR as Joule's MIR (Mid-level IR)</li>
+<li>Leverage existing MLIR dialects: <code>gpu</code>, <code>linalg</code>, <code>tensor</code>, <code>scf</code></li>
+<li>Energy optimizer pass operates on MLIR before lowering to LLVM/SPIR-V</li>
+</ul>
+<hr />
+<h3 id="52-standard-library-structure"><a class="header" href="#52-standard-library-structure">5.2 Standard Library Structure</a></h3>
+<pre><code>stdlib/
+├── core/                # no_std core
+├── std/                 # Standard library
+├── energy/              # Energy monitoring (already designed)
+│   ├── rapl.joule
+│   ├── thermal.joule
+│   └── telemetry.joule
+├── compute/             # Heterogeneous computing (NEW)
+│   ├── gpu/
+│   │   ├── cuda.joule   # NVIDIA-specific APIs
+│   │   ├── hip.joule    # AMD-specific APIs
+│   │   ├── metal.joule  # Apple-specific APIs
+│   │   └── kernel.joule # Portable kernel abstractions
+│   ├── tpu/
+│   │   └── xla.joule    # TPU/XLA integration
+│   ├── npu/
+│   │   ├── openvino.joule  # Intel NPU
+│   │   └── coreml.joule    # Apple Neural Engine
+│   └── portable.joule   # Write-once-run-anywhere kernels
+└── telemetry/           # Full system monitoring (NEW)
+    ├── gpu.joule
+    ├── cpu.joule
+    ├── memory.joule
+    ├── storage.joule
+    ├── network.joule
+    └── system.joule     # Unified API
+</code></pre>
+<hr />
+<h3 id="53-kernel-syntax-portable-gpu-programming"><a class="header" href="#53-kernel-syntax-portable-gpu-programming">5.3 Kernel Syntax (Portable GPU Programming)</a></h3>
+<p><strong>Goal</strong>: Make GPU programming as easy as writing CPU code</p>
+<pre><code class="language-joule">use compute::portable::{Kernel, ThreadIdx, BlockIdx};
+
+// Portable kernel (compiles to CUDA, HIP, Metal, Vulkan)
+#[kernel]
+fn vector_add(a: &amp;[f32], b: &amp;[f32], c: &amp;mut [f32]) {
+    let idx = ThreadIdx::x() + BlockIdx::x() * BlockDim::x();
+    if idx &lt; a.len() {
+        c[idx] = a[idx] + b[idx];
+    }
+}
+
+fn main() {
+    let a = vec![1.0f32; 1_000_000];
+    let b = vec![2.0f32; 1_000_000];
+    let mut c = vec![0.0f32; 1_000_000];
+
+    // Automatically selects best available GPU
+    vector_add.launch((a.len() / 256, 256), &amp;a, &amp;b, &amp;mut c)?;
+
+    // Check first element
+    assert_eq!(c[0], 3.0);
+}
+</code></pre>
+<p><strong>Thermal-Aware Execution</strong>:</p>
+<pre><code class="language-joule">use telemetry::SystemTelemetry;
+use energy::ThermalState;
+
+fn matrix_multiply(a: &amp;[f32], b: &amp;[f32]) -&gt; Vec&lt;f32&gt; {
+    let telemetry = SystemTelemetry::snapshot()?;
+
+    match telemetry.cpu.thermal {
+        ThermalState::Cool | ThermalState::Nominal =&gt; {
+            // Use SIMD (AVX-512) - more energy-efficient when cool
+            matrix_multiply_simd(a, b)
+        }
+        ThermalState::Hot | ThermalState::Critical =&gt; {
+            // Fall back to scalar - avoids thermal throttling
+            matrix_multiply_scalar(a, b)
+        }
+        _ =&gt; {
+            // Elevated: conservative SIMD (AVX2 instead of AVX-512)
+            matrix_multiply_simd_conservative(a, b)
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="6-energy-benchmarking-plan"><a class="header" href="#6-energy-benchmarking-plan">6. Energy Benchmarking Plan</a></h2>
+<p>To validate Joule's "more efficient than anything" claim, we need comprehensive benchmarks:</p>
+<h3 id="benchmark-suite"><a class="header" href="#benchmark-suite">Benchmark Suite:</a></h3>
+<ol>
+<li>
+<p><strong>Matrix Multiply</strong> (1024×1024 FP32)</p>
+<ul>
+<li>CPU: Scalar, SSE, AVX2, AVX-512</li>
+<li>GPU: CUDA, HIP, Metal</li>
+<li>Measure: Energy (joules), time (ms), throughput (GFLOPS), GFLOPS/Watt</li>
+</ul>
+</li>
+<li>
+<p><strong>Convolution</strong> (1920×1080 image, 3×3 kernel)</p>
+<ul>
+<li>CPU vs GPU</li>
+<li>Thermal-aware vs. always-SIMD</li>
+</ul>
+</li>
+<li>
+<p><strong>Neural Network Inference</strong> (ResNet-50, ImageNet)</p>
+<ul>
+<li>CPU (with MKL/oneDNN)</li>
+<li>GPU (with TensorRT/cuDNN)</li>
+<li>NPU (with OpenVINO)</li>
+<li>TPU (Google Cloud)</li>
+</ul>
+</li>
+<li>
+<p><strong>FFT</strong> (2²⁰ points)</p>
+<ul>
+<li>CPU: FFTW</li>
+<li>GPU: cuFFT, rocFFT</li>
+</ul>
+</li>
+<li>
+<p><strong>Sort</strong> (100M integers)</p>
+<ul>
+<li>CPU: std::sort, parallel sort</li>
+<li>GPU: Thrust (CUDA), rocPRIM (HIP)</li>
+</ul>
+</li>
+</ol>
+<h3 id="energy-metrics"><a class="header" href="#energy-metrics">Energy Metrics:</a></h3>
+<ul>
+<li>Total energy consumed (joules)</li>
+<li>Average power (watts)</li>
+<li>Peak power (watts)</li>
+<li>Performance per watt (ops/J)</li>
+<li><strong>Thermal throttling events</strong> (critical for validating thermal-aware optimization)</li>
+</ul>
+<h3 id="comparison-targets"><a class="header" href="#comparison-targets">Comparison Targets:</a></h3>
+<ul>
+<li>C++ (g++ -O3, clang++ -O3)</li>
+<li>Rust (rustc -C opt-level=3)</li>
+<li>Mojo (latest release)</li>
+<li>CUDA (nvcc -O3 with cuDNN/TensorRT)</li>
+</ul>
+<hr />
+<h2 id="7-open-questions--research-needed"><a class="header" href="#7-open-questions--research-needed">7. Open Questions &amp; Research Needed</a></h2>
+<ol>
+<li>
+<p><strong>MLIR Learning Curve</strong>: Do we invest in MLIR or build custom MIR?</p>
+<ul>
+<li><strong>Recommendation</strong>: Use MLIR. It's proven (TensorFlow, Mojo, LLVM), saves years of development.</li>
+</ul>
+</li>
+<li>
+<p><strong>Portable Kernel Limitations</strong>: What GPU features can't be abstracted?</p>
+<ul>
+<li>Tensor cores (NVIDIA), Matrix cores (AMD), AMX (Intel) - need vendor-specific paths</li>
+</ul>
+</li>
+<li>
+<p><strong>NPU Fragmentation</strong>: How to unify Intel/AMD/Apple/Qualcomm NPUs?</p>
+<ul>
+<li><strong>Recommendation</strong>: ONNX Runtime as common IR, compile Joule → ONNX for NPUs</li>
+</ul>
+</li>
+<li>
+<p><strong>Telemetry Overhead</strong>: How much does continuous monitoring cost?</p>
+<ul>
+<li>Need to benchmark sampling rate vs. overhead (target: &lt;1% CPU overhead at 1 Hz sampling)</li>
+</ul>
+</li>
+<li>
+<p><strong>Bare Metal Deployment</strong>: How to support OS-less environments?</p>
+<ul>
+<li>Direct hardware register access, no stdlib</li>
+<li>May need <code>#[no_std]</code> kernels with manual DMA</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="8-conclusion"><a class="header" href="#8-conclusion">8. Conclusion</a></h2>
+<p>Joule has a clear path to <strong>exceed Mojo and CUDA</strong> in the heterogeneous computing space:</p>
+<h3 id="what-joule-must-deliver"><a class="header" href="#what-joule-must-deliver">What Joule Must Deliver:</a></h3>
+<ol>
+<li>
+<p><strong>Performance Portability</strong> (like Mojo):</p>
+<ul>
+<li>✅ MLIR-based compilation</li>
+<li>✅ Single source, multi-target (CUDA, HIP, Metal, Vulkan, TPU)</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep Telemetry</strong> (beyond anyone):</p>
+<ul>
+<li>✅ GPU, CPU, RAM, storage, network monitoring</li>
+<li>✅ Built into standard library, not external tools</li>
+<li>✅ Zero-cost abstraction over vendor APIs (NVML, ROCm, etc.)</li>
+</ul>
+</li>
+<li>
+<p><strong>Energy-First Optimization</strong> (unique to Joule):</p>
+<ul>
+<li>✅ Thermal-aware instruction selection (SIMD vs. scalar)</li>
+<li>✅ DRAM row buffer-aware memory layout</li>
+<li>✅ Power-gating-aware register allocation</li>
+<li>✅ Compile-time energy budgeting</li>
+</ul>
+</li>
+<li>
+<p><strong>Memory Safety</strong> (like Rust, unlike Mojo/CUDA):</p>
+<ul>
+<li>✅ Ownership and borrow checking</li>
+<li>✅ Safe GPU memory management (no double-free, use-after-free)</li>
+</ul>
+</li>
+<li>
+<p><strong>Productivity</strong> (like Mojo, better than CUDA):</p>
+<ul>
+<li>✅ Ergonomic syntax</li>
+<li>✅ Excellent error messages (like Rust)</li>
+<li>✅ Fast compilation (Cranelift for dev, LLVM for release)</li>
+</ul>
+</li>
+</ol>
+<h3 id="timeline"><a class="header" href="#timeline">Timeline:</a></h3>
+<ul>
+<li><strong>Month 7-8</strong>: GPU telemetry (NVML, ROCm)</li>
+<li><strong>Month 9-10</strong>: Energy optimizer passes (thermal-aware, DRAM-aware)</li>
+<li><strong>Month 11-12</strong>: GPU backends (CUDA, HIP, Metal via LLVM)</li>
+<li><strong>Year 2</strong>: TPU/NPU support, bare metal deployment, production hardening</li>
+</ul>
+<p><strong>The result</strong>: Joule becomes the first language that delivers on the promise of "write once, run optimally everywhere" for the heterogeneous computing era—and it's the only language that makes energy a first-class concern.</p>
+<hr />
+<h2 id="sources"><a class="header" href="#sources">Sources</a></h2>
+<h3 id="gpu-programming-languages"><a class="header" href="#gpu-programming-languages">GPU Programming Languages:</a></h3>
+<ul>
+<li><a href="https://arxiv.org/html/2509.21039v1">Mojo: MLIR-Based Performance-Portable HPC Science Kernels on GPUs for the Python Ecosystem</a></li>
+<li><a href="https://www.modular.com/mojo">Mojo 🔥: Powerful CPU+GPU Programming</a></li>
+<li><a href="https://developer.nvidia.com/blog/nvidia-cuda-13-1-powers-next-gen-gpu-programming-with-nvidia-cuda-tile-and-performance-gains">NVIDIA CUDA 13.1 Powers Next-Gen GPU Programming</a></li>
+<li><a href="https://thechipletter.substack.com/p/demystifying-gpu-compute-software">Demystifying GPU Compute Software</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SYCL">SYCL - Wikipedia</a></li>
+</ul>
+<h3 id="hardware-telemetry"><a class="header" href="#hardware-telemetry">Hardware Telemetry:</a></h3>
+<ul>
+<li><a href="https://github.com/NVIDIA/gpu-monitoring-tools">NVIDIA gpu-monitoring-tools</a></li>
+<li><a href="https://rocm.docs.amd.com/projects/amdsmi/en/latest/how-to/amdsmi-cli-tool.html">AMD SMI CLI tool usage</a></li>
+<li><a href="https://github.com/Syllo/nvtop">nvtop - GPU &amp; Accelerator process monitoring</a></li>
+<li><a href="https://github.com/openvinotoolkit/openvino">OpenVINO™ Toolkit</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/introduction-to-memory-bandwidth-monitoring.html">Introduction to Memory Bandwidth Monitoring</a></li>
+<li><a href="https://www.techtarget.com/searchstorage/post/Monitoring-the-Health-of-NVMe-SSDs">Monitoring the Health of NVMe SSDs</a></li>
+<li><a href="https://opentelemetry.io/">OpenTelemetry</a></li>
+<li><a href="https://www.cpuid.com/softwares/hwmonitor.html">HWMonitor | CPUID</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="stdlib/math.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="stdlib/math.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

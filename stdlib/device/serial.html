@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>serial - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module serial</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum BaudRate</code></h3>
+                <p class="source">Source: serial.joule:9</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value(&amp;self) -&gt; u32</code></h3>
+                <p class="source">Source: serial.joule:26</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DataBits</code></h3>
+                <p class="source">Source: serial.joule:47</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum StopBits</code></h3>
+                <p class="source">Source: serial.joule:56</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Parity</code></h3>
+                <p class="source">Source: serial.joule:63</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum FlowControl</code></h3>
+                <p class="source">Source: serial.joule:73</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SerialConfig</code></h3>
+                <p class="source">Source: serial.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: serial.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn standard(baud_rate: BaudRate) -&gt; Self</code></h3>
+                <p>Create config with common 8N1 settings</p>
+                <p class="source">Source: serial.joule:107</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SerialPortInfo</code></h3>
+                <p class="source">Source: serial.joule:117</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SerialPortType</code></h3>
+                <p class="source">Source: serial.joule:136</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SerialPort</code></h3>
+                <p>Serial port handle</p>
+                <p class="source">Source: serial.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;SerialPortInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(name: &amp;str) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_config(name: &amp;str, config: SerialConfig) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get port name</p>
+                <p class="source">Source: serial.joule:205</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn config(&amp;self) -&gt; &amp;SerialConfig</code></h3>
+                <p>Get current configuration</p>
+                <p class="source">Source: serial.joule:210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_baud_rate(&amp;mut self, baud_rate: BaudRate) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_read_timeout(&amp;mut self, timeout_ms: Option&lt;u32&gt;) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Set read timeout</p>
+                <p class="source">Source: serial.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply_config(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p>Apply current configuration to hardware</p>
+                <p class="source">Source: serial.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bytes_available(&amp;self) -&gt; Result&lt;usize, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:247</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:251</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const FIONREAD: u64</code></h3>
+                <p class="source">Source: serial.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flush_output(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcdrain(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discard_input(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:286</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcflush(fd: i32, queue_selector: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:290</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TCIFLUSH: i32</code></h3>
+                <p class="source">Source: serial.joule:292</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn discard_output(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcflush(fd: i32, queue_selector: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:306</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TCOFLUSH: i32</code></h3>
+                <p class="source">Source: serial.joule:308</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_rts(&amp;self, state: bool) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:322</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMGET: u64</code></h3>
+                <p class="source">Source: serial.joule:324</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMSET: u64</code></h3>
+                <p class="source">Source: serial.joule:325</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCM_RTS: i32</code></h3>
+                <p class="source">Source: serial.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_dtr(&amp;self, state: bool) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:348</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:352</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMGET: u64</code></h3>
+                <p class="source">Source: serial.joule:354</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMSET: u64</code></h3>
+                <p class="source">Source: serial.joule:355</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCM_DTR: i32</code></h3>
+                <p class="source">Source: serial.joule:356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_cts(&amp;self) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:382</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMGET: u64</code></h3>
+                <p class="source">Source: serial.joule:384</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCM_CTS: i32</code></h3>
+                <p class="source">Source: serial.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_dsr(&amp;self) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:406</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMGET: u64</code></h3>
+                <p class="source">Source: serial.joule:408</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCM_DSR: i32</code></h3>
+                <p class="source">Source: serial.joule:409</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_cd(&amp;self) -&gt; Result&lt;bool, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:430</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCMGET: u64</code></h3>
+                <p class="source">Source: serial.joule:432</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TIOCM_CAR: i32</code></h3>
+                <p class="source">Source: serial.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_break(&amp;self, duration_ms: u32) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:450</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcsendbreak(fd: i32, duration: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: serial.joule:467</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(fd: i32, buf: *mut u8, count: usize) -&gt; isize;</code></h3>
+                <p class="source">Source: serial.joule:471</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, buf: &amp;[u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: serial.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(fd: i32, buf: *const u8, count: usize) -&gt; isize;</code></h3>
+                <p class="source">Source: serial.joule:493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flush(&amp;mut self) -&gt; Result&lt;(), std::io::Error&gt;</code></h3>
+                <p class="source">Source: serial.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: serial.joule:517</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_unix_port(name: &amp;str, config: &amp;SerialConfig) -&gt; Result&lt;SerialPort, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:531</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: *const i8, flags: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:533</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_RDWR: i32</code></h3>
+                <p class="source">Source: serial.joule:536</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_NOCTTY: i32</code></h3>
+                <p class="source">Source: serial.joule:537</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const O_NONBLOCK: i32</code></h3>
+                <p class="source">Source: serial.joule:538</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply_unix_config(fd: i32, config: &amp;SerialConfig) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:564</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcgetattr(fd: i32, termios: *mut Termios) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:566</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tcsetattr(fd: i32, optional_actions: i32, termios: *const Termios) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:567</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cfsetispeed(termios: *mut Termios, speed: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:568</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cfsetospeed(termios: *mut Termios, speed: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: serial.joule:569</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Termios</code></h3>
+                <p class="source">Source: serial.joule:573</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TCSANOW: i32</code></h3>
+                <p class="source">Source: serial.joule:658</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_linux_ports() -&gt; Result&lt;Vec&lt;SerialPortInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:667</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_macos_ports() -&gt; Result&lt;Vec&lt;SerialPortInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:698</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_windows_ports() -&gt; Result&lt;Vec&lt;SerialPortInfo&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:733</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_windows_port(name: &amp;str, config: &amp;SerialConfig) -&gt; Result&lt;SerialPort, DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:739</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply_windows_config(fd: i32, config: &amp;SerialConfig) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: serial.joule:744</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

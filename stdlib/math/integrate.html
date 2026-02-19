@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>integrate - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module integrate</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad&lt;F&gt;(f: F, a: f64, b: f64, tol: f64) -&gt; IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn adaptive_simpson&lt;F&gt;(f: &amp;F, a: f64, b: f64, tol: f64, max_depth: usize) -&gt; (f64, f64, bool)</code></h3>
+                <p>Adaptive Simpson&#x27;s method</p>
+                <p class="source">Source: integrate.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn adaptive_simpson_recursive&lt;F&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad_gauss&lt;F&gt;(f: F, a: f64, b: f64, order: usize) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gauss_legendre_nodes_weights(n: usize) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p>Gauss-Legendre nodes and weights</p>
+                <p class="source">Source: integrate.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_gauss_legendre(n: usize) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p class="source">Source: integrate.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn legendre_with_derivative(n: usize, x: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: integrate.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad_kronrod&lt;F&gt;(f: F, a: f64, b: f64, tol: f64) -&gt; IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gauss_kronrod_15&lt;F&gt;(f: &amp;F, a: f64, b: f64) -&gt; (f64, f64, f64)</code></h3>
+                <p class="source">Source: integrate.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn romberg&lt;F&gt;(f: F, a: f64, b: f64, max_steps: usize, tol: f64) -&gt; IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:313</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad_clenshaw_curtis&lt;F&gt;(f: F, a: f64, b: f64, n: usize) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:362</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dblquad&lt;F, G, H&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tplquad&lt;F, G1, H1, G2, H2&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad_inf&lt;F&gt;(f: F, a: f64, tol: f64) -&gt; IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quad_inf_inf&lt;F&gt;(f: F, tol: f64) -&gt; IntegrationResult</code></h3>
+                <p class="source">Source: integrate.joule:506</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OdeSolution</code></h3>
+                <p class="source">Source: integrate.joule:531</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OdeOptions</code></h3>
+                <p class="source">Source: integrate.joule:546</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: integrate.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_ivp&lt;F&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:577</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_initial_step&lt;F&gt;(f: &amp;F, t0: f64, y0: &amp;[f64], options: &amp;OdeOptions) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:724</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interpolate_solution(</code></h3>
+                <p class="source">Source: integrate.joule:756</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn euler&lt;F&gt;(f: F, t_span: (f64, f64), y0: &amp;[f64], num_steps: usize) -&gt; OdeSolution</code></h3>
+                <p class="source">Source: integrate.joule:787</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rk4&lt;F&gt;(f: F, t_span: (f64, f64), y0: &amp;[f64], num_steps: usize) -&gt; OdeSolution</code></h3>
+                <p class="source">Source: integrate.joule:823</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward_euler&lt;F, J&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:869</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_linear_system(a: &amp;[Vec&lt;f64&gt;], b: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Simple linear system solver (Gaussian elimination)</p>
+                <p class="source">Source: integrate.joule:946</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bdf&lt;F, J&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:995</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BvpSolution</code></h3>
+                <p>BVP solution result</p>
+                <p class="source">Source: integrate.joule:1110</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_bvp&lt;F, BC&gt;(</code></h3>
+                <p class="source">Source: integrate.joule:1123</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_heat_1d(</code></h3>
+                <p class="source">Source: integrate.joule:1210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_heat_1d_implicit(</code></h3>
+                <p>Implicit heat equation solver (Crank-Nicolson)</p>
+                <p class="source">Source: integrate.joule:1252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_wave_1d(</code></h3>
+                <p class="source">Source: integrate.joule:1300</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_tridiagonal(a: f64, b: f64, c: f64, d: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Solve tridiagonal system</p>
+                <p class="source">Source: integrate.joule:1349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trapz(y: &amp;[f64], x: &amp;[f64]) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:1379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trapz_uniform(y: &amp;[f64], dx: f64) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:1393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn simps(y: &amp;[f64], dx: f64) -&gt; f64</code></h3>
+                <p class="source">Source: integrate.joule:1406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cumtrapz(y: &amp;[f64], x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: integrate.joule:1425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_quad()</code></h3>
+                <p class="source">Source: integrate.joule:1446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_gauss_quadrature()</code></h3>
+                <p class="source">Source: integrate.joule:1454</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_rk4()</code></h3>
+                <p class="source">Source: integrate.joule:1461</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_solve_ivp()</code></h3>
+                <p class="source">Source: integrate.joule:1472</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_harmonic_oscillator()</code></h3>
+                <p class="source">Source: integrate.joule:1489</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

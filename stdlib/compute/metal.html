@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>metal - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module metal</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/metal.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_devices() -&gt; Vec&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/metal.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn MTLCopyAllDevices() -&gt; *mut std::ffi::c_void;  // Returns NSArray</code></h3>
+                <p class="source">Source: gpu/metal.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_array_count(array: *mut std::ffi::c_void) -&gt; usize;</code></h3>
+                <p class="source">Source: gpu/metal.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_array_object_at(array: *mut std::ffi::c_void, index: usize) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: gpu/metal.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_name(device: *mut std::ffi::c_void) -&gt; *const i8;</code></h3>
+                <p class="source">Source: gpu/metal.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_max_threads_per_threadgroup(device: *mut std::ffi::c_void) -&gt; u64;</code></h3>
+                <p class="source">Source: gpu/metal.joule:23</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_max_buffer_length(device: *mut std::ffi::c_void) -&gt; u64;</code></h3>
+                <p class="source">Source: gpu/metal.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_supports_family(device: *mut std::ffi::c_void, family: i32) -&gt; bool;</code></h3>
+                <p class="source">Source: gpu/metal.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_is_low_power(device: *mut std::ffi::c_void) -&gt; bool;</code></h3>
+                <p class="source">Source: gpu/metal.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_is_headless(device: *mut std::ffi::c_void) -&gt; bool;</code></h3>
+                <p class="source">Source: gpu/metal.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_recommended_max_working_set_size(device: *mut std::ffi::c_void) -&gt; u64;</code></h3>
+                <p class="source">Source: gpu/metal.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_metal_version() -&gt; String</code></h3>
+                <p>Get Metal version string</p>
+                <p class="source">Source: gpu/metal.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn NSProcessInfo_operatingSystemVersionString() -&gt; *const i8;</code></h3>
+                <p class="source">Source: gpu/metal.joule:135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default_device() -&gt; Option&lt;*mut std::ffi::c_void&gt;</code></h3>
+                <p>Get default Metal device</p>
+                <p class="source">Source: gpu/metal.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn MTLCreateSystemDefaultDevice() -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: gpu/metal.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_command_queue(device: *mut std::ffi::c_void) -&gt; Option&lt;*mut std::ffi::c_void&gt;</code></h3>
+                <p>Create a new command queue for a device</p>
+                <p class="source">Source: gpu/metal.joule:166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_new_command_queue(</code></h3>
+                <p class="source">Source: gpu/metal.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_command_buffer(</code></h3>
+                <p>Create a new command buffer</p>
+                <p class="source">Source: gpu/metal.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_command_queue_command_buffer(</code></h3>
+                <p class="source">Source: gpu/metal.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn commit_and_wait(buffer: *mut std::ffi::c_void)</code></h3>
+                <p>Commit and wait for command buffer</p>
+                <p class="source">Source: gpu/metal.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_command_buffer_commit(buffer: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: gpu/metal.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_command_buffer_wait_until_completed(buffer: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: gpu/metal.joule:203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_compute_encoder(</code></h3>
+                <p>Create compute encoder</p>
+                <p class="source">Source: gpu/metal.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_command_buffer_compute_command_encoder(</code></h3>
+                <p class="source">Source: gpu/metal.joule:217</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_pipeline(encoder: *mut std::ffi::c_void, pipeline: *mut std::ffi::c_void)</code></h3>
+                <p>Set compute pipeline state</p>
+                <p class="source">Source: gpu/metal.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_compute_encoder_set_pipeline(</code></h3>
+                <p class="source">Source: gpu/metal.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_buffer(</code></h3>
+                <p>Set buffer at index</p>
+                <p class="source">Source: gpu/metal.joule:243</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_compute_encoder_set_buffer(</code></h3>
+                <p class="source">Source: gpu/metal.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dispatch_threads(</code></h3>
+                <p>Dispatch threads</p>
+                <p class="source">Source: gpu/metal.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_compute_encoder_dispatch_threadgroups(</code></h3>
+                <p class="source">Source: gpu/metal.joule:268</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn end_encoding(encoder: *mut std::ffi::c_void)</code></h3>
+                <p>End encoding</p>
+                <p class="source">Source: gpu/metal.joule:285</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_compute_encoder_end_encoding(encoder: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: gpu/metal.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matrix_multiply(</code></h3>
+                <p class="source">Source: gpu/metal.joule:300</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mps_matrix_multiplication_create(</code></h3>
+                <p class="source">Source: gpu/metal.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mps_matrix_multiplication_encode(</code></h3>
+                <p class="source">Source: gpu/metal.joule:321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolution_2d(</code></h3>
+                <p class="source">Source: gpu/metal.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mps_cnn_convolution_create(</code></h3>
+                <p class="source">Source: gpu/metal.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compile(</code></h3>
+                <p class="source">Source: gpu/metal.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_compile_library(</code></h3>
+                <p class="source">Source: gpu/metal.joule:396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_function(</code></h3>
+                <p>Get function from library</p>
+                <p class="source">Source: gpu/metal.joule:418</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_library_new_function(</code></h3>
+                <p class="source">Source: gpu/metal.joule:423</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_pipeline(</code></h3>
+                <p>Create compute pipeline state</p>
+                <p class="source">Source: gpu/metal.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_new_compute_pipeline(</code></h3>
+                <p class="source">Source: gpu/metal.joule:447</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

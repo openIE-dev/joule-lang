@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>device - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module device</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum Backend</code></h3>
+                <p class="source">Source: gpu/device.joule:8</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DeviceType</code></h3>
+                <p class="source">Source: gpu/device.joule:25</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceInfo</code></h3>
+                <p class="source">Source: gpu/device.joule:38</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuDevice</code></h3>
+                <p class="source">Source: gpu/device.joule:79</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GpuDeviceHandle</code></h3>
+                <p class="source">Source: gpu/device.joule:89</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backend(&amp;self) -&gt; Backend</code></h3>
+                <p>Get the backend type</p>
+                <p class="source">Source: gpu/device.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device_type(&amp;self) -&gt; DeviceType</code></h3>
+                <p>Get the device type</p>
+                <p class="source">Source: gpu/device.joule:109</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device_id(&amp;self) -&gt; u32</code></h3>
+                <p>Get device ID</p>
+                <p class="source">Source: gpu/device.joule:114</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn info(&amp;self) -&gt; &amp;DeviceInfo</code></h3>
+                <p>Get device information</p>
+                <p class="source">Source: gpu/device.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get device name</p>
+                <p class="source">Source: gpu/device.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_memory(&amp;self) -&gt; u64</code></h3>
+                <p>Get total memory in bytes</p>
+                <p class="source">Source: gpu/device.joule:129</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn free_memory(&amp;self) -&gt; Result&lt;u64, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuMemGetInfo_v2(free: *mut usize, total: *mut usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemGetInfo(free: *mut usize, total: *mut usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_buffer&lt;T: Copy&gt;(</code></h3>
+                <p class="source">Source: gpu/device.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_buffer_with_data&lt;T: Copy&gt;(</code></h3>
+                <p class="source">Source: gpu/device.joule:189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_kernel(&amp;self, source: &amp;str, name: &amp;str) -&gt; Result&lt;GpuKernel, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_kernel_from_binary(&amp;self, binary: &amp;[u8], name: &amp;str) -&gt; Result&lt;GpuKernel, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_queue(&amp;self) -&gt; Result&lt;GpuQueue, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn synchronize(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaDeviceSynchronize() -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipDeviceSynchronize() -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_current(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:257</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaSetDevice(device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipSetDevice(device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn supports_feature(&amp;self, feature: &amp;str) -&gt; bool</code></h3>
+                <p>Check if device supports a specific feature</p>
+                <p class="source">Source: gpu/device.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn power_usage(&amp;self) -&gt; Option&lt;f32&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:294</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetPowerUsage(device: *mut std::ffi::c_void, power: *mut u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/device.joule:299</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn temperature(&amp;self) -&gt; Option&lt;f32&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:311</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetTemperature(</code></h3>
+                <p class="source">Source: gpu/device.joule:316</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn utilization(&amp;self) -&gt; Option&lt;f32&gt;</code></h3>
+                <p class="source">Source: gpu/device.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/device.joule:392</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

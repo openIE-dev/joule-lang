@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addr - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module addr</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Ipv4Addr</code></h3>
+                <p class="source">Source: addr.joule:8</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LOCALHOST: Ipv4Addr</code></h3>
+                <p class="source">Source: addr.joule:13</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const UNSPECIFIED: Ipv4Addr</code></h3>
+                <p class="source">Source: addr.joule:14</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BROADCAST: Ipv4Addr</code></h3>
+                <p class="source">Source: addr.joule:15</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn new(a: u8, b: u8, c: u8, d: u8) -&gt; Self {</code></h3>
+                <p>Create from octets</p>
+                <p class="source">Source: addr.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn octets(&amp;self) -&gt; [u8; 4]</code></h3>
+                <p>Get octets</p>
+                <p class="source">Source: addr.joule:23</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_loopback(&amp;self) -&gt; bool</code></h3>
+                <p>Check if loopback</p>
+                <p class="source">Source: addr.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_unspecified(&amp;self) -&gt; bool</code></h3>
+                <p>Check if unspecified (0.0.0.0)</p>
+                <p class="source">Source: addr.joule:33</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_broadcast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if broadcast</p>
+                <p class="source">Source: addr.joule:38</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_private(&amp;self) -&gt; bool</code></h3>
+                <p>Check if private</p>
+                <p class="source">Source: addr.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_multicast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if multicast</p>
+                <p class="source">Source: addr.joule:53</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(s: &amp;str) -&gt; Result&lt;Self, AddrParseError&gt;</code></h3>
+                <p>Parse from string</p>
+                <p class="source">Source: addr.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string(&amp;self) -&gt; String</code></h3>
+                <p>Convert to string</p>
+                <p class="source">Source: addr.joule:74</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ipv6Addr</code></h3>
+                <p class="source">Source: addr.joule:83</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const LOCALHOST: Ipv6Addr</code></h3>
+                <p class="source">Source: addr.joule:88</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const UNSPECIFIED: Ipv6Addr</code></h3>
+                <p class="source">Source: addr.joule:91</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn new(a: u16, b: u16, c: u16, d: u16, e: u16, f: u16, g: u16, h: u16) -&gt; Self {</code></h3>
+                <p>Create from segments</p>
+                <p class="source">Source: addr.joule:96</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn segments(&amp;self) -&gt; [u16; 8]</code></h3>
+                <p>Get segments</p>
+                <p class="source">Source: addr.joule:101</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn octets(&amp;self) -&gt; [u8; 16]</code></h3>
+                <p>Get octets</p>
+                <p class="source">Source: addr.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_loopback(&amp;self) -&gt; bool</code></h3>
+                <p>Check if loopback (::1)</p>
+                <p class="source">Source: addr.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_unspecified(&amp;self) -&gt; bool</code></h3>
+                <p>Check if unspecified (::)</p>
+                <p class="source">Source: addr.joule:121</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_multicast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if multicast</p>
+                <p class="source">Source: addr.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(s: &amp;str) -&gt; Result&lt;Self, AddrParseError&gt;</code></h3>
+                <p>Parse from string</p>
+                <p class="source">Source: addr.joule:131</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string(&amp;self) -&gt; String</code></h3>
+                <p>Convert to string</p>
+                <p class="source">Source: addr.joule:185</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum IpAddr</code></h3>
+                <p class="source">Source: addr.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_loopback(&amp;self) -&gt; bool</code></h3>
+                <p>Check if loopback</p>
+                <p class="source">Source: addr.joule:241</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_unspecified(&amp;self) -&gt; bool</code></h3>
+                <p>Check if unspecified</p>
+                <p class="source">Source: addr.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_multicast(&amp;self) -&gt; bool</code></h3>
+                <p>Check if multicast</p>
+                <p class="source">Source: addr.joule:257</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(s: &amp;str) -&gt; Result&lt;Self, AddrParseError&gt;</code></h3>
+                <p>Parse from string</p>
+                <p class="source">Source: addr.joule:265</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string(&amp;self) -&gt; String</code></h3>
+                <p>Convert to string</p>
+                <p class="source">Source: addr.joule:274</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SocketAddr</code></h3>
+                <p class="source">Source: addr.joule:284</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SocketAddrV4</code></h3>
+                <p class="source">Source: addr.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(ip: Ipv4Addr, port: u16) -&gt; Self</code></h3>
+                <p class="source">Source: addr.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ip(&amp;self) -&gt; &amp;Ipv4Addr</code></h3>
+                <p class="source">Source: addr.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn port(&amp;self) -&gt; u16</code></h3>
+                <p class="source">Source: addr.joule:305</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SocketAddrV6</code></h3>
+                <p class="source">Source: addr.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(ip: Ipv6Addr, port: u16, flowinfo: u32, scope_id: u32) -&gt; Self</code></h3>
+                <p class="source">Source: addr.joule:320</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ip(&amp;self) -&gt; &amp;Ipv6Addr</code></h3>
+                <p class="source">Source: addr.joule:324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn port(&amp;self) -&gt; u16</code></h3>
+                <p class="source">Source: addr.joule:328</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flowinfo(&amp;self) -&gt; u32</code></h3>
+                <p class="source">Source: addr.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scope_id(&amp;self) -&gt; u32</code></h3>
+                <p class="source">Source: addr.joule:336</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(ip: IpAddr, port: u16) -&gt; Self</code></h3>
+                <p>Create new socket address</p>
+                <p class="source">Source: addr.joule:343</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ip(&amp;self) -&gt; IpAddr</code></h3>
+                <p>Get IP address</p>
+                <p class="source">Source: addr.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn port(&amp;self) -&gt; u16</code></h3>
+                <p>Get port</p>
+                <p class="source">Source: addr.joule:359</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_ipv4(&amp;self) -&gt; bool</code></h3>
+                <p>Check if IPv4</p>
+                <p class="source">Source: addr.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_ipv6(&amp;self) -&gt; bool</code></h3>
+                <p>Check if IPv6</p>
+                <p class="source">Source: addr.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(s: &amp;str) -&gt; Result&lt;Self, AddrParseError&gt;</code></h3>
+                <p>Parse from string</p>
+                <p class="source">Source: addr.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string(&amp;self) -&gt; String</code></h3>
+                <p>Convert to string</p>
+                <p class="source">Source: addr.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_raw(&amp;self) -&gt; (Vec&lt;u8&gt;, u32)</code></h3>
+                <p>Convert to raw bytes for syscalls</p>
+                <p class="source">Source: addr.joule:413</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_raw(buf: &amp;[u8]) -&gt; Result&lt;Self, AddrParseError&gt;</code></h3>
+                <p>Parse from raw bytes</p>
+                <p class="source">Source: addr.joule:444</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait ToSocketAddrs</code></h3>
+                <p>Trait for types that can be converted to socket addresses</p>
+                <p class="source">Source: addr.joule:484</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;;</code></h3>
+                <p class="source">Source: addr.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:501</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:528</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_socket_addrs(&amp;self) -&gt; Result&lt;Self::Iter, AddrParseError&gt;</code></h3>
+                <p class="source">Source: addr.joule:552</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum AddrParseError</code></h3>
+                <p class="source">Source: addr.joule:559</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

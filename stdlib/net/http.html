@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module http</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum Method</code></h3>
+                <p class="source">Source: http.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_str(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: http.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_str(s: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: http.joule:40</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct StatusCode(pub u16);</code></h3>
+                <p class="source">Source: http.joule:58</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CONTINUE: StatusCode</code></h3>
+                <p class="source">Source: http.joule:62</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SWITCHING_PROTOCOLS: StatusCode</code></h3>
+                <p class="source">Source: http.joule:63</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const OK: StatusCode</code></h3>
+                <p class="source">Source: http.joule:66</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CREATED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:67</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ACCEPTED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:68</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NO_CONTENT: StatusCode</code></h3>
+                <p class="source">Source: http.joule:69</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MOVED_PERMANENTLY: StatusCode</code></h3>
+                <p class="source">Source: http.joule:72</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const FOUND: StatusCode</code></h3>
+                <p class="source">Source: http.joule:73</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NOT_MODIFIED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:74</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TEMPORARY_REDIRECT: StatusCode</code></h3>
+                <p class="source">Source: http.joule:75</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PERMANENT_REDIRECT: StatusCode</code></h3>
+                <p class="source">Source: http.joule:76</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BAD_REQUEST: StatusCode</code></h3>
+                <p class="source">Source: http.joule:79</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const UNAUTHORIZED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:80</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const FORBIDDEN: StatusCode</code></h3>
+                <p class="source">Source: http.joule:81</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NOT_FOUND: StatusCode</code></h3>
+                <p class="source">Source: http.joule:82</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const METHOD_NOT_ALLOWED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:83</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CONFLICT: StatusCode</code></h3>
+                <p class="source">Source: http.joule:84</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GONE: StatusCode</code></h3>
+                <p class="source">Source: http.joule:85</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TOO_MANY_REQUESTS: StatusCode</code></h3>
+                <p class="source">Source: http.joule:86</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const INTERNAL_SERVER_ERROR: StatusCode</code></h3>
+                <p class="source">Source: http.joule:89</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NOT_IMPLEMENTED: StatusCode</code></h3>
+                <p class="source">Source: http.joule:90</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const BAD_GATEWAY: StatusCode</code></h3>
+                <p class="source">Source: http.joule:91</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SERVICE_UNAVAILABLE: StatusCode</code></h3>
+                <p class="source">Source: http.joule:92</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GATEWAY_TIMEOUT: StatusCode</code></h3>
+                <p class="source">Source: http.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_success(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: http.joule:95</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_redirect(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: http.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_client_error(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: http.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_server_error(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: http.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reason_phrase(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: http.joule:111</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Headers</code></h3>
+                <p class="source">Source: http.joule:136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, name: &amp;str, value: &amp;str)</code></h3>
+                <p>Set a header (replaces existing)</p>
+                <p class="source">Source: http.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;mut self, name: &amp;str, value: &amp;str)</code></h3>
+                <p>Add a header value (appends to existing)</p>
+                <p class="source">Source: http.joule:154</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get first header value</p>
+                <p class="source">Source: http.joule:163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_all(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;Vec&lt;String&gt;&gt;</code></h3>
+                <p>Get all values for a header</p>
+                <p class="source">Source: http.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contains(&amp;self, name: &amp;str) -&gt; bool</code></h3>
+                <p>Check if header exists</p>
+                <p class="source">Source: http.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove(&amp;mut self, name: &amp;str) -&gt; Option&lt;Vec&lt;String&gt;&gt;</code></h3>
+                <p>Remove a header</p>
+                <p class="source">Source: http.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; (&amp;String, &amp;Vec&lt;String&gt;)&gt;</code></h3>
+                <p>Iterate over headers</p>
+                <p class="source">Source: http.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn content_length(&amp;self) -&gt; Option&lt;usize&gt;</code></h3>
+                <p>Get content-length if present</p>
+                <p class="source">Source: http.joule:191</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn content_type(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get content-type if present</p>
+                <p class="source">Source: http.joule:197</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Request</code></h3>
+                <p>HTTP request</p>
+                <p class="source">Source: http.joule:203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(uri: &amp;str) -&gt; Self</code></h3>
+                <p>Create new GET request</p>
+                <p class="source">Source: http.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn post(uri: &amp;str) -&gt; Self</code></h3>
+                <p>Create new POST request</p>
+                <p class="source">Source: http.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(method: Method, uri: &amp;str) -&gt; Self</code></h3>
+                <p>Create new request with method</p>
+                <p class="source">Source: http.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn header(mut self, name: &amp;str, value: &amp;str) -&gt; Self</code></h3>
+                <p>Set header</p>
+                <p class="source">Source: http.joule:246</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn body(mut self, body: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Set body</p>
+                <p class="source">Source: http.joule:252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn json&lt;T: serde::Serialize&gt;(mut self, value: &amp;T) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p>Set JSON body</p>
+                <p class="source">Source: http.joule:258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn form(mut self, data: &amp;[(String, String)]) -&gt; Self</code></h3>
+                <p>Set form body</p>
+                <p class="source">Source: http.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Serialize to bytes</p>
+                <p class="source">Source: http.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse&lt;R: Read&gt;(reader: &amp;mut R) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p>Parse from stream</p>
+                <p class="source">Source: http.joule:314</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Response</code></h3>
+                <p>HTTP response</p>
+                <p class="source">Source: http.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(status: StatusCode) -&gt; Self</code></h3>
+                <p>Create new response</p>
+                <p class="source">Source: http.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ok() -&gt; Self</code></h3>
+                <p>Create OK response</p>
+                <p class="source">Source: http.joule:383</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn not_found() -&gt; Self</code></h3>
+                <p>Create not found response</p>
+                <p class="source">Source: http.joule:388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn header(mut self, name: &amp;str, value: &amp;str) -&gt; Self</code></h3>
+                <p>Set header</p>
+                <p class="source">Source: http.joule:393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn body(mut self, body: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Set body</p>
+                <p class="source">Source: http.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn text(mut self, text: &amp;str) -&gt; Self</code></h3>
+                <p>Set text body</p>
+                <p class="source">Source: http.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn html(mut self, html: &amp;str) -&gt; Self</code></h3>
+                <p>Set HTML body</p>
+                <p class="source">Source: http.joule:412</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn json&lt;T: serde::Serialize&gt;(mut self, value: &amp;T) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p>Set JSON body</p>
+                <p class="source">Source: http.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn json_body&lt;T: serde::de::DeserializeOwned&gt;(&amp;self) -&gt; Result&lt;T, HttpError&gt;</code></h3>
+                <p>Parse response body as JSON</p>
+                <p class="source">Source: http.joule:427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn text_body(&amp;self) -&gt; Result&lt;String, HttpError&gt;</code></h3>
+                <p>Get body as string</p>
+                <p class="source">Source: http.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Serialize to bytes</p>
+                <p class="source">Source: http.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse&lt;R: Read&gt;(reader: &amp;mut R) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p>Parse from stream</p>
+                <p class="source">Source: http.joule:473</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ClientConfig</code></h3>
+                <p>HTTP client configuration</p>
+                <p class="source">Source: http.joule:528</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:537</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HttpClient</code></h3>
+                <p>HTTP client</p>
+                <p class="source">Source: http.joule:549</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create new client</p>
+                <p class="source">Source: http.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(config: ClientConfig) -&gt; Self</code></h3>
+                <p>Create with config</p>
+                <p class="source">Source: http.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;self, mut request: Request) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:568</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn follow_redirect(&amp;self, location: &amp;str, count: u32) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, url: &amp;str) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn post(&amp;self, url: &amp;str, body: Vec&lt;u8&gt;) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:623</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn post_json&lt;T: serde::Serialize&gt;(&amp;self, url: &amp;str, value: &amp;T) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:629</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn put(&amp;self, url: &amp;str, body: Vec&lt;u8&gt;) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:635</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn delete(&amp;self, url: &amp;str) -&gt; Result&lt;Response, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:641</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Handler: Send + Sync</code></h3>
+                <p>HTTP server handler trait</p>
+                <p class="source">Source: http.joule:651</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle(&amp;self, request: Request) -&gt; Response;</code></h3>
+                <p class="source">Source: http.joule:652</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HttpServer</code></h3>
+                <p>HTTP server</p>
+                <p class="source">Source: http.joule:656</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new&lt;H: Handler + &#x27;static&gt;(addr: &amp;str, handler: H) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:664</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run(&amp;self) -&gt; Result&lt;(), HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:674</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run_threaded(&amp;self, num_threads: usize) -&gt; Result&lt;(), HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:689</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle_connection(&amp;self, mut stream: TcpStream) -&gt; Result&lt;(), HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:714</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; &amp;SocketAddr</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: http.joule:722</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FnHandler</code></h3>
+                <p>Simple function-based handler</p>
+                <p class="source">Source: http.joule:728</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle(&amp;self, request: Request) -&gt; Response</code></h3>
+                <p class="source">Source: http.joule:734</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Router</code></h3>
+                <p>Router for path-based routing</p>
+                <p class="source">Source: http.joule:740</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:745</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get&lt;F&gt;(mut self, path: &amp;str, handler: F) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:749</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn post&lt;F&gt;(mut self, path: &amp;str, handler: F) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:757</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn put&lt;F&gt;(mut self, path: &amp;str, handler: F) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:765</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn delete&lt;F&gt;(mut self, path: &amp;str, handler: F) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:773</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle(&amp;self, request: Request) -&gt; Response</code></h3>
+                <p class="source">Source: http.joule:783</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Url</code></h3>
+                <p class="source">Source: http.joule:800</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(url: &amp;str) -&gt; Result&lt;Self, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:809</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum HttpError</code></h3>
+                <p class="source">Source: http.joule:843</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:855</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: TcpError) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:861</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: serde_json::Error) -&gt; Self</code></h3>
+                <p class="source">Source: http.joule:867</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_line&lt;R: Read&gt;(reader: &amp;mut R, buf: &amp;mut String) -&gt; Result&lt;(), HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:876</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_chunked_body&lt;R: Read&gt;(reader: &amp;mut R) -&gt; Result&lt;Vec&lt;u8&gt;, HttpError&gt;</code></h3>
+                <p class="source">Source: http.joule:891</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn url_encode(s: &amp;str) -&gt; String</code></h3>
+                <p class="source">Source: http.joule:919</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn path_matches(pattern: &amp;str, path: &amp;str) -&gt; bool</code></h3>
+                <p class="source">Source: http.joule:936</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

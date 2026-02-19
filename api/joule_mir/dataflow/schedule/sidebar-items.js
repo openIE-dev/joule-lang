@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ThermalConstraint"],"struct":["EnergyAwareScheduler","SchedulingConfig"]};

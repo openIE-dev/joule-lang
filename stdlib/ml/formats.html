@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formats - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module formats</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum FormatError</code></h3>
+                <p class="source">Source: formats.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: formats.joule:40</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TensorMeta</code></h3>
+                <p class="source">Source: formats.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn numel(&amp;self) -&gt; usize</code></h3>
+                <p>Number of elements</p>
+                <p class="source">Source: formats.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unquantized_size(&amp;self) -&gt; u64</code></h3>
+                <p>Size in bytes (unquantized)</p>
+                <p class="source">Source: formats.joule:63</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QuantizationMeta</code></h3>
+                <p class="source">Source: formats.joule:70</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum QuantType</code></h3>
+                <p class="source">Source: formats.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bits_per_weight(&amp;self) -&gt; f32</code></h3>
+                <p>Bits per weight</p>
+                <p class="source">Source: formats.joule:117</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LoadStrategy</code></h3>
+                <p class="source">Source: formats.joule:139</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LoadOptions</code></h3>
+                <p class="source">Source: formats.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: formats.joule:168</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GGUF_MAGIC: u32</code></h3>
+                <p>GGUF file header</p>
+                <p class="source">Source: formats.joule:185</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GGUF_VERSION_2: u32</code></h3>
+                <p class="source">Source: formats.joule:186</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GGUF_VERSION_3: u32</code></h3>
+                <p class="source">Source: formats.joule:187</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GgufValue</code></h3>
+                <p class="source">Source: formats.joule:191</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_u32(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p class="source">Source: formats.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_u64(&amp;self) -&gt; Option&lt;u64&gt;</code></h3>
+                <p class="source">Source: formats.joule:217</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_f32(&amp;self) -&gt; Option&lt;f32&gt;</code></h3>
+                <p class="source">Source: formats.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_str(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p class="source">Source: formats.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_bool(&amp;self) -&gt; Option&lt;bool&gt;</code></h3>
+                <p class="source">Source: formats.joule:241</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GgufTensorInfo</code></h3>
+                <p class="source">Source: formats.joule:251</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GgufDType</code></h3>
+                <p class="source">Source: formats.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_dtype(&amp;self) -&gt; DType</code></h3>
+                <p>Convert to Joule DType</p>
+                <p class="source">Source: formats.joule:295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn block_size(&amp;self) -&gt; usize</code></h3>
+                <p>Bytes per element (or per block for quantized)</p>
+                <p class="source">Source: formats.joule:311</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn block_elements(&amp;self) -&gt; usize</code></h3>
+                <p>Elements per block</p>
+                <p class="source">Source: formats.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size_bytes(&amp;self, n_elements: usize) -&gt; usize</code></h3>
+                <p>Size in bytes for given number of elements</p>
+                <p class="source">Source: formats.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn try_from(v: u32) -&gt; Result&lt;Self, Self::Error&gt;</code></h3>
+                <p class="source">Source: formats.joule:368</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GgufLoader</code></h3>
+                <p>GGUF model loader</p>
+                <p class="source">Source: formats.joule:404</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MmapHandle</code></h3>
+                <p>Memory-mapped file handle (platform specific)</p>
+                <p class="source">Source: formats.joule:417</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Self, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_options(</code></h3>
+                <p class="source">Source: formats.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metadata(&amp;self) -&gt; &amp;HashMap&lt;String, GgufValue&gt;</code></h3>
+                <p>Get model metadata</p>
+                <p class="source">Source: formats.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_meta(&amp;self, key: &amp;str) -&gt; Option&lt;&amp;GgufValue&gt;</code></h3>
+                <p>Get metadata value</p>
+                <p class="source">Source: formats.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn architecture(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get architecture name</p>
+                <p class="source">Source: formats.joule:519</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get model name</p>
+                <p class="source">Source: formats.joule:524</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn context_length(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get context length</p>
+                <p class="source">Source: formats.joule:529</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn embedding_length(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get embedding length</p>
+                <p class="source">Source: formats.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_layers(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get number of layers</p>
+                <p class="source">Source: formats.joule:543</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_heads(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get number of attention heads</p>
+                <p class="source">Source: formats.joule:550</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn vocab_size(&amp;self) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get vocab size</p>
+                <p class="source">Source: formats.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensor_names(&amp;self) -&gt; Vec&lt;&amp;str&gt;</code></h3>
+                <p>Get list of tensor names</p>
+                <p class="source">Source: formats.joule:569</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensor_info(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;GgufTensorInfo&gt;</code></h3>
+                <p>Get tensor info by name</p>
+                <p class="source">Source: formats.joule:574</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensors(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; TensorMeta&gt; + &#x27;_</code></h3>
+                <p>List all tensor metadata</p>
+                <p class="source">Source: formats.joule:579</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor(&amp;self, name: &amp;str) -&gt; Result&lt;Tensor, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:597</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor_to_device(</code></h3>
+                <p class="source">Source: formats.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_all(&amp;self) -&gt; Result&lt;HashMap&lt;String, Tensor&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:637</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stream_tensors&lt;F&gt;(&amp;self, mut callback: F) -&gt; Result&lt;(), FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:650</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_parameters(&amp;self) -&gt; u64</code></h3>
+                <p>Total parameter count</p>
+                <p class="source">Source: formats.joule:664</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_size_bytes(&amp;self) -&gt; u64</code></h3>
+                <p>Total size in bytes</p>
+                <p class="source">Source: formats.joule:671</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_load_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Estimate energy to fully load model</p>
+                <p class="source">Source: formats.joule:679</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_scope(&amp;self, op: &amp;str) -&gt; Option&lt;EnergyScope&gt;</code></h3>
+                <p class="source">Source: formats.joule:687</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_metadata_kv(file: &amp;mut File, version: u32) -&gt; Result&lt;(String, GgufValue), FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:691</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_string(file: &amp;mut File, version: u32) -&gt; Result&lt;String, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:697</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_value(file: &amp;mut File, version: u32) -&gt; Result&lt;GgufValue, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:705</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_tensor_info(file: &amp;mut File, version: u32) -&gt; Result&lt;GgufTensorInfo, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:752</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_tensor_data(&amp;self, offset: u64, size: usize) -&gt; Result&lt;Vec&lt;u8&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:774</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_mmap(file: &amp;File) -&gt; Result&lt;MmapHandle, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:795</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quant_meta_from_dtype(dtype: GgufDType) -&gt; Option&lt;QuantizationMeta&gt;</code></h3>
+                <p class="source">Source: formats.joule:830</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quant_type_from_dtype(dtype: GgufDType) -&gt; QuantType</code></h3>
+                <p class="source">Source: formats.joule:843</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u8(file: &amp;mut File) -&gt; Result&lt;u8, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:869</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_i8(file: &amp;mut File) -&gt; Result&lt;i8, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:875</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u16(file: &amp;mut File) -&gt; Result&lt;u16, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:879</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_i16(file: &amp;mut File) -&gt; Result&lt;i16, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:885</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u32(file: &amp;mut File) -&gt; Result&lt;u32, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:891</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_i32(file: &amp;mut File) -&gt; Result&lt;i32, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:897</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u64(file: &amp;mut File) -&gt; Result&lt;u64, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:903</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_i64(file: &amp;mut File) -&gt; Result&lt;i64, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:909</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_f32(file: &amp;mut File) -&gt; Result&lt;f32, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:915</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_f64(file: &amp;mut File) -&gt; Result&lt;f64, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:921</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: formats.joule:929</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SAFETENSORS_HEADER_SIZE_LEN: usize</code></h3>
+                <p>SafeTensors magic bytes</p>
+                <p class="source">Source: formats.joule:942</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SafeTensorsDType</code></h3>
+                <p class="source">Source: formats.joule:946</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_str(s: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: formats.joule:963</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_dtype(&amp;self) -&gt; DType</code></h3>
+                <p class="source">Source: formats.joule:982</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size_bytes(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:1000</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SafeTensorInfo</code></h3>
+                <p class="source">Source: formats.joule:1013</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SafeTensorsLoader</code></h3>
+                <p>SafeTensors loader</p>
+                <p class="source">Source: formats.joule:1021</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Self, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1032</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_options(</code></h3>
+                <p class="source">Source: formats.joule:1038</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensor_names(&amp;self) -&gt; Vec&lt;&amp;str&gt;</code></h3>
+                <p>Get tensor names</p>
+                <p class="source">Source: formats.joule:1079</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensor_info(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;SafeTensorInfo&gt;</code></h3>
+                <p>Get tensor info</p>
+                <p class="source">Source: formats.joule:1084</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensors(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; TensorMeta&gt; + &#x27;_</code></h3>
+                <p>List all tensor metadata</p>
+                <p class="source">Source: formats.joule:1089</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor(&amp;self, name: &amp;str) -&gt; Result&lt;Tensor, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor_to_device(</code></h3>
+                <p class="source">Source: formats.joule:1118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_all(&amp;self) -&gt; Result&lt;HashMap&lt;String, Tensor&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1131</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stream_tensors&lt;F&gt;(&amp;self, mut callback: F) -&gt; Result&lt;(), FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_parameters(&amp;self) -&gt; u64</code></h3>
+                <p>Total parameter count</p>
+                <p class="source">Source: formats.joule:1158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_size_bytes(&amp;self) -&gt; u64</code></h3>
+                <p>Total size in bytes</p>
+                <p class="source">Source: formats.joule:1165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_scope(&amp;self, op: &amp;str) -&gt; Option&lt;EnergyScope&gt;</code></h3>
+                <p class="source">Source: formats.joule:1173</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_header(json: &amp;str) -&gt; Result&lt;HashMap&lt;String, SafeTensorInfo&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1177</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_tensor_entry(line: &amp;str) -&gt; Result&lt;Option&lt;SafeTensorInfo&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1195</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_tensor_data(&amp;self, offset: usize, size: usize) -&gt; Result&lt;Vec&lt;u8&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1201</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OnnxLoader</code></h3>
+                <p>ONNX model loader (runtime-based)</p>
+                <p class="source">Source: formats.joule:1226</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OnnxGraphInfo</code></h3>
+                <p class="source">Source: formats.joule:1235</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OnnxTensorSpec</code></h3>
+                <p class="source">Source: formats.joule:1245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Self, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1254</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_options(</code></h3>
+                <p class="source">Source: formats.joule:1260</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn graph_info(&amp;self) -&gt; &amp;OnnxGraphInfo</code></h3>
+                <p>Get graph info</p>
+                <p class="source">Source: formats.joule:1280</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inputs(&amp;self) -&gt; &amp;[OnnxTensorSpec]</code></h3>
+                <p>Get input specifications</p>
+                <p class="source">Source: formats.joule:1285</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn outputs(&amp;self) -&gt; &amp;[OnnxTensorSpec]</code></h3>
+                <p>Get output specifications</p>
+                <p class="source">Source: formats.joule:1290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensors(&amp;self) -&gt; &amp;[TensorMeta]</code></h3>
+                <p>List initializer tensors</p>
+                <p class="source">Source: formats.joule:1295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor(&amp;self, name: &amp;str) -&gt; Result&lt;Tensor, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_session(&amp;self) -&gt; Result&lt;OnnxSession, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_scope(&amp;self, op: &amp;str) -&gt; Option&lt;EnergyScope&gt;</code></h3>
+                <p class="source">Source: formats.joule:1317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_onnx(path: &amp;Path) -&gt; Result&lt;OnnxGraphInfo, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extract_initializers(path: &amp;Path) -&gt; Result&lt;Vec&lt;TensorMeta&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1326</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OnnxSession</code></h3>
+                <p>ONNX inference session</p>
+                <p class="source">Source: formats.joule:1333</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run(&amp;self, inputs: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;HashMap&lt;String, Tensor&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1340</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ModelLoader</code></h3>
+                <p>Unified model loader that auto-detects format</p>
+                <p class="source">Source: formats.joule:1350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Self, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1359</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_with_options(</code></h3>
+                <p class="source">Source: formats.joule:1365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tensor_names(&amp;self) -&gt; Vec&lt;&amp;str&gt;</code></h3>
+                <p>Get tensor names</p>
+                <p class="source">Source: formats.joule:1387</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_tensor(&amp;self, name: &amp;str) -&gt; Result&lt;Tensor, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1397</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_all(&amp;self) -&gt; Result&lt;HashMap&lt;String, Tensor&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_parameters(&amp;self) -&gt; u64</code></h3>
+                <p>Total parameter count</p>
+                <p class="source">Source: formats.joule:1416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_size_bytes(&amp;self) -&gt; u64</code></h3>
+                <p>Total size in bytes</p>
+                <p class="source">Source: formats.joule:1425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;HashMap&lt;String, Tensor&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1440</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_streaming&lt;F&gt;(path: impl AsRef&lt;Path&gt;, callback: F) -&gt; Result&lt;(), FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn probe(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Vec&lt;TensorMeta&gt;, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1460</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_memory(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;u64, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1471</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_load_energy(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;Joules, FormatError&gt;</code></h3>
+                <p class="source">Source: formats.joule:1477</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

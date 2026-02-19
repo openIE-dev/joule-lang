@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trig - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module trig</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn sin(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cos(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tan(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sincos(x: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: trig.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asin(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acos(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn atan(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:63</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn atan2(y: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:72</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:84</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cosh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tanh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asinh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:108</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acosh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:115</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn atanh(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_radians(degrees: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_degrees(radians: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:138</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_angle(radians: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_angle_signed(radians: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn angle_diff(a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinc(x: f64) -&gt; f64</code></h3>
+                <p>Sinc function: sin(πx) / (πx), with sinc(0) &#x3D; 1</p>
+                <p class="source">Source: trig.joule:170</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinc_unnormalized(x: f64) -&gt; f64</code></h3>
+                <p>Normalized sinc: sin(x) / x, with sinc(0) &#x3D; 1</p>
+                <p class="source">Source: trig.joule:180</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn versin(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn haversin(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: trig.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn haversine_distance(lat1: f64, lon1: f64, lat2: f64, lon2: f64, radius: f64) -&gt; f64</code></h3>
+                <p>Haversine distance between two points on a sphere
+Arguments are latitude/longitude in radians</p>
+                <p class="source">Source: trig.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sin_f32(x: f32) -&gt; f32</code></h3>
+                <p class="source">Source: trig.joule:218</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cos_f32(x: f32) -&gt; f32</code></h3>
+                <p class="source">Source: trig.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tan_f32(x: f32) -&gt; f32</code></h3>
+                <p class="source">Source: trig.joule:232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sin_batch(input: &amp;[f64], output: &amp;mut [f64])</code></h3>
+                <p class="source">Source: trig.joule:243</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cos_batch(input: &amp;[f64], output: &amp;mut [f64])</code></h3>
+                <p class="source">Source: trig.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sincos_batch(input: &amp;[f64], sin_out: &amp;mut [f64], cos_out: &amp;mut [f64])</code></h3>
+                <p class="source">Source: trig.joule:263</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

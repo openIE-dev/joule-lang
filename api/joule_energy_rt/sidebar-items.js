@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["domains","error","kinematics","platform","rapl","thermal"],"struct":["EnergyMetrics","EnergyMonitor"]};

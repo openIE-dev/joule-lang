@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buffer - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module buffer</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum BufferUsage</code></h3>
+                <p class="source">Source: gpu/buffer.joule:9</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum MemoryLocation</code></h3>
+                <p class="source">Source: gpu/buffer.joule:24</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuBuffer</code></h3>
+                <p>GPU buffer handle</p>
+                <p class="source">Source: gpu/buffer.joule:36</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BufferHandle</code></h3>
+                <p>Internal buffer handle (backend-specific)</p>
+                <p class="source">Source: gpu/buffer.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get the number of elements</p>
+                <p class="source">Source: gpu/buffer.joule:114</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size_bytes(&amp;self) -&gt; usize</code></h3>
+                <p>Get size in bytes</p>
+                <p class="source">Source: gpu/buffer.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if buffer is empty</p>
+                <p class="source">Source: gpu/buffer.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn location(&amp;self) -&gt; MemoryLocation</code></h3>
+                <p>Get the memory location</p>
+                <p class="source">Source: gpu/buffer.joule:129</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn usage(&amp;self) -&gt; BufferUsage</code></h3>
+                <p>Get the usage hint</p>
+                <p class="source">Source: gpu/buffer.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, data: &amp;[T]) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:153</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CUDA_MEMCPY_HOST_TO_DEVICE: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_buffer_contents(buffer: *mut std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:194</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HIP_MEMCPY_HOST_TO_DEVICE: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;self, data: &amp;mut [T]) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:238</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CUDA_MEMCPY_DEVICE_TO_HOST: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_buffer_contents(buffer: *mut std::ffi::c_void) -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:279</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HIP_MEMCPY_DEVICE_TO_HOST: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:286</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_all(&amp;self) -&gt; Result&lt;Vec&lt;T&gt;, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_async(&amp;mut self, data: &amp;[T]) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemcpyAsync(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:331</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CUDA_MEMCPY_HOST_TO_DEVICE: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn copy_to(&amp;self, other: &amp;mut GpuBuffer&lt;T&gt;) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:367</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:380</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CUDA_MEMCPY_DEVICE_TO_DEVICE: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:387</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemcpy(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:401</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const HIP_MEMCPY_DEVICE_TO_DEVICE: i32</code></h3>
+                <p class="source">Source: gpu/buffer.joule:408</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill(&amp;mut self, value: T) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemset(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero(&amp;mut self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:467</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemset(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:472</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemset(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpu/buffer.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaFree(ptr: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:531</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipFree(ptr: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuda_alloc(size_bytes: usize, location: MemoryLocation) -&gt; Result&lt;*mut std::ffi::c_void, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMalloc(ptr: *mut *mut std::ffi::c_void, size: usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:559</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMallocHost(ptr: *mut *mut std::ffi::c_void, size: usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:560</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMallocManaged(ptr: *mut *mut std::ffi::c_void, size: usize, flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metal_alloc(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:584</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_new_buffer(</code></h3>
+                <p class="source">Source: gpu/buffer.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rocm_alloc(size_bytes: usize, location: MemoryLocation) -&gt; Result&lt;*mut std::ffi::c_void, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:615</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMalloc(ptr: *mut *mut std::ffi::c_void, size: usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipHostMalloc(ptr: *mut *mut std::ffi::c_void, size: usize, flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:618</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMallocManaged(ptr: *mut *mut std::ffi::c_void, size: usize, flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/buffer.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/buffer.joule:643</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

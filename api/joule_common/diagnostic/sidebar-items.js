@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["LabelStyle","Severity"],"fn":["edit_distance","suggest_similar"],"struct":["Diagnostic","Label"]};

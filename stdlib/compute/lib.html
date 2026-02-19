@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/lib.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_devices() -&gt; Vec&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/lib.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default_device() -&gt; Option&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/lib.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn most_efficient_device() -&gt; Option&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/lib.joule:74</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuEnergyResult</code></h3>
+                <p class="source">Source: gpu/lib.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn launch(</code></h3>
+                <p class="source">Source: gpu/lib.joule:136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn launch_on_queue(</code></h3>
+                <p class="source">Source: gpu/lib.joule:180</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuEnergyMonitor</code></h3>
+                <p>Continuous GPU energy monitor that samples power in the background.
+
+Start the monitor before a sequence of GPU operations, then stop it to
+get an aggregate energy report covering the entire span.</p>
+                <p class="source">Source: gpu/lib.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start(device: &amp;GpuDevice, interval: std::time::Duration) -&gt; Self</code></h3>
+                <p class="source">Source: gpu/lib.joule:243</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stop(&amp;mut self) -&gt; GpuEnergyReport</code></h3>
+                <p>Stop monitoring and return an aggregate energy report.</p>
+                <p class="source">Source: gpu/lib.joule:273</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpu/lib.joule:330</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuEnergyReport</code></h3>
+                <p class="source">Source: gpu/lib.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimated_co2_kg(&amp;self, carbon_intensity_kg_per_kwh: f64) -&gt; f64</code></h3>
+                <p>Estimated CO2 emissions in kilograms.
+Uses the given carbon intensity (kg CO2 / kWh). Global average is ~0.5.</p>
+                <p class="source">Source: gpu/lib.joule:358</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn print(&amp;self)</code></h3>
+                <p>Print a human-readable summary.</p>
+                <p class="source">Source: gpu/lib.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sample_device_power(kernel: &amp;GpuKernel) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Sample power from the device using backend-specific management APIs.
+Returns watts if available.</p>
+                <p class="source">Source: gpu/lib.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_device_power(device: &amp;GpuDevice) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Read power from a device handle using the appropriate management library.</p>
+                <p class="source">Source: gpu/lib.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_idle_power(device: &amp;GpuDevice) -&gt; f64</code></h3>
+                <p>Estimate idle power for a device based on its backend and capabilities.</p>
+                <p class="source">Source: gpu/lib.joule:415</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_energy(</code></h3>
+                <p>Compute energy from timing and optional power readings.
+Returns (energy_joules, avg_power_watts, peak_power_watts).</p>
+                <p class="source">Source: gpu/lib.joule:426</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GpuError</code></h3>
+                <p class="source">Source: gpu/lib.joule:463</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/lib.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn launch_with_budget(</code></h3>
+                <p class="source">Source: gpu/lib.joule:524</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device_power_profile(device: &amp;GpuDevice) -&gt; (f64, f64, f64)</code></h3>
+                <p>Convenience: get a device&#x27;s backend-specific energy cost model parameters.
+Returns (estimated_idle_watts, estimated_active_watts, estimated_peak_watts).</p>
+                <p class="source">Source: gpu/lib.joule:551</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Zero-Knowledge Proofs
+Prove statements without revealing private information
+Supports SNARKs (Groth16, PLONK) and STARKs (post-quantum)&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum ProofSystem</code></h3>
+                <p>Available proof systems</p>
+                <p class="source">Source: lib.joule:15</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Curve</code></h3>
+                <p>Elliptic curve for SNARKs</p>
+                <p class="source">Source: lib.joule:27</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Variable</code></h3>
+                <p>Variable in a circuit</p>
+                <p class="source">Source: lib.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_public(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: lib.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:49</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LinearCombination</code></h3>
+                <p>Linear combination: sum of (coefficient * variable)</p>
+                <p class="source">Source: lib.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_variable(var: Variable) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_constant(value: i64, one: Variable) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:68</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_term(&amp;mut self, coeff: i64, var: Variable)</code></h3>
+                <p class="source">Source: lib.joule:72</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(mut self, other: LinearCombination) -&gt; LinearCombination</code></h3>
+                <p class="source">Source: lib.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(mut self, other: LinearCombination) -&gt; LinearCombination</code></h3>
+                <p class="source">Source: lib.joule:87</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Constraint</code></h3>
+                <p>R1CS constraint: A * B &#x3D; C</p>
+                <p class="source">Source: lib.joule:96</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CircuitBuilder</code></h3>
+                <p>Circuit builder for creating R1CS circuits</p>
+                <p class="source">Source: lib.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create a new circuit builder</p>
+                <p class="source">Source: lib.joule:112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn public_input(&amp;mut self, name: &amp;str) -&gt; Variable</code></h3>
+                <p>Allocate a public input variable</p>
+                <p class="source">Source: lib.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn private_witness(&amp;mut self, name: &amp;str) -&gt; Variable</code></h3>
+                <p>Allocate a private witness variable</p>
+                <p class="source">Source: lib.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one(&amp;self) -&gt; Variable</code></h3>
+                <p>Get the constant 1 variable</p>
+                <p class="source">Source: lib.joule:138</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn constant(&amp;self, value: i64) -&gt; LinearCombination</code></h3>
+                <p>Create a constant as linear combination</p>
+                <p class="source">Source: lib.joule:143</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enforce(&amp;mut self, a: LinearCombination, b: LinearCombination, c: LinearCombination)</code></h3>
+                <p>Enforce A * B &#x3D; C</p>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enforce_equal(&amp;mut self, a: LinearCombination, b: LinearCombination)</code></h3>
+                <p>Enforce equality: a &#x3D; b (as a * 1 &#x3D; b)</p>
+                <p class="source">Source: lib.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;mut self, a: Variable, b: Variable) -&gt; Variable</code></h3>
+                <p>Multiply two variables, return result</p>
+                <p class="source">Source: lib.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;mut self, a: Variable, b: Variable) -&gt; Variable</code></h3>
+                <p>Add two variables</p>
+                <p class="source">Source: lib.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enforce_boolean(&amp;mut self, var: Variable)</code></h3>
+                <p>Enforce variable is boolean (0 or 1)</p>
+                <p class="source">Source: lib.joule:177</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn power(&amp;mut self, base: Variable, n: u32) -&gt; Variable</code></h3>
+                <p>Compute x^n using repeated squaring</p>
+                <p class="source">Source: lib.joule:189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build(self) -&gt; Circuit</code></h3>
+                <p>Build the circuit</p>
+                <p class="source">Source: lib.joule:218</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Circuit</code></h3>
+                <p>Compiled circuit</p>
+                <p class="source">Source: lib.joule:229</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ProvingKey</code></h3>
+                <p>Proving key (for proof generation)</p>
+                <p class="source">Source: lib.joule:241</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: lib.joule:247</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bytes(bytes: &amp;[u8], curve: Curve) -&gt; Result&lt;Self, ZkpError&gt;</code></h3>
+                <p class="source">Source: lib.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; usize</code></h3>
+                <p>Size in bytes (can be large)</p>
+                <p class="source">Source: lib.joule:257</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct VerifyingKey</code></h3>
+                <p>Verifying key (for proof verification, much smaller than proving key)</p>
+                <p class="source">Source: lib.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: lib.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bytes(bytes: &amp;[u8], curve: Curve) -&gt; Result&lt;Self, ZkpError&gt;</code></h3>
+                <p class="source">Source: lib.joule:273</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:278</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Proof</code></h3>
+                <p>A zero-knowledge proof</p>
+                <p class="source">Source: lib.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; &amp;[u8]</code></h3>
+                <p>Serialize to bytes</p>
+                <p class="source">Source: lib.joule:295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; usize</code></h3>
+                <p>Get proof size in bytes</p>
+                <p class="source">Source: lib.joule:300</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn system(&amp;self) -&gt; &amp;ProofSystem</code></h3>
+                <p>Get the proof system used</p>
+                <p class="source">Source: lib.joule:305</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FieldElement</code></h3>
+                <p>Field element (scalar in the finite field)</p>
+                <p class="source">Source: lib.joule:311</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u64(value: u64, curve: Curve) -&gt; Self</code></h3>
+                <p>Create from u64</p>
+                <p class="source">Source: lib.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bytes(b: &amp;[u8], curve: Curve) -&gt; Self</code></h3>
+                <p>Create from bytes</p>
+                <p class="source">Source: lib.joule:325</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Groth16</code></h3>
+                <p>Groth16 proof system</p>
+                <p class="source">Source: lib.joule:338</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create Groth16 prover/verifier with BLS12-381</p>
+                <p class="source">Source: lib.joule:344</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_curve(curve: Curve) -&gt; Self</code></h3>
+                <p>Create with specific curve</p>
+                <p class="source">Source: lib.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setup(&amp;self, circuit: &amp;Circuit) -&gt; Result&lt;(ProvingKey, VerifyingKey), ZkpError&gt;</code></h3>
+                <p class="source">Source: lib.joule:356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prove(</code></h3>
+                <p class="source">Source: lib.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn verify(</code></h3>
+                <p class="source">Source: lib.joule:378</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Stark</code></h3>
+                <p>STARK proof system (post-quantum secure)</p>
+                <p class="source">Source: lib.joule:393</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum HashFunction</code></h3>
+                <p>Hash function for STARK</p>
+                <p class="source">Source: lib.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create with 128-bit security</p>
+                <p class="source">Source: lib.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_security(bits: usize) -&gt; Self</code></h3>
+                <p>Create with custom security level</p>
+                <p class="source">Source: lib.joule:415</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_hash(mut self, hash: HashFunction) -&gt; Self</code></h3>
+                <p>Set hash function</p>
+                <p class="source">Source: lib.joule:423</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prove(</code></h3>
+                <p class="source">Source: lib.joule:430</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn verify(</code></h3>
+                <p class="source">Source: lib.joule:448</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn range_check(builder: &amp;mut CircuitBuilder, value: Variable, bits: usize) -&gt; Vec&lt;Variable&gt;</code></h3>
+                <p class="source">Source: lib.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hash_preimage(</code></h3>
+                <p class="source">Source: lib.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn merkle_proof(</code></h3>
+                <p class="source">Source: lib.joule:485</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eddsa_verify(</code></h3>
+                <p class="source">Source: lib.joule:497</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum HashType</code></h3>
+                <p>Hash type for gadgets</p>
+                <p class="source">Source: lib.joule:507</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ZkpError</code></h3>
+                <p>Errors from ZKP operations</p>
+                <p class="source">Source: lib.joule:519</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

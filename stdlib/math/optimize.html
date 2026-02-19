@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>optimize - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module optimize</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct OptimizeResult</code></h3>
+                <p class="source">Source: optimize.joule:12</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct OptimizeOptions</code></h3>
+                <p class="source">Source: optimize.joule:33</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: optimize.joule:47</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RootResult</code></h3>
+                <p class="source">Source: optimize.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bisect&lt;F&gt;(f: F, a: f64, b: f64, tol: f64, maxiter: usize) -&gt; RootResult</code></h3>
+                <p class="source">Source: optimize.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn newton&lt;F, DF&gt;(f: F, df: DF, x0: f64, tol: f64, maxiter: usize) -&gt; RootResult</code></h3>
+                <p class="source">Source: optimize.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn secant&lt;F&gt;(f: F, x0: f64, x1: f64, tol: f64, maxiter: usize) -&gt; RootResult</code></h3>
+                <p class="source">Source: optimize.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn brentq&lt;F&gt;(f: F, a: f64, b: f64, tol: f64, maxiter: usize) -&gt; RootResult</code></h3>
+                <p class="source">Source: optimize.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_all_roots&lt;F&gt;(f: F, a: f64, b: f64, num_intervals: usize, tol: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: optimize.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn newton_multidim&lt;F, J&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn golden_section&lt;F&gt;(f: F, a: f64, b: f64, tol: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: optimize.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn brent_minimize&lt;F&gt;(f: F, a: f64, b: f64, tol: f64, maxiter: usize) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: optimize.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gradient_descent&lt;F, G&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:535</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bfgs&lt;F, G&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:612</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lbfgs&lt;F, G&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:712</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn line_search_wolfe&lt;F, G&gt;(</code></h3>
+                <p>Line search satisfying Wolfe conditions</p>
+                <p class="source">Source: optimize.joule:829</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nelder_mead&lt;F&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:883</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn powell&lt;F&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1019</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conjugate_gradient&lt;F, G&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1113</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn simulated_annealing&lt;F&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1199</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SimulatedAnnealingOptions</code></h3>
+                <p class="source">Source: optimize.joule:1274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: optimize.joule:1282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn differential_evolution&lt;F&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1294</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DifferentialEvolutionOptions</code></h3>
+                <p class="source">Source: optimize.joule:1416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: optimize.joule:1425</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LeastSquaresResult</code></h3>
+                <p class="source">Source: optimize.joule:1442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn least_squares&lt;F, J&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1459</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lstsq(a: &amp;[Vec&lt;f64&gt;], b: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: optimize.joule:1565</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Bounds</code></h3>
+                <p>Bound constraints</p>
+                <p class="source">Source: optimize.joule:1596</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(lower: Vec&lt;f64&gt;, upper: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: optimize.joule:1602</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lbfgsb&lt;F, G&gt;(</code></h3>
+                <p class="source">Source: optimize.joule:1609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve_linear(a: &amp;[Vec&lt;f64&gt;], b: &amp;[f64]) -&gt; Option&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Solve linear system Ax &#x3D; b using Gaussian elimination with partial pivoting</p>
+                <p class="source">Source: optimize.joule:1751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn approx_gradient&lt;F&gt;(f: &amp;F, x: &amp;[f64], eps: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: optimize.joule:1797</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn approx_jacobian&lt;F&gt;(f: &amp;F, x: &amp;[f64], eps: f64) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: optimize.joule:1818</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn check_gradient&lt;F, G&gt;(f: &amp;F, grad: &amp;G, x: &amp;[f64], eps: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: optimize.joule:1843</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bisect()</code></h3>
+                <p class="source">Source: optimize.joule:1866</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_newton()</code></h3>
+                <p class="source">Source: optimize.joule:1873</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_golden_section()</code></h3>
+                <p class="source">Source: optimize.joule:1886</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_nelder_mead()</code></h3>
+                <p class="source">Source: optimize.joule:1893</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bfgs()</code></h3>
+                <p class="source">Source: optimize.joule:1907</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

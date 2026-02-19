@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>basic - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module basic</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn abs&lt;T: Signed&gt;(x: T) -&gt; T</code></h3>
+                <p class="source">Source: basic.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min&lt;T: Ord&gt;(a: T, b: T) -&gt; T</code></h3>
+                <p class="source">Source: basic.joule:14</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max&lt;T: Ord&gt;(a: T, b: T) -&gt; T</code></h3>
+                <p class="source">Source: basic.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clamp&lt;T: Ord&gt;(x: T, lo: T, hi: T) -&gt; T</code></h3>
+                <p class="source">Source: basic.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn floor_div(a: i64, b: i64) -&gt; i64</code></h3>
+                <p class="source">Source: basic.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn modulo(a: i64, b: i64) -&gt; i64</code></h3>
+                <p class="source">Source: basic.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gcd(mut a: u64, mut b: u64) -&gt; u64</code></h3>
+                <p>Greatest common divisor</p>
+                <p class="source">Source: basic.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lcm(a: u64, b: u64) -&gt; u64</code></h3>
+                <p>Least common multiple</p>
+                <p class="source">Source: basic.joule:59</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_prime(n: u64) -&gt; bool</code></h3>
+                <p>Check if number is prime</p>
+                <p class="source">Source: basic.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn isqrt(n: u64) -&gt; u64</code></h3>
+                <p>Integer square root</p>
+                <p class="source">Source: basic.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn powi&lt;T: Num + Copy&gt;(base: T, exp: u32) -&gt; T</code></h3>
+                <p>Power with integer exponent</p>
+                <p class="source">Source: basic.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mod_pow(mut base: u64, mut exp: u64, modulus: u64) -&gt; u64</code></h3>
+                <p>Modular exponentiation: (base^exp) mod modulus</p>
+                <p class="source">Source: basic.joule:111</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn signum&lt;T: Signed + Ord&gt;(x: T) -&gt; T</code></h3>
+                <p class="source">Source: basic.joule:129</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn copysign(x: f64, y: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fma(a: f64, b: f64, c: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lerp(a: f64, b: f64, t: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inverse_lerp(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remap(x: f64, in_min: f64, in_max: f64, out_min: f64, out_max: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:173</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn smoothstep(edge0: f64, edge1: f64, x: f64) -&gt; f64</code></h3>
+                <p>Smooth step (cubic Hermite interpolation)</p>
+                <p class="source">Source: basic.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn smootherstep(edge0: f64, edge1: f64, x: f64) -&gt; f64</code></h3>
+                <p>Smoother step (quintic interpolation)</p>
+                <p class="source">Source: basic.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wrap(x: f64, max: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:191</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wrap_range(x: f64, min: f64, max: f64) -&gt; f64</code></h3>
+                <p class="source">Source: basic.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn approx_eq(a: f64, b: f64, epsilon: f64) -&gt; bool</code></h3>
+                <p class="source">Source: basic.joule:203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn approx_eq_relative(a: f64, b: f64, rel_epsilon: f64) -&gt; bool</code></h3>
+                <p>Check if two floats are approximately equal (relative)</p>
+                <p class="source">Source: basic.joule:208</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Num: Copy + PartialEq + PartialOrd</code></h3>
+                <p>Trait for numeric types</p>
+                <p class="source">Source: basic.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self;</code></h3>
+                <p class="source">Source: basic.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self;</code></h3>
+                <p class="source">Source: basic.joule:221</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Signed: Num</code></h3>
+                <p>Trait for signed numeric types</p>
+                <p class="source">Source: basic.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(self) -&gt; Self;</code></h3>
+                <p class="source">Source: basic.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:236</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:240</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:241</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:246</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:255</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self</code></h3>
+                <p class="source">Source: basic.joule:256</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn factorial_const(n: u64) -&gt; u64 {</code></h3>
+                <p>Compile-time factorial</p>
+                <p class="source">Source: basic.joule:271</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const fn binomial_const(n: u64, k: u64) -&gt; u64 {</code></h3>
+                <p>Compile-time binomial coefficient</p>
+                <p class="source">Source: basic.joule:279</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

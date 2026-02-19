@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modulation - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module modulation</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn am_modulate(message: &amp;Signal, carrier_freq: f64, modulation_index: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn am_demodulate(signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dsb_sc_modulate(message: &amp;Signal, carrier_freq: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:48</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ssb_usb_modulate(message: &amp;Signal, carrier_freq: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ssb_lsb_modulate(message: &amp;Signal, carrier_freq: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fm_modulate(message: &amp;Signal, carrier_freq: f64, freq_deviation: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fm_demodulate(signal: &amp;Signal) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pm_modulate(message: &amp;Signal, carrier_freq: f64, phase_deviation: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pm_demodulate(signal: &amp;Signal, carrier_freq: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_baseband(signal: &amp;Signal, carrier_freq: f64) -&gt; ComplexSignal</code></h3>
+                <p class="source">Source: modulation.joule:199</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_baseband(iq: &amp;ComplexSignal, carrier_freq: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:217</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frequency_shift(signal: &amp;ComplexSignal, freq_shift: f64) -&gt; ComplexSignal</code></h3>
+                <p class="source">Source: modulation.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bpsk_modulate(bits: &amp;[bool], samples_per_symbol: usize, sample_rate: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:254</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bpsk_demodulate(signal: &amp;Signal, samples_per_symbol: usize) -&gt; Vec&lt;bool&gt;</code></h3>
+                <p class="source">Source: modulation.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qpsk_modulate(bits: &amp;[bool], samples_per_symbol: usize, sample_rate: f64) -&gt; ComplexSignal</code></h3>
+                <p class="source">Source: modulation.joule:285</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qpsk_demodulate(signal: &amp;ComplexSignal, samples_per_symbol: usize) -&gt; Vec&lt;bool&gt;</code></h3>
+                <p class="source">Source: modulation.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qam16_modulate(nibbles: &amp;[u8], samples_per_symbol: usize, sample_rate: f64) -&gt; ComplexSignal</code></h3>
+                <p class="source">Source: modulation.joule:330</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fsk_modulate(bits: &amp;[bool], freq0: f64, freq1: f64, samples_per_symbol: usize, sample_rate: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: modulation.joule:359</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fsk_demodulate(signal: &amp;Signal, freq0: f64, freq1: f64, samples_per_symbol: usize) -&gt; Vec&lt;bool&gt;</code></h3>
+                <p class="source">Source: modulation.joule:380</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hilbert_transform(signal: &amp;Signal) -&gt; ComplexSignal</code></h3>
+                <p class="source">Source: modulation.joule:411</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft_inplace(data: &amp;mut [(f64, f64)], inverse: bool)</code></h3>
+                <p class="source">Source: modulation.joule:444</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_am_modulation()</code></h3>
+                <p class="source">Source: modulation.joule:498</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_fm_modulation()</code></h3>
+                <p class="source">Source: modulation.joule:505</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bpsk()</code></h3>
+                <p class="source">Source: modulation.joule:512</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_qpsk()</code></h3>
+                <p class="source">Source: modulation.joule:520</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_hilbert()</code></h3>
+                <p class="source">Source: modulation.joule:528</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

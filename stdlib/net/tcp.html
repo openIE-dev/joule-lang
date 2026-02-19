@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tcp - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module tcp</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct TcpOptions</code></h3>
+                <p>TCP connection options</p>
+                <p class="source">Source: tcp.joule:9</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: tcp.joule:21</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TcpStream</code></h3>
+                <p>TCP stream for bidirectional communication</p>
+                <p class="source">Source: tcp.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect&lt;A: ToSocketAddrs&gt;(addr: A) -&gt; Result&lt;Self, TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_timeout&lt;A: ToSocketAddrs&gt;(</code></h3>
+                <p class="source">Source: tcp.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_addr(addr: &amp;SocketAddr, timeout: Option&lt;Duration&gt;) -&gt; Result&lt;Self, TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:68</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, sock_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(fd: i32, addr: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:74</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fcntl(fd: i32, cmd: i32, arg: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:75</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; &amp;SocketAddr</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: tcp.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peer_addr(&amp;self) -&gt; &amp;SocketAddr</code></h3>
+                <p>Get peer address</p>
+                <p class="source">Source: tcp.joule:135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nodelay(&amp;mut self, nodelay: bool) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_keepalive(&amp;mut self, keepalive: Option&lt;Duration&gt;) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:149</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_read_timeout(&amp;mut self, timeout: Option&lt;Duration&gt;) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p>Set read timeout</p>
+                <p class="source">Source: tcp.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_write_timeout(&amp;mut self, timeout: Option&lt;Duration&gt;) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p>Set write timeout</p>
+                <p class="source">Source: tcp.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shutdown(&amp;self, how: Shutdown) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p>Shutdown read/write or both</p>
+                <p class="source">Source: tcp.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shutdown(fd: i32, how: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_raw_fd(&amp;self) -&gt; i32</code></h3>
+                <p>Get underlying file descriptor</p>
+                <p class="source">Source: tcp.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn buffered_reader(&amp;self) -&gt; BufReader&lt;&amp;TcpStream&gt;</code></h3>
+                <p>Create buffered reader</p>
+                <p class="source">Source: tcp.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn buffered_writer(&amp;self) -&gt; BufWriter&lt;&amp;TcpStream&gt;</code></h3>
+                <p>Create buffered writer</p>
+                <p class="source">Source: tcp.joule:217</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn try_clone(&amp;self) -&gt; Result&lt;Self, TcpError&gt;</code></h3>
+                <p>Try to clone the stream (creates new file descriptor)</p>
+                <p class="source">Source: tcp.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dup(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: tcp.joule:243</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(fd: i32, buf: *mut u8, len: usize, flags: i32) -&gt; isize;</code></h3>
+                <p class="source">Source: tcp.joule:245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write(&amp;mut self, buf: &amp;[u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: tcp.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(fd: i32, buf: *const u8, len: usize, flags: i32) -&gt; isize;</code></h3>
+                <p class="source">Source: tcp.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flush(&amp;mut self) -&gt; Result&lt;(), std::io::Error&gt;</code></h3>
+                <p class="source">Source: tcp.joule:272</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: tcp.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:281</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TcpListener</code></h3>
+                <p>TCP listener for accepting connections</p>
+                <p class="source">Source: tcp.joule:292</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind&lt;A: ToSocketAddrs&gt;(addr: A) -&gt; Result&lt;Self, TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind_with_options&lt;A: ToSocketAddrs&gt;(</code></h3>
+                <p class="source">Source: tcp.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind_addr(addr: &amp;SocketAddr, options: &amp;TcpOptions) -&gt; Result&lt;Self, TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:323</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, sock_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(fd: i32, addr: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn listen(fd: i32, backlog: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(&amp;self) -&gt; Result&lt;(TcpStream, SocketAddr), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:382</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(fd: i32, addr: *mut u8, len: *mut u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; &amp;SocketAddr</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: tcp.joule:409</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nonblocking(&amp;self, nonblocking: bool) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p>Set non-blocking mode</p>
+                <p class="source">Source: tcp.joule:414</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_raw_fd(&amp;self) -&gt; i32</code></h3>
+                <p>Get underlying file descriptor</p>
+                <p class="source">Source: tcp.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn incoming(&amp;self) -&gt; Incoming</code></h3>
+                <p>Iterator over incoming connections</p>
+                <p class="source">Source: tcp.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: tcp.joule:430</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Incoming</code></h3>
+                <p>Iterator over incoming connections</p>
+                <p class="source">Source: tcp.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: tcp.joule:444</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Shutdown</code></h3>
+                <p>Shutdown mode</p>
+                <p class="source">Source: tcp.joule:454</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TcpError</code></h3>
+                <p class="source">Source: tcp.joule:465</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: tcp.joule:480</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_socket_opt(fd: i32, level: i32, opt: i32, value: i32) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const i32, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:491</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_socket_timeout(fd: i32, opt: i32, dur: Duration) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:502</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:504</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Timeval</code></h3>
+                <p class="source">Source: tcp.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nonblocking(fd: i32, nonblocking: bool) -&gt; Result&lt;(), TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:535</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fcntl(fd: i32, cmd: i32, arg: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:537</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_local_addr(fd: i32) -&gt; Result&lt;SocketAddr, TcpError&gt;</code></h3>
+                <p class="source">Source: tcp.joule:559</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn getsockname(fd: i32, addr: *mut u8, len: *mut u32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:561</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poll_write(fd: i32, timeout: Duration) -&gt; bool</code></h3>
+                <p class="source">Source: tcp.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poll(fds: *mut PollFd, nfds: u64, timeout: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: tcp.joule:577</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PollFd</code></h3>
+                <p class="source">Source: tcp.joule:581</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

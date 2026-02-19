@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CtorKind","LitPat","Pat"],"fn":["lower_simple_match"],"struct":["LoweredBlock","MatchArm","MatchLowering","PatternMatrix","PatternRow"]};

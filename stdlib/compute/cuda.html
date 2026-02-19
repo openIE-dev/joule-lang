@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cuda - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module cuda</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuInit(flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_devices() -&gt; Vec&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDeviceGetCount(count: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDeviceGet(device: *mut i32, ordinal: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDeviceGetName(name: *mut i8, len: i32, device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDeviceTotalMem_v2(bytes: *mut usize, device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDeviceGetAttribute(pi: *mut i32, attrib: i32, device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_driver_version() -&gt; String</code></h3>
+                <p>Get CUDA driver version string</p>
+                <p class="source">Source: gpu/cuda.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuDriverGetVersion(version: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_context(device_id: i32) -&gt; Result&lt;*mut std::ffi::c_void, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cuCtxCreate_v2(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_device() -&gt; Option&lt;i32&gt;</code></h3>
+                <p>Get current CUDA device</p>
+                <p class="source">Source: gpu/cuda.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaGetDevice(device: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:209</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable_peer_access(device: i32, peer_device: i32) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaDeviceEnablePeerAccess(peer_device: i32, flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn can_access_peer(device: i32, peer_device: i32) -&gt; bool</code></h3>
+                <p>Check if peer-to-peer access is possible</p>
+                <p class="source">Source: gpu/cuda.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaDeviceCanAccessPeer(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn memory_info() -&gt; Result&lt;(usize, usize), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaMemGetInfo(free: *mut usize, total: *mut usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_device_flags(flags: u32) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Set CUDA device flags</p>
+                <p class="source">Source: gpu/cuda.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaSetDeviceFlags(flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:264</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_SCHEDULE_AUTO: u32</code></h3>
+                <p class="source">Source: gpu/cuda.joule:274</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_SCHEDULE_SPIN: u32</code></h3>
+                <p class="source">Source: gpu/cuda.joule:275</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_SCHEDULE_YIELD: u32</code></h3>
+                <p class="source">Source: gpu/cuda.joule:276</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_SCHEDULE_BLOCKING_SYNC: u32</code></h3>
+                <p class="source">Source: gpu/cuda.joule:277</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DEVICE_MAP_HOST: u32</code></h3>
+                <p class="source">Source: gpu/cuda.joule:278</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Initialize NVML</p>
+                <p class="source">Source: gpu/cuda.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlInit_v2() -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/cuda.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_power_usage(device_index: u32) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get GPU power usage in milliwatts</p>
+                <p class="source">Source: gpu/cuda.joule:308</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetHandleByIndex_v2(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetPowerUsage(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_temperature(device_index: u32) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get GPU temperature in Celsius</p>
+                <p class="source">Source: gpu/cuda.joule:334</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetHandleByIndex_v2(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:336</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetTemperature(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_utilization(device_index: u32) -&gt; Option&lt;(u32, u32)&gt;</code></h3>
+                <p>Get GPU utilization (0-100)</p>
+                <p class="source">Source: gpu/cuda.joule:361</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetHandleByIndex_v2(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:363</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetUtilizationRates(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:367</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NvmlUtilization</code></h3>
+                <p class="source">Source: gpu/cuda.joule:374</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_clock_speeds(device_index: u32) -&gt; Option&lt;(u32, u32)&gt;</code></h3>
+                <p>Get current GPU clock speeds in MHz</p>
+                <p class="source">Source: gpu/cuda.joule:393</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetHandleByIndex_v2(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nvmlDeviceGetClockInfo(</code></h3>
+                <p class="source">Source: gpu/cuda.joule:399</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>neurosymbolic - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module neurosymbolic</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct DifferentiableLogic</code></h3>
+                <p>Differentiable logic gate with soft/fuzzy semantics.
+Allows end-to-end gradient flow through logical operations.</p>
+                <p class="source">Source: neurosymbolic.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(temperature: f64) -&gt; Self</code></h3>
+                <p>Create a new differentiable logic module.</p>
+                <p class="source">Source: neurosymbolic.joule:34</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p>Default temperature (1.0)</p>
+                <p class="source">Source: neurosymbolic.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn and(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn or(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:53</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn not(&amp;self, a: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn implies(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn equiv(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forall(&amp;self, tensor: &amp;Tensor, dim: i64) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:87</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exists(&amp;self, tensor: &amp;Tensor, dim: i64) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:97</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn godel_and(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn godel_or(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lukasiewicz_and(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lukasiewicz_or(&amp;self, a: &amp;Tensor, b: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:128</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Predicate</code></h3>
+                <p>A predicate in a Logic Tensor Network.</p>
+                <p class="source">Source: neurosymbolic.joule:138</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unary(name: &amp;str, embedding_dim: usize, hidden_dim: usize) -&gt; Self</code></h3>
+                <p>Create a unary predicate (e.g., &quot;is_cat(x)&quot;).</p>
+                <p class="source">Source: neurosymbolic.joule:149</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn binary(name: &amp;str, embedding_dim: usize, hidden_dim: usize) -&gt; Self</code></h3>
+                <p>Create a binary predicate (e.g., &quot;likes(x, y)&quot;).</p>
+                <p class="source">Source: neurosymbolic.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate(&amp;self, args: &amp;[&amp;Tensor]) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:182</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Formula</code></h3>
+                <p>A formula in first-order logic.</p>
+                <p class="source">Source: neurosymbolic.joule:196</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Term</code></h3>
+                <p>A term in a formula.</p>
+                <p class="source">Source: neurosymbolic.joule:223</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Rule</code></h3>
+                <p>A rule with a weight for soft constraints.</p>
+                <p class="source">Source: neurosymbolic.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(name: &amp;str, formula: Formula, weight: f64) -&gt; Self</code></h3>
+                <p>Create a new rule.</p>
+                <p class="source">Source: neurosymbolic.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn implies(name: &amp;str, antecedent: Formula, consequent: Formula, weight: f64) -&gt; Self</code></h3>
+                <p>Create an implication rule: antecedent → consequent</p>
+                <p class="source">Source: neurosymbolic.joule:251</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LogicTensorNetwork</code></h3>
+                <p>Logic Tensor Network for neurosymbolic reasoning.</p>
+                <p class="source">Source: neurosymbolic.joule:257</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(num_entities: usize, embedding_dim: usize) -&gt; Self</code></h3>
+                <p>Create a new LTN.</p>
+                <p class="source">Source: neurosymbolic.joule:272</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_predicate(&amp;mut self, predicate: Predicate)</code></h3>
+                <p>Add a predicate.</p>
+                <p class="source">Source: neurosymbolic.joule:283</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_unary_predicate(&amp;mut self, name: &amp;str, hidden_dim: usize)</code></h3>
+                <p>Add a unary predicate.</p>
+                <p class="source">Source: neurosymbolic.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_binary_predicate(&amp;mut self, name: &amp;str, hidden_dim: usize)</code></h3>
+                <p>Add a binary predicate.</p>
+                <p class="source">Source: neurosymbolic.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_rule(&amp;mut self, rule: Rule)</code></h3>
+                <p>Add a rule.</p>
+                <p class="source">Source: neurosymbolic.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn embed(&amp;self, entity_id: usize) -&gt; Tensor</code></h3>
+                <p>Get entity embedding.</p>
+                <p class="source">Source: neurosymbolic.joule:303</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate_atom(&amp;self, predicate: &amp;str, args: &amp;[usize]) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rule_loss(&amp;self, sample_entities: &amp;[usize]) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate_formula(&amp;self, formula: &amp;Formula, entities: &amp;[usize]) -&gt; Tensor</code></h3>
+                <p>Evaluate a formula on a sample of entities.</p>
+                <p class="source">Source: neurosymbolic.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_step&lt;O: Optimizer&gt;(&amp;mut self, optimizer: &amp;mut O, sample_entities: &amp;[usize]) -&gt; f64</code></h3>
+                <p class="source">Source: neurosymbolic.joule:394</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum KGEmbeddingMethod</code></h3>
+                <p>Supported knowledge graph embedding methods.</p>
+                <p class="source">Source: neurosymbolic.joule:411</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Triple</code></h3>
+                <p>A triple in a knowledge graph: (head, relation, tail)</p>
+                <p class="source">Source: neurosymbolic.joule:423</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct KnowledgeGraph</code></h3>
+                <p>Knowledge Graph with learnable embeddings.</p>
+                <p class="source">Source: neurosymbolic.joule:430</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create a new knowledge graph.</p>
+                <p class="source">Source: neurosymbolic.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_triple(&amp;mut self, head: usize, relation: usize, tail: usize)</code></h3>
+                <p>Add a triple.</p>
+                <p class="source">Source: neurosymbolic.joule:470</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn score(&amp;self, head: usize, relation: usize, tail: usize) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_entity_embedding(&amp;self, entity: usize) -&gt; Tensor</code></h3>
+                <p>Get entity embedding.</p>
+                <p class="source">Source: neurosymbolic.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_relation_embedding(&amp;self, relation: usize) -&gt; Tensor</code></h3>
+                <p>Get relation embedding.</p>
+                <p class="source">Source: neurosymbolic.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn margin_loss(&amp;self, positive: &amp;Triple, negative: &amp;Triple) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:521</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_step&lt;O: Optimizer&gt;(</code></h3>
+                <p class="source">Source: neurosymbolic.joule:532</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn predict_tail(&amp;self, head: usize, relation: usize, top_k: usize) -&gt; Vec&lt;(usize, f64)&gt;</code></h3>
+                <p class="source">Source: neurosymbolic.joule:557</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Variable</code></h3>
+                <p>A variable in a constraint satisfaction problem.</p>
+                <p class="source">Source: neurosymbolic.joule:577</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(name: &amp;str, domain_size: usize) -&gt; Self</code></h3>
+                <p>Create a new variable.</p>
+                <p class="source">Source: neurosymbolic.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn probabilities(&amp;self) -&gt; Tensor</code></h3>
+                <p>Get probability distribution over domain.</p>
+                <p class="source">Source: neurosymbolic.joule:599</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn assignment(&amp;self) -&gt; usize</code></h3>
+                <p>Get most likely assignment.</p>
+                <p class="source">Source: neurosymbolic.joule:604</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Constraint: Send + Sync</code></h3>
+                <p>A constraint in a CSP.</p>
+                <p class="source">Source: neurosymbolic.joule:610</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate(&amp;self, variables: &amp;HashMap&lt;String, &amp;Variable&gt;) -&gt; Tensor;</code></h3>
+                <p>Evaluate satisfaction (0 &#x3D; violated, 1 &#x3D; satisfied).</p>
+                <p class="source">Source: neurosymbolic.joule:612</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variables(&amp;self) -&gt; Vec&lt;String&gt;;</code></h3>
+                <p>Get involved variable names.</p>
+                <p class="source">Source: neurosymbolic.joule:615</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BinaryConstraint</code></h3>
+                <p>Binary constraint: two variables must satisfy a relation.</p>
+                <p class="source">Source: neurosymbolic.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn all_different(var1: &amp;str, var2: &amp;str, domain_size: usize) -&gt; Self</code></h3>
+                <p>Create an all-different constraint.</p>
+                <p class="source">Source: neurosymbolic.joule:628</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn equal(var1: &amp;str, var2: &amp;str, domain_size: usize) -&gt; Self</code></h3>
+                <p>Create an equality constraint.</p>
+                <p class="source">Source: neurosymbolic.joule:641</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn evaluate(&amp;self, variables: &amp;HashMap&lt;String, &amp;Variable&gt;) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:651</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variables(&amp;self) -&gt; Vec&lt;String&gt;</code></h3>
+                <p class="source">Source: neurosymbolic.joule:660</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NeuralCSP</code></h3>
+                <p>Neural Constraint Satisfaction Problem solver.</p>
+                <p class="source">Source: neurosymbolic.joule:666</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create a new CSP.</p>
+                <p class="source">Source: neurosymbolic.joule:675</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_variable(&amp;mut self, name: &amp;str, domain_size: usize)</code></h3>
+                <p>Add a variable.</p>
+                <p class="source">Source: neurosymbolic.joule:683</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_constraint(&amp;mut self, constraint: Box&lt;dyn Constraint&gt;)</code></h3>
+                <p>Add a constraint.</p>
+                <p class="source">Source: neurosymbolic.joule:688</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_satisfaction(&amp;self) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:694</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn loss(&amp;self) -&gt; Tensor</code></h3>
+                <p class="source">Source: neurosymbolic.joule:711</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve(&amp;mut self, max_iterations: usize, learning_rate: f64) -&gt; bool</code></h3>
+                <p class="source">Source: neurosymbolic.joule:718</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn assignments(&amp;self) -&gt; HashMap&lt;String, usize&gt;</code></h3>
+                <p>Get current assignments.</p>
+                <p class="source">Source: neurosymbolic.joule:745</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NeuralRule</code></h3>
+                <p>A neural rule with learned confidence.</p>
+                <p class="source">Source: neurosymbolic.joule:757</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(name: &amp;str, antecedents: Vec&lt;String&gt;, consequent: String) -&gt; Self</code></h3>
+                <p>Create a new rule.</p>
+                <p class="source">Source: neurosymbolic.joule:770</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct NeuralRuleEngine</code></h3>
+                <p>Neural rule engine for reasoning.</p>
+                <p class="source">Source: neurosymbolic.joule:781</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create a new rule engine.</p>
+                <p class="source">Source: neurosymbolic.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_rule(&amp;mut self, rule: NeuralRule)</code></h3>
+                <p>Add a rule.</p>
+                <p class="source">Source: neurosymbolic.joule:798</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn forward_chain(</code></h3>
+                <p class="source">Source: neurosymbolic.joule:804</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_differentiable_logic()</code></h3>
+                <p class="source">Source: neurosymbolic.joule:868</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_knowledge_graph()</code></h3>
+                <p class="source">Source: neurosymbolic.joule:889</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_neural_csp()</code></h3>
+                <p class="source">Source: neurosymbolic.joule:900</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

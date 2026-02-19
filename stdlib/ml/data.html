@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module data</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait Dataset</code></h3>
+                <p>Dataset trait</p>
+                <p class="source">Source: data.joule:11</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize;</code></h3>
+                <p>Get dataset length</p>
+                <p class="source">Source: data.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if dataset is empty</p>
+                <p class="source">Source: data.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;;</code></h3>
+                <p>Get item at index</p>
+                <p class="source">Source: data.joule:23</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MapDataset</code></h3>
+                <p>Map dataset (lazy transformation)</p>
+                <p class="source">Source: data.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(dataset: D, transform: F) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:51</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FilterDataset</code></h3>
+                <p>Filter dataset</p>
+                <p class="source">Source: data.joule:57</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(dataset: D, predicate: P) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:89</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ConcatDataset</code></h3>
+                <p>Concatenated datasets</p>
+                <p class="source">Source: data.joule:95</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(datasets: Vec&lt;D&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:101</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:120</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:124</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Subset</code></h3>
+                <p>Subset of a dataset</p>
+                <p class="source">Source: data.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(dataset: D, indices: Vec&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn random(dataset: D, size: usize) -&gt; Self</code></h3>
+                <p>Create random subset</p>
+                <p class="source">Source: data.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:175</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TensorDataset</code></h3>
+                <p>Tensor dataset (simple tuple of tensors)</p>
+                <p class="source">Source: data.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(tensors: Vec&lt;Tensor&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_xy(x: Tensor, y: Tensor) -&gt; Self</code></h3>
+                <p>Create from features and labels</p>
+                <p class="source">Source: data.joule:199</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:211</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Collate</code></h3>
+                <p>Batch collate function trait</p>
+                <p class="source">Source: data.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn collate(&amp;self, batch: Vec&lt;T&gt;) -&gt; Self::Output;</code></h3>
+                <p class="source">Source: data.joule:233</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DefaultCollate;</code></h3>
+                <p>Default collate for tensor tuples</p>
+                <p class="source">Source: data.joule:237</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn collate(&amp;self, batch: Vec&lt;Vec&lt;Tensor&gt;&gt;) -&gt; Vec&lt;Tensor&gt;</code></h3>
+                <p class="source">Source: data.joule:242</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Sampler</code></h3>
+                <p>Sampler trait</p>
+                <p class="source">Source: data.joule:258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; Self::Iter;</code></h3>
+                <p class="source">Source: data.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize;</code></h3>
+                <p class="source">Source: data.joule:262</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SequentialSampler</code></h3>
+                <p>Sequential sampler</p>
+                <p class="source">Source: data.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; Self::Iter</code></h3>
+                <p class="source">Source: data.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:283</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomSampler</code></h3>
+                <p>Random sampler</p>
+                <p class="source">Source: data.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: usize, replacement: bool, num_samples: Option&lt;usize&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:294</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; Self::Iter</code></h3>
+                <p class="source">Source: data.joule:315</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: data.joule:319</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BatchSampler</code></h3>
+                <p>Batch sampler</p>
+                <p class="source">Source: data.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(sampler: S, batch_size: usize, drop_last: bool) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:332</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataLoaderConfig</code></h3>
+                <p>Data loader configuration</p>
+                <p class="source">Source: data.joule:342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:352</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataLoader</code></h3>
+                <p>Data loader for iterating over datasets</p>
+                <p class="source">Source: data.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(dataset: D, collate: C, config: DataLoaderConfig) -&gt; Self</code></h3>
+                <p>Create new data loader</p>
+                <p class="source">Source: data.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of batches</p>
+                <p class="source">Source: data.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shuffle(&amp;mut self)</code></h3>
+                <p>Shuffle indices (call at start of each epoch)</p>
+                <p class="source">Source: data.joule:401</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; DataLoaderIter&lt;D, C&gt;</code></h3>
+                <p class="source">Source: data.joule:410</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataLoaderIter</code></h3>
+                <p>Data loader iterator</p>
+                <p class="source">Source: data.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(loader: &amp;&#x27;a DataLoader&lt;D, C&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:422</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: data.joule:433</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Transform</code></h3>
+                <p>Transform trait</p>
+                <p class="source">Source: data.joule:461</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: T) -&gt; Self::Output;</code></h3>
+                <p class="source">Source: data.joule:464</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Compose</code></h3>
+                <p>Compose multiple transforms</p>
+                <p class="source">Source: data.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(transforms: Vec&lt;Box&lt;dyn Transform&lt;T, Output &#x3D; T&gt;&gt;&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:473</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, mut input: T) -&gt; T</code></h3>
+                <p class="source">Source: data.joule:481</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Normalize</code></h3>
+                <p>Normalize transform</p>
+                <p class="source">Source: data.joule:490</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(mean: Vec&lt;f64&gt;, std: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:496</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn imagenet() -&gt; Self</code></h3>
+                <p>ImageNet normalization</p>
+                <p class="source">Source: data.joule:501</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:513</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomHorizontalFlip</code></h3>
+                <p>Random horizontal flip</p>
+                <p class="source">Source: data.joule:522</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:536</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomVerticalFlip</code></h3>
+                <p>Random vertical flip</p>
+                <p class="source">Source: data.joule:548</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:553</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:562</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomCrop</code></h3>
+                <p>Random crop</p>
+                <p class="source">Source: data.joule:574</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: (usize, usize), padding: usize) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:589</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CenterCrop</code></h3>
+                <p>Center crop</p>
+                <p class="source">Source: data.joule:610</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: (usize, usize)) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:615</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:624</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Resize</code></h3>
+                <p>Resize</p>
+                <p class="source">Source: data.joule:637</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(size: (usize, usize), mode: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:643</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:655</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ColorJitter</code></h3>
+                <p>Color jitter</p>
+                <p class="source">Source: data.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(brightness: f64, contrast: f64, saturation: f64, hue: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:683</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomRotation</code></h3>
+                <p>Random rotation</p>
+                <p class="source">Source: data.joule:720</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(degrees: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:725</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_range(min_degrees: f64, max_degrees: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:731</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:742</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ToTensor;</code></h3>
+                <p>To tensor (from numpy-like array)</p>
+                <p class="source">Source: data.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Vec&lt;f64&gt;) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:756</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RandomErasing</code></h3>
+                <p>Random erasing (cutout)</p>
+                <p class="source">Source: data.joule:762</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(p: f64, scale: (f64, f64), ratio: (f64, f64), value: f64) -&gt; Self</code></h3>
+                <p class="source">Source: data.joule:770</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transform(&amp;self, input: Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: data.joule:779</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn random_split&lt;D: Dataset&gt;(</code></h3>
+                <p>Split dataset into train/val/test</p>
+                <p class="source">Source: data.joule:817</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_test_split&lt;D: Dataset + Clone&gt;(</code></h3>
+                <p>Create train/test split</p>
+                <p class="source">Source: data.joule:848</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kfold&lt;D: Dataset + Clone&gt;(</code></h3>
+                <p>Create k-fold cross validation splits</p>
+                <p class="source">Source: data.joule:861</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

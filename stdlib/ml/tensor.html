@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tensor - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module tensor</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum DType</code></h3>
+                <p class="source">Source: tensor.joule:14</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size_bytes(self) -&gt; usize</code></h3>
+                <p>Size in bytes</p>
+                <p class="source">Source: tensor.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_float(self) -&gt; bool</code></h3>
+                <p>Check if floating point</p>
+                <p class="source">Source: tensor.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_int(self) -&gt; bool</code></h3>
+                <p>Check if integer</p>
+                <p class="source">Source: tensor.joule:60</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Device</code></h3>
+                <p class="source">Source: tensor.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p>Get the default device (CPU)</p>
+                <p class="source">Source: tensor.joule:80</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn best_available() -&gt; Self</code></h3>
+                <p>Get the best available accelerator</p>
+                <p class="source">Source: tensor.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_available(self) -&gt; bool</code></h3>
+                <p>Check if device is available</p>
+                <p class="source">Source: tensor.joule:103</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Tensor</code></h3>
+                <p>N-dimensional tensor</p>
+                <p class="source">Source: tensor.joule:123</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TensorStorage</code></h3>
+                <p>Internal storage for tensor data</p>
+                <p class="source">Source: tensor.joule:145</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait GradFn</code></h3>
+                <p>Gradient function trait for autograd</p>
+                <p class="source">Source: tensor.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn backward(&amp;self, grad: &amp;Tensor) -&gt; Vec&lt;Tensor&gt;;</code></h3>
+                <p class="source">Source: tensor.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a new tensor filled with zeros</p>
+                <p class="source">Source: tensor.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros_with_dtype(shape: &amp;[usize], dtype: DType) -&gt; Self</code></h3>
+                <p>Create a new tensor filled with zeros of specified dtype</p>
+                <p class="source">Source: tensor.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ones(shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a new tensor filled with ones</p>
+                <p class="source">Source: tensor.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn empty(shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a new tensor with uninitialized values</p>
+                <p class="source">Source: tensor.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_slice&lt;T: TensorElement&gt;(data: &amp;[T], shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a new tensor from a slice</p>
+                <p class="source">Source: tensor.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_vec&lt;T: TensorElement&gt;(data: Vec&lt;T&gt;) -&gt; Self</code></h3>
+                <p>Create a 1D tensor from a Vec</p>
+                <p class="source">Source: tensor.joule:223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eye(n: usize) -&gt; Self</code></h3>
+                <p>Create an identity matrix</p>
+                <p class="source">Source: tensor.joule:229</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arange(start: f64, end: f64, step: f64) -&gt; Self</code></h3>
+                <p>Create a tensor with values from start to end</p>
+                <p class="source">Source: tensor.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn linspace(start: f64, end: f64, steps: usize) -&gt; Self</code></h3>
+                <p>Create a tensor with evenly spaced values</p>
+                <p class="source">Source: tensor.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rand(shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a tensor with random values from uniform distribution [0, 1)</p>
+                <p class="source">Source: tensor.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn randn(shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Create a tensor with random values from normal distribution</p>
+                <p class="source">Source: tensor.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shape(&amp;self) -&gt; &amp;[usize]</code></h3>
+                <p>Get shape</p>
+                <p class="source">Source: tensor.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ndim(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of dimensions</p>
+                <p class="source">Source: tensor.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn numel(&amp;self) -&gt; usize</code></h3>
+                <p>Get total number of elements</p>
+                <p class="source">Source: tensor.joule:292</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dtype(&amp;self) -&gt; DType</code></h3>
+                <p>Get data type</p>
+                <p class="source">Source: tensor.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device(&amp;self) -&gt; Device</code></h3>
+                <p>Get device</p>
+                <p class="source">Source: tensor.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn requires_grad(&amp;self) -&gt; bool</code></h3>
+                <p>Check if tensor requires gradient</p>
+                <p class="source">Source: tensor.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_requires_grad(&amp;mut self, requires_grad: bool)</code></h3>
+                <p>Set requires_grad</p>
+                <p class="source">Source: tensor.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn grad(&amp;self) -&gt; Option&lt;&amp;Tensor&gt;</code></h3>
+                <p>Get gradient if available</p>
+                <p class="source">Source: tensor.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_contiguous(&amp;self) -&gt; bool</code></h3>
+                <p>Check if tensor is contiguous in memory</p>
+                <p class="source">Source: tensor.joule:322</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to(&amp;self, device: Device) -&gt; Self</code></h3>
+                <p class="source">Source: tensor.joule:333</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_gpu(&amp;self, device_idx: u32) -&gt; Self</code></h3>
+                <p class="source">Source: tensor.joule:355</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_cpu(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: tensor.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_cpu_slice(&amp;self) -&gt; &amp;[u8]</code></h3>
+                <p class="source">Source: tensor.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_flat(&amp;self, idx: usize) -&gt; f32</code></h3>
+                <p>Get element at flat index (as f32)</p>
+                <p class="source">Source: tensor.joule:411</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_flat(&amp;mut self, idx: usize, value: f32)</code></h3>
+                <p>Set element at flat index</p>
+                <p class="source">Source: tensor.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_2d(&amp;self, i: usize, j: usize) -&gt; f32</code></h3>
+                <p>Get element at 2D index</p>
+                <p class="source">Source: tensor.joule:453</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_2d(&amp;mut self, i: usize, j: usize, value: f32)</code></h3>
+                <p>Set element at 2D index</p>
+                <p class="source">Source: tensor.joule:459</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill_(&amp;mut self, value: f32)</code></h3>
+                <p>Fill tensor with value</p>
+                <p class="source">Source: tensor.joule:465</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reshape(&amp;self, new_shape: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Reshape tensor (returns a view if possible)</p>
+                <p class="source">Source: tensor.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contiguous(&amp;self) -&gt; Self</code></h3>
+                <p>Make tensor contiguous in memory</p>
+                <p class="source">Source: tensor.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose(&amp;self) -&gt; Self</code></h3>
+                <p>Transpose (swap last two dimensions)</p>
+                <p class="source">Source: tensor.joule:513</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn permute(&amp;self, dims: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Permute dimensions</p>
+                <p class="source">Source: tensor.joule:537</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn squeeze(&amp;self) -&gt; Self</code></h3>
+                <p>Squeeze dimensions of size 1</p>
+                <p class="source">Source: tensor.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unsqueeze(&amp;self, dim: usize) -&gt; Self</code></h3>
+                <p>Unsqueeze - add dimension of size 1 at position</p>
+                <p class="source">Source: tensor.joule:566</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:578</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:584</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(&amp;self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:596</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matmul(&amp;self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:602</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(&amp;self) -&gt; Tensor</code></h3>
+                <p>Sum all elements</p>
+                <p class="source">Source: tensor.joule:647</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; Tensor</code></h3>
+                <p>Mean of all elements</p>
+                <p class="source">Source: tensor.joule:656</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(&amp;self) -&gt; Tensor</code></h3>
+                <p>Maximum element</p>
+                <p class="source">Source: tensor.joule:662</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self) -&gt; Tensor</code></h3>
+                <p>Minimum element</p>
+                <p class="source">Source: tensor.joule:672</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp(&amp;self) -&gt; Tensor</code></h3>
+                <p>Element-wise exponential</p>
+                <p class="source">Source: tensor.joule:682</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log(&amp;self) -&gt; Tensor</code></h3>
+                <p>Element-wise natural logarithm</p>
+                <p class="source">Source: tensor.joule:687</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sqrt(&amp;self) -&gt; Tensor</code></h3>
+                <p>Element-wise square root</p>
+                <p class="source">Source: tensor.joule:692</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pow(&amp;self, exp: f32) -&gt; Tensor</code></h3>
+                <p>Element-wise power</p>
+                <p class="source">Source: tensor.joule:697</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs(&amp;self) -&gt; Tensor</code></h3>
+                <p>Element-wise absolute value</p>
+                <p class="source">Source: tensor.joule:702</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(&amp;self) -&gt; Tensor</code></h3>
+                <p>Element-wise negation</p>
+                <p class="source">Source: tensor.joule:707</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clamp(&amp;self, min: f32, max: f32) -&gt; Tensor</code></h3>
+                <p>Clamp values to range</p>
+                <p class="source">Source: tensor.joule:712</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn relu(&amp;self) -&gt; Tensor</code></h3>
+                <p>ReLU activation</p>
+                <p class="source">Source: tensor.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sigmoid(&amp;self) -&gt; Tensor</code></h3>
+                <p>Sigmoid activation</p>
+                <p class="source">Source: tensor.joule:726</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tanh(&amp;self) -&gt; Tensor</code></h3>
+                <p>Tanh activation</p>
+                <p class="source">Source: tensor.joule:731</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gelu(&amp;self) -&gt; Tensor</code></h3>
+                <p>GELU activation</p>
+                <p class="source">Source: tensor.joule:736</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn softmax(&amp;self, dim: i32) -&gt; Tensor</code></h3>
+                <p>Softmax along last dimension</p>
+                <p class="source">Source: tensor.joule:744</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_strides(shape: &amp;[usize]) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p class="source">Source: tensor.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn binary_op(a: &amp;Tensor, b: &amp;Tensor, f: fn(f32, f32) -&gt; f32, _name: &amp;str) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:768</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unary_op(a: &amp;Tensor, f: fn(f32) -&gt; f32, _name: &amp;str) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:779</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait TensorElement: Copy</code></h3>
+                <p class="source">Source: tensor.joule:791</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dtype() -&gt; DType;</code></h3>
+                <p class="source">Source: tensor.joule:792</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: tensor.joule:807</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: tensor.joule:824</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:845</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:852</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:859</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(self, other: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:866</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(self) -&gt; Tensor</code></h3>
+                <p class="source">Source: tensor.joule:873</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

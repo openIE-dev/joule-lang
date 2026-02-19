@@ -1,0 +1,11 @@
+[book]
+title = "The Joule Programming Language"
+authors = ["Open Interface Engineering"]
+language = "en"
+src = "."
+
+[output.html]
+default-theme = "coal"
+preferred-dark-theme = "coal"
+git-repository-url = "https://github.com/openIE-dev/joule-lang"
+site-url = "/docs/"

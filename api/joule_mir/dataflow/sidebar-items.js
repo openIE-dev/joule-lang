@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ComputeOp","DfOperator","MemoryOp","TokenType","TokenValue"],"mod":["extract","optimize","schedule"],"struct":["Channel","ChannelId","DataflowGraph","DependencyAnalysis","EnergyEstimate","OperatorId","ScheduleStep","ScheduledDfg","TokenConversionError"]};

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hub - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module hub</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum ModelSource</code></h3>
+                <p class="source">Source: hub.joule:26</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ModelFormat</code></h3>
+                <p class="source">Source: hub.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_path(path: &amp;Path) -&gt; Self</code></h3>
+                <p>Detect format from file extension</p>
+                <p class="source">Source: hub.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extensions(&amp;self) -&gt; &amp;[&amp;str]</code></h3>
+                <p>File extensions for this format</p>
+                <p class="source">Source: hub.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn supports_streaming(&amp;self) -&gt; bool</code></h3>
+                <p>Whether this format supports streaming load</p>
+                <p class="source">Source: hub.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn supports_mmap(&amp;self) -&gt; bool</code></h3>
+                <p>Whether this format supports mmap</p>
+                <p class="source">Source: hub.joule:99</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GgufQuantization</code></h3>
+                <p class="source">Source: hub.joule:106</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bits_per_weight(&amp;self) -&gt; f32</code></h3>
+                <p>Bits per weight</p>
+                <p class="source">Source: hub.joule:138</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn memory_for_params(&amp;self, param_count: u64) -&gt; u64</code></h3>
+                <p>Memory size for parameter count</p>
+                <p class="source">Source: hub.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_filename(name: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Parse from GGUF filename pattern</p>
+                <p class="source">Source: hub.joule:163</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ModelArchitecture</code></h3>
+                <p class="source">Source: hub.joule:198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_name(name: &amp;str) -&gt; Self</code></h3>
+                <p>Parse from model name or config</p>
+                <p class="source">Source: hub.joule:263</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ModelTask</code></h3>
+                <p class="source">Source: hub.joule:304</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelInfo</code></h3>
+                <p class="source">Source: hub.joule:340</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelFile</code></h3>
+                <p class="source">Source: hub.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_memory(&amp;self) -&gt; u64</code></h3>
+                <p>Estimate memory required to load this model</p>
+                <p class="source">Source: hub.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_load_energy(&amp;self) -&gt; Joules</code></h3>
+                <p class="source">Source: hub.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fits_in_memory(&amp;self, available_bytes: u64) -&gt; bool</code></h3>
+                <p>Check if model fits in memory</p>
+                <p class="source">Source: hub.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn best_variant_for_memory(&amp;self, available_bytes: u64) -&gt; Option&lt;&amp;ModelFile&gt;</code></h3>
+                <p>Get the best quantization variant for memory constraint</p>
+                <p class="source">Source: hub.joule:431</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum HubError</code></h3>
+                <p class="source">Source: hub.joule:448</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: hub.joule:460</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HubConfig</code></h3>
+                <p class="source">Source: hub.joule:467</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: hub.joule:485</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DownloadOptions</code></h3>
+                <p class="source">Source: hub.joule:509</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Hub</code></h3>
+                <p>Model Hub client for unified model access</p>
+                <p class="source">Source: hub.joule:523</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create new hub with default config</p>
+                <p class="source">Source: hub.joule:531</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(config: HubConfig) -&gt; Self</code></h3>
+                <p>Create hub with custom config</p>
+                <p class="source">Source: hub.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_energy_tracker(mut self, tracker: Arc&lt;EnergyTracker&gt;) -&gt; Self</code></h3>
+                <p>Set energy tracker</p>
+                <p class="source">Source: hub.joule:548</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan_local(&amp;self, path: &amp;Path) -&gt; Result&lt;Vec&lt;ModelInfo&gt;, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:709</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn import_local(&amp;self, path: &amp;Path) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:738</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cached_models(&amp;self) -&gt; Vec&lt;ModelInfo&gt;</code></h3>
+                <p>List all cached models</p>
+                <p class="source">Source: hub.joule:835</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cache_size(&amp;self) -&gt; u64</code></h3>
+                <p>Get cache size in bytes</p>
+                <p class="source">Source: hub.joule:840</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_cache(&amp;self, model_id: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p>Clear cache for specific model</p>
+                <p class="source">Source: hub.joule:845</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_all_cache(&amp;self) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p>Clear entire cache</p>
+                <p class="source">Source: hub.joule:850</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prune_cache(&amp;self, target_bytes: u64) -&gt; Result&lt;u64, HubError&gt;</code></h3>
+                <p>Prune cache to target size</p>
+                <p class="source">Source: hub.joule:855</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_scope(&amp;self, op: &amp;str) -&gt; Option&lt;EnergyScope&gt;</code></h3>
+                <p class="source">Source: hub.joule:863</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn verify_sha256(&amp;self, path: &amp;Path, expected: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:899</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_hf_model_info(&amp;self, json: &amp;str, repo_id: &amp;str) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:903</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_hf_search_results(&amp;self, json: &amp;str) -&gt; Result&lt;Vec&lt;ModelInfo&gt;, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:907</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_ollama_list(&amp;self, json: &amp;str) -&gt; Result&lt;Vec&lt;ModelInfo&gt;, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:911</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_ollama_info(&amp;self, json: &amp;str, name: &amp;str) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:915</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_local_model(&amp;self, path: &amp;Path, format: ModelFormat) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:919</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_local_model_dir(&amp;self, path: &amp;Path) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:962</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn copy_dir_recursive(&amp;self, src: &amp;Path, dst: &amp;Path) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1028</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelCache</code></h3>
+                <p>Local model cache management</p>
+                <p class="source">Source: hub.joule:1052</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CacheEntry</code></h3>
+                <p class="source">Source: hub.joule:1057</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(base_dir: &amp;Path) -&gt; Self</code></h3>
+                <p class="source">Source: hub.joule:1066</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; Option&lt;PathBuf&gt;</code></h3>
+                <p class="source">Source: hub.joule:1075</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn path_for(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; PathBuf</code></h3>
+                <p class="source">Source: hub.joule:1088</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mark_complete(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1094</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_all(&amp;self) -&gt; Vec&lt;ModelInfo&gt;</code></h3>
+                <p class="source">Source: hub.joule:1112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_size(&amp;self) -&gt; u64</code></h3>
+                <p class="source">Source: hub.joule:1117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove(&amp;self, model_id: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_all(&amp;self) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prune_to_size(&amp;self, target_bytes: u64) -&gt; Result&lt;u64, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cache_key(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; String</code></h3>
+                <p class="source">Source: hub.joule:1174</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dir_size(path: &amp;Path) -&gt; io::Result&lt;u64&gt;</code></h3>
+                <p class="source">Source: hub.joule:1179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hub() -&gt; &amp;&#x27;static Hub</code></h3>
+                <p>Get the global hub instance</p>
+                <p class="source">Source: hub.joule:1203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_local(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1236</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recommend_variant(</code></h3>
+                <p>Recommend best model variant for available memory</p>
+                <p class="source">Source: hub.joule:1277</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ModelRecommendation</code></h3>
+                <p class="source">Source: hub.joule:1286</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

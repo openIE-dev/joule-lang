@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["GroupDelimiter","LiteralKind","TokenTree"],"fn":["parse_expanded_source","spanned_token_to_tree","stream_to_tokens","tokens_to_stream"],"struct":["ProcMacroLib","TokenStream"]};

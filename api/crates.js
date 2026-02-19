@@ -1,0 +1,2 @@
+window.ALL_CRATES = ["joule_ast","joule_borrowck","joule_codegen","joule_codegen_c","joule_codegen_cranelift","joule_common","joule_doc","joule_energy_rt","joule_expand","joule_hir","joule_lexer","joule_mir","joule_parser","joule_rt","joule_typeck","joulec"];
+//{"start":21,"fragment_lengths":[11,17,16,18,26,15,12,18,15,12,14,12,15,11,15,9]}

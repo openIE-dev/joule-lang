@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Digital Signal Processing
+Comprehensive signal processing capabilities for audio, communications, and analysis&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Signal</code></h3>
+                <p class="source">Source: lib.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: Vec&lt;f64&gt;, sample_rate: f64) -&gt; Self</code></h3>
+                <p>Create new signal from samples</p>
+                <p class="source">Source: lib.joule:30</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_iter&lt;I: IntoIterator&lt;Item &#x3D; f64&gt;&gt;(iter: I, sample_rate: f64) -&gt; Self</code></h3>
+                <p>Create signal from iterator</p>
+                <p class="source">Source: lib.joule:35</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(length: usize, sample_rate: f64) -&gt; Self</code></h3>
+                <p>Create zero signal of given length</p>
+                <p class="source">Source: lib.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ones(length: usize, sample_rate: f64) -&gt; Self</code></h3>
+                <p>Create ones signal of given length</p>
+                <p class="source">Source: lib.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sine(frequency: f64, duration: f64, sample_rate: f64, amplitude: f64, phase: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cosine(frequency: f64, duration: f64, sample_rate: f64, amplitude: f64, phase: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn square(frequency: f64, duration: f64, sample_rate: f64, amplitude: f64, duty_cycle: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sawtooth(frequency: f64, duration: f64, sample_rate: f64, amplitude: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn triangle(frequency: f64, duration: f64, sample_rate: f64, amplitude: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn white_noise(duration: f64, sample_rate: f64, amplitude: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pink_noise(duration: f64, sample_rate: f64, amplitude: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chirp(</code></h3>
+                <p class="source">Source: lib.joule:175</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn impulse(length: usize, sample_rate: f64, position: usize, amplitude: f64) -&gt; Self</code></h3>
+                <p>Generate impulse</p>
+                <p class="source">Source: lib.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(length: usize, sample_rate: f64, position: usize, amplitude: f64) -&gt; Self</code></h3>
+                <p>Generate step function</p>
+                <p class="source">Source: lib.joule:216</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get signal length in samples</p>
+                <p class="source">Source: lib.joule:225</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if signal is empty</p>
+                <p class="source">Source: lib.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn duration(&amp;self) -&gt; f64</code></h3>
+                <p>Get signal duration in seconds</p>
+                <p class="source">Source: lib.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nyquist(&amp;self) -&gt; f64</code></h3>
+                <p>Get Nyquist frequency</p>
+                <p class="source">Source: lib.joule:240</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn time(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Get time vector</p>
+                <p class="source">Source: lib.joule:245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn map&lt;F: Fn(f64) -&gt; f64&gt;(&amp;self, f: F) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn map_indexed&lt;F: Fn(usize, f64) -&gt; f64&gt;(&amp;self, f: F) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;Signal) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn subtract(&amp;self, other: &amp;Signal) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn multiply(&amp;self, other: &amp;Signal) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, factor: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy(&amp;self) -&gt; f64</code></h3>
+                <p>Compute signal energy</p>
+                <p class="source">Source: lib.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn power(&amp;self) -&gt; f64</code></h3>
+                <p>Compute signal power</p>
+                <p class="source">Source: lib.joule:331</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rms(&amp;self) -&gt; f64</code></h3>
+                <p>Compute RMS (root mean square)</p>
+                <p class="source">Source: lib.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p>Compute mean</p>
+                <p class="source">Source: lib.joule:345</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p>Compute variance</p>
+                <p class="source">Source: lib.joule:354</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std_dev(&amp;self) -&gt; f64</code></h3>
+                <p>Compute standard deviation</p>
+                <p class="source">Source: lib.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peak(&amp;self) -&gt; f64</code></h3>
+                <p>Find peak value</p>
+                <p class="source">Source: lib.joule:369</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self) -&gt; f64</code></h3>
+                <p>Find minimum value</p>
+                <p class="source">Source: lib.joule:374</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peak_to_peak(&amp;self) -&gt; f64</code></h3>
+                <p>Find peak-to-peak amplitude</p>
+                <p class="source">Source: lib.joule:379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove_dc(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_peak(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_rms(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clip(&amp;self, min: f64, max: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:417</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn delay(&amp;self, samples: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn advance(&amp;self, samples: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reverse(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn concatenate(&amp;self, other: &amp;Signal) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn segment(&amp;self, start: usize, length: usize) -&gt; Self</code></h3>
+                <p>Extract segment</p>
+                <p class="source">Source: lib.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_pad(&amp;self, length: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:477</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pad_to_power_of_2(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:492</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ChirpMethod</code></h3>
+                <p class="source">Source: lib.joule:500</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ComplexSignal</code></h3>
+                <p class="source">Source: lib.joule:515</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(i: Vec&lt;f64&gt;, q: Vec&lt;f64&gt;, sample_rate: f64) -&gt; Self</code></h3>
+                <p>Create from I/Q data</p>
+                <p class="source">Source: lib.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_real(signal: &amp;Signal) -&gt; Self</code></h3>
+                <p>Create from real signal (Q &#x3D; 0)</p>
+                <p class="source">Source: lib.joule:532</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_polar(magnitude: &amp;[f64], phase: &amp;[f64], sample_rate: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get signal length</p>
+                <p class="source">Source: lib.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if empty</p>
+                <p class="source">Source: lib.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn magnitude(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:568</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn phase(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:578</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn instantaneous_frequency(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conjugate(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:613</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn multiply(&amp;self, other: &amp;ComplexSignal) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:623</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_real(&amp;self) -&gt; Signal</code></h3>
+                <p>Get real part as signal</p>
+                <p class="source">Source: lib.joule:639</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_imag(&amp;self) -&gt; Signal</code></h3>
+                <p>Get imaginary part as signal</p>
+                <p class="source">Source: lib.joule:647</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_magnitude(&amp;self) -&gt; Signal</code></h3>
+                <p>Get magnitude as signal</p>
+                <p class="source">Source: lib.joule:655</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve(signal: &amp;[f64], kernel: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_same(signal: &amp;[f64], kernel: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:688</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_valid(signal: &amp;[f64], kernel: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:696</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_fft(signal: &amp;[f64], kernel: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:715</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn correlate(signal: &amp;[f64], kernel: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:747</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn autocorrelate(signal: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:754</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn correlate_normalized(signal: &amp;[f64], template: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft(input: &amp;[f64]) -&gt; Vec&lt;(f64, f64)&gt;</code></h3>
+                <p class="source">Source: lib.joule:789</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ifft(input: &amp;[(f64, f64)]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:796</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft_inplace(data: &amp;mut [(f64, f64)], inverse: bool)</code></h3>
+                <p class="source">Source: lib.joule:803</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_signal_generation()</code></h3>
+                <p class="source">Source: lib.joule:861</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_signal_energy()</code></h3>
+                <p class="source">Source: lib.joule:868</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_convolution()</code></h3>
+                <p class="source">Source: lib.joule:874</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_chirp()</code></h3>
+                <p class="source">Source: lib.joule:886</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_complex_signal()</code></h3>
+                <p class="source">Source: lib.joule:892</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

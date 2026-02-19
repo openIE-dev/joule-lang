@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>io - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module io</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct CsvReadOptions</code></h3>
+                <p class="source">Source: io.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: io.joule:35</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_csv_string(data: &amp;str, options: &amp;CsvReadOptions) -&gt; Result&lt;DataFrame, CsvError&gt;</code></h3>
+                <p class="source">Source: io.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_csv_row(line: &amp;str, delimiter: char, quote: char) -&gt; Result&lt;Vec&lt;String&gt;, CsvError&gt;</code></h3>
+                <p class="source">Source: io.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn infer_and_create_column(values: &amp;[&amp;str], na_values: &amp;[String]) -&gt; Column</code></h3>
+                <p class="source">Source: io.joule:167</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CsvError</code></h3>
+                <p class="source">Source: io.joule:237</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CsvWriteOptions</code></h3>
+                <p class="source">Source: io.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: io.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_csv_string(df: &amp;DataFrame, options: &amp;CsvWriteOptions) -&gt; String</code></h3>
+                <p class="source">Source: io.joule:276</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn maybe_quote(s: &amp;str, delimiter: char, quote: char) -&gt; String</code></h3>
+                <p class="source">Source: io.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_json_string(data: &amp;str) -&gt; Result&lt;DataFrame, JsonError&gt;</code></h3>
+                <p class="source">Source: io.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_json_array(data: &amp;str) -&gt; Result&lt;Vec&lt;HashMap&lt;String, String&gt;&gt;, JsonError&gt;</code></h3>
+                <p class="source">Source: io.joule:371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_json_object(data: &amp;str) -&gt; Result&lt;HashMap&lt;String, String&gt;, JsonError&gt;</code></h3>
+                <p class="source">Source: io.joule:419</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum JsonError</code></h3>
+                <p class="source">Source: io.joule:504</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_json_string(df: &amp;DataFrame, pretty: bool) -&gt; String</code></h3>
+                <p class="source">Source: io.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value_to_json(val: &amp;Value) -&gt; String</code></h3>
+                <p class="source">Source: io.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn escape_json_string(s: &amp;str) -&gt; String</code></h3>
+                <p class="source">Source: io.joule:582</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_read_csv()</code></h3>
+                <p class="source">Source: io.joule:609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_write_csv()</code></h3>
+                <p class="source">Source: io.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_read_json()</code></h3>
+                <p class="source">Source: io.joule:632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_write_json()</code></h3>
+                <p class="source">Source: io.joule:640</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

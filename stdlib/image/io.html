@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>io - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module io</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum ImageFormat</code></h3>
+                <p class="source">Source: io.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn detect_format(data: &amp;[u8]) -&gt; ImageFormat</code></h3>
+                <p class="source">Source: io.joule:37</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn format_from_extension(path: &amp;str) -&gt; ImageFormat</code></h3>
+                <p>Detect format from file extension</p>
+                <p class="source">Source: io.joule:88</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_image(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:120</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save_image(image: &amp;Image, format: ImageFormat) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:143</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ImageError</code></h3>
+                <p class="source">Source: io.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_bmp(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:175</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_bmp(image: &amp;Image) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_ppm(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:318</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_pgm(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_pbm(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_ppm(image: &amp;Image) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_pgm(image: &amp;Image) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:519</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_pbm(image: &amp;Image) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:539</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_png(data: &amp;[u8]) -&gt; Result&lt;Image, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:576</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_png(image: &amp;Image) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:704</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_chunk(out: &amp;mut Vec&lt;u8&gt;, chunk_type: &amp;[u8; 4], data: &amp;[u8])</code></h3>
+                <p class="source">Source: io.joule:750</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inflate(data: &amp;[u8]) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p>Simple inflate (zlib decompression)</p>
+                <p class="source">Source: io.joule:767</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn deflate_decode(data: &amp;[u8]) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p>Simple deflate decompression</p>
+                <p class="source">Source: io.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_huffman_block(bits: &amp;mut BitReader, out: &amp;mut Vec&lt;u8&gt;, fixed: bool) -&gt; Result&lt;(), ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:830</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn deflate(data: &amp;[u8]) -&gt; Result&lt;Vec&lt;u8&gt;, ImageError&gt;</code></h3>
+                <p>Simple deflate compression (for PNG encoding)</p>
+                <p class="source">Source: io.joule:865</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BitReader</code></h3>
+                <p class="source">Source: io.joule:903</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(data: &amp;&#x27;a [u8]) -&gt; Self</code></h3>
+                <p class="source">Source: io.joule:912</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_bits(&amp;mut self, n: u8) -&gt; Result&lt;u32, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:922</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn align(&amp;mut self)</code></h3>
+                <p class="source">Source: io.joule:938</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_fixed_huffman_tables() -&gt; (Vec&lt;(u16, u8)&gt;, Vec&lt;(u16, u8)&gt;)</code></h3>
+                <p class="source">Source: io.joule:944</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_dynamic_huffman_tables(bits: &amp;mut BitReader) -&gt; Result&lt;(Vec&lt;(u16, u8)&gt;, Vec&lt;(u16, u8)&gt;), ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:971</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_huffman_table(lengths: &amp;[u8]) -&gt; Result&lt;Vec&lt;(u16, u8)&gt;, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:1031</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_huffman(bits: &amp;mut BitReader, table: &amp;[(u16, u8)]) -&gt; Result&lt;usize, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:1063</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_length(bits: &amp;mut BitReader, lit: usize) -&gt; Result&lt;usize, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:1083</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_distance(bits: &amp;mut BitReader, code: usize) -&gt; Result&lt;usize, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:1104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn paeth_predictor(a: u8, b: u8, c: u8) -&gt; u8</code></h3>
+                <p class="source">Source: io.joule:1132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn adler32(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: io.joule:1147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn crc32(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: io.joule:1159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u16_le(data: &amp;[u8]) -&gt; u16</code></h3>
+                <p class="source">Source: io.joule:1190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u32_le(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: io.joule:1194</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_i32_le(data: &amp;[u8]) -&gt; i32</code></h3>
+                <p class="source">Source: io.joule:1198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_u32_be(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: io.joule:1202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_header_end(data: &amp;[u8], num_values: usize) -&gt; Result&lt;usize, ImageError&gt;</code></h3>
+                <p class="source">Source: io.joule:1206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_format_detection()</code></h3>
+                <p class="source">Source: io.joule:1255</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_ppm_roundtrip()</code></h3>
+                <p class="source">Source: io.joule:1263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_bmp_roundtrip()</code></h3>
+                <p class="source">Source: io.joule:1291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_adler32()</code></h3>
+                <p class="source">Source: io.joule:1309</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

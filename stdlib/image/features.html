@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>features - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module features</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct KeyPoint</code></h3>
+                <p class="source">Source: features.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: f64, y: f64, response: f64) -&gt; Self</code></h3>
+                <p class="source">Source: features.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_scale(mut self, scale: f64) -&gt; Self</code></h3>
+                <p class="source">Source: features.joule:40</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_angle(mut self, angle: f64) -&gt; Self</code></h3>
+                <p class="source">Source: features.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_size(mut self, size: f64) -&gt; Self</code></h3>
+                <p class="source">Source: features.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn distance(&amp;self, other: &amp;KeyPoint) -&gt; f64</code></h3>
+                <p>Euclidean distance to another keypoint</p>
+                <p class="source">Source: features.joule:56</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn harris_corners(image: &amp;Image, block_size: usize, k: f64, threshold: f64) -&gt; Vec&lt;KeyPoint&gt;</code></h3>
+                <p class="source">Source: features.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shi_tomasi_corners(</code></h3>
+                <p class="source">Source: features.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fast_corners(image: &amp;Image, threshold: f64, nonmax_suppression: bool) -&gt; Vec&lt;KeyPoint&gt;</code></h3>
+                <p class="source">Source: features.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blob_log(</code></h3>
+                <p class="source">Source: features.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blob_dog(</code></h3>
+                <p class="source">Source: features.joule:531</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum MatchMethod</code></h3>
+                <p class="source">Source: features.joule:632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn match_template(image: &amp;Image, template: &amp;Image, method: MatchMethod) -&gt; Image</code></h3>
+                <p class="source">Source: features.joule:643</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_template(image: &amp;Image, template: &amp;Image, method: MatchMethod) -&gt; Option&lt;(usize, usize, f64)&gt;</code></h3>
+                <p class="source">Source: features.joule:730</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HoughLine</code></h3>
+                <p class="source">Source: features.joule:757</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn endpoints(&amp;self, width: usize, height: usize) -&gt; ((i32, i32), (i32, i32))</code></h3>
+                <p>Get line endpoints for drawing (given image dimensions)</p>
+                <p class="source">Source: features.joule:768</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hough_lines(</code></h3>
+                <p class="source">Source: features.joule:817</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HoughCircle</code></h3>
+                <p class="source">Source: features.joule:897</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hough_circles(</code></h3>
+                <p class="source">Source: features.joule:910</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BinaryDescriptor</code></h3>
+                <p class="source">Source: features.joule:988</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn distance(&amp;self, other: &amp;BinaryDescriptor) -&gt; u32</code></h3>
+                <p>Hamming distance to another descriptor</p>
+                <p class="source">Source: features.joule:995</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_brief(image: &amp;Image, keypoints: &amp;[KeyPoint], patch_size: usize) -&gt; Vec&lt;BinaryDescriptor&gt;</code></h3>
+                <p class="source">Source: features.joule:1006</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generate_brief_pattern(num_pairs: usize, patch_size: usize) -&gt; Vec&lt;((i32, i32), (i32, i32))&gt;</code></h3>
+                <p class="source">Source: features.joule:1043</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn match_descriptors(</code></h3>
+                <p class="source">Source: features.joule:1068</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_keypoint()</code></h3>
+                <p class="source">Source: features.joule:1109</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_harris_on_corners()</code></h3>
+                <p class="source">Source: features.joule:1118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_binary_descriptor_distance()</code></h3>
+                <p class="source">Source: features.joule:1132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_template_matching()</code></h3>
+                <p class="source">Source: features.joule:1143</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

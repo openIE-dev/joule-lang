@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Fully Homomorphic Encryption
+Privacy-preserving computation on encrypted data
+Compute without ever decrypting&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum SecurityLevel</code></h3>
+                <p>Security level for FHE operations</p>
+                <p class="source">Source: lib.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bits(&amp;self) -&gt; usize</code></h3>
+                <p>Get the security level in bits</p>
+                <p class="source">Source: lib.joule:26</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SecretKey</code></h3>
+                <p>FHE secret key (NEVER share this)
+Used for decryption only</p>
+                <p class="source">Source: lib.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeroize(&amp;mut self)</code></h3>
+                <p>Securely zeroize key on drop</p>
+                <p class="source">Source: lib.joule:47</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PublicKey</code></h3>
+                <p>FHE public key (safe to share)
+Used for encryption only</p>
+                <p class="source">Source: lib.joule:54</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Serialize to bytes for transmission</p>
+                <p class="source">Source: lib.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bytes(bytes: &amp;[u8]) -&gt; Result&lt;Self, FheError&gt;</code></h3>
+                <p>Deserialize from bytes</p>
+                <p class="source">Source: lib.joule:65</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ServerKey</code></h3>
+                <p>FHE server key (for computation)
+Contains bootstrapping keys for homomorphic operations</p>
+                <p class="source">Source: lib.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bytes(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Serialize to bytes</p>
+                <p class="source">Source: lib.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bytes(bytes: &amp;[u8]) -&gt; Result&lt;Self, FheError&gt;</code></h3>
+                <p>Deserialize from bytes</p>
+                <p class="source">Source: lib.joule:84</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size(&amp;self) -&gt; usize</code></h3>
+                <p>Get the size in bytes (can be large, ~50MB for 128-bit security)</p>
+                <p class="source">Source: lib.joule:90</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct KeySet</code></h3>
+                <p>Complete key set</p>
+                <p class="source">Source: lib.joule:96</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FheContext</code></h3>
+                <p>FHE Context for managing encryption operations</p>
+                <p class="source">Source: lib.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(security_level: SecurityLevel) -&gt; Self</code></h3>
+                <p>Create a new FHE context with specified security level</p>
+                <p class="source">Source: lib.joule:113</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p>Create with 128-bit security (recommended default)</p>
+                <p class="source">Source: lib.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generate_keys(&amp;self) -&gt; KeySet</code></h3>
+                <p class="source">Source: lib.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn security_level(&amp;self) -&gt; &amp;SecurityLevel</code></h3>
+                <p>Get the security level</p>
+                <p class="source">Source: lib.joule:135</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedBool</code></h3>
+                <p>Encrypted boolean value</p>
+                <p class="source">Source: lib.joule:145</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(value: bool, pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:152</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; bool</code></h3>
+                <p class="source">Source: lib.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn not(&amp;self, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn and(&amp;self, other: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn or(&amp;self, other: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn xor(&amp;self, other: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nand(&amp;self, other: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nor(&amp;self, other: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mux(&amp;self, a: &amp;EncryptedBool, b: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:207</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedU8</code></h3>
+                <p>Encrypted unsigned 8-bit integer</p>
+                <p class="source">Source: lib.joule:214</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(value: u8, pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; u8</code></h3>
+                <p class="source">Source: lib.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;EncryptedU8, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;EncryptedU8, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:237</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;EncryptedU8, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:243</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_scalar(&amp;self, scalar: u8, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_scalar(&amp;self, scalar: u8, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:257</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedU32</code></h3>
+                <p>Encrypted unsigned 32-bit integer</p>
+                <p class="source">Source: lib.joule:264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(value: u32, pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:270</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; u32</code></h3>
+                <p class="source">Source: lib.joule:276</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_scalar(&amp;self, scalar: u32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:299</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_scalar(&amp;self, scalar: u32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lt(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; EncryptedBool</code></h3>
+                <p class="source">Source: lib.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eq(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; EncryptedBool</code></h3>
+                <p class="source">Source: lib.joule:319</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn select(&amp;self, other: &amp;EncryptedU32, condition: &amp;EncryptedBool, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bitand(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:333</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bitor(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bitxor(&amp;self, other: &amp;EncryptedU32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shl(&amp;self, amount: u32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:354</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shr(&amp;self, amount: u32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:361</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedU64</code></h3>
+                <p>Encrypted unsigned 64-bit integer</p>
+                <p class="source">Source: lib.joule:368</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(value: u64, pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:374</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; u64</code></h3>
+                <p class="source">Source: lib.joule:380</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;EncryptedU64, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;EncryptedU64, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;EncryptedU64, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:397</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedI32</code></h3>
+                <p>Encrypted signed 32-bit integer</p>
+                <p class="source">Source: lib.joule:404</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(value: i32, pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; i32</code></h3>
+                <p class="source">Source: lib.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;EncryptedI32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:421</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;EncryptedI32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;EncryptedI32, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(&amp;self, server_key: &amp;ServerKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:439</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum FheError</code></h3>
+                <p>Errors from FHE operations</p>
+                <p class="source">Source: lib.joule:450</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EncryptedArray</code></h3>
+                <p>Encrypted array of u32 values</p>
+                <p class="source">Source: lib.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encrypt(values: &amp;[u32], pk: &amp;PublicKey) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:473</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decrypt(&amp;self, sk: &amp;SecretKey) -&gt; Vec&lt;u32&gt;</code></h3>
+                <p class="source">Source: lib.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get length</p>
+                <p class="source">Source: lib.joule:489</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, index: usize) -&gt; Option&lt;&amp;EncryptedU32&gt;</code></h3>
+                <p>Get element at index</p>
+                <p class="source">Source: lib.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(&amp;self, server_key: &amp;ServerKey) -&gt; EncryptedU32</code></h3>
+                <p class="source">Source: lib.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;EncryptedArray, server_key: &amp;ServerKey) -&gt; EncryptedArray</code></h3>
+                <p class="source">Source: lib.joule:510</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dot(&amp;self, other: &amp;EncryptedArray, server_key: &amp;ServerKey) -&gt; EncryptedU32</code></h3>
+                <p class="source">Source: lib.joule:521</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

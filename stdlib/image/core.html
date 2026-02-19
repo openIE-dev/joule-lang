@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>core - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module core</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait ToImage</code></h3>
+                <p>Trait for types that can be converted to an image</p>
+                <p class="source">Source: core.joule:11</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_image(&amp;self) -&gt; Image;</code></h3>
+                <p class="source">Source: core.joule:12</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait ImageLike</code></h3>
+                <p>Trait for image-like types with pixel access</p>
+                <p class="source">Source: core.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn width(&amp;self) -&gt; usize;</code></h3>
+                <p class="source">Source: core.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn height(&amp;self) -&gt; usize;</code></h3>
+                <p class="source">Source: core.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channels(&amp;self) -&gt; usize;</code></h3>
+                <p class="source">Source: core.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_pixel(&amp;self, x: usize, y: usize, c: usize) -&gt; f64;</code></h3>
+                <p class="source">Source: core.joule:20</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn width(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn height(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channels(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_pixel(&amp;self, x: usize, y: usize, c: usize) -&gt; f64</code></h3>
+                <p class="source">Source: core.joule:36</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Roi</code></h3>
+                <p class="source">Source: core.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: usize, y: usize, width: usize, height: usize) -&gt; Self</code></h3>
+                <p>Create new ROI</p>
+                <p class="source">Source: core.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_center(cx: usize, cy: usize, width: usize, height: usize) -&gt; Self</code></h3>
+                <p>Create ROI from center point</p>
+                <p class="source">Source: core.joule:65</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn full(image: &amp;Image) -&gt; Self</code></h3>
+                <p>Create full-image ROI</p>
+                <p class="source">Source: core.joule:75</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contains(&amp;self, x: usize, y: usize) -&gt; bool</code></h3>
+                <p>Check if point is inside ROI</p>
+                <p class="source">Source: core.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intersect(&amp;self, other: &amp;Roi) -&gt; Option&lt;Roi&gt;</code></h3>
+                <p>Intersect with another ROI</p>
+                <p class="source">Source: core.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn union(&amp;self, other: &amp;Roi) -&gt; Roi</code></h3>
+                <p>Union with another ROI</p>
+                <p class="source">Source: core.joule:109</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clamp_to(&amp;self, width: usize, height: usize) -&gt; Roi</code></h3>
+                <p>Clamp ROI to image bounds</p>
+                <p class="source">Source: core.joule:124</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn area(&amp;self) -&gt; usize</code></h3>
+                <p>Get area</p>
+                <p class="source">Source: core.joule:139</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn center(&amp;self) -&gt; (usize, usize)</code></h3>
+                <p>Get center point</p>
+                <p class="source">Source: core.joule:144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn corners(&amp;self) -&gt; [(usize, usize); 4]</code></h3>
+                <p>Get bounding box corners</p>
+                <p class="source">Source: core.joule:149</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ImageView</code></h3>
+                <p>Non-owning view into a portion of an image</p>
+                <p class="source">Source: core.joule:164</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(image: &amp;&#x27;a Image) -&gt; Self</code></h3>
+                <p>Create view of entire image</p>
+                <p class="source">Source: core.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_roi(image: &amp;&#x27;a Image, roi: Roi) -&gt; Self</code></h3>
+                <p>Create view of region</p>
+                <p class="source">Source: core.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, x: usize, y: usize, c: usize) -&gt; f64</code></h3>
+                <p>Get pixel value</p>
+                <p class="source">Source: core.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn width(&amp;self) -&gt; usize</code></h3>
+                <p>Get width</p>
+                <p class="source">Source: core.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn height(&amp;self) -&gt; usize</code></h3>
+                <p>Get height</p>
+                <p class="source">Source: core.joule:195</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channels(&amp;self) -&gt; usize</code></h3>
+                <p>Get channels</p>
+                <p class="source">Source: core.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_image(&amp;self) -&gt; Image</code></h3>
+                <p class="source">Source: core.joule:206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn subview(&amp;self, roi: Roi) -&gt; Self</code></h3>
+                <p>Get sub-view</p>
+                <p class="source">Source: core.joule:211</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn width(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn height(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channels(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: core.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_pixel(&amp;self, x: usize, y: usize, c: usize) -&gt; f64</code></h3>
+                <p class="source">Source: core.joule:238</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ImageViewMut</code></h3>
+                <p>Mutable view into a portion of an image</p>
+                <p class="source">Source: core.joule:248</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(image: &amp;&#x27;a mut Image) -&gt; Self</code></h3>
+                <p>Create mutable view of entire image</p>
+                <p class="source">Source: core.joule:255</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_roi(image: &amp;&#x27;a mut Image, roi: Roi) -&gt; Self</code></h3>
+                <p>Create mutable view of region</p>
+                <p class="source">Source: core.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, x: usize, y: usize, c: usize) -&gt; f64</code></h3>
+                <p>Get pixel value</p>
+                <p class="source">Source: core.joule:267</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, x: usize, y: usize, c: usize, value: f64)</code></h3>
+                <p>Set pixel value</p>
+                <p class="source">Source: core.joule:272</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn width(&amp;self) -&gt; usize</code></h3>
+                <p>Get width</p>
+                <p class="source">Source: core.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn height(&amp;self) -&gt; usize</code></h3>
+                <p>Get height</p>
+                <p class="source">Source: core.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channels(&amp;self) -&gt; usize</code></h3>
+                <p>Get channels</p>
+                <p class="source">Source: core.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill(&amp;mut self, value: f64)</code></h3>
+                <p class="source">Source: core.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill_color(&amp;mut self, color: &amp;[f64])</code></h3>
+                <p class="source">Source: core.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn copy_from(&amp;mut self, src: &amp;Image)</code></h3>
+                <p class="source">Source: core.joule:319</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PixelIter</code></h3>
+                <p>Iterator over image pixels</p>
+                <p class="source">Source: core.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(image: &amp;&#x27;a Image) -&gt; Self</code></h3>
+                <p class="source">Source: core.joule:346</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: core.joule:354</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter_pixels(image: &amp;Image) -&gt; PixelIter</code></h3>
+                <p>Iterate over pixels with coordinates</p>
+                <p class="source">Source: core.joule:373</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn split_channels(image: &amp;Image) -&gt; Vec&lt;Image&gt;</code></h3>
+                <p class="source">Source: core.joule:383</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn merge_channels(channels: &amp;[Image]) -&gt; Image</code></h3>
+                <p class="source">Source: core.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn extract_channel(image: &amp;Image, channel: usize) -&gt; Image</code></h3>
+                <p class="source">Source: core.joule:423</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn insert_channel(image: &amp;mut Image, channel_data: &amp;Image, channel_idx: usize)</code></h3>
+                <p class="source">Source: core.joule:437</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BorderType</code></h3>
+                <p class="source">Source: core.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pad(image: &amp;Image, top: usize, bottom: usize, left: usize, right: usize, border: BorderType, value: f64) -&gt; Image</code></h3>
+                <p class="source">Source: core.joule:466</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_border_pixel(x: i32, y: i32, w: i32, h: i32, border: BorderType) -&gt; (i32, i32)</code></h3>
+                <p class="source">Source: core.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_line(image: &amp;mut Image, x0: i32, y0: i32, x1: i32, y1: i32, color: &amp;[f64])</code></h3>
+                <p class="source">Source: core.joule:546</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_rect(image: &amp;mut Image, x: i32, y: i32, width: i32, height: i32, color: &amp;[f64], thickness: i32)</code></h3>
+                <p class="source">Source: core.joule:583</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_circle(image: &amp;mut Image, cx: i32, cy: i32, radius: i32, color: &amp;[f64], filled: bool)</code></h3>
+                <p class="source">Source: core.joule:612</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_circle_points(image: &amp;mut Image, cx: i32, cy: i32, x: i32, y: i32, color: &amp;[f64])</code></h3>
+                <p class="source">Source: core.joule:647</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_ellipse(image: &amp;mut Image, cx: i32, cy: i32, rx: i32, ry: i32, color: &amp;[f64], filled: bool)</code></h3>
+                <p class="source">Source: core.joule:672</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn draw_polygon(image: &amp;mut Image, points: &amp;[(i32, i32)], color: &amp;[f64], closed: bool)</code></h3>
+                <p class="source">Source: core.joule:712</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_roi()</code></h3>
+                <p class="source">Source: core.joule:743</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_image_view()</code></h3>
+                <p class="source">Source: core.joule:758</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_split_merge()</code></h3>
+                <p class="source">Source: core.joule:769</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_padding()</code></h3>
+                <p class="source">Source: core.joule:792</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

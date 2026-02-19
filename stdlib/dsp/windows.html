@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>windows - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module windows</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum WindowType</code></h3>
+                <p class="source">Source: windows.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn window(window_type: WindowType, length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: windows.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rectangular(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Rectangular window (no windowing)</p>
+                <p class="source">Source: windows.joule:87</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn triangular(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Triangular window</p>
+                <p class="source">Source: windows.joule:92</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bartlett(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Bartlett window (triangular with zero endpoints)</p>
+                <p class="source">Source: windows.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hann(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Hann window (raised cosine)</p>
+                <p class="source">Source: windows.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hamming(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Hamming window</p>
+                <p class="source">Source: windows.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blackman(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Blackman window</p>
+                <p class="source">Source: windows.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blackman_harris(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Blackman-Harris window (4-term)</p>
+                <p class="source">Source: windows.joule:144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nuttall(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Nuttall window</p>
+                <p class="source">Source: windows.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flat_top(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Flat-top window (for amplitude accuracy)</p>
+                <p class="source">Source: windows.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kaiser(length: usize, beta: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Kaiser window with parameter beta</p>
+                <p class="source">Source: windows.joule:193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kaiser_from_atten(length: usize, atten_db: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Kaiser window with beta calculated from sidelobe attenuation</p>
+                <p class="source">Source: windows.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gaussian(length: usize, sigma: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Gaussian window with sigma parameter</p>
+                <p class="source">Source: windows.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tukey(length: usize, alpha: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Tukey window (tapered cosine)</p>
+                <p class="source">Source: windows.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn planck_taper(length: usize, epsilon: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Planck-taper window</p>
+                <p class="source">Source: windows.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dpss(length: usize, half_bandwidth: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>DPSS (Slepian) window - simplified approximation</p>
+                <p class="source">Source: windows.joule:274</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exponential_window(length: usize, tau: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Exponential window</p>
+                <p class="source">Source: windows.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn poisson(length: usize, alpha: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Poisson window</p>
+                <p class="source">Source: windows.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn welch(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Welch window (parabolic)</p>
+                <p class="source">Source: windows.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parzen(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Parzen window</p>
+                <p class="source">Source: windows.joule:313</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bohman(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Bohman window</p>
+                <p class="source">Source: windows.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos(length: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Lanczos (sinc) window</p>
+                <p class="source">Source: windows.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coherent_gain(window: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Compute coherent gain of window</p>
+                <p class="source">Source: windows.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn processing_gain(window: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Compute processing gain of window</p>
+                <p class="source">Source: windows.joule:371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn equivalent_noise_bandwidth(window: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Compute equivalent noise bandwidth</p>
+                <p class="source">Source: windows.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scalloping_loss_db(window: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Compute scalloping loss in dB</p>
+                <p class="source">Source: windows.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_sum(window: &amp;mut [f64])</code></h3>
+                <p>Normalize window to unit sum</p>
+                <p class="source">Source: windows.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize_energy(window: &amp;mut [f64])</code></h3>
+                <p>Normalize window to unit energy</p>
+                <p class="source">Source: windows.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bessel_i0(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: windows.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_hann_window()</code></h3>
+                <p class="source">Source: windows.joule:465</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_hamming_window()</code></h3>
+                <p class="source">Source: windows.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_kaiser_window()</code></h3>
+                <p class="source">Source: windows.joule:481</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_window_symmetry()</code></h3>
+                <p class="source">Source: windows.joule:488</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_coherent_gain()</code></h3>
+                <p class="source">Source: windows.joule:496</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

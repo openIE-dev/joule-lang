@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grpc - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module grpc</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum Code</code></h3>
+                <p class="source">Source: grpc.joule:21</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_i32(code: i32) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:59</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn description(&amp;self) -&gt; &amp;&#x27;static str</code></h3>
+                <p class="source">Source: grpc.joule:82</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Status</code></h3>
+                <p class="source">Source: grpc.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ok() -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:114</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(code: Code, message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_details(mut self, details: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_ok(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: grpc.joule:135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cancelled(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:139</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn invalid_argument(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:143</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn not_found(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn internal(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:151</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unimplemented(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unavailable(message: impl Into&lt;String&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:159</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Metadata</code></h3>
+                <p class="source">Source: grpc.joule:170</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum MetadataValue</code></h3>
+                <p class="source">Source: grpc.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn insert(&amp;mut self, key: &amp;str, value: &amp;str)</code></h3>
+                <p>Add text metadata</p>
+                <p class="source">Source: grpc.joule:189</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn insert_bin(&amp;mut self, key: &amp;str, value: Vec&lt;u8&gt;)</code></h3>
+                <p>Add binary metadata (key must end with -bin)</p>
+                <p class="source">Source: grpc.joule:198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, key: &amp;str) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Get first text value</p>
+                <p class="source">Source: grpc.joule:210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_bin(&amp;self, key: &amp;str) -&gt; Option&lt;&amp;[u8]&gt;</code></h3>
+                <p>Get first binary value</p>
+                <p class="source">Source: grpc.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_all(&amp;self, key: &amp;str) -&gt; Option&lt;&amp;[MetadataValue]&gt;</code></h3>
+                <p>Get all values for a key</p>
+                <p class="source">Source: grpc.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contains(&amp;self, key: &amp;str) -&gt; bool</code></h3>
+                <p>Check if key exists</p>
+                <p class="source">Source: grpc.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove(&amp;mut self, key: &amp;str) -&gt; Option&lt;Vec&lt;MetadataValue&gt;&gt;</code></h3>
+                <p>Remove a key</p>
+                <p class="source">Source: grpc.joule:240</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn iter(&amp;self) -&gt; impl Iterator&lt;Item &#x3D; (&amp;String, &amp;Vec&lt;MetadataValue&gt;)&gt;</code></h3>
+                <p>Iterate over entries</p>
+                <p class="source">Source: grpc.joule:245</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_headers(&amp;self) -&gt; Headers</code></h3>
+                <p>Convert to HTTP/2 headers</p>
+                <p class="source">Source: grpc.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_headers(headers: &amp;Headers) -&gt; Self</code></h3>
+                <p>Parse from HTTP/2 headers</p>
+                <p class="source">Source: grpc.joule:269</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Message: Sized</code></h3>
+                <p>Message trait for gRPC messages</p>
+                <p class="source">Source: grpc.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode(&amp;self) -&gt; Vec&lt;u8&gt;;</code></h3>
+                <p>Encode to bytes</p>
+                <p class="source">Source: grpc.joule:295</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode(data: &amp;[u8]) -&gt; Result&lt;Self, DecodeError&gt;;</code></h3>
+                <p>Decode from bytes</p>
+                <p class="source">Source: grpc.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name() -&gt; &amp;&#x27;static str;</code></h3>
+                <p>Get message name</p>
+                <p class="source">Source: grpc.joule:301</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DecodeError</code></h3>
+                <p class="source">Source: grpc.joule:306</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn encode_message(data: &amp;[u8], compressed: bool) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Encode message with length prefix (gRPC framing)</p>
+                <p class="source">Source: grpc.joule:313</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn decode_message(data: &amp;[u8]) -&gt; Result&lt;(bool, Vec&lt;u8&gt;), GrpcError&gt;</code></h3>
+                <p>Decode length-prefixed message</p>
+                <p class="source">Source: grpc.joule:330</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Channel</code></h3>
+                <p>gRPC channel (connection to server)</p>
+                <p class="source">Source: grpc.joule:350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(target: &amp;str) -&gt; Self</code></h3>
+                <p>Create channel to target address</p>
+                <p class="source">Source: grpc.joule:359</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn timeout(mut self, timeout: Duration) -&gt; Self</code></h3>
+                <p>Set timeout</p>
+                <p class="source">Source: grpc.joule:371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn plaintext(mut self) -&gt; Self</code></h3>
+                <p>Disable TLS</p>
+                <p class="source">Source: grpc.joule:377</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intercept&lt;I: Interceptor + &#x27;static&gt;(mut self, interceptor: I) -&gt; Self</code></h3>
+                <p>Add interceptor</p>
+                <p class="source">Source: grpc.joule:383</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Interceptor: Send + Sync</code></h3>
+                <p>Client interceptor trait</p>
+                <p class="source">Source: grpc.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn intercept(&amp;self, request: &amp;mut Request&lt;Vec&lt;u8&gt;&gt;);</code></h3>
+                <p class="source">Source: grpc.joule:391</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Request</code></h3>
+                <p>gRPC request</p>
+                <p class="source">Source: grpc.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(message: T) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn metadata_mut(&amp;mut self) -&gt; &amp;mut Metadata</code></h3>
+                <p class="source">Source: grpc.joule:410</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_timeout(&amp;mut self, timeout: Duration)</code></h3>
+                <p class="source">Source: grpc.joule:414</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Response</code></h3>
+                <p>gRPC response</p>
+                <p class="source">Source: grpc.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(message: T) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:428</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GrpcClient</code></h3>
+                <p>gRPC client for making RPC calls</p>
+                <p class="source">Source: grpc.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(channel: Channel) -&gt; Self</code></h3>
+                <p>Create client from channel</p>
+                <p class="source">Source: grpc.joule:445</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unary&lt;Req: Message, Res: Message&gt;(</code></h3>
+                <p class="source">Source: grpc.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn server_streaming&lt;Req: Message, Res: Message&gt;(</code></h3>
+                <p class="source">Source: grpc.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn client_streaming&lt;Req: Message, Res: Message&gt;(</code></h3>
+                <p class="source">Source: grpc.joule:497</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bidirectional&lt;Req: Message, Res: Message&gt;(</code></h3>
+                <p class="source">Source: grpc.joule:515</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(&amp;self) -&gt; Result&lt;Connection, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_request(</code></h3>
+                <p class="source">Source: grpc.joule:540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_headers(</code></h3>
+                <p class="source">Source: grpc.joule:558</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_response(&amp;self, conn: &amp;mut Connection) -&gt; Result&lt;(Metadata, Vec&lt;u8&gt;), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:569</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Connection</code></h3>
+                <p>Connection wrapper</p>
+                <p class="source">Source: grpc.joule:582</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_all(&amp;mut self, data: &amp;[u8]) -&gt; Result&lt;(), std::io::Error&gt;</code></h3>
+                <p class="source">Source: grpc.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read(&amp;mut self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, std::io::Error&gt;</code></h3>
+                <p class="source">Source: grpc.joule:595</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn try_clone(&amp;self) -&gt; Result&lt;Self, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:602</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Streaming</code></h3>
+                <p>Server streaming response</p>
+                <p class="source">Source: grpc.joule:615</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(conn: Connection) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:622</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn message(&amp;mut self) -&gt; Result&lt;Option&lt;T&gt;, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trailers(&amp;self) -&gt; Metadata</code></h3>
+                <p>Get trailing metadata</p>
+                <p class="source">Source: grpc.joule:652</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;</code></h3>
+                <p class="source">Source: grpc.joule:660</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ClientStream</code></h3>
+                <p>Client streaming sender</p>
+                <p class="source">Source: grpc.joule:670</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(conn: Connection) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:676</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;mut self, message: T) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:685</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn finish(mut self) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:694</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ResponseFuture</code></h3>
+                <p>Future for receiving response after client streaming</p>
+                <p class="source">Source: grpc.joule:703</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(conn: Connection) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:709</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn await_response(mut self) -&gt; Result&lt;Response&lt;T&gt;, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:718</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BidiStream</code></h3>
+                <p>Bidirectional streaming</p>
+                <p class="source">Source: grpc.joule:736</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(conn: Connection) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:743</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;mut self, message: Req) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:753</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(&amp;mut self) -&gt; Result&lt;Option&lt;Res&gt;, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:762</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close_send(&amp;mut self) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:778</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Server</code></h3>
+                <p>gRPC server</p>
+                <p class="source">Source: grpc.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(addr: &amp;str) -&gt; Result&lt;Self, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:798</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_service&lt;S: ServiceHandler + &#x27;static&gt;(mut self, service: S) -&gt; Self</code></h3>
+                <p>Register a service</p>
+                <p class="source">Source: grpc.joule:808</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn serve(self) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:816</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn handle_connection(&amp;self, mut stream: TcpStream) -&gt; Result&lt;(), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:829</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait ServiceHandler: Send + Sync</code></h3>
+                <p>Service handler trait</p>
+                <p class="source">Source: grpc.joule:868</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn name(&amp;self) -&gt; &amp;str;</code></h3>
+                <p>Service name (e.g., &quot;helloworld.Greeter&quot;)</p>
+                <p class="source">Source: grpc.joule:870</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn call(&amp;self, method: &amp;str, request: &amp;[u8], metadata: &amp;Metadata) -&gt; Result&lt;Vec&lt;u8&gt;, GrpcError&gt;;</code></h3>
+                <p>Handle method call</p>
+                <p class="source">Source: grpc.joule:873</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_request_headers(path: &amp;str, metadata: &amp;Metadata, content_length: usize) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: grpc.joule:908</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_response_headers(status: u16) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: grpc.joule:929</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_data_frame(data: &amp;[u8], end_stream: bool) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: grpc.joule:941</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_response(data: &amp;[u8]) -&gt; Result&lt;(Metadata, Vec&lt;u8&gt;), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:965</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_request(data: &amp;[u8]) -&gt; Result&lt;(String, Metadata, Vec&lt;u8&gt;), GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:984</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_target(target: &amp;str) -&gt; Result&lt;SocketAddr, GrpcError&gt;</code></h3>
+                <p class="source">Source: grpc.joule:1009</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Compression</code></h3>
+                <p class="source">Source: grpc.joule:1024</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_str(s: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: grpc.joule:1033</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_str(&amp;self) -&gt; &amp;str</code></h3>
+                <p class="source">Source: grpc.joule:1044</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn base64_encode(data: &amp;[u8]) -&gt; String</code></h3>
+                <p class="source">Source: grpc.joule:1059</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CHARS: &amp;[u8]</code></h3>
+                <p class="source">Source: grpc.joule:1060</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn base64_decode(data: &amp;str) -&gt; Option&lt;Vec&lt;u8&gt;&gt;</code></h3>
+                <p class="source">Source: grpc.joule:1087</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const DECODE: [i8; 128]</code></h3>
+                <p class="source">Source: grpc.joule:1088</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GrpcError</code></h3>
+                <p class="source">Source: grpc.joule:1135</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:1148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: super::tcp::TcpError) -&gt; Self</code></h3>
+                <p class="source">Source: grpc.joule:1154</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_status_codes()</code></h3>
+                <p class="source">Source: grpc.joule:1168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_metadata()</code></h3>
+                <p class="source">Source: grpc.joule:1175</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_message_encoding()</code></h3>
+                <p class="source">Source: grpc.joule:1185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_base64()</code></h3>
+                <p class="source">Source: grpc.joule:1198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_compression_names()</code></h3>
+                <p class="source">Source: grpc.joule:1207</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

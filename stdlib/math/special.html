@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>special - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module special</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn gamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_gamma(x: f64) -&gt; f64</code></h3>
+                <p>Lanczos approximation for gamma function
+Coefficients for g&#x3D;7, n&#x3D;9</p>
+                <p class="source">Source: special.joule:31</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const G: f64</code></h3>
+                <p class="source">Source: special.joule:32</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const COEFFS: [f64; 9]</code></h3>
+                <p class="source">Source: special.joule:33</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lgamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_lgamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:71</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const G: f64</code></h3>
+                <p class="source">Source: special.joule:72</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const COEFFS: [f64; 9]</code></h3>
+                <p class="source">Source: special.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rgamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:98</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn digamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trigamma(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polygamma(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn factorial(n: u32) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:173</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const FACTORIAL_TABLE: [f64; 21]</code></h3>
+                <p class="source">Source: special.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn double_factorial(n: i32) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pochhammer(x: f64, n: u32) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn falling_factorial(x: f64, n: u32) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:215</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn beta(a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lbeta(a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn betainc(x: f64, a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:241</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn betainc_cf(x: f64, a: f64, b: f64) -&gt; f64</code></h3>
+                <p>Continued fraction for incomplete beta</p>
+                <p class="source">Source: special.joule:260</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MAX_ITER: u32</code></h3>
+                <p class="source">Source: special.joule:261</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const EPS: f64</code></h3>
+                <p class="source">Source: special.joule:262</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const TINY: f64</code></h3>
+                <p class="source">Source: special.joule:263</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn betaincinv(p: f64, a: f64, b: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:319</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erf(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfc(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfcx(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfinv(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfcinv(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:420</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfi(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dawson(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:433</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const H: f64</code></h3>
+                <p class="source">Source: special.joule:434</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NMAX: i32</code></h3>
+                <p class="source">Source: special.joule:435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselj(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:478</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselj_series(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:498</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselj_miller(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:514</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bessely(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:559</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bessely0(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:591</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bessely1(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:611</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besseli(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:635</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besseli_series(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:651</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besseli_asymp(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:667</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselk(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:692</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselk0(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:723</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselk1(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:736</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spherical_besselj(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spherical_bessely(n: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:770</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai_positive(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:778</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai_negative(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:783</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai_asymp(_z: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:788</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai_series(_z: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:793</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_bi(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:800</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_ai_prime(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:812</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn airy_bi_prime(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:820</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ellipk(m: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:832</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ellipe(m: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:856</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ellipf(phi: f64, m: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:886</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn carlson_rf(x: f64, y: f64, z: f64) -&gt; f64</code></h3>
+                <p>Carlson&#x27;s elliptic integral RF(x, y, z)</p>
+                <p class="source">Source: special.joule:905</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ERRTOL: f64</code></h3>
+                <p class="source">Source: special.joule:906</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ellipe_incomplete(phi: f64, m: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:933</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn carlson_rd(x: f64, y: f64, z: f64) -&gt; f64</code></h3>
+                <p>Carlson&#x27;s elliptic integral RD(x, y, z)</p>
+                <p class="source">Source: special.joule:948</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ERRTOL: f64</code></h3>
+                <p class="source">Source: special.joule:949</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp1f1(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:989</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp1f1_series(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1005</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp1f1_asymp(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1020</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp2f1(a: f64, b: f64, c: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1039</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp2f1_series(a: f64, b: f64, c: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1054</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyp2f1_transform(a: f64, b: f64, c: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1069</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyperu(a: f64, b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1086</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hyperu_asymp(a: f64, _b: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeta(s: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeta_borwein(s: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1144</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const N: usize</code></h3>
+                <p class="source">Source: special.joule:1145</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hurwitz_zeta(s: f64, a: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn polylog(s: f64, z: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eta(s: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn expint_ei(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn expint_en(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn expint_e1(x: f64) -&gt; f64</code></h3>
+                <p>Exponential integral E_1(x)</p>
+                <p class="source">Source: special.joule:1282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinint(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cosint(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn aux_f(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1383</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn aux_g(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinhint(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1394</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coshint(x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1413</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn legendre_p(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn legendre_pm(n: u32, m: i32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1450</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn legendre_pm_neg_m_factor(n: u32, m: i32) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spherical_harmonic(l: u32, m: i32, theta: f64, phi: f64) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: special.joule:1502</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hermite(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1530</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hermite_prob(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1552</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laguerre(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1574</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laguerre_assoc(n: u32, alpha: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chebyshev_t(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1604</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn chebyshev_u(n: u32, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1626</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn jacobi(n: u32, alpha: f64, beta: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1648</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_lower(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1680</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_upper(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_p(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1705</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_p_series(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1720</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_q(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1737</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammainc_q_cf(a: f64, x: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1752</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gammaincinv(a: f64, p: f64) -&gt; f64</code></h3>
+                <p class="source">Source: special.joule:1783</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

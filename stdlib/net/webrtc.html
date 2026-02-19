@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webrtc - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module webrtc</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum CandidateType</code></h3>
+                <p class="source">Source: webrtc.joule:19</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TransportProtocol</code></h3>
+                <p class="source">Source: webrtc.joule:32</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IceCandidate</code></h3>
+                <p class="source">Source: webrtc.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn host(address: IpAddr, port: u16, component: u32) -&gt; Self</code></h3>
+                <p>Create host candidate</p>
+                <p class="source">Source: webrtc.joule:66</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_sdp(&amp;self) -&gt; String</code></h3>
+                <p>Convert to SDP attribute format</p>
+                <p class="source">Source: webrtc.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_sdp(sdp: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p>Parse from SDP attribute</p>
+                <p class="source">Source: webrtc.joule:114</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TcpCandidateType</code></h3>
+                <p class="source">Source: webrtc.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_foundation(ctype: CandidateType, address: &amp;IpAddr, protocol: TransportProtocol) -&gt; String</code></h3>
+                <p class="source">Source: webrtc.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_priority(ctype: CandidateType, component: u32, local_pref: u32) -&gt; u32</code></h3>
+                <p class="source">Source: webrtc.joule:192</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum IceRole</code></h3>
+                <p class="source">Source: webrtc.joule:212</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum GatheringState</code></h3>
+                <p class="source">Source: webrtc.joule:219</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum IceConnectionState</code></h3>
+                <p class="source">Source: webrtc.joule:227</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IceConfig</code></h3>
+                <p class="source">Source: webrtc.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:253</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TurnServer</code></h3>
+                <p class="source">Source: webrtc.joule:266</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum CandidatePolicy</code></h3>
+                <p class="source">Source: webrtc.joule:274</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TransportPolicy</code></h3>
+                <p class="source">Source: webrtc.joule:281</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IceAgent</code></h3>
+                <p>ICE agent for connection establishment</p>
+                <p class="source">Source: webrtc.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(config: IceConfig) -&gt; Self</code></h3>
+                <p>Create new ICE agent</p>
+                <p class="source">Source: webrtc.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_credentials(&amp;self) -&gt; (&amp;str, &amp;str)</code></h3>
+                <p>Get local credentials</p>
+                <p class="source">Source: webrtc.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_remote_credentials(&amp;mut self, ufrag: &amp;str, pwd: &amp;str)</code></h3>
+                <p>Set remote credentials</p>
+                <p class="source">Source: webrtc.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gather_candidates(&amp;mut self) -&gt; Result&lt;(), IceError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gather_stun_candidate(</code></h3>
+                <p class="source">Source: webrtc.joule:370</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gather_turn_candidate(</code></h3>
+                <p class="source">Source: webrtc.joule:404</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_remote_candidate(&amp;mut self, candidate: IceCandidate)</code></h3>
+                <p>Add remote candidate</p>
+                <p class="source">Source: webrtc.joule:416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_candidates(&amp;self) -&gt; &amp;[IceCandidate]</code></h3>
+                <p>Get local candidates</p>
+                <p class="source">Source: webrtc.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start_connectivity_checks(&amp;mut self) -&gt; Result&lt;(), IceError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connection_state(&amp;self) -&gt; IceConnectionState</code></h3>
+                <p>Get connection state</p>
+                <p class="source">Source: webrtc.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn selected_pair(&amp;self) -&gt; Option&lt;&amp;CandidatePair&gt;</code></h3>
+                <p>Get selected candidate pair</p>
+                <p class="source">Source: webrtc.joule:505</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CandidatePair</code></h3>
+                <p class="source">Source: webrtc.joule:512</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(local: IceCandidate, remote: IceCandidate) -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:521</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PairState</code></h3>
+                <p class="source">Source: webrtc.joule:539</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const STUN_MAGIC_COOKIE: u32</code></h3>
+                <p class="source">Source: webrtc.joule:551</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const STUN_BINDING_REQUEST: u16</code></h3>
+                <p class="source">Source: webrtc.joule:552</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const STUN_BINDING_RESPONSE: u16</code></h3>
+                <p class="source">Source: webrtc.joule:553</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_stun_request() -&gt; Vec&lt;u8&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_stun_binding_request(</code></h3>
+                <p class="source">Source: webrtc.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_stun_response(data: &amp;[u8]) -&gt; Result&lt;(IpAddr, u16), IceError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:648</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_stun_success(data: &amp;[u8]) -&gt; bool</code></h3>
+                <p class="source">Source: webrtc.joule:709</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_fingerprint(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: webrtc.joule:717</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn crc32(data: &amp;[u8]) -&gt; u32</code></h3>
+                <p class="source">Source: webrtc.joule:723</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse_stun_url(url: &amp;str) -&gt; Result&lt;SocketAddr, IceError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:779</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn generate_ice_string(len: usize) -&gt; String</code></h3>
+                <p class="source">Source: webrtc.joule:790</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const CHARS: &amp;[u8]</code></h3>
+                <p class="source">Source: webrtc.joule:791</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataChannelConfig</code></h3>
+                <p class="source">Source: webrtc.joule:803</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:821</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DataChannelState</code></h3>
+                <p class="source">Source: webrtc.joule:836</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataChannel</code></h3>
+                <p>Data channel for peer-to-peer data transfer</p>
+                <p class="source">Source: webrtc.joule:844</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(id: u16, config: DataChannelConfig) -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:858</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn id(&amp;self) -&gt; u16</code></h3>
+                <p>Get channel ID</p>
+                <p class="source">Source: webrtc.joule:874</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn label(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get channel label</p>
+                <p class="source">Source: webrtc.joule:879</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn protocol(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get protocol</p>
+                <p class="source">Source: webrtc.joule:884</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; DataChannelState</code></h3>
+                <p>Get state</p>
+                <p class="source">Source: webrtc.joule:889</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_open(&amp;self) -&gt; bool</code></h3>
+                <p>Check if channel is open</p>
+                <p class="source">Source: webrtc.joule:894</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn buffered_amount(&amp;self) -&gt; usize</code></h3>
+                <p>Get buffered amount</p>
+                <p class="source">Source: webrtc.joule:899</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_string(&amp;mut self, data: &amp;str) -&gt; Result&lt;(), DataChannelError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:905</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_binary(&amp;mut self, data: &amp;[u8]) -&gt; Result&lt;(), DataChannelError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:911</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;mut self, msg: DataChannelMessage) -&gt; Result&lt;(), DataChannelError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:915</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(&amp;mut self) -&gt; Option&lt;DataChannelMessage&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:927</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(&amp;mut self)</code></h3>
+                <p class="source">Source: webrtc.joule:933</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DataChannelMessage</code></h3>
+                <p class="source">Source: webrtc.joule:942</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: webrtc.joule:948</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_string(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: webrtc.joule:955</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_string(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:959</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_binary(&amp;self) -&gt; Option&lt;&amp;[u8]&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:966</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PeerConnectionConfig</code></h3>
+                <p class="source">Source: webrtc.joule:980</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:990</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BundlePolicy</code></h3>
+                <p class="source">Source: webrtc.joule:1001</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SignalingState</code></h3>
+                <p class="source">Source: webrtc.joule:1009</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PeerConnectionState</code></h3>
+                <p class="source">Source: webrtc.joule:1020</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PeerConnection</code></h3>
+                <p>Peer connection</p>
+                <p class="source">Source: webrtc.joule:1030</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(config: PeerConnectionConfig) -&gt; Self</code></h3>
+                <p>Create new peer connection</p>
+                <p class="source">Source: webrtc.joule:1044</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_data_channel(&amp;mut self, label: &amp;str, config: DataChannelConfig) -&gt; Result&lt;u16, WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1062</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn data_channel(&amp;mut self, id: u16) -&gt; Option&lt;&amp;mut DataChannel&gt;</code></h3>
+                <p>Get data channel by ID</p>
+                <p class="source">Source: webrtc.joule:1079</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_offer(&amp;mut self) -&gt; Result&lt;SessionDescription, WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1085</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_answer(&amp;mut self) -&gt; Result&lt;SessionDescription, WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_local_description(&amp;mut self, sdp: SessionDescription) -&gt; Result&lt;(), WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_remote_description(&amp;mut self, sdp: SessionDescription) -&gt; Result&lt;(), WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_ice_candidate(&amp;mut self, candidate: IceCandidate) -&gt; Result&lt;(), WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn start_connection(&amp;mut self) -&gt; Result&lt;(), WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1161</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_sdp(&amp;self, sdp_type: SdpType) -&gt; Result&lt;SessionDescription, WebRtcError&gt;</code></h3>
+                <p class="source">Source: webrtc.joule:1179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn signaling_state(&amp;self) -&gt; SignalingState</code></h3>
+                <p>Get signaling state</p>
+                <p class="source">Source: webrtc.joule:1193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connection_state(&amp;self) -&gt; PeerConnectionState</code></h3>
+                <p>Get connection state</p>
+                <p class="source">Source: webrtc.joule:1198</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ice_connection_state(&amp;self) -&gt; IceConnectionState</code></h3>
+                <p>Get ICE connection state</p>
+                <p class="source">Source: webrtc.joule:1203</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_description(&amp;self) -&gt; Option&lt;&amp;SessionDescription&gt;</code></h3>
+                <p>Get local description</p>
+                <p class="source">Source: webrtc.joule:1208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remote_description(&amp;self) -&gt; Option&lt;&amp;SessionDescription&gt;</code></h3>
+                <p>Get remote description</p>
+                <p class="source">Source: webrtc.joule:1213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(&amp;mut self)</code></h3>
+                <p class="source">Source: webrtc.joule:1219</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum SdpType</code></h3>
+                <p class="source">Source: webrtc.joule:1235</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SessionDescription</code></h3>
+                <p class="source">Source: webrtc.joule:1244</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_sdp(sdp_type: SdpType, sdp: &amp;str) -&gt; Result&lt;Self, WebRtcError&gt;</code></h3>
+                <p>Parse from SDP string</p>
+                <p class="source">Source: webrtc.joule:1255</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_sdp(&amp;self) -&gt; String</code></h3>
+                <p>Convert to SDP string</p>
+                <p class="source">Source: webrtc.joule:1283</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WebRtcError</code></h3>
+                <p class="source">Source: webrtc.joule:1324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: IceError) -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:1332</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum IceError</code></h3>
+                <p class="source">Source: webrtc.joule:1338</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:1348</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: super::udp::UdpError) -&gt; Self</code></h3>
+                <p class="source">Source: webrtc.joule:1354</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum DataChannelError</code></h3>
+                <p class="source">Source: webrtc.joule:1360</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_ice_candidate_sdp()</code></h3>
+                <p class="source">Source: webrtc.joule:1375</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_priority_calculation()</code></h3>
+                <p class="source">Source: webrtc.joule:1388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_stun_request()</code></h3>
+                <p class="source">Source: webrtc.joule:1398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_session_description()</code></h3>
+                <p class="source">Source: webrtc.joule:1405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_data_channel_config()</code></h3>
+                <p class="source">Source: webrtc.joule:1420</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

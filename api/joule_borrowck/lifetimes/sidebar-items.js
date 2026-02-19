@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Constraint","LifetimeError"],"struct":["LifetimeContext","LifetimeId","Loan","LoanId","ProgramPoint","Region"]};

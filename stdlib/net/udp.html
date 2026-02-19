@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>udp - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module udp</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct UdpOptions</code></h3>
+                <p>UDP socket options</p>
+                <p class="source">Source: udp.joule:8</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: udp.joule:20</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct UdpSocket</code></h3>
+                <p>UDP socket for connectionless communication</p>
+                <p class="source">Source: udp.joule:35</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind&lt;A: ToSocketAddrs&gt;(addr: A) -&gt; Result&lt;Self, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind_with_options&lt;A: ToSocketAddrs&gt;(</code></h3>
+                <p class="source">Source: udp.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind_addr(addr: &amp;SocketAddr, options: &amp;UdpOptions) -&gt; Result&lt;Self, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, sock_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(fd: i32, addr: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:70</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect&lt;A: ToSocketAddrs&gt;(&amp;mut self, addr: A) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:125</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(fd: i32, addr: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:127</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;self, buf: &amp;[u8]) -&gt; Result&lt;usize, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(fd: i32, buf: *const u8, len: usize, flags: i32) -&gt; isize;</code></h3>
+                <p class="source">Source: udp.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(fd: i32, buf: *mut u8, len: usize, flags: i32) -&gt; isize;</code></h3>
+                <p class="source">Source: udp.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send_to&lt;A: ToSocketAddrs&gt;(&amp;self, buf: &amp;[u8], addr: A) -&gt; Result&lt;usize, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sendto(</code></h3>
+                <p class="source">Source: udp.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv_from(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;(usize, SocketAddr), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:215</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recvfrom(</code></h3>
+                <p class="source">Source: udp.joule:217</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peek(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;usize, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(fd: i32, buf: *mut u8, len: usize, flags: i32) -&gt; isize;</code></h3>
+                <p class="source">Source: udp.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peek_from(&amp;self, buf: &amp;mut [u8]) -&gt; Result&lt;(usize, SocketAddr), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recvfrom(</code></h3>
+                <p class="source">Source: udp.joule:268</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn local_addr(&amp;self) -&gt; &amp;SocketAddr</code></h3>
+                <p>Get local address</p>
+                <p class="source">Source: udp.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peer_addr(&amp;self) -&gt; Option&lt;&amp;SocketAddr&gt;</code></h3>
+                <p>Get connected peer address</p>
+                <p class="source">Source: udp.joule:306</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_broadcast(&amp;mut self, broadcast: bool) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_ttl(&amp;mut self, ttl: u32) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:320</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn join_multicast_v4(&amp;self, multiaddr: &amp;[u8; 4], interface: &amp;[u8; 4]) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:328</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IpMreq</code></h3>
+                <p class="source">Source: udp.joule:330</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:336</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn leave_multicast_v4(&amp;self, multiaddr: &amp;[u8; 4], interface: &amp;[u8; 4]) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:363</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct IpMreq</code></h3>
+                <p class="source">Source: udp.joule:365</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_multicast_ttl(&amp;mut self, ttl: u32) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_multicast_loop(&amp;mut self, loop_back: bool) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nonblocking(&amp;self, nonblocking: bool) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p>Set non-blocking mode</p>
+                <p class="source">Source: udp.joule:413</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_read_timeout(&amp;mut self, timeout: Option&lt;Duration&gt;) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p>Set read timeout</p>
+                <p class="source">Source: udp.joule:418</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_write_timeout(&amp;mut self, timeout: Option&lt;Duration&gt;) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p>Set write timeout</p>
+                <p class="source">Source: udp.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_raw_fd(&amp;self) -&gt; i32</code></h3>
+                <p>Get underlying file descriptor</p>
+                <p class="source">Source: udp.joule:434</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn try_clone(&amp;self) -&gt; Result&lt;Self, UdpError&gt;</code></h3>
+                <p>Try to clone the socket</p>
+                <p class="source">Source: udp.joule:439</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: udp.joule:457</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum UdpError</code></h3>
+                <p class="source">Source: udp.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: udp.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_socket_opt(fd: i32, level: i32, opt: i32, value: i32) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:492</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const i32, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_socket_timeout(fd: i32, opt: i32, dur: Duration) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:505</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn setsockopt(fd: i32, level: i32, opt: i32, val: *const u8, len: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:507</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Timeval</code></h3>
+                <p class="source">Source: udp.joule:511</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_nonblocking(fd: i32, nonblocking: bool) -&gt; Result&lt;(), UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:538</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fcntl(fd: i32, cmd: i32, arg: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_local_addr(fd: i32) -&gt; Result&lt;SocketAddr, UdpError&gt;</code></h3>
+                <p class="source">Source: udp.joule:562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn getsockname(fd: i32, addr: *mut u8, len: *mut u32) -&gt; i32;</code></h3>
+                <p class="source">Source: udp.joule:564</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

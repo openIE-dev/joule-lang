@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>analysis - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module analysis</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn zero_crossing_rate(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn crest_factor(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p>Compute crest factor (peak/RMS)</p>
+                <p class="source">Source: analysis.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn papr_db(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p>Compute peak-to-average power ratio (PAPR) in dB</p>
+                <p class="source">Source: analysis.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn find_peaks(signal: &amp;Signal, min_height: Option&lt;f64&gt;, min_distance: usize) -&gt; Vec&lt;(usize, f64)&gt;</code></h3>
+                <p class="source">Source: analysis.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn short_time_energy(signal: &amp;Signal, frame_size: usize, hop_size: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: analysis.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn envelope_peak(signal: &amp;Signal, attack: f64, release: f64) -&gt; Signal</code></h3>
+                <p class="source">Source: analysis.joule:97</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn power_spectrum(signal: &amp;Signal) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: analysis.joule:120</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn welch(</code></h3>
+                <p class="source">Source: analysis.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectrogram(</code></h3>
+                <p class="source">Source: analysis.joule:183</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectral_centroid(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:230</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectral_bandwidth(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:253</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectral_rolloff(signal: &amp;Signal, percentile: f64) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spectral_flatness(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn detect_pitch_autocorr(signal: &amp;Signal, min_freq: f64, max_freq: f64) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: analysis.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn detect_pitch_cepstrum(signal: &amp;Signal, min_freq: f64, max_freq: f64) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: analysis.joule:369</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_snr(signal: &amp;[f64], noise: &amp;[f64]) -&gt; f64</code></h3>
+                <p>Estimate SNR from known signal and noise regions</p>
+                <p class="source">Source: analysis.joule:412</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_snr_spectral(signal: &amp;Signal, noise_percentile: f64) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn thd(signal: &amp;Signal, fundamental_freq: f64, num_harmonics: usize) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dbfs(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p>Compute dBFS (decibels full scale)</p>
+                <p class="source">Source: analysis.joule:473</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rms_db(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p>Compute RMS level in dB</p>
+                <p class="source">Source: analysis.joule:483</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lufs(signal: &amp;Signal) -&gt; f64</code></h3>
+                <p class="source">Source: analysis.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fft_inplace(data: &amp;mut [(f64, f64)], inverse: bool)</code></h3>
+                <p class="source">Source: analysis.joule:520</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_zero_crossing_rate()</code></h3>
+                <p class="source">Source: analysis.joule:574</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_crest_factor()</code></h3>
+                <p class="source">Source: analysis.joule:581</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_spectral_centroid()</code></h3>
+                <p class="source">Source: analysis.joule:589</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_find_peaks()</code></h3>
+                <p class="source">Source: analysis.joule:597</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_dbfs()</code></h3>
+                <p class="source">Source: analysis.joule:608</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

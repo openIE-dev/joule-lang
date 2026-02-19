@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Sparse Matrices
+Efficient sparse matrix storage and operations&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Trait">
+                <h3><code>trait SparseMatrix</code></h3>
+                <p>Sparse matrix trait</p>
+                <p class="source">Source: lib.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize;</code></h3>
+                <p>Number of rows</p>
+                <p class="source">Source: lib.joule:19</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize;</code></h3>
+                <p>Number of columns</p>
+                <p class="source">Source: lib.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize;</code></h3>
+                <p>Number of non-zero elements</p>
+                <p class="source">Source: lib.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64;</code></h3>
+                <p>Get element at (i, j), returns 0 if not stored</p>
+                <p class="source">Source: lib.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;;</code></h3>
+                <p>Matrix-vector product: y &#x3D; A * x</p>
+                <p class="source">Source: lib.joule:31</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;;</code></h3>
+                <p>Transposed matrix-vector product: y &#x3D; A^T * x</p>
+                <p class="source">Source: lib.joule:34</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:40</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize) -&gt; Self</code></h3>
+                <p>Create empty CSR matrix</p>
+                <p class="source">Source: lib.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_triplets(</code></h3>
+                <p class="source">Source: lib.joule:67</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_dense(dense: &amp;[Vec&lt;f64&gt;]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn identity(n: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:96</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn diagonal(diag: &amp;[f64]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row(&amp;self, i: usize) -&gt; (&amp;[usize], &amp;[f64])</code></h3>
+                <p>Get row slice</p>
+                <p class="source">Source: lib.joule:140</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn diagonal_values(&amp;self) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csc(&amp;self) -&gt; CscMatrix</code></h3>
+                <p class="source">Source: lib.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_coo(&amp;self) -&gt; CooMatrix</code></h3>
+                <p>Convert to COO format</p>
+                <p class="source">Source: lib.joule:211</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, s: f64) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:244</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;CsrMatrix) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:256</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matmul(&amp;self, other: &amp;CsrMatrix) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_dense(&amp;self) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p class="source">Source: lib.joule:317</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frobenius_norm(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:334</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:340</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:344</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:348</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:384</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CscMatrix</code></h3>
+                <p class="source">Source: lib.joule:405</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_triplets(</code></h3>
+                <p class="source">Source: lib.joule:419</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col(&amp;self, j: usize) -&gt; (&amp;[usize], &amp;[f64])</code></h3>
+                <p>Get column slice</p>
+                <p class="source">Source: lib.joule:428</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:436</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p>Transpose (returns CSR which is the transpose as CSC)</p>
+                <p class="source">Source: lib.joule:475</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:491</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:495</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:512</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:529</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CooMatrix</code></h3>
+                <p class="source">Source: lib.joule:550</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize) -&gt; Self</code></h3>
+                <p>Create empty COO matrix</p>
+                <p class="source">Source: lib.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_triplets(</code></h3>
+                <p class="source">Source: lib.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn push(&amp;mut self, row: usize, col: usize, value: f64)</code></h3>
+                <p>Add element</p>
+                <p class="source">Source: lib.joule:614</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:622</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csc(&amp;self) -&gt; CscMatrix</code></h3>
+                <p class="source">Source: lib.joule:681</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:739</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:743</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:747</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:751</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: lib.joule:772</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct SparseBuilder</code></h3>
+                <p>Builder for constructing sparse matrices incrementally</p>
+                <p class="source">Source: lib.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize) -&gt; Self</code></h3>
+                <p>Create new builder</p>
+                <p class="source">Source: lib.joule:798</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;mut self, row: usize, col: usize, value: f64) -&gt; &amp;mut Self</code></h3>
+                <p>Add element</p>
+                <p class="source">Source: lib.joule:807</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_matrix(&amp;mut self, other: &amp;CsrMatrix, row_offset: usize, col_offset: usize) -&gt; &amp;mut Self</code></h3>
+                <p>Add multiple elements from another matrix</p>
+                <p class="source">Source: lib.joule:813</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p>Build CSR matrix</p>
+                <p class="source">Source: lib.joule:824</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn build_csc(&amp;self) -&gt; CscMatrix</code></h3>
+                <p>Build CSC matrix</p>
+                <p class="source">Source: lib.joule:829</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tridiagonal(n: usize, lower: f64, diag: f64, upper: f64) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:836</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn banded(n: usize, bands: &amp;[(i32, f64)]) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:854</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laplacian_1d(n: usize) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:871</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laplacian_2d(nx: usize, ny: usize) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: lib.joule:877</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_csr_matvec()</code></h3>
+                <p class="source">Source: lib.joule:914</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_csr_to_csc()</code></h3>
+                <p class="source">Source: lib.joule:928</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_identity()</code></h3>
+                <p class="source">Source: lib.joule:943</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Plotting and Visualization
+Matplotlib-level plotting with SVG output&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Figure</code></h3>
+                <p class="source">Source: lib.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(width: f64, height: f64) -&gt; Self</code></h3>
+                <p>Create new figure</p>
+                <p class="source">Source: lib.joule:34</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_inches(width_inches: f64, height_inches: f64, dpi: f64) -&gt; Self</code></h3>
+                <p>Create figure with inches dimensions</p>
+                <p class="source">Source: lib.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn title(mut self, title: &amp;str) -&gt; Self</code></h3>
+                <p>Set figure title</p>
+                <p class="source">Source: lib.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn background(mut self, color: Color) -&gt; Self</code></h3>
+                <p>Set background color</p>
+                <p class="source">Source: lib.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_axes(&amp;mut self, left: f64, bottom: f64, width: f64, height: f64) -&gt; &amp;mut Axes</code></h3>
+                <p>Add axes at position (left, bottom, width, height) in figure coordinates (0-1)</p>
+                <p class="source">Source: lib.joule:70</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_subplot(&amp;mut self, rows: usize, cols: usize, index: usize) -&gt; &amp;mut Axes</code></h3>
+                <p>Add subplot (rows, cols, index starting at 1)</p>
+                <p class="source">Source: lib.joule:82</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gca(&amp;mut self) -&gt; &amp;mut Axes</code></h3>
+                <p>Get first axes or create one</p>
+                <p class="source">Source: lib.joule:100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_svg(&amp;self) -&gt; String</code></h3>
+                <p class="source">Source: lib.joule:109</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save(&amp;self, _path: &amp;str) -&gt; Result&lt;(), PlotError&gt;</code></h3>
+                <p class="source">Source: lib.joule:115</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:124</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Axes</code></h3>
+                <p class="source">Source: lib.joule:131</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(x: f64, y: f64, width: f64, height: f64) -&gt; Self</code></h3>
+                <p>Create new axes</p>
+                <p class="source">Source: lib.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_title(&amp;mut self, title: &amp;str) -&gt; &amp;mut Self</code></h3>
+                <p>Set title</p>
+                <p class="source">Source: lib.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_xlabel(&amp;mut self, label: &amp;str) -&gt; &amp;mut Self</code></h3>
+                <p>Set X-axis label</p>
+                <p class="source">Source: lib.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_ylabel(&amp;mut self, label: &amp;str) -&gt; &amp;mut Self</code></h3>
+                <p>Set Y-axis label</p>
+                <p class="source">Source: lib.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_xlim(&amp;mut self, min: f64, max: f64) -&gt; &amp;mut Self</code></h3>
+                <p>Set X-axis limits</p>
+                <p class="source">Source: lib.joule:214</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_ylim(&amp;mut self, min: f64, max: f64) -&gt; &amp;mut Self</code></h3>
+                <p>Set Y-axis limits</p>
+                <p class="source">Source: lib.joule:220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable_grid(&amp;mut self, show: bool) -&gt; &amp;mut Self</code></h3>
+                <p>Enable grid</p>
+                <p class="source">Source: lib.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_xscale(&amp;mut self, scale: Scale) -&gt; &amp;mut Self</code></h3>
+                <p>Set X-axis scale</p>
+                <p class="source">Source: lib.joule:232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_yscale(&amp;mut self, scale: Scale) -&gt; &amp;mut Self</code></h3>
+                <p>Set Y-axis scale</p>
+                <p class="source">Source: lib.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn legend(&amp;mut self, pos: LegendPosition) -&gt; &amp;mut Self</code></h3>
+                <p>Show legend</p>
+                <p class="source">Source: lib.joule:244</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_aspect(&amp;mut self, ratio: f64) -&gt; &amp;mut Self</code></h3>
+                <p>Set aspect ratio</p>
+                <p class="source">Source: lib.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn plot(&amp;mut self, x: &amp;[f64], y: &amp;[f64], style: PlotStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scatter(&amp;mut self, x: &amp;[f64], y: &amp;[f64], style: ScatterStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bar(&amp;mut self, x: &amp;[f64], heights: &amp;[f64], width: f64, style: BarStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:302</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn barh(&amp;mut self, y: &amp;[f64], widths: &amp;[f64], height: f64, style: BarStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hist(&amp;mut self, data: &amp;[f64], bins: usize, style: BarStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:326</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill(&amp;mut self, x: &amp;[f64], y1: &amp;[f64], y2: &amp;[f64], style: FillStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill_between(&amp;mut self, x: &amp;[f64], y: &amp;[f64], style: FillStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:353</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self, x: &amp;[f64], y: &amp;[f64], style: PlotStyle, where_step: StepPosition) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:360</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn errorbar(</code></h3>
+                <p class="source">Source: lib.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn stem(&amp;mut self, x: &amp;[f64], y: &amp;[f64], style: PlotStyle) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:392</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pie(&amp;mut self, values: &amp;[f64], labels: Option&lt;&amp;[&amp;str]&gt;, colors: Option&lt;&amp;[Color]&gt;) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:403</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn imshow(&amp;mut self, data: &amp;[Vec&lt;f64&gt;], cmap: Colormap) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:415</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contour(&amp;mut self, x: &amp;[f64], y: &amp;[f64], z: &amp;[Vec&lt;f64&gt;], levels: usize, filled: bool) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn boxplot(&amp;mut self, data: &amp;[Vec&lt;f64&gt;], positions: Option&lt;&amp;[f64]&gt;) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:441</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn violinplot(&amp;mut self, data: &amp;[Vec&lt;f64&gt;], positions: Option&lt;&amp;[f64]&gt;) -&gt; &amp;mut Self</code></h3>
+                <p class="source">Source: lib.joule:455</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn axhline(&amp;mut self, y: f64, style: PlotStyle) -&gt; &amp;mut Self</code></h3>
+                <p>Add horizontal line</p>
+                <p class="source">Source: lib.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn axvline(&amp;mut self, x: f64, style: PlotStyle) -&gt; &amp;mut Self</code></h3>
+                <p>Add vertical line</p>
+                <p class="source">Source: lib.joule:474</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn text(&amp;mut self, x: f64, y: f64, text: &amp;str, style: TextStyle) -&gt; &amp;mut Self</code></h3>
+                <p>Add text annotation</p>
+                <p class="source">Source: lib.joule:480</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn annotate(</code></h3>
+                <p>Add arrow annotation</p>
+                <p class="source">Source: lib.joule:491</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_bounds(&amp;self) -&gt; (f64, f64, f64, f64)</code></h3>
+                <p>Compute data bounds</p>
+                <p class="source">Source: lib.joule:512</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PlotElement</code></h3>
+                <p class="source">Source: lib.joule:590</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LineStyle</code></h3>
+                <p class="source">Source: lib.joule:687</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Marker</code></h3>
+                <p class="source">Source: lib.joule:697</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Scale</code></h3>
+                <p class="source">Source: lib.joule:710</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum StepPosition</code></h3>
+                <p class="source">Source: lib.joule:718</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LegendPosition</code></h3>
+                <p class="source">Source: lib.joule:726</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PlotStyle</code></h3>
+                <p class="source">Source: lib.joule:742</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:753</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn color(mut self, color: Color) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:757</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn line_style(mut self, style: LineStyle) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:762</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn line_width(mut self, width: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:767</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn marker(mut self, marker: Marker) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:772</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn marker_size(mut self, size: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:777</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn alpha(mut self, alpha: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:782</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn label(mut self, label: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:787</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:794</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ScatterStyle</code></h3>
+                <p class="source">Source: lib.joule:809</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:820</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BarStyle</code></h3>
+                <p class="source">Source: lib.joule:835</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:843</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct FillStyle</code></h3>
+                <p class="source">Source: lib.joule:855</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:861</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TextStyle</code></h3>
+                <p class="source">Source: lib.joule:871</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:882</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum FontWeight</code></h3>
+                <p class="source">Source: lib.joule:896</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum HAlign</code></h3>
+                <p class="source">Source: lib.joule:902</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum VAlign</code></h3>
+                <p class="source">Source: lib.joule:909</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LegendEntry</code></h3>
+                <p class="source">Source: lib.joule:917</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum LegendType</code></h3>
+                <p class="source">Source: lib.joule:924</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PlotError</code></h3>
+                <p class="source">Source: lib.joule:935</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_histogram(data: &amp;[f64], bins: usize) -&gt; (Vec&lt;f64&gt;, Vec&lt;usize&gt;)</code></h3>
+                <p class="source">Source: lib.joule:945</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_step(x: &amp;[f64], y: &amp;[f64], position: StepPosition) -&gt; (Vec&lt;f64&gt;, Vec&lt;f64&gt;)</code></h3>
+                <p class="source">Source: lib.joule:967</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn subplots(rows: usize, cols: usize) -&gt; (Figure, Vec&lt;usize&gt;)</code></h3>
+                <p>Create figure and axes for quick plotting</p>
+                <p class="source">Source: lib.joule:1025</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn plot(x: &amp;[f64], y: &amp;[f64]) -&gt; Figure</code></h3>
+                <p>Quick line plot</p>
+                <p class="source">Source: lib.joule:1037</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scatter(x: &amp;[f64], y: &amp;[f64]) -&gt; Figure</code></h3>
+                <p>Quick scatter plot</p>
+                <p class="source">Source: lib.joule:1044</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hist(data: &amp;[f64], bins: usize) -&gt; Figure</code></h3>
+                <p>Quick histogram</p>
+                <p class="source">Source: lib.joule:1051</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bar(x: &amp;[f64], heights: &amp;[f64]) -&gt; Figure</code></h3>
+                <p>Quick bar chart</p>
+                <p class="source">Source: lib.joule:1058</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_figure_creation()</code></h3>
+                <p class="source">Source: lib.joule:1074</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_add_axes()</code></h3>
+                <p class="source">Source: lib.joule:1081</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_line_plot()</code></h3>
+                <p class="source">Source: lib.joule:1088</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_histogram()</code></h3>
+                <p class="source">Source: lib.joule:1100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_svg_output()</code></h3>
+                <p class="source">Source: lib.joule:1110</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

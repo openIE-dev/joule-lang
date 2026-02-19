@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Device Module
+Hardware device abstractions for IoT, embedded, and system programming&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum DeviceError</code></h3>
+                <p class="source">Source: lib.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: lib.joule:53</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DeviceCapabilities</code></h3>
+                <p class="source">Source: lib.joule:70</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Enumerable</code></h3>
+                <p>Trait for enumerable devices</p>
+                <p class="source">Source: lib.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;Self&gt;, DeviceError&gt;</code></h3>
+                <p>List all available devices of this type</p>
+                <p class="source">Source: lib.joule:88</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

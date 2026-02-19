@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>correlation - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module correlation</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct CorrelationResult</code></h3>
+                <p class="source">Source: correlation.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_significant(&amp;self, alpha: f64) -&gt; bool</code></h3>
+                <p class="source">Source: correlation.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pearson(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn spearman(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:68</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn kendall(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn point_biserial(continuous: &amp;[f64], binary: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:149</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn partial(x: &amp;[f64], y: &amp;[f64], z: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:167</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn semi_partial(x: &amp;[f64], y: &amp;[f64], z: &amp;[f64]) -&gt; Option&lt;CorrelationResult&gt;</code></h3>
+                <p class="source">Source: correlation.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn distance_correlation(x: &amp;[f64], y: &amp;[f64]) -&gt; Option&lt;f64&gt;</code></h3>
+                <p class="source">Source: correlation.joule:229</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn correlation_matrix(variables: &amp;[&amp;[f64]]) -&gt; Option&lt;Vec&lt;Vec&lt;f64&gt;&gt;&gt;</code></h3>
+                <p class="source">Source: correlation.joule:278</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn autocorrelation(x: &amp;[f64], max_lag: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: correlation.joule:309</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn partial_autocorrelation(x: &amp;[f64], max_lag: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: correlation.joule:339</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cross_correlation(x: &amp;[f64], y: &amp;[f64], max_lag: usize) -&gt; Vec&lt;(i64, f64)&gt;</code></h3>
+                <p class="source">Source: correlation.joule:383</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rank_data(data: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Convert data to ranks (average rank for ties)</p>
+                <p class="source">Source: correlation.joule:435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn double_center(d: &amp;[Vec&lt;f64&gt;]) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Double center a distance matrix</p>
+                <p class="source">Source: correlation.joule:468</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

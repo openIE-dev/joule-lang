@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["energy_budget","generics","monomorph"],"struct":["ImplEntry","TraitMethodEntry","TypeChecker"]};

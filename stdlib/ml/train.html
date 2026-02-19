@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>train - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module train</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct TrainConfig</code></h3>
+                <p class="source">Source: train.joule:28</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:76</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MixedPrecisionConfig</code></h3>
+                <p class="source">Source: train.joule:99</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:107</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum EnergyMode</code></h3>
+                <p class="source">Source: train.joule:119</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LoggingConfig</code></h3>
+                <p class="source">Source: train.joule:132</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:142</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CheckpointConfig</code></h3>
+                <p class="source">Source: train.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:167</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EarlyStoppingConfig</code></h3>
+                <p class="source">Source: train.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:190</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TrainState</code></h3>
+                <p class="source">Source: train.joule:206</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:216</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TrainMetrics</code></h3>
+                <p class="source">Source: train.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:264</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_derived(&amp;mut self, batch_size: usize)</code></h3>
+                <p>Compute derived metrics</p>
+                <p class="source">Source: train.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn summary(&amp;self) -&gt; String</code></h3>
+                <p>Summary string</p>
+                <p class="source">Source: train.joule:288</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Trainer</code></h3>
+                <p>Energy-aware trainer</p>
+                <p class="source">Source: train.joule:309</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(model: M, optimizer: O, loss_fn: L, config: TrainConfig) -&gt; Self</code></h3>
+                <p>Create new trainer</p>
+                <p class="source">Source: train.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_callback(&amp;mut self, callback: Box&lt;dyn TrainCallback&gt;)</code></h3>
+                <p>Add callback</p>
+                <p class="source">Source: train.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn model(&amp;self) -&gt; &amp;M</code></h3>
+                <p>Get model reference</p>
+                <p class="source">Source: train.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn model_mut(&amp;mut self) -&gt; &amp;mut M</code></h3>
+                <p>Get mutable model reference</p>
+                <p class="source">Source: train.joule:395</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; &amp;TrainState</code></h3>
+                <p>Get training state</p>
+                <p class="source">Source: train.joule:400</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train&lt;D&gt;(&amp;mut self, train_data: DataLoader&lt;D, DefaultCollate&gt;, val_data: Option&lt;DataLoader&lt;D, DefaultCollate&gt;&gt;) -&gt; TrainResult</code></h3>
+                <p class="source">Source: train.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_epoch&lt;D&gt;(&amp;mut self, data_loader: &amp;DataLoader&lt;D, DefaultCollate&gt;) -&gt; Result&lt;TrainMetrics, TrainError&gt;</code></h3>
+                <p>Train one epoch</p>
+                <p class="source">Source: train.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_step(&amp;mut self, inputs: &amp;Tensor, targets: &amp;Tensor) -&gt; Result&lt;TrainMetrics, TrainError&gt;</code></h3>
+                <p>Execute one training step</p>
+                <p class="source">Source: train.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn validate&lt;D&gt;(&amp;mut self, data_loader: &amp;DataLoader&lt;D, DefaultCollate&gt;) -&gt; Result&lt;TrainMetrics, TrainError&gt;</code></h3>
+                <p>Validate on dataset</p>
+                <p class="source">Source: train.joule:677</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clip_gradients(&amp;mut self, max_norm: f64)</code></h3>
+                <p>Clip gradients by norm</p>
+                <p class="source">Source: train.joule:739</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unscale_gradients(&amp;mut self)</code></h3>
+                <p>Unscale gradients for mixed precision</p>
+                <p class="source">Source: train.joule:764</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn throttle_training(&amp;mut self)</code></h3>
+                <p>Throttle training for energy efficiency</p>
+                <p class="source">Source: train.joule:775</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn save_checkpoint(&amp;mut self, metric: Option&lt;f64&gt;)</code></h3>
+                <p>Save checkpoint</p>
+                <p class="source">Source: train.joule:785</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_report(&amp;self) -&gt; EnergyReport</code></h3>
+                <p>Get energy report</p>
+                <p class="source">Source: train.joule:801</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TrainResult</code></h3>
+                <p class="source">Source: train.joule:812</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:822</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn best_val_loss(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Best validation loss</p>
+                <p class="source">Source: train.joule:834</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn epochs_trained(&amp;self) -&gt; usize</code></h3>
+                <p>Total epochs trained</p>
+                <p class="source">Source: train.joule:844</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn avg_energy_per_epoch(&amp;self) -&gt; Joules</code></h3>
+                <p>Average energy per epoch</p>
+                <p class="source">Source: train.joule:849</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn print_summary(&amp;self)</code></h3>
+                <p>Print summary</p>
+                <p class="source">Source: train.joule:858</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum StopReason</code></h3>
+                <p class="source">Source: train.joule:882</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum TrainError</code></h3>
+                <p class="source">Source: train.joule:892</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait TrainCallback</code></h3>
+                <p>Training callback trait</p>
+                <p class="source">Source: train.joule:906</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_train_begin(&amp;mut self, _config: &amp;TrainConfig, _state: &amp;TrainState)</code></h3>
+                <p class="source">Source: train.joule:907</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_train_end(&amp;mut self, _result: &amp;TrainResult)</code></h3>
+                <p class="source">Source: train.joule:908</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_epoch_begin(&amp;mut self, _epoch: u32)</code></h3>
+                <p class="source">Source: train.joule:909</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_epoch_end(&amp;mut self, _epoch: u32, _metrics: &amp;TrainMetrics)</code></h3>
+                <p class="source">Source: train.joule:910</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_step_begin(&amp;mut self, _step: u64)</code></h3>
+                <p class="source">Source: train.joule:911</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_step_end(&amp;mut self, _step: u64, _metrics: &amp;TrainMetrics)</code></h3>
+                <p class="source">Source: train.joule:912</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_validation_begin(&amp;mut self)</code></h3>
+                <p class="source">Source: train.joule:913</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_validation_end(&amp;mut self, _metrics: &amp;TrainMetrics)</code></h3>
+                <p class="source">Source: train.joule:914</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyLoggerCallback</code></h3>
+                <p>Energy logging callback</p>
+                <p class="source">Source: train.joule:918</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyLogEntry</code></h3>
+                <p class="source">Source: train.joule:924</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(log_path: &amp;str) -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:933</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_step_end(&amp;mut self, step: u64, metrics: &amp;TrainMetrics)</code></h3>
+                <p class="source">Source: train.joule:942</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_train_end(&amp;mut self, _result: &amp;TrainResult)</code></h3>
+                <p class="source">Source: train.joule:952</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PowerLimitCallback</code></h3>
+                <p>Power limit callback (throttles when exceeding power budget)</p>
+                <p class="source">Source: train.joule:971</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(power_limit: Watts, window_size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: train.joule:978</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_step_end(&amp;mut self, _step: u64, metrics: &amp;TrainMetrics)</code></h3>
+                <p class="source">Source: train.joule:988</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn train_simple&lt;M, D, L&gt;(</code></h3>
+                <p class="source">Source: train.joule:1013</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gradient_norm&lt;M: Module&gt;(model: &amp;M) -&gt; f64</code></h3>
+                <p>Compute gradient norm</p>
+                <p class="source">Source: train.joule:1069</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn count_parameters&lt;M: Module&gt;(model: &amp;M) -&gt; usize</code></h3>
+                <p>Count trainable parameters</p>
+                <p class="source">Source: train.joule:1080</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_training_memory(</code></h3>
+                <p>Estimate memory usage for training</p>
+                <p class="source">Source: train.joule:1085</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn estimate_training_energy(</code></h3>
+                <p>Estimate energy for training run</p>
+                <p class="source">Source: train.joule:1105</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

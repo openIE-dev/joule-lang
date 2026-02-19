@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module websocket</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Const">
+                <h3><code>const WS_MAGIC_GUID: &amp;str</code></h3>
+                <p>WebSocket magic GUID for handshake</p>
+                <p class="source">Source: websocket.joule:11</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Opcode</code></h3>
+                <p class="source">Source: websocket.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_u8(value: u8) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: websocket.joule:25</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CloseCode(pub u16);</code></h3>
+                <p class="source">Source: websocket.joule:40</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NORMAL: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:43</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const GOING_AWAY: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:44</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const PROTOCOL_ERROR: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:45</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const UNSUPPORTED: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:46</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NO_STATUS: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:47</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ABNORMAL: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:48</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const INVALID_DATA: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:49</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const POLICY_VIOLATION: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:50</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const MESSAGE_TOO_BIG: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:51</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const EXTENSION_REQUIRED: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:52</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const INTERNAL_ERROR: CloseCode</code></h3>
+                <p class="source">Source: websocket.joule:53</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Message</code></h3>
+                <p class="source">Source: websocket.joule:58</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn text(s: &amp;str) -&gt; Self</code></h3>
+                <p>Create text message</p>
+                <p class="source">Source: websocket.joule:68</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn binary(data: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Create binary message</p>
+                <p class="source">Source: websocket.joule:73</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ping(data: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Create ping message</p>
+                <p class="source">Source: websocket.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pong(data: Vec&lt;u8&gt;) -&gt; Self</code></h3>
+                <p>Create pong message</p>
+                <p class="source">Source: websocket.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(code: CloseCode, reason: &amp;str) -&gt; Self</code></h3>
+                <p>Create close message</p>
+                <p class="source">Source: websocket.joule:88</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn opcode(&amp;self) -&gt; Opcode</code></h3>
+                <p>Get opcode</p>
+                <p class="source">Source: websocket.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn payload(&amp;self) -&gt; Vec&lt;u8&gt;</code></h3>
+                <p>Get payload</p>
+                <p class="source">Source: websocket.joule:104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_control(&amp;self) -&gt; bool</code></h3>
+                <p>Check if control frame</p>
+                <p class="source">Source: websocket.joule:122</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum State</code></h3>
+                <p class="source">Source: websocket.joule:129</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebSocketConfig</code></h3>
+                <p>WebSocket configuration</p>
+                <p class="source">Source: websocket.joule:137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: websocket.joule:145</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebSocket</code></h3>
+                <p>WebSocket connection</p>
+                <p class="source">Source: websocket.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(url: &amp;str) -&gt; Result&lt;Self, WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_with_config(url: &amp;str, config: WebSocketConfig) -&gt; Result&lt;Self, WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept(stream: TcpStream, request: &amp;Request) -&gt; Result&lt;Self, WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn accept_with_config(</code></h3>
+                <p class="source">Source: websocket.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; State</code></h3>
+                <p>Get connection state</p>
+                <p class="source">Source: websocket.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_open(&amp;self) -&gt; bool</code></h3>
+                <p>Check if open</p>
+                <p class="source">Source: websocket.joule:284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn send(&amp;mut self, message: &amp;Message) -&gt; Result&lt;(), WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recv(&amp;mut self) -&gt; Result&lt;Message, WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:309</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(&amp;mut self, code: CloseCode, reason: &amp;str) -&gt; Result&lt;(), WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn write_frame(&amp;mut self, fin: bool, opcode: Opcode, payload: &amp;[u8]) -&gt; Result&lt;(), WebSocketError&gt;</code></h3>
+                <p>Write a frame to the stream</p>
+                <p class="source">Source: websocket.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn read_frame(&amp;mut self) -&gt; Result&lt;(bool, Opcode, Vec&lt;u8&gt;), WebSocketError&gt;</code></h3>
+                <p>Read a frame from the stream</p>
+                <p class="source">Source: websocket.joule:445</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_accept_key(key: &amp;str) -&gt; String</code></h3>
+                <p>Compute Sec-WebSocket-Accept value</p>
+                <p class="source">Source: websocket.joule:500</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WebSocketError</code></h3>
+                <p class="source">Source: websocket.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
+                <p class="source">Source: websocket.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: TcpError) -&gt; Self</code></h3>
+                <p class="source">Source: websocket.joule:532</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait WsHandler: Send + Sync</code></h3>
+                <p>WebSocket server handler trait</p>
+                <p class="source">Source: websocket.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_open(&amp;self, ws: &amp;mut WebSocket);</code></h3>
+                <p class="source">Source: websocket.joule:543</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_message(&amp;self, ws: &amp;mut WebSocket, message: Message);</code></h3>
+                <p class="source">Source: websocket.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn on_close(&amp;self, ws: &amp;mut WebSocket, code: CloseCode, reason: &amp;str);</code></h3>
+                <p class="source">Source: websocket.joule:545</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WebSocketServer</code></h3>
+                <p>WebSocket server</p>
+                <p class="source">Source: websocket.joule:549</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bind(addr: &amp;str) -&gt; Result&lt;Self, WebSocketError&gt;</code></h3>
+                <p>Create new server</p>
+                <p class="source">Source: websocket.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn run&lt;H: WsHandler + &#x27;static&gt;(&amp;self, handler: H) -&gt; Result&lt;(), WebSocketError&gt;</code></h3>
+                <p class="source">Source: websocket.joule:562</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

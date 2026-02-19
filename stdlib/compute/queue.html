@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>queue - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module queue</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum QueuePriority</code></h3>
+                <p class="source">Source: gpu/queue.joule:9</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GpuQueue</code></h3>
+                <p>GPU command queue for async operations</p>
+                <p class="source">Source: gpu/queue.joule:19</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum QueueHandle</code></h3>
+                <p>Internal queue handle (backend-specific)</p>
+                <p class="source">Source: gpu/queue.joule:26</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device: &amp;GpuDevice) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_priority(device: &amp;GpuDevice, priority: QueuePriority) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:48</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaStreamCreateWithPriority(</code></h3>
+                <p class="source">Source: gpu/queue.joule:53</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mtl_device_new_command_queue(</code></h3>
+                <p class="source">Source: gpu/queue.joule:81</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipStreamCreateWithPriority(</code></h3>
+                <p class="source">Source: gpu/queue.joule:97</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn device(&amp;self) -&gt; &amp;GpuDevice</code></h3>
+                <p>Get the associated device</p>
+                <p class="source">Source: gpu/queue.joule:133</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn priority(&amp;self) -&gt; QueuePriority</code></h3>
+                <p>Get queue priority</p>
+                <p class="source">Source: gpu/queue.joule:138</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn synchronize(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:144</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaStreamSynchronize(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:149</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipStreamSynchronize(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_event(&amp;self) -&gt; Result&lt;GpuEvent, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn wait_event(&amp;self, event: &amp;GpuEvent) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:187</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaStreamWaitEvent(</code></h3>
+                <p class="source">Source: gpu/queue.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipStreamWaitEvent(</code></h3>
+                <p class="source">Source: gpu/queue.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_complete(&amp;self) -&gt; bool</code></h3>
+                <p>Check if all operations have completed (non-blocking)</p>
+                <p class="source">Source: gpu/queue.joule:226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaStreamQuery(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:231</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipStreamQuery(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:239</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;mut self)</code></h3>
+                <p class="source">Source: gpu/queue.joule:266</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cudaStreamDestroy(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipStreamDestroy(stream: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/queue.joule:284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
+                <p class="source">Source: gpu/queue.joule:295</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct QueuePool</code></h3>
+                <p>Queue pool for managing multiple queues</p>
+                <p class="source">Source: gpu/queue.joule:304</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(device: &amp;GpuDevice, count: usize) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:312</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn next(&amp;self) -&gt; &amp;GpuQueue</code></h3>
+                <p>Get the next queue (round-robin)</p>
+                <p class="source">Source: gpu/queue.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn synchronize_all(&amp;self) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/queue.joule:332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Number of queues in pool</p>
+                <p class="source">Source: gpu/queue.joule:340</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

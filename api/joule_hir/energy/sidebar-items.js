@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["EnergyViolationKind"],"struct":["EnergyMetadata","EnergyViolation","HirEnergyBudget"]};

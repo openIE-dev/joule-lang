@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Energy - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="../language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="../energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="../compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="../energy-cost-database.html"><strong aria-hidden="true">5.</strong> Energy Cost Database</a></li><li class="chapter-item expanded "><a href="../MLIR_Integration_Guide.html"><strong aria-hidden="true">6.</strong> MLIR Integration Guide</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">7.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../reference/types.html"><strong aria-hidden="true">8.</strong> Types</a></li><li class="chapter-item expanded "><a href="../reference/expressions.html"><strong aria-hidden="true">9.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="../reference/items.html"><strong aria-hidden="true">10.</strong> Items</a></li><li class="chapter-item expanded "><a href="../reference/patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="../reference/attributes.html"><strong aria-hidden="true">12.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../reference/memory.html"><strong aria-hidden="true">13.</strong> Memory</a></li><li class="chapter-item expanded "><a href="../reference/concurrency.html"><strong aria-hidden="true">14.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../reference/energy.html" class="active"><strong aria-hidden="true">15.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="../stdlib/index.html"><strong aria-hidden="true">16.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../stdlib/string.html"><strong aria-hidden="true">17.</strong> String</a></li><li class="chapter-item expanded "><a href="../stdlib/vec.html"><strong aria-hidden="true">18.</strong> Vec</a></li><li class="chapter-item expanded "><a href="../stdlib/option.html"><strong aria-hidden="true">19.</strong> Option</a></li><li class="chapter-item expanded "><a href="../stdlib/result.html"><strong aria-hidden="true">20.</strong> Result</a></li><li class="chapter-item expanded "><a href="../stdlib/hashmap.html"><strong aria-hidden="true">21.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../stdlib/primitives.html"><strong aria-hidden="true">22.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="../stdlib/collections.html"><strong aria-hidden="true">23.</strong> Collections</a></li><li class="chapter-item expanded "><a href="../stdlib/io.html"><strong aria-hidden="true">24.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../stdlib/math.html"><strong aria-hidden="true">25.</strong> Math</a></li><li class="chapter-item expanded affix "><li class="part-title">Architecture & Research</li><li class="chapter-item expanded "><a href="../heterogeneous_computing_telemetry_analysis.html"><strong aria-hidden="true">26.</strong> Heterogeneous Computing & Hardware Telemetry</a></li><li class="chapter-item expanded "><a href="../EXECUTIVE_SUMMARY_Heterogeneous_Telemetry.html"><strong aria-hidden="true">27.</strong> Executive Summary: Heterogeneous Computing & Telemetry Strategy</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="energy-system-specification"><a class="header" href="#energy-system-specification">Energy System Specification</a></h1>
+<p>This is the formal specification for Joule's compile-time energy verification system.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>The energy system consists of:</p>
+<ol>
+<li><strong>Energy budget attributes</strong> -- Programmer-declared constraints on function energy consumption</li>
+<li><strong>Energy estimator</strong> -- Static analysis that estimates energy from HIR</li>
+<li><strong>Energy cost model</strong> -- Calibrated per-instruction energy costs</li>
+<li><strong>Diagnostics</strong> -- Error messages when budgets are violated</li>
+</ol>
+<h2 id="attribute-syntax"><a class="header" href="#attribute-syntax">Attribute Syntax</a></h2>
+<pre><code>#[energy_budget( budget_param { , budget_param } )]
+</code></pre>
+<p>Where <code>budget_param</code> is one of:</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Unit</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>max_joules</code></td><td><code>f64</code></td><td>joules</td><td>Maximum total energy</td></tr>
+<tr><td><code>max_watts</code></td><td><code>f64</code></td><td>watts</td><td>Maximum average power</td></tr>
+<tr><td><code>max_temp_delta</code></td><td><code>f64</code></td><td>celsius</td><td>Maximum temperature rise</td></tr>
+</tbody></table>
+</div>
+<h2 id="estimation-model"><a class="header" href="#estimation-model">Estimation Model</a></h2>
+<h3 id="instruction-costs"><a class="header" href="#instruction-costs">Instruction Costs</a></h3>
+<p>The cost model assigns picojoule costs to each instruction type. Costs are calibrated against real hardware measurements:</p>
+<div class="table-wrapper"><table><thead><tr><th>Instruction</th><th>Base Cost (pJ)</th><th>Thermal Scaling</th></tr></thead><tbody>
+<tr><td><code>IntAdd</code></td><td>0.05</td><td>Linear</td></tr>
+<tr><td><code>IntSub</code></td><td>0.05</td><td>Linear</td></tr>
+<tr><td><code>IntMul</code></td><td>0.35</td><td>Linear</td></tr>
+<tr><td><code>IntDiv</code></td><td>3.5</td><td>Linear</td></tr>
+<tr><td><code>IntRem</code></td><td>3.5</td><td>Linear</td></tr>
+<tr><td><code>FloatAdd</code></td><td>0.35</td><td>Quadratic</td></tr>
+<tr><td><code>FloatSub</code></td><td>0.35</td><td>Quadratic</td></tr>
+<tr><td><code>FloatMul</code></td><td>0.35</td><td>Quadratic</td></tr>
+<tr><td><code>FloatDiv</code></td><td>3.5</td><td>Quadratic</td></tr>
+<tr><td><code>FloatSqrt</code></td><td>5.25</td><td>Quadratic</td></tr>
+<tr><td><code>MemLoadL1</code></td><td>0.5</td><td>Linear</td></tr>
+<tr><td><code>MemLoadL2</code></td><td>3.0</td><td>Linear</td></tr>
+<tr><td><code>MemLoadL3</code></td><td>10.0</td><td>Linear</td></tr>
+<tr><td><code>MemLoadDram</code></td><td>200.0</td><td>Linear</td></tr>
+<tr><td><code>MemStoreDram</code></td><td>200.0</td><td>Linear</td></tr>
+<tr><td><code>BranchTaken</code></td><td>0.1</td><td>None</td></tr>
+<tr><td><code>BranchNotTaken</code></td><td>0.1</td><td>None</td></tr>
+<tr><td><code>BranchMispredicted</code></td><td>1.5</td><td>None</td></tr>
+<tr><td><code>SimdF32x8Add</code></td><td>1.5</td><td>Quadratic</td></tr>
+<tr><td><code>SimdF32x8Mul</code></td><td>1.5</td><td>Quadratic</td></tr>
+<tr><td><code>SimdF32x8Div</code></td><td>7.0</td><td>Quadratic</td></tr>
+<tr><td><code>SimdF32x8Fma</code></td><td>2.0</td><td>Quadratic</td></tr>
+</tbody></table>
+</div>
+<h3 id="thermal-scaling"><a class="header" href="#thermal-scaling">Thermal Scaling</a></h3>
+<p>Actual cost = base_cost * thermal_factor, where thermal_factor depends on the thermal model:</p>
+<ul>
+<li><strong>None</strong>: cost is constant regardless of temperature</li>
+<li><strong>Linear</strong>: <code>actual = base * (1.0 + 0.3 * thermal_state)</code></li>
+<li><strong>Quadratic</strong>: <code>actual = base * (1.0 + 0.3 * thermal_state + 0.1 * thermal_state^2)</code></li>
+</ul>
+<p>Default thermal state: 0.3 (nominal operating temperature).</p>
+<h3 id="expression-costs"><a class="header" href="#expression-costs">Expression Costs</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Expression</th><th>Cost</th></tr></thead><tbody>
+<tr><td>Literal</td><td>0.01 pJ</td></tr>
+<tr><td>Variable access</td><td>L1 load</td></tr>
+<tr><td>Binary operation</td><td>left + right + op_cost</td></tr>
+<tr><td>Unary operation</td><td>inner + op_cost</td></tr>
+<tr><td>Function call</td><td>args + branch + 2x L1 (stack)</td></tr>
+<tr><td>Method call</td><td>receiver + args + branch + 3x L1</td></tr>
+<tr><td>Field access</td><td>inner + IntAdd + L1</td></tr>
+<tr><td>Index access</td><td>array + index + IntMul + IntAdd + branch (bounds) + L1</td></tr>
+<tr><td>Struct construction</td><td>fields + (field_count x L1)</td></tr>
+<tr><td>Array construction</td><td>elements + (element_count x L1)</td></tr>
+</tbody></table>
+</div>
+<h3 id="loop-estimation"><a class="header" href="#loop-estimation">Loop Estimation</a></h3>
+<ul>
+<li><strong>Known bounds</strong>: body_cost * iteration_count</li>
+<li><strong>Unknown bounds</strong>: body_cost * default_iterations (100)</li>
+<li><strong>Max iterations cap</strong>: 10,000</li>
+</ul>
+<p>Unknown-bound loops reduce confidence by 0.7x.</p>
+<h3 id="branch-estimation"><a class="header" href="#branch-estimation">Branch Estimation</a></h3>
+<ul>
+<li><strong>if/else</strong>: condition + avg(then_cost, else_cost) + branch_cost</li>
+<li><strong>match</strong>: scrutinee + avg(arm_costs) + (arm_count x branch_cost)</li>
+</ul>
+<p>Branches reduce confidence by 0.9x (if/else) or 0.85x (match).</p>
+<h2 id="confidence-score"><a class="header" href="#confidence-score">Confidence Score</a></h2>
+<p>Range: 0.0 to 1.0</p>
+<ul>
+<li>Straight-line code: 1.0</li>
+<li>Each if/else: multiply by 0.9</li>
+<li>Each match: multiply by 0.85</li>
+<li>Each unbounded loop: multiply by 0.7</li>
+</ul>
+<p>The confidence score is reported in diagnostics to help the programmer assess estimate reliability.</p>
+<h2 id="power-estimation"><a class="header" href="#power-estimation">Power Estimation</a></h2>
+<pre><code>avg_pj_per_cycle = 0.15  (weighted average for mixed workloads)
+estimated_cycles = total_pJ / avg_pj_per_cycle
+execution_time = estimated_cycles / reference_frequency  (3.0 GHz)
+power_watts = energy_joules / execution_time
+</code></pre>
+<h2 id="thermal-estimation"><a class="header" href="#thermal-estimation">Thermal Estimation</a></h2>
+<pre><code>thermal_resistance = 0.4 K/W  (typical CPU with standard cooling)
+temp_delta = power_watts * thermal_resistance
+</code></pre>
+<h2 id="violation-diagnostics"><a class="header" href="#violation-diagnostics">Violation Diagnostics</a></h2>
+<p>When a budget is exceeded, the compiler emits an error:</p>
+<pre><code>error: energy budget exceeded in function 'name'
+  --&gt; file.joule:line:col
+   |
+   | fn name(...) {
+   | ^^^^^^^^^^^^^^
+   |
+   = estimated: X.XXXXX J (confidence: NN%)
+   = budget:    X.XXXXX J
+   = exceeded by NNN%
+</code></pre>
+<p>For power and thermal budgets, similar diagnostics are produced with the appropriate units.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../reference/concurrency.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../stdlib/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../reference/concurrency.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../stdlib/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

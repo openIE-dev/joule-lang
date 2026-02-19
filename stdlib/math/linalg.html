@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linalg - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module linalg</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Vector</code></h3>
+                <p>Dense vector of floating-point numbers</p>
+                <p class="source">Source: linalg.joule:16</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(len: usize) -&gt; Self</code></h3>
+                <p>Create a new vector of zeros</p>
+                <p class="source">Source: linalg.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ones(len: usize) -&gt; Self where T: One</code></h3>
+                <p>Create a new vector of ones</p>
+                <p class="source">Source: linalg.joule:29</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_slice(data: &amp;[T]) -&gt; Self</code></h3>
+                <p>Create vector from slice</p>
+                <p class="source">Source: linalg.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: linalg.joule:44</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize) -&gt; T</code></h3>
+                <p class="source">Source: linalg.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, i: usize, value: T)</code></h3>
+                <p class="source">Source: linalg.joule:56</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_slice(&amp;self) -&gt; &amp;[T]</code></h3>
+                <p>Get raw slice</p>
+                <p class="source">Source: linalg.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_mut_slice(&amp;mut self) -&gt; &amp;mut [T]</code></h3>
+                <p>Get mutable raw slice</p>
+                <p class="source">Source: linalg.joule:66</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Matrix</code></h3>
+                <p>Dense matrix of floating-point numbers
+Stored in row-major order</p>
+                <p class="source">Source: linalg.joule:77</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(rows: usize, cols: usize) -&gt; Self</code></h3>
+                <p>Create a new matrix of zeros</p>
+                <p class="source">Source: linalg.joule:85</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ones(rows: usize, cols: usize) -&gt; Self where T: One</code></h3>
+                <p>Create a new matrix of ones</p>
+                <p class="source">Source: linalg.joule:94</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eye(n: usize) -&gt; Self where T: One + Zero</code></h3>
+                <p>Create identity matrix</p>
+                <p class="source">Source: linalg.joule:103</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_rows(rows: &amp;[&amp;[T]]) -&gt; Self</code></h3>
+                <p>Create matrix from nested slices</p>
+                <p class="source">Source: linalg.joule:112</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn diag(v: &amp;Vector&lt;T&gt;) -&gt; Self where T: Zero</code></h3>
+                <p>Create diagonal matrix from vector</p>
+                <p class="source">Source: linalg.joule:130</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: linalg.joule:141</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: linalg.joule:147</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shape(&amp;self) -&gt; (usize, usize)</code></h3>
+                <p class="source">Source: linalg.joule:153</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, row: usize, col: usize) -&gt; T</code></h3>
+                <p class="source">Source: linalg.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, row: usize, col: usize, value: T)</code></h3>
+                <p class="source">Source: linalg.joule:165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row(&amp;self, i: usize) -&gt; Vector&lt;T&gt;</code></h3>
+                <p>Get row as vector</p>
+                <p class="source">Source: linalg.joule:170</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col(&amp;self, j: usize) -&gt; Vector&lt;T&gt;</code></h3>
+                <p>Get column as vector</p>
+                <p class="source">Source: linalg.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose(&amp;self) -&gt; Self</code></h3>
+                <p>Transpose matrix</p>
+                <p class="source">Source: linalg.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_slice(&amp;self) -&gt; &amp;[T]</code></h3>
+                <p>Get raw slice (row-major order)</p>
+                <p class="source">Source: linalg.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_mut_slice(&amp;mut self) -&gt; &amp;mut [T]</code></h3>
+                <p>Get mutable raw slice</p>
+                <p class="source">Source: linalg.joule:201</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dot(a: &amp;Vector&lt;f64&gt;, b: &amp;Vector&lt;f64&gt;) -&gt; f64</code></h3>
+                <p class="source">Source: linalg.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm(v: &amp;Vector&lt;f64&gt;) -&gt; f64</code></h3>
+                <p class="source">Source: linalg.joule:236</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm_l1(v: &amp;Vector&lt;f64&gt;) -&gt; f64</code></h3>
+                <p>L1 norm (sum of absolute values)</p>
+                <p class="source">Source: linalg.joule:250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm_inf(v: &amp;Vector&lt;f64&gt;) -&gt; f64</code></h3>
+                <p>L-infinity norm (maximum absolute value)</p>
+                <p class="source">Source: linalg.joule:259</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize(v: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p>Normalize vector to unit length</p>
+                <p class="source">Source: linalg.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(v: &amp;Vector&lt;f64&gt;, s: f64) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p>Scale vector by scalar</p>
+                <p class="source">Source: linalg.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(a: &amp;Vector&lt;f64&gt;, b: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p>Add two vectors</p>
+                <p class="source">Source: linalg.joule:288</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(a: &amp;Vector&lt;f64&gt;, b: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p>Subtract two vectors</p>
+                <p class="source">Source: linalg.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cross(a: &amp;Vector&lt;f64&gt;, b: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p>Cross product (3D vectors only)</p>
+                <p class="source">Source: linalg.joule:308</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(a: &amp;Matrix&lt;f64&gt;, x: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p class="source">Source: linalg.joule:324</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matmul(a: &amp;Matrix&lt;f64&gt;, b: &amp;Matrix&lt;f64&gt;) -&gt; Matrix&lt;f64&gt;</code></h3>
+                <p class="source">Source: linalg.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frobenius_norm(m: &amp;Matrix&lt;f64&gt;) -&gt; f64</code></h3>
+                <p>Matrix Frobenius norm</p>
+                <p class="source">Source: linalg.joule:413</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trace(m: &amp;Matrix&lt;f64&gt;) -&gt; f64</code></h3>
+                <p>Trace of square matrix</p>
+                <p class="source">Source: linalg.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn det(m: &amp;Matrix&lt;f64&gt;) -&gt; f64</code></h3>
+                <p class="source">Source: linalg.joule:436</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lu_decompose(a: &amp;Matrix&lt;f64&gt;) -&gt; (Matrix&lt;f64&gt;, Vec&lt;usize&gt;, i32)</code></h3>
+                <p>LU decomposition with partial pivoting
+Returns (LU combined matrix, pivot indices, sign of permutation)</p>
+                <p class="source">Source: linalg.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve(a: &amp;Matrix&lt;f64&gt;, b: &amp;Vector&lt;f64&gt;) -&gt; Vector&lt;f64&gt;</code></h3>
+                <p class="source">Source: linalg.joule:516</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inverse(a: &amp;Matrix&lt;f64&gt;) -&gt; Matrix&lt;f64&gt;</code></h3>
+                <p class="source">Source: linalg.joule:552</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn qr_decompose(a: &amp;Matrix&lt;f64&gt;) -&gt; (Matrix&lt;f64&gt;, Matrix&lt;f64&gt;)</code></h3>
+                <p>QR decomposition
+Returns (Q, R) where A &#x3D; QR</p>
+                <p class="source">Source: linalg.joule:573</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eig_symmetric(a: &amp;Matrix&lt;f64&gt;) -&gt; (Vector&lt;f64&gt;, Matrix&lt;f64&gt;)</code></h3>
+                <p class="source">Source: linalg.joule:630</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait Zero</code></h3>
+                <p class="source">Source: linalg.joule:712</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero() -&gt; Self;</code></h3>
+                <p class="source">Source: linalg.joule:713</p>
+            </article>
+            <article class="item item-Trait">
+                <h3><code>trait One</code></h3>
+                <p class="source">Source: linalg.joule:716</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn one() -&gt; Self;</code></h3>
+                <p class="source">Source: linalg.joule:717</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: linalg.joule:726</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: linalg.joule:732</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

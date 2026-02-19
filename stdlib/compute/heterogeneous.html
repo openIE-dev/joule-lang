@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>heterogeneous - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module heterogeneous</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum Engine</code></h3>
+                <p class="source">Source: heterogeneous.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_single(&amp;self) -&gt; bool</code></h3>
+                <p>Is this a single engine or cooperative?</p>
+                <p class="source">Source: heterogeneous.joule:37</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn components(&amp;self) -&gt; Vec&lt;Engine&gt;</code></h3>
+                <p>Get component engines for cooperative modes</p>
+                <p class="source">Source: heterogeneous.joule:42</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum ComputeDType</code></h3>
+                <p class="source">Source: heterogeneous.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bits(&amp;self) -&gt; usize</code></h3>
+                <p>Size in bits</p>
+                <p class="source">Source: heterogeneous.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bytes(&amp;self) -&gt; usize</code></h3>
+                <p>Size in bytes (rounded up)</p>
+                <p class="source">Source: heterogeneous.joule:84</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_float(&amp;self) -&gt; bool</code></h3>
+                <p>Is this a floating point type?</p>
+                <p class="source">Source: heterogeneous.joule:89</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_quantized(&amp;self) -&gt; bool</code></h3>
+                <p>Is this a quantized/integer type?</p>
+                <p class="source">Source: heterogeneous.joule:95</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn preferred_engine(&amp;self) -&gt; Engine</code></h3>
+                <p>Preferred engine for this dtype</p>
+                <p class="source">Source: heterogeneous.joule:101</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum OpClass</code></h3>
+                <p class="source">Source: heterogeneous.joule:121</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn classify(op: &amp;str, m: usize, n: usize, k: usize, batch: usize) -&gt; Self</code></h3>
+                <p>Classify operation from name and dimensions</p>
+                <p class="source">Source: heterogeneous.joule:154</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn preferred_engine(&amp;self, dtype: ComputeDType) -&gt; Engine</code></h3>
+                <p>Get preferred engine for this operation class and dtype</p>
+                <p class="source">Source: heterogeneous.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn offload_threshold(&amp;self) -&gt; u64</code></h3>
+                <p>Minimum FLOPS to justify offload to accelerator</p>
+                <p class="source">Source: heterogeneous.joule:231</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EngineCapabilities</code></h3>
+                <p class="source">Source: heterogeneous.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn peak_ops_per_sec(&amp;self, dtype: ComputeDType) -&gt; f64</code></h3>
+                <p>Estimate peak performance for a given dtype</p>
+                <p class="source">Source: heterogeneous.joule:278</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn efficiency_tops_per_watt(&amp;self, dtype: ComputeDType) -&gt; f64</code></h3>
+                <p>Energy efficiency in TOPS/Watt</p>
+                <p class="source">Source: heterogeneous.joule:291</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arithmetic_intensity_threshold(&amp;self, dtype: ComputeDType) -&gt; f64</code></h3>
+                <p>Arithmetic intensity threshold (roofline model)
+Operations with AI below this are memory-bound</p>
+                <p class="source">Source: heterogeneous.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apple_m5_cpu() -&gt; Self</code></h3>
+                <p>Apple M5 CPU (estimated specs)</p>
+                <p class="source">Source: heterogeneous.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apple_m5_gpu() -&gt; Self</code></h3>
+                <p>Apple M5 GPU (estimated specs)</p>
+                <p class="source">Source: heterogeneous.joule:328</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apple_m5_npu() -&gt; Self</code></h3>
+                <p>Apple M5 Neural Engine (estimated specs)</p>
+                <p class="source">Source: heterogeneous.joule:349</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apple_m5_all() -&gt; Vec&lt;Self&gt;</code></h3>
+                <p>Get all Apple M5 engines</p>
+                <p class="source">Source: heterogeneous.joule:369</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ScheduleOp</code></h3>
+                <p class="source">Source: heterogeneous.joule:384</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(</code></h3>
+                <p>Create from operation parameters</p>
+                <p class="source">Source: heterogeneous.joule:409</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_dep(mut self, dep_id: usize) -&gt; Self</code></h3>
+                <p>Add dependency</p>
+                <p class="source">Source: heterogeneous.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_deps(mut self, deps: &amp;[usize]) -&gt; Self</code></h3>
+                <p>Add multiple dependencies</p>
+                <p class="source">Source: heterogeneous.joule:443</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arithmetic_intensity(&amp;self) -&gt; f64</code></h3>
+                <p>Arithmetic intensity (FLOPS / bytes)</p>
+                <p class="source">Source: heterogeneous.joule:449</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_compute_bound(&amp;self, caps: &amp;EngineCapabilities) -&gt; bool</code></h3>
+                <p>Is this operation compute-bound on given engine?</p>
+                <p class="source">Source: heterogeneous.joule:458</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn should_offload(&amp;self) -&gt; bool</code></h3>
+                <p>Should this operation be offloaded from CPU?</p>
+                <p class="source">Source: heterogeneous.joule:464</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ScheduleDecision</code></h3>
+                <p class="source">Source: heterogeneous.joule:471</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct TransformerSchedule</code></h3>
+                <p class="source">Source: heterogeneous.joule:492</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum BufferLocation</code></h3>
+                <p class="source">Source: heterogeneous.joule:519</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Buffer</code></h3>
+                <p>Unified memory buffer that can be used by any engine
+On unified memory systems (Apple Silicon), no copies needed</p>
+                <p class="source">Source: heterogeneous.joule:532</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(shape: &amp;[usize], dtype: ComputeDType) -&gt; Self</code></h3>
+                <p>Create new zero-initialized buffer</p>
+                <p class="source">Source: heterogeneous.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_vec(data: Vec&lt;T&gt;, shape: &amp;[usize], dtype: ComputeDType) -&gt; Self</code></h3>
+                <p>Create from existing data</p>
+                <p class="source">Source: heterogeneous.joule:556</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn compute_strides(shape: &amp;[usize]) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p>Compute row-major strides</p>
+                <p class="source">Source: heterogeneous.joule:571</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shape(&amp;self) -&gt; &amp;[usize]</code></h3>
+                <p>Get shape</p>
+                <p class="source">Source: heterogeneous.joule:580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn strides(&amp;self) -&gt; &amp;[usize]</code></h3>
+                <p>Get strides</p>
+                <p class="source">Source: heterogeneous.joule:585</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get total element count</p>
+                <p class="source">Source: heterogeneous.joule:590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn size_bytes(&amp;self) -&gt; usize</code></h3>
+                <p>Get size in bytes</p>
+                <p class="source">Source: heterogeneous.joule:595</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dtype(&amp;self) -&gt; ComputeDType</code></h3>
+                <p>Get dtype</p>
+                <p class="source">Source: heterogeneous.joule:600</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn location(&amp;self) -&gt; BufferLocation</code></h3>
+                <p>Get current location</p>
+                <p class="source">Source: heterogeneous.joule:605</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ensure_on(&amp;mut self, engine: Engine)</code></h3>
+                <p>Ensure buffer is accessible on engine (no-op for unified memory)</p>
+                <p class="source">Source: heterogeneous.joule:610</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_ptr(&amp;self) -&gt; *const T</code></h3>
+                <p>Get raw data pointer</p>
+                <p class="source">Source: heterogeneous.joule:616</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_mut_ptr(&amp;mut self) -&gt; *mut T</code></h3>
+                <p>Get mutable raw data pointer</p>
+                <p class="source">Source: heterogeneous.joule:621</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_slice(&amp;self) -&gt; &amp;[T]</code></h3>
+                <p>Get data slice</p>
+                <p class="source">Source: heterogeneous.joule:626</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_mut_slice(&amp;mut self) -&gt; &amp;mut [T]</code></h3>
+                <p>Get mutable data slice</p>
+                <p class="source">Source: heterogeneous.joule:631</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Gemm</code></h3>
+                <p>General Matrix Multiply: C &#x3D; α * A @ B + β * C</p>
+                <p class="source">Source: heterogeneous.joule:641</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:649</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:660</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transposed_a(mut self) -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:664</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transposed_b(mut self) -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_alpha(mut self, alpha: f32) -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:674</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_beta(mut self, beta: f32) -&gt; Self</code></h3>
+                <p class="source">Source: heterogeneous.joule:679</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_f32(</code></h3>
+                <p>Execute GEMM on the optimal engine</p>
+                <p class="source">Source: heterogeneous.joule:685</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_cpu_f32(&amp;self, a: &amp;Buffer&lt;f32&gt;, b: &amp;Buffer&lt;f32&gt;, c: &amp;mut Buffer&lt;f32&gt;, m: usize, n: usize, k: usize)</code></h3>
+                <p class="source">Source: heterogeneous.joule:718</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_gpu_f32(&amp;self, a: &amp;Buffer&lt;f32&gt;, b: &amp;Buffer&lt;f32&gt;, c: &amp;mut Buffer&lt;f32&gt;, m: usize, n: usize, k: usize)</code></h3>
+                <p class="source">Source: heterogeneous.joule:745</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_cpu_f32(&amp;self, _a: &amp;Buffer&lt;f32&gt;, _b: &amp;Buffer&lt;f32&gt;, _c: &amp;mut Buffer&lt;f32&gt;, _m: usize, _n: usize, _k: usize)</code></h3>
+                <p class="source">Source: heterogeneous.joule:752</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn execute_gpu_f32(&amp;self, _a: &amp;Buffer&lt;f32&gt;, _b: &amp;Buffer&lt;f32&gt;, _c: &amp;mut Buffer&lt;f32&gt;, _m: usize, _n: usize, _k: usize)</code></h3>
+                <p class="source">Source: heterogeneous.joule:757</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct GemmResult</code></h3>
+                <p class="source">Source: heterogeneous.joule:764</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scheduler() -&gt; &amp;&#x27;static Scheduler</code></h3>
+                <p>Get the global heterogeneous scheduler</p>
+                <p class="source">Source: heterogeneous.joule:779</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init()</code></h3>
+                <p>Initialize the compute subsystem</p>
+                <p class="source">Source: heterogeneous.joule:786</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>complex - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module complex</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Complex</code></h3>
+                <p class="source">Source: complex.joule:8</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Complex32</code></h3>
+                <p class="source">Source: complex.joule:17</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const I: Complex</code></h3>
+                <p>Imaginary unit i</p>
+                <p class="source">Source: complex.joule:29</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ZERO: Complex</code></h3>
+                <p>Zero</p>
+                <p class="source">Source: complex.joule:32</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const ONE: Complex</code></h3>
+                <p>One</p>
+                <p class="source">Source: complex.joule:35</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const NEG_ONE: Complex</code></h3>
+                <p>Negative one</p>
+                <p class="source">Source: complex.joule:38</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const E_I_PI_2: Complex</code></h3>
+                <p>e^(i*pi) &#x3D; -1, so e^(i*pi/2) &#x3D; i</p>
+                <p class="source">Source: complex.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(re: f64, im: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_real(re: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_imag(im: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_polar(r: f64, theta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:76</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_mag_phase(mag: f64, phase: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cis(theta: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:93</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parse(s: &amp;str) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: complex.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn real(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:154</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn imag(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_zero(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:166</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_real(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_imag(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:178</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_nan(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_infinite(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:190</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_finite(&amp;self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn magnitude(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:214</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn modulus(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm_sqr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arg(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:235</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn phase(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:242</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_polar(&amp;self) -&gt; (f64, f64)</code></h3>
+                <p class="source">Source: complex.joule:249</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:260</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:270</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:280</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:300</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:310</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, s: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:321</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unscale(&amp;self, s: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:331</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inv(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:341</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lerp(&amp;self, other: Self, t: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:364</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sqr(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:378</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cube(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn powi(&amp;self, n: i32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:399</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn powc(&amp;self, w: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:425</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn powf(&amp;self, x: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:441</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sqrt(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:448</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cbrt(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:468</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nroot(&amp;self, n: u32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:475</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn roots(&amp;self, n: u32) -&gt; Vec&lt;Self&gt;</code></h3>
+                <p class="source">Source: complex.joule:485</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn roots_of_unity(n: u32) -&gt; Vec&lt;Self&gt;</code></h3>
+                <p class="source">Source: complex.joule:502</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn primitive_root_of_unity(n: u32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:516</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp_m1(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ln(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:557</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ln_1p(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:566</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log10(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:587</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log2(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:593</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn log(&amp;self, base: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:599</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sin(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:609</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cos(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tan(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:629</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cot(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:635</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sec(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:641</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn csc(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:647</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asin(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:657</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acos(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:669</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn atan(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:677</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acot(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:689</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asec(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:695</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acsc(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:701</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sinh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:711</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cosh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tanh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:731</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn coth(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:737</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sech(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:743</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn csch(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:749</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asinh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:759</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acosh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:767</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn atanh(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:775</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acoth(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:784</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn asech(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:790</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn acsch(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:796</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gamma(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:806</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_gamma(&amp;self) -&gt; Self</code></h3>
+                <p>Lanczos approximation for gamma function</p>
+                <p class="source">Source: complex.joule:821</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const G: f64</code></h3>
+                <p class="source">Source: complex.joule:822</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const COEFFS: [f64; 9]</code></h3>
+                <p class="source">Source: complex.joule:823</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lgamma(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:849</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn digamma(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:855</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn beta(a: Self, b: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:903</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erf(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:910</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn erfc(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:941</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselj0(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:947</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besselj1(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:972</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn besseljn(&amp;self, n: i32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:997</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeta(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1041</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn round(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1089</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn floor(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1099</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ceil(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1109</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trunc(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1119</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fract(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1129</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string(&amp;self) -&gt; String</code></h3>
+                <p>Format as string</p>
+                <p class="source">Source: complex.joule:1137</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_polar_string(&amp;self) -&gt; String</code></h3>
+                <p>Format in polar form</p>
+                <p class="source">Source: complex.joule:1146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1158</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1165</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1172</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg(self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(self, other: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1193</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(self, other: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(self, other: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(self, other: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1214</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eq(&amp;self, other: &amp;Self) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:1220</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1226</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(re: f64) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1232</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from((re, im): (f64, f64)) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(re: f32, im: f32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1250</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_real(re: f32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1256</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_polar(r: f32, theta: f32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1262</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn real(&amp;self) -&gt; f32</code></h3>
+                <p class="source">Source: complex.joule:1270</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn imag(&amp;self) -&gt; f32</code></h3>
+                <p class="source">Source: complex.joule:1275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs(&amp;self) -&gt; f32</code></h3>
+                <p class="source">Source: complex.joule:1281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm_sqr(&amp;self) -&gt; f32</code></h3>
+                <p class="source">Source: complex.joule:1287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arg(&amp;self) -&gt; f32</code></h3>
+                <p class="source">Source: complex.joule:1293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1299</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1323</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div(&amp;self, other: Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1332</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, s: f32) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_complex64(&amp;self) -&gt; Complex</code></h3>
+                <p>Convert to Complex64</p>
+                <p class="source">Source: complex.joule:1350</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(c: Complex) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1356</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dot(a: &amp;[Complex], b: &amp;[Complex]) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1371</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm(v: &amp;[Complex]) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize(v: &amp;mut [Complex])</code></h3>
+                <p class="source">Source: complex.joule:1385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj(v: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: complex.joule:1396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(a: &amp;[Complex], b: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: complex.joule:1402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(a: &amp;[Complex], b: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: complex.joule:1409</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hadamard(a: &amp;[Complex], b: &amp;[Complex]) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: complex.joule:1416</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(v: &amp;[Complex], s: Complex) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p class="source">Source: complex.joule:1423</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(v: &amp;[Complex]) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1429</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn product(v: &amp;[Complex]) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1435</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ComplexMatrix</code></h3>
+                <p class="source">Source: complex.joule:1446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(rows: usize, cols: usize) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1455</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn identity(n: usize) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1465</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_rows(rows: Vec&lt;Vec&lt;Complex&gt;&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1475</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, row: usize, col: usize) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, row: usize, col: usize, value: Complex)</code></h3>
+                <p class="source">Source: complex.joule:1493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row(&amp;self, i: usize) -&gt; &amp;[Complex]</code></h3>
+                <p>Get row as slice</p>
+                <p class="source">Source: complex.joule:1498</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col(&amp;self, j: usize) -&gt; Vec&lt;Complex&gt;</code></h3>
+                <p>Get column as vector</p>
+                <p class="source">Source: complex.joule:1504</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1510</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj_transpose(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1522</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1534</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub(&amp;self, other: &amp;Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1548</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul(&amp;self, other: &amp;Self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1562</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, s: Complex) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1579</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn trace(&amp;self) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1589</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frobenius_norm(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1596</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_hermitian(&amp;self, tol: f64) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:1602</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_unitary(&amp;self, tol: f64) -&gt; bool</code></h3>
+                <p class="source">Source: complex.joule:1619</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lu(&amp;self) -&gt; Option&lt;(Self, Self, Vec&lt;usize&gt;)&gt;</code></h3>
+                <p class="source">Source: complex.joule:1638</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn det(&amp;self) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1695</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn solve(&amp;self, b: &amp;[Complex]) -&gt; Option&lt;Vec&lt;Complex&gt;&gt;</code></h3>
+                <p class="source">Source: complex.joule:1727</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn inv(&amp;self) -&gt; Option&lt;Self&gt;</code></h3>
+                <p class="source">Source: complex.joule:1758</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: complex.joule:1780</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dominant_eigenvalue(&amp;self, max_iter: usize, tol: f64) -&gt; (Complex, Vec&lt;Complex&gt;)</code></h3>
+                <p class="source">Source: complex.joule:1838</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn complex(re: f64, im: f64) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1887</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn exp_i(theta: f64) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1893</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn real(z: Complex) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1899</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn imag(z: Complex) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1905</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs(z: Complex) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1911</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn arg(z: Complex) -&gt; f64</code></h3>
+                <p class="source">Source: complex.joule:1917</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn conj(z: Complex) -&gt; Complex</code></h3>
+                <p class="source">Source: complex.joule:1923</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_basic_operations()</code></h3>
+                <p class="source">Source: complex.joule:1936</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_polar()</code></h3>
+                <p class="source">Source: complex.joule:1950</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_exp_ln()</code></h3>
+                <p class="source">Source: complex.joule:1962</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_roots_of_unity()</code></h3>
+                <p class="source">Source: complex.joule:1974</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_trig()</code></h3>
+                <p class="source">Source: complex.joule:1985</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

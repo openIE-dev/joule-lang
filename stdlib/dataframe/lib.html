@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - DataFrame
+Pandas-level tabular data handling with energy-aware operations&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum DataType</code></h3>
+                <p class="source">Source: lib.joule:19</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Value</code></h3>
+                <p class="source">Source: lib.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_null(&amp;self) -&gt; bool</code></h3>
+                <p>Check if value is null</p>
+                <p class="source">Source: lib.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_bool(&amp;self) -&gt; Option&lt;bool&gt;</code></h3>
+                <p>Try to get as bool</p>
+                <p class="source">Source: lib.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_int(&amp;self) -&gt; Option&lt;i64&gt;</code></h3>
+                <p>Try to get as i64</p>
+                <p class="source">Source: lib.joule:62</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_float(&amp;self) -&gt; Option&lt;f64&gt;</code></h3>
+                <p>Try to get as f64</p>
+                <p class="source">Source: lib.joule:72</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn as_string(&amp;self) -&gt; Option&lt;&amp;str&gt;</code></h3>
+                <p>Try to get as string</p>
+                <p class="source">Source: lib.joule:82</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string_repr(&amp;self) -&gt; String</code></h3>
+                <p>Convert to string representation</p>
+                <p class="source">Source: lib.joule:90</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn partial_cmp(&amp;self, other: &amp;Self) -&gt; Option&lt;std::cmp::Ordering&gt;</code></h3>
+                <p class="source">Source: lib.joule:103</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Column</code></h3>
+                <p class="source">Source: lib.joule:126</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn empty(dtype: DataType) -&gt; Self</code></h3>
+                <p>Create empty column of given type</p>
+                <p class="source">Source: lib.joule:136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get column length</p>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if column is empty</p>
+                <p class="source">Source: lib.joule:159</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dtype(&amp;self) -&gt; DataType</code></h3>
+                <p>Get data type</p>
+                <p class="source">Source: lib.joule:164</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, idx: usize) -&gt; Value</code></h3>
+                <p>Get value at index</p>
+                <p class="source">Source: lib.joule:175</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn count(&amp;self) -&gt; usize</code></h3>
+                <p>Count non-null values</p>
+                <p class="source">Source: lib.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn null_count(&amp;self) -&gt; usize</code></h3>
+                <p>Count null values</p>
+                <p class="source">Source: lib.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_null_at(&amp;self, idx: usize) -&gt; bool</code></h3>
+                <p>Check if value at index is null</p>
+                <p class="source">Source: lib.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bools(values: Vec&lt;bool&gt;) -&gt; Self</code></h3>
+                <p>Create boolean column from values</p>
+                <p class="source">Source: lib.joule:213</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_ints(values: Vec&lt;i64&gt;) -&gt; Self</code></h3>
+                <p>Create integer column from values</p>
+                <p class="source">Source: lib.joule:218</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_floats(values: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p>Create float column from values</p>
+                <p class="source">Source: lib.joule:223</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_strings(values: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Create string column from values</p>
+                <p class="source">Source: lib.joule:228</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_float(&amp;self) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:234</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_int(&amp;self) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:246</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_string_col(&amp;self) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn take(&amp;self, indices: &amp;[usize]) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:270</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter(&amp;self, mask: &amp;[bool]) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:282</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unique(&amp;self) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:294</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn argsort(&amp;self, ascending: bool) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p class="source">Source: lib.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill_null(&amp;self, value: &amp;Value) -&gt; Column</code></h3>
+                <p class="source">Source: lib.joule:362</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DataFrame</code></h3>
+                <p class="source">Source: lib.joule:387</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new() -&gt; Self</code></h3>
+                <p>Create empty DataFrame</p>
+                <p class="source">Source: lib.joule:398</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_columns(columns: Vec&lt;(String, Column)&gt;) -&gt; Self</code></h3>
+                <p>Create DataFrame from columns</p>
+                <p class="source">Source: lib.joule:407</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_map(data: HashMap&lt;String, Column&gt;) -&gt; Self</code></h3>
+                <p>Create DataFrame from hashmap</p>
+                <p class="source">Source: lib.joule:417</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of rows</p>
+                <p class="source">Source: lib.joule:427</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p>Get number of columns</p>
+                <p class="source">Source: lib.joule:432</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shape(&amp;self) -&gt; (usize, usize)</code></h3>
+                <p>Get shape (rows, cols)</p>
+                <p class="source">Source: lib.joule:437</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if empty</p>
+                <p class="source">Source: lib.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;Column&gt;</code></h3>
+                <p>Get column by name</p>
+                <p class="source">Source: lib.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col_mut(&amp;mut self, name: &amp;str) -&gt; Option&lt;&amp;mut Column&gt;</code></h3>
+                <p>Get mutable column by name</p>
+                <p class="source">Source: lib.joule:452</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn col_by_idx(&amp;self, idx: usize) -&gt; Option&lt;&amp;Column&gt;</code></h3>
+                <p>Get column by index</p>
+                <p class="source">Source: lib.joule:457</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_column(&amp;mut self, name: String, column: Column)</code></h3>
+                <p>Add column</p>
+                <p class="source">Source: lib.joule:462</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove_column(&amp;mut self, name: &amp;str) -&gt; Option&lt;Column&gt;</code></h3>
+                <p>Remove column</p>
+                <p class="source">Source: lib.joule:470</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rename_column(&amp;mut self, old_name: &amp;str, new_name: String)</code></h3>
+                <p>Rename column</p>
+                <p class="source">Source: lib.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn select(&amp;self, columns: &amp;[&amp;str]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:487</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn drop(&amp;self, columns: &amp;[&amp;str]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:507</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row(&amp;self, idx: usize) -&gt; Vec&lt;Value&gt;</code></h3>
+                <p>Get row as values</p>
+                <p class="source">Source: lib.joule:517</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn take(&amp;self, indices: &amp;[usize]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn head(&amp;self, n: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:541</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tail(&amp;self, n: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:548</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn slice(&amp;self, start: usize, end: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:556</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter(&amp;self, mask: &amp;[bool]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:564</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filter_by&lt;F&gt;(&amp;self, column: &amp;str, predicate: F) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:576</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sort_by(&amp;self, column: &amp;str, ascending: bool) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:592</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sort_by_multiple(&amp;self, columns: &amp;[(&amp;str, bool)]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:603</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn groupby(&amp;self, column: &amp;str) -&gt; groupby::GroupBy</code></h3>
+                <p class="source">Source: lib.joule:626</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn concat(frames: &amp;[&amp;DataFrame]) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn join(&amp;self, other: &amp;DataFrame, on: &amp;str, how: JoinType) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:684</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn describe(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:690</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply&lt;F&gt;(&amp;self, column: &amp;str, f: F) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:696</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn print(&amp;self, max_rows: usize)</code></h3>
+                <p>Print DataFrame preview</p>
+                <p class="source">Source: lib.joule:727</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:756</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum JoinType</code></h3>
+                <p class="source">Source: lib.joule:763</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn format_datetime(ns: i64) -&gt; String</code></h3>
+                <p class="source">Source: lib.joule:774</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn truncate_string(s: &amp;str, max_len: usize) -&gt; String</code></h3>
+                <p class="source">Source: lib.joule:811</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_dataframe_creation()</code></h3>
+                <p class="source">Source: lib.joule:828</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_column_operations()</code></h3>
+                <p class="source">Source: lib.joule:839</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_filter()</code></h3>
+                <p class="source">Source: lib.joule:846</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_sort()</code></h3>
+                <p class="source">Source: lib.joule:856</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

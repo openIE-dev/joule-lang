@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["match_pattern"],"struct":["Bindings","MatchResult","MatchedFragment"]};

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>energy_optim - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module energy_optim</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct EnergyAwareOptimizer</code></h3>
+                <p>Wrapper that adds energy awareness to any optimizer</p>
+                <p class="source">Source: energy_optim.joule:20</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum EnergyOptimMode</code></h3>
+                <p class="source">Source: energy_optim.joule:60</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct EnergyOptimConfig</code></h3>
+                <p class="source">Source: energy_optim.joule:75</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Self</code></h3>
+                <p class="source">Source: energy_optim.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(inner: O, energy_tracker: Arc&lt;EnergyTracker&gt;) -&gt; Self</code></h3>
+                <p>Create new energy-aware optimizer</p>
+                <p class="source">Source: energy_optim.joule:118</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_budget(mut self, budget: EnergyBudget) -&gt; Self</code></h3>
+                <p>Set energy budget</p>
+                <p class="source">Source: energy_optim.joule:136</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_target_efficiency(mut self, efficiency: f64) -&gt; Self</code></h3>
+                <p>Set target efficiency</p>
+                <p class="source">Source: energy_optim.joule:143</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_mode(mut self, mode: EnergyOptimMode) -&gt; Self</code></h3>
+                <p>Set mode</p>
+                <p class="source">Source: energy_optim.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_config(mut self, config: EnergyOptimConfig) -&gt; Self</code></h3>
+                <p>Set configuration</p>
+                <p class="source">Source: energy_optim.joule:156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn begin_step(&amp;mut self)</code></h3>
+                <p>Begin step (call before forward/backward)</p>
+                <p class="source">Source: energy_optim.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn record_loss(&amp;mut self, loss: f64, prev_loss: f64)</code></h3>
+                <p>Record loss for efficiency calculation</p>
+                <p class="source">Source: energy_optim.joule:168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn should_skip(&amp;self) -&gt; bool</code></h3>
+                <p>Should skip this update (if inefficient)?</p>
+                <p class="source">Source: energy_optim.joule:179</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Get energy consumed this step</p>
+                <p class="source">Source: energy_optim.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_efficiency(&amp;self) -&gt; f64</code></h3>
+                <p>Get current efficiency estimate</p>
+                <p class="source">Source: energy_optim.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Get total energy consumed</p>
+                <p class="source">Source: energy_optim.joule:202</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lr_scale(&amp;self) -&gt; f64</code></h3>
+                <p>Get learning rate scale</p>
+                <p class="source">Source: energy_optim.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remaining_budget(&amp;self) -&gt; Option&lt;Joules&gt;</code></h3>
+                <p>Get remaining budget</p>
+                <p class="source">Source: energy_optim.joule:212</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: energy_optim.joule:293</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: energy_optim.joule:297</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: energy_optim.joule:301</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: energy_optim.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn adapt_learning_rate(&amp;mut self)</code></h3>
+                <p>Adapt learning rate based on efficiency</p>
+                <p class="source">Source: energy_optim.joule:312</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct ScheduledPowerOptimizer</code></h3>
+                <p>Optimizer with scheduled power states (like GPU P-states)</p>
+                <p class="source">Source: energy_optim.joule:366</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct PowerPhase</code></h3>
+                <p class="source">Source: energy_optim.joule:376</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(inner: O, energy_tracker: Arc&lt;EnergyTracker&gt;) -&gt; Self</code></h3>
+                <p class="source">Source: energy_optim.joule:390</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_warmup(mut self, steps: u64) -&gt; Self</code></h3>
+                <p>Add warmup phase (low power, low learning rate)</p>
+                <p class="source">Source: energy_optim.joule:409</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_cooldown(mut self, steps: u64) -&gt; Self</code></h3>
+                <p>Add cooldown phase (low power)</p>
+                <p class="source">Source: energy_optim.joule:421</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_high_perf_phase(mut self, steps: u64) -&gt; Self</code></h3>
+                <p>Add high-performance phase</p>
+                <p class="source">Source: energy_optim.joule:433</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_phase(&amp;self) -&gt; &amp;PowerPhase</code></h3>
+                <p>Get current phase</p>
+                <p class="source">Source: energy_optim.joule:452</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn advance_phase(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:456</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:492</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: energy_optim.joule:496</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: energy_optim.joule:500</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: energy_optim.joule:504</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: energy_optim.joule:508</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct CheckpointingOptimizer</code></h3>
+                <p>Optimizer that uses gradient checkpointing for memory/energy trade-off</p>
+                <p class="source">Source: energy_optim.joule:518</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(inner: O, checkpoint_every: usize) -&gt; Self</code></h3>
+                <p class="source">Source: energy_optim.joule:526</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn recompute_count(&amp;self) -&gt; u64</code></h3>
+                <p>Get number of recomputes performed</p>
+                <p class="source">Source: energy_optim.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn saved_compute_energy(&amp;self) -&gt; Joules</code></h3>
+                <p>Get estimated saved compute energy (from not storing all activations)</p>
+                <p class="source">Source: energy_optim.joule:541</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:547</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:551</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: energy_optim.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: energy_optim.joule:559</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: energy_optim.joule:563</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: energy_optim.joule:567</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LazyOptimizer</code></h3>
+                <p>Optimizer that defers updates until beneficial</p>
+                <p class="source">Source: energy_optim.joule:577</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(inner: O, energy_tracker: Arc&lt;EnergyTracker&gt;, update_threshold: f64) -&gt; Self</code></h3>
+                <p class="source">Source: energy_optim.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn total_deferred(&amp;self) -&gt; u64</code></h3>
+                <p>Get number of deferred updates</p>
+                <p class="source">Source: energy_optim.joule:601</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_saved(&amp;self) -&gt; Joules</code></h3>
+                <p>Get energy saved by deferring</p>
+                <p class="source">Source: energy_optim.joule:606</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn should_update(&amp;self, grad_norm: f64) -&gt; bool</code></h3>
+                <p>Check if gradients are significant enough to update</p>
+                <p class="source">Source: energy_optim.joule:611</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:622</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: energy_optim.joule:626</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: energy_optim.joule:630</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: energy_optim.joule:634</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: energy_optim.joule:638</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct MixedPrecisionEnergyOptimizer</code></h3>
+                <p>Optimizer that dynamically adjusts precision for energy efficiency</p>
+                <p class="source">Source: energy_optim.joule:648</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum PrecisionMode</code></h3>
+                <p class="source">Source: energy_optim.joule:662</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(inner: O, energy_tracker: Arc&lt;EnergyTracker&gt;, mode: PrecisionMode) -&gt; Self</code></h3>
+                <p class="source">Source: energy_optim.joule:674</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn loss_scale(&amp;self) -&gt; f64</code></h3>
+                <p>Get current loss scale</p>
+                <p class="source">Source: energy_optim.joule:689</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn precision_mode(&amp;self) -&gt; PrecisionMode</code></h3>
+                <p>Get current precision mode</p>
+                <p class="source">Source: energy_optim.joule:694</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn update_scale(&amp;mut self, found_inf: bool)</code></h3>
+                <p>Update loss scale based on gradient health</p>
+                <p class="source">Source: energy_optim.joule:699</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn step(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:721</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zero_grad(&amp;mut self)</code></h3>
+                <p class="source">Source: energy_optim.joule:726</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_lr(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: energy_optim.joule:730</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_lr(&amp;mut self, lr: f64)</code></h3>
+                <p class="source">Source: energy_optim.joule:734</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state_dict(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
+                <p class="source">Source: energy_optim.joule:738</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn load_state_dict(&amp;mut self, state: &amp;HashMap&lt;String, Tensor&gt;)</code></h3>
+                <p class="source">Source: energy_optim.joule:742</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_adam(</code></h3>
+                <p>Create energy-aware Adam optimizer</p>
+                <p class="source">Source: energy_optim.joule:752</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_adamw(</code></h3>
+                <p>Create energy-aware AdamW optimizer</p>
+                <p class="source">Source: energy_optim.joule:762</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn energy_sgd(</code></h3>
+                <p>Create energy-aware SGD optimizer</p>
+                <p class="source">Source: energy_optim.joule:773</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn budget_optimizer&lt;O: Optimizer&gt;(</code></h3>
+                <p>Create budget-constrained optimizer</p>
+                <p class="source">Source: energy_optim.joule:784</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max_efficiency_optimizer&lt;O: Optimizer&gt;(</code></h3>
+                <p>Create efficiency-maximizing optimizer</p>
+                <p class="source">Source: energy_optim.joule:794</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_energy_aware_optimizer()</code></h3>
+                <p class="source">Source: energy_optim.joule:814</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_power_phases()</code></h3>
+                <p class="source">Source: energy_optim.joule:824</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

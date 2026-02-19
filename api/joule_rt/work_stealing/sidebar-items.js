@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["init_global_executor","spawn_global","spawn_global_with_result"],"struct":["WorkStealingDeque","WorkStealingExecutor","WorkStealingJoinHandle","WorkStealingTaskHandle"]};

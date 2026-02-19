@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formats - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module formats</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct DiaMatrix</code></h3>
+                <p class="source">Source: formats.joule:15</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize, diagonals: &amp;[(i32, Vec&lt;f64&gt;)]) -&gt; Self</code></h3>
+                <p class="source">Source: formats.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn tridiagonal(n: usize, lower: f64, diag: f64, upper: f64) -&gt; Self</code></h3>
+                <p class="source">Source: formats.joule:41</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: formats.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:74</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:82</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: formats.joule:86</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:120</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct BsrMatrix</code></h3>
+                <p class="source">Source: formats.joule:145</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_csr(csr: &amp;CsrMatrix, block_size: usize) -&gt; Self</code></h3>
+                <p class="source">Source: formats.joule:160</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_block(&amp;self, bi: usize, bj: usize) -&gt; Option&lt;&amp;[f64]&gt;</code></h3>
+                <p>Get block at block position (bi, bj)</p>
+                <p class="source">Source: formats.joule:219</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: formats.joule:236</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:279</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: formats.joule:284</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:298</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:335</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct LilMatrix</code></h3>
+                <p class="source">Source: formats.joule:379</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize) -&gt; Self</code></h3>
+                <p>Create empty LIL matrix</p>
+                <p class="source">Source: formats.joule:388</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, i: usize, j: usize, value: f64)</code></h3>
+                <p>Set element</p>
+                <p class="source">Source: formats.joule:397</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_row(&amp;self, i: usize) -&gt; impl Iterator&lt;Item &#x3D; (usize, f64)&gt; + &#x27;_</code></h3>
+                <p>Get row as iterator</p>
+                <p class="source">Source: formats.joule:418</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: formats.joule:424</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:438</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:442</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: formats.joule:450</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:457</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:470</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct DokMatrix</code></h3>
+                <p class="source">Source: formats.joule:490</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(nrows: usize, ncols: usize) -&gt; Self</code></h3>
+                <p>Create empty DOK matrix</p>
+                <p class="source">Source: formats.joule:499</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, i: usize, j: usize, value: f64)</code></h3>
+                <p>Set element</p>
+                <p class="source">Source: formats.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_csr(&amp;self) -&gt; CsrMatrix</code></h3>
+                <p class="source">Source: formats.joule:518</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nrows(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:528</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ncols(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:532</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn nnz(&amp;self) -&gt; usize</code></h3>
+                <p class="source">Source: formats.joule:536</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, i: usize, j: usize) -&gt; f64</code></h3>
+                <p class="source">Source: formats.joule:540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn matvec_t(&amp;self, x: &amp;[f64]) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p class="source">Source: formats.joule:555</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

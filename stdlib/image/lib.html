@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Image Processing
+Comprehensive OpenCV-level image processing capabilities&lt;/p&gt;
+</section>
+        
+        <section class="items">
+            <article class="item item-Enum">
+                <h3><code>enum PixelType</code></h3>
+                <p class="source">Source: lib.joule:23</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Image</code></h3>
+                <p class="source">Source: lib.joule:36</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn zeros(width: usize, height: usize, channels: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn filled(width: usize, height: usize, channels: usize, value: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_data(data: Vec&lt;f64&gt;, width: usize, height: usize, channels: usize) -&gt; Self</code></h3>
+                <p>Create from raw data</p>
+                <p class="source">Source: lib.joule:71</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_2d(data: &amp;[Vec&lt;f64&gt;]) -&gt; Self</code></h3>
+                <p>Create from 2D array (grayscale)</p>
+                <p class="source">Source: lib.joule:82</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_rgb(r: &amp;[Vec&lt;f64&gt;], g: &amp;[Vec&lt;f64&gt;], b: &amp;[Vec&lt;f64&gt;]) -&gt; Self</code></h3>
+                <p>Create from RGB arrays</p>
+                <p class="source">Source: lib.joule:100</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn num_pixels(&amp;self) -&gt; usize</code></h3>
+                <p>Get total number of pixels</p>
+                <p class="source">Source: lib.joule:122</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pixel_index(&amp;self, x: usize, y: usize, c: usize) -&gt; usize</code></h3>
+                <p class="source">Source: lib.joule:128</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, x: usize, y: usize, c: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:134</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_checked(&amp;self, x: i32, y: i32, c: usize) -&gt; f64</code></h3>
+                <p>Get pixel value with bounds checking</p>
+                <p class="source">Source: lib.joule:139</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_clamped(&amp;self, x: i32, y: i32, c: usize) -&gt; f64</code></h3>
+                <p>Get pixel value with clamped bounds</p>
+                <p class="source">Source: lib.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_reflect(&amp;self, x: i32, y: i32, c: usize) -&gt; f64</code></h3>
+                <p>Get pixel value with reflection</p>
+                <p class="source">Source: lib.joule:155</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set(&amp;mut self, x: usize, y: usize, c: usize, value: f64)</code></h3>
+                <p class="source">Source: lib.joule:163</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_pixel(&amp;self, x: usize, y: usize) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Get all channels at pixel</p>
+                <p class="source">Source: lib.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_pixel(&amp;mut self, x: usize, y: usize, values: &amp;[f64])</code></h3>
+                <p>Set all channels at pixel</p>
+                <p class="source">Source: lib.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row(&amp;self, y: usize) -&gt; &amp;[f64]</code></h3>
+                <p>Get row as slice</p>
+                <p class="source">Source: lib.joule:185</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn row_mut(&amp;mut self, y: usize) -&gt; &amp;mut [f64]</code></h3>
+                <p>Get mutable row</p>
+                <p class="source">Source: lib.joule:192</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn channel(&amp;self, c: usize) -&gt; Vec&lt;Vec&lt;f64&gt;&gt;</code></h3>
+                <p>Get single channel as 2D array</p>
+                <p class="source">Source: lib.joule:199</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone_image(&amp;self) -&gt; Self</code></h3>
+                <p>Clone image</p>
+                <p class="source">Source: lib.joule:210</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_grayscale(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn normalize(&amp;mut self)</code></h3>
+                <p class="source">Source: lib.joule:247</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clamp(&amp;mut self, min: f64, max: f64)</code></h3>
+                <p class="source">Source: lib.joule:261</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn map&lt;F&gt;(&amp;self, f: F) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:269</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn crop(&amp;self, x: usize, y: usize, width: usize, height: usize) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:283</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flip_horizontal(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:303</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flip_vertical(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:319</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotate_90(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:335</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rotate_180(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:351</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn subtract(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale(&amp;self, factor: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn multiply(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:417</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn blend(&amp;self, other: &amp;Image, alpha: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:434</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs_diff(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:452</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:469</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(&amp;self, other: &amp;Image) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:486</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn threshold(&amp;self, thresh: f64, max_val: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:503</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn adaptive_threshold(&amp;self, block_size: usize, c: f64, max_val: f64) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:509</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn histogram(&amp;self, channel: usize, num_bins: usize) -&gt; Vec&lt;usize&gt;</code></h3>
+                <p class="source">Source: lib.joule:528</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn equalize_histogram(&amp;self) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:544</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p>Compute mean of all pixels</p>
+                <p class="source">Source: lib.joule:572</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn variance(&amp;self) -&gt; f64</code></h3>
+                <p>Compute variance</p>
+                <p class="source">Source: lib.joule:577</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std_dev(&amp;self) -&gt; f64</code></h3>
+                <p>Compute standard deviation</p>
+                <p class="source">Source: lib.joule:583</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min_value(&amp;self) -&gt; f64</code></h3>
+                <p>Compute min value</p>
+                <p class="source">Source: lib.joule:588</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max_value(&amp;self) -&gt; f64</code></h3>
+                <p>Compute max value</p>
+                <p class="source">Source: lib.joule:593</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reflect_index(i: i32, size: i32) -&gt; i32</code></h3>
+                <p class="source">Source: lib.joule:598</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn box_blur(image: &amp;Image, kernel_size: usize) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:617</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gaussian_blur(image: &amp;Image, sigma: f64) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:641</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gaussian_kernel(size: usize, sigma: f64) -&gt; Vec&lt;f64&gt;</code></h3>
+                <p>Create 1D Gaussian kernel</p>
+                <p class="source">Source: lib.joule:649</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve_separable(image: &amp;Image, kernel: &amp;[f64]) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:667</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn convolve(image: &amp;Image, kernel: &amp;[Vec&lt;f64&gt;]) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:705</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn median_filter(image: &amp;Image, kernel_size: usize) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:734</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bilateral_filter(image: &amp;Image, sigma_space: f64, sigma_color: f64) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:760</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sharpen(image: &amp;Image, strength: f64) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:799</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn unsharp_mask(image: &amp;Image, sigma: f64, amount: f64) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:810</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sobel_x(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:818</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sobel_y(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:830</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sobel(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:842</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn laplacian(image: &amp;Image) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:859</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn canny(image: &amp;Image, low_threshold: f64, high_threshold: f64) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:871</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum Interpolation</code></h3>
+                <p class="source">Source: lib.joule:956</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn resize(image: &amp;Image, new_width: usize, new_height: usize, method: Interpolation) -&gt; Image</code></h3>
+                <p class="source">Source: lib.joule:965</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bilinear_sample(image: &amp;Image, x: f64, y: f64, c: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:1002</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn bicubic_sample(image: &amp;Image, x: f64, y: f64, c: usize) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:1022</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cubic_weight(t: f64) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:1038</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_sample(image: &amp;Image, x: f64, y: f64, c: usize, a: i32) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:1049</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lanczos_kernel(x: f64, a: i32) -&gt; f64</code></h3>
+                <p class="source">Source: lib.joule:1073</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_image_creation()</code></h3>
+                <p class="source">Source: lib.joule:1093</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_get_set()</code></h3>
+                <p class="source">Source: lib.joule:1102</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_grayscale()</code></h3>
+                <p class="source">Source: lib.joule:1110</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

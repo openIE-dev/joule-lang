@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>series - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module series</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct Series</code></h3>
+                <p class="source">Source: series.joule:13</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn new(name: String, data: Column) -&gt; Self</code></h3>
+                <p>Create series from column</p>
+                <p class="source">Source: series.joule:24</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_ints(name: &amp;str, values: Vec&lt;i64&gt;) -&gt; Self</code></h3>
+                <p>Create series from integers</p>
+                <p class="source">Source: series.joule:33</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_floats(name: &amp;str, values: Vec&lt;f64&gt;) -&gt; Self</code></h3>
+                <p>Create series from floats</p>
+                <p class="source">Source: series.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_strings(name: &amp;str, values: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Create series from strings</p>
+                <p class="source">Source: series.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from_bools(name: &amp;str, values: Vec&lt;bool&gt;) -&gt; Self</code></h3>
+                <p>Create series from booleans</p>
+                <p class="source">Source: series.joule:60</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn len(&amp;self) -&gt; usize</code></h3>
+                <p>Get length</p>
+                <p class="source">Source: series.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_empty(&amp;self) -&gt; bool</code></h3>
+                <p>Check if empty</p>
+                <p class="source">Source: series.joule:74</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dtype(&amp;self) -&gt; DataType</code></h3>
+                <p>Get data type</p>
+                <p class="source">Source: series.joule:79</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get(&amp;self, idx: usize) -&gt; Value</code></h3>
+                <p>Get value at index</p>
+                <p class="source">Source: series.joule:84</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_by_label(&amp;self, label: &amp;str) -&gt; Option&lt;Value&gt;</code></h3>
+                <p>Get value by label (if index exists)</p>
+                <p class="source">Source: series.joule:89</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn with_index(mut self, index: Vec&lt;String&gt;) -&gt; Self</code></h3>
+                <p>Set index labels</p>
+                <p class="source">Source: series.joule:96</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sum(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:107</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:117</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn median(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:128</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn std(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:151</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn var(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:157</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:176</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max(&amp;self) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:186</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn quantile(&amp;self, q: f64) -&gt; f64</code></h3>
+                <p class="source">Source: series.joule:196</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cumsum(&amp;self) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:221</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cumprod(&amp;self) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:251</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn diff(&amp;self, periods: usize) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:281</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn pct_change(&amp;self, periods: usize) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:314</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rolling_mean(&amp;self, window: usize) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rolling_std(&amp;self, window: usize) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:406</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ewm(&amp;self, alpha: f64) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:446</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_scalar(&amp;self, value: f64) -&gt; Series</code></h3>
+                <p>Add scalar</p>
+                <p class="source">Source: series.joule:493</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_scalar(&amp;self, value: f64) -&gt; Series</code></h3>
+                <p>Multiply by scalar</p>
+                <p class="source">Source: series.joule:503</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add(&amp;self, other: &amp;Series) -&gt; Series</code></h3>
+                <p>Add series</p>
+                <p class="source">Source: series.joule:513</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn apply&lt;F&gt;(&amp;self, f: F) -&gt; Series</code></h3>
+                <p class="source">Source: series.joule:542</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn gt(&amp;self, value: f64) -&gt; Series</code></h3>
+                <p>Greater than scalar</p>
+                <p class="source">Source: series.joule:570</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn lt(&amp;self, value: f64) -&gt; Series</code></h3>
+                <p>Less than scalar</p>
+                <p class="source">Source: series.joule:580</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn eq_scalar(&amp;self, value: f64) -&gt; Series</code></h3>
+                <p>Equal to scalar</p>
+                <p class="source">Source: series.joule:590</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn to_bool_mask(&amp;self) -&gt; Vec&lt;bool&gt;</code></h3>
+                <p>Get boolean mask as vec</p>
+                <p class="source">Source: series.joule:600</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn str_len(&amp;self) -&gt; Series</code></h3>
+                <p>String length</p>
+                <p class="source">Source: series.joule:612</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn str_contains(&amp;self, pattern: &amp;str) -&gt; Series</code></h3>
+                <p>String contains</p>
+                <p class="source">Source: series.joule:621</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn str_upper(&amp;self) -&gt; Series</code></h3>
+                <p>String to uppercase</p>
+                <p class="source">Source: series.joule:630</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn str_lower(&amp;self) -&gt; Series</code></h3>
+                <p>String to lowercase</p>
+                <p class="source">Source: series.joule:639</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn value_counts(&amp;self) -&gt; HashMap&lt;String, usize&gt;</code></h3>
+                <p class="source">Source: series.joule:649</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_series_statistics()</code></h3>
+                <p class="source">Source: series.joule:670</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_series_cumsum()</code></h3>
+                <p class="source">Source: series.joule:681</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn test_series_rolling_mean()</code></h3>
+                <p class="source">Source: series.joule:693</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

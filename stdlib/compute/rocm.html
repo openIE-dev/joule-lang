@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rocm - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module rocm</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:10</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipInit(flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_devices() -&gt; Vec&lt;GpuDevice&gt;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:25</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipGetDeviceCount(count: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipGetDeviceProperties(prop: *mut HipDeviceProperties, device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:28</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct HipDeviceProperties</code></h3>
+                <p class="source">Source: gpu/rocm.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_hip_version() -&gt; String</code></h3>
+                <p>Get HIP runtime version string</p>
+                <p class="source">Source: gpu/rocm.joule:148</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipRuntimeGetVersion(version: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:150</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_device() -&gt; Option&lt;i32&gt;</code></h3>
+                <p>Get current HIP device</p>
+                <p class="source">Source: gpu/rocm.joule:169</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipGetDevice(device: *mut i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_device(device: i32) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Set current HIP device</p>
+                <p class="source">Source: gpu/rocm.joule:182</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipSetDevice(device: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:184</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable_peer_access(device: i32, peer_device: i32) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:195</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipDeviceEnablePeerAccess(peer_device: i32, flags: u32) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:197</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn can_access_peer(device: i32, peer_device: i32) -&gt; bool</code></h3>
+                <p>Check if peer-to-peer access is possible</p>
+                <p class="source">Source: gpu/rocm.joule:207</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipDeviceCanAccessPeer(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:209</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn memory_info() -&gt; Result&lt;(usize, usize), GpuError&gt;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:222</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipMemGetInfo(free: *mut usize, total: *mut usize) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:224</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reset_device() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Reset device (clear all allocations)</p>
+                <p class="source">Source: gpu/rocm.joule:236</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipDeviceReset() -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:238</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Initialize ROCm SMI</p>
+                <p class="source">Source: gpu/rocm.joule:256</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_init(flags: u64) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:258</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn shutdown()</code></h3>
+                <p>Shutdown ROCm SMI</p>
+                <p class="source">Source: gpu/rocm.joule:275</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_shut_down() -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:277</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_power_usage(device_index: u32) -&gt; Option&lt;u64&gt;</code></h3>
+                <p>Get GPU power usage in microwatts</p>
+                <p class="source">Source: gpu/rocm.joule:287</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_power_ave_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:289</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_temperature(device_index: u32) -&gt; Option&lt;i64&gt;</code></h3>
+                <p>Get GPU temperature in millidegrees Celsius</p>
+                <p class="source">Source: gpu/rocm.joule:305</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_temp_metric_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:307</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_utilization(device_index: u32) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get GPU utilization (0-100)</p>
+                <p class="source">Source: gpu/rocm.joule:325</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_busy_percent_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:327</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_gpu_clock(device_index: u32) -&gt; Option&lt;u64&gt;</code></h3>
+                <p>Get current GPU clock speed in MHz</p>
+                <p class="source">Source: gpu/rocm.joule:342</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_gpu_clk_freq_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:344</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct RsmiFrequencies</code></h3>
+                <p class="source">Source: gpu/rocm.joule:352</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_memory_utilization(device_index: u32) -&gt; Option&lt;u32&gt;</code></h3>
+                <p>Get memory utilization (0-100)</p>
+                <p class="source">Source: gpu/rocm.joule:372</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_memory_busy_percent_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:374</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_fan_speed(device_index: u32) -&gt; Option&lt;i64&gt;</code></h3>
+                <p>Get fan speed (0-255)</p>
+                <p class="source">Source: gpu/rocm.joule:389</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn rsmi_dev_fan_speed_get(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:391</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_handle() -&gt; Result&lt;*mut std::ffi::c_void, GpuError&gt;</code></h3>
+                <p>Create hipBLAS handle</p>
+                <p class="source">Source: gpu/rocm.joule:412</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipblasCreate(handle: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:414</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn destroy_handle(handle: *mut std::ffi::c_void)</code></h3>
+                <p>Destroy hipBLAS handle</p>
+                <p class="source">Source: gpu/rocm.joule:426</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipblasDestroy(handle: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:428</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sgemm(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:435</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipblasSgemm(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:447</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dgemm(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:482</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hipblasDgemm(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn create_handle() -&gt; Result&lt;*mut std::ffi::c_void, GpuError&gt;</code></h3>
+                <p>Create MIOpen handle</p>
+                <p class="source">Source: gpu/rocm.joule:533</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn miopenCreate(handle: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:535</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn destroy_handle(handle: *mut std::ffi::c_void)</code></h3>
+                <p>Destroy MIOpen handle</p>
+                <p class="source">Source: gpu/rocm.joule:547</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn miopenDestroy(handle: *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <p class="source">Source: gpu/rocm.joule:549</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_stream(handle: *mut std::ffi::c_void, stream: *mut std::ffi::c_void) -&gt; Result&lt;(), GpuError&gt;</code></h3>
+                <p>Set stream for MIOpen operations</p>
+                <p class="source">Source: gpu/rocm.joule:555</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn miopenSetStream(</code></h3>
+                <p class="source">Source: gpu/rocm.joule:557</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["LoanState"],"mod":["lifetimes"],"struct":["BorrowChecker","PlacePath"]};

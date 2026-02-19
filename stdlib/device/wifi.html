@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wifi - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module wifi</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Struct">
+                <h3><code>struct WifiAdapter</code></h3>
+                <p>WiFi adapter handle</p>
+                <p class="source">Source: wifi.joule:7</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WifiSecurity</code></h3>
+                <p class="source">Source: wifi.joule:17</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WifiBand</code></h3>
+                <p class="source">Source: wifi.joule:40</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WifiNetwork</code></h3>
+                <p class="source">Source: wifi.joule:51</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WifiStandard</code></h3>
+                <p class="source">Source: wifi.joule:76</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WifiConnection</code></h3>
+                <p>WiFi connection handle</p>
+                <p class="source">Source: wifi.joule:94</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct WifiConfig</code></h3>
+                <p class="source">Source: wifi.joule:101</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(ssid: &amp;str) -&gt; Self</code></h3>
+                <p>Create config for open network</p>
+                <p class="source">Source: wifi.joule:116</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn psk(ssid: &amp;str, password: &amp;str) -&gt; Self</code></h3>
+                <p>Create config for WPA/WPA2/WPA3 PSK network</p>
+                <p class="source">Source: wifi.joule:127</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn hidden(mut self) -&gt; Self</code></h3>
+                <p>Mark as hidden network</p>
+                <p class="source">Source: wifi.joule:138</p>
+            </article>
+            <article class="item item-Enum">
+                <h3><code>enum WifiState</code></h3>
+                <p class="source">Source: wifi.joule:146</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list() -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:162</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open(interface_name: &amp;str) -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:181</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn default() -&gt; Result&lt;Self, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:200</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn interface_name(&amp;self) -&gt; &amp;str</code></h3>
+                <p>Get interface name</p>
+                <p class="source">Source: wifi.joule:208</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn state(&amp;self) -&gt; Result&lt;WifiState, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:214</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:233</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disable(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:252</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan(&amp;self) -&gt; Result&lt;Vec&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:271</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn current_network(&amp;self) -&gt; Result&lt;Option&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:290</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect(&amp;self, config: &amp;WifiConfig) -&gt; Result&lt;WifiConnection, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:309</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disconnect(&amp;self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:328</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn saved_networks(&amp;self) -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:347</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mac_address(&amp;self) -&gt; Result&lt;[u8; 6], DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:366</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn signal_strength(&amp;self) -&gt; Result&lt;i8, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:385</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn network(&amp;self) -&gt; &amp;WifiNetwork</code></h3>
+                <p>Get the connected network</p>
+                <p class="source">Source: wifi.joule:396</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn signal_strength(&amp;self) -&gt; Result&lt;i8, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:402</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn link_speed(&amp;self) -&gt; Result&lt;u32, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:408</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disconnect(self) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:422</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frequency_to_channel(freq: u32) -&gt; u8</code></h3>
+                <p>Convert frequency to channel</p>
+                <p class="source">Source: wifi.joule:431</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn frequency_to_band(freq: u32) -&gt; WifiBand</code></h3>
+                <p>Get band from frequency</p>
+                <p class="source">Source: wifi.joule:451</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dbm_to_quality(dbm: i8) -&gt; u8</code></h3>
+                <p>Convert dBm to quality percentage (rough approximation)</p>
+                <p class="source">Source: wifi.joule:462</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_linux_wifi_interfaces() -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:476</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_linux_wifi(interface_name: &amp;str) -&gt; Result&lt;WifiAdapter, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:494</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_wifi_state(adapter: &amp;WifiAdapter) -&gt; Result&lt;WifiState, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:508</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_interface_up(interface_name: &amp;str) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:527</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn socket(domain: i32, socket_type: i32, protocol: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: wifi.joule:529</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn ioctl(fd: i32, request: u64, ...) -&gt; i32;</code></h3>
+                <p class="source">Source: wifi.joule:530</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn close(fd: i32) -&gt; i32;</code></h3>
+                <p class="source">Source: wifi.joule:531</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const AF_INET: i32</code></h3>
+                <p class="source">Source: wifi.joule:534</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SOCK_DGRAM: i32</code></h3>
+                <p class="source">Source: wifi.joule:535</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const SIOCSIFFLAGS: u64</code></h3>
+                <p class="source">Source: wifi.joule:536</p>
+            </article>
+            <article class="item item-Const">
+                <h3><code>const IFF_UP: i16</code></h3>
+                <p class="source">Source: wifi.joule:537</p>
+            </article>
+            <article class="item item-Struct">
+                <h3><code>struct Ifreq</code></h3>
+                <p class="source">Source: wifi.joule:540</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn set_linux_interface_down(interface_name: &amp;str) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:569</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan_linux_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;Vec&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:575</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_current_network(_adapter: &amp;WifiAdapter) -&gt; Result&lt;Option&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:581</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_linux_wifi(_adapter: &amp;WifiAdapter, _config: &amp;WifiConfig) -&gt; Result&lt;WifiConnection, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:587</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disconnect_linux_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:593</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_saved_networks() -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:598</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_mac_address(interface_name: &amp;str) -&gt; Result&lt;[u8; 6], DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:604</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_linux_link_speed(_adapter: &amp;WifiAdapter) -&gt; Result&lt;u32, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:624</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn list_macos_wifi_interfaces() -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:632</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn open_macos_wifi(interface_name: &amp;str) -&gt; Result&lt;WifiAdapter, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:638</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn CWWiFiClient_sharedWiFiClient() -&gt; *mut std::ffi::c_void;</code></h3>
+                <p class="source">Source: wifi.joule:640</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_wifi_state(_adapter: &amp;WifiAdapter) -&gt; Result&lt;WifiState, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:655</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn enable_macos_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:661</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disable_macos_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:666</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scan_macos_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;Vec&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:671</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_current_network(_adapter: &amp;WifiAdapter) -&gt; Result&lt;Option&lt;WifiNetwork&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:677</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn connect_macos_wifi(_adapter: &amp;WifiAdapter, _config: &amp;WifiConfig) -&gt; Result&lt;WifiConnection, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:682</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn disconnect_macos_wifi(_adapter: &amp;WifiAdapter) -&gt; Result&lt;(), DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:687</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_saved_networks() -&gt; Result&lt;Vec&lt;String&gt;, DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:692</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn get_macos_mac_address(_interface_name: &amp;str) -&gt; Result&lt;[u8; 6], DeviceError&gt;</code></h3>
+                <p class="source">Source: wifi.joule:697</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Delimiter","MacroError","MacroToken","MetaVarKind","RepKind","RepSep"],"mod":["builtins","expand","hygiene","matcher","proc_macro","transcriber"],"struct":["MacroDef","MacroExpander","MacroRule"]};
