@@ -12,111 +12,73 @@
     </header>
     
     <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - Heterogeneous Compute
+Unified computational mathematics across CPU, GPU, and NPU&lt;/p&gt;
+&lt;p&gt;Philosophy: “One math layer to rule them all”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Treats CPU+GPU+NPU as one coherent compute fabric&lt;/li&gt;
+&lt;li&gt;Automatically routes operations to optimal engine&lt;/li&gt;
+&lt;li&gt;Optimizes across devices, not just per device&lt;/li&gt;
+&lt;li&gt;Enables new usage modes not possible with siloed stacks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Architecture:
+┌─────────────────────────────────────────────────────────────────┐
+│                     Joule User Code                              │
+│   compute::gemm(a, b, &amp;amp;mut c, Engine::Auto)                     │
+└─────────────────────────────────────────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   Heterogeneous Scheduler                        │
+│  - Roofline model analysis (compute vs memory bound)            │
+│  - Operation classification (GEMM, MatVec, Attention, FFN)      │
+│  - Engine selection (CPU for small, GPU for batched, NPU for Q) │
+└─────────────────────────────────────────────────────────────────┘
+│
+┌─────────────────────┼─────────────────────┐
+▼                     ▼                     ▼
+┌───────────────┐   ┌─────────────────┐   ┌─────────────────┐
+│     CPU       │   │      GPU        │   │      NPU        │
+│  Accelerate   │   │  Metal + MPS    │   │    Core ML      │
+│  BLAS + AMX   │   │  Tensor Cores   │   │  Neural Engine  │
+└───────────────┘   └─────────────────┘   └─────────────────┘&lt;/p&gt;
+&lt;p&gt;On Apple Silicon (M1-M5):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: Accelerate framework, NEON SIMD, AMX matrix coprocessor&lt;/li&gt;
+&lt;li&gt;GPU: Metal Performance Shaders (MPS), Metal compute shaders&lt;/li&gt;
+&lt;li&gt;NPU: Core ML → Apple Neural Engine (ANE) for INT8/INT4&lt;/li&gt;
+&lt;/ul&gt;
+</section>
         
         <section class="items">
             <article class="item item-Function">
-                <h3><code>fn init() -&gt; Result&lt;(), GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/lib.joule:28</p>
+                <h3><code>fn init_all() -&gt; Result&lt;(), ComputeError&gt;</code></h3>
+                <p class="source">Source: lib.joule:105</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn list_devices() -&gt; Vec&lt;GpuDevice&gt;</code></h3>
-                <p class="source">Source: gpu/lib.joule:43</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn default_device() -&gt; Option&lt;GpuDevice&gt;</code></h3>
-                <p class="source">Source: gpu/lib.joule:60</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn most_efficient_device() -&gt; Option&lt;GpuDevice&gt;</code></h3>
-                <p class="source">Source: gpu/lib.joule:74</p>
+                <h3><code>fn system_info() -&gt; SystemInfo</code></h3>
+                <p>Get information about available compute resources</p>
+                <p class="source">Source: lib.joule:119</p>
             </article>
             <article class="item item-Struct">
-                <h3><code>struct GpuEnergyResult</code></h3>
-                <p class="source">Source: gpu/lib.joule:103</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn launch(</code></h3>
-                <p class="source">Source: gpu/lib.joule:136</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn launch_on_queue(</code></h3>
-                <p class="source">Source: gpu/lib.joule:180</p>
-            </article>
-            <article class="item item-Struct">
-                <h3><code>struct GpuEnergyMonitor</code></h3>
-                <p>Continuous GPU energy monitor that samples power in the background.
-
-Start the monitor before a sequence of GPU operations, then stop it to
-get an aggregate energy report covering the entire span.</p>
-                <p class="source">Source: gpu/lib.joule:225</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn start(device: &amp;GpuDevice, interval: std::time::Duration) -&gt; Self</code></h3>
-                <p class="source">Source: gpu/lib.joule:243</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn stop(&amp;mut self) -&gt; GpuEnergyReport</code></h3>
-                <p>Stop monitoring and return an aggregate energy report.</p>
-                <p class="source">Source: gpu/lib.joule:273</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn drop(&amp;mut self)</code></h3>
-                <p class="source">Source: gpu/lib.joule:330</p>
-            </article>
-            <article class="item item-Struct">
-                <h3><code>struct GpuEnergyReport</code></h3>
-                <p class="source">Source: gpu/lib.joule:340</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn estimated_co2_kg(&amp;self, carbon_intensity_kg_per_kwh: f64) -&gt; f64</code></h3>
-                <p>Estimated CO2 emissions in kilograms.
-Uses the given carbon intensity (kg CO2 / kWh). Global average is ~0.5.</p>
-                <p class="source">Source: gpu/lib.joule:358</p>
+                <h3><code>struct SystemInfo</code></h3>
+                <p class="source">Source: lib.joule:137</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn print(&amp;self)</code></h3>
-                <p>Print a human-readable summary.</p>
-                <p class="source">Source: gpu/lib.joule:364</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn sample_device_power(kernel: &amp;GpuKernel) -&gt; Option&lt;f64&gt;</code></h3>
-                <p>Sample power from the device using backend-specific management APIs.
-Returns watts if available.</p>
-                <p class="source">Source: gpu/lib.joule:385</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn read_device_power(device: &amp;GpuDevice) -&gt; Option&lt;f64&gt;</code></h3>
-                <p>Read power from a device handle using the appropriate management library.</p>
-                <p class="source">Source: gpu/lib.joule:391</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn estimate_idle_power(device: &amp;GpuDevice) -&gt; f64</code></h3>
-                <p>Estimate idle power for a device based on its backend and capabilities.</p>
-                <p class="source">Source: gpu/lib.joule:415</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn compute_energy(</code></h3>
-                <p>Compute energy from timing and optional power readings.
-Returns (energy_joules, avg_power_watts, peak_power_watts).</p>
-                <p class="source">Source: gpu/lib.joule:426</p>
+                <p class="source">Source: lib.joule:149</p>
             </article>
             <article class="item item-Enum">
-                <h3><code>enum GpuError</code></h3>
-                <p class="source">Source: gpu/lib.joule:463</p>
+                <h3><code>enum ComputeError</code></h3>
+                <p class="source">Source: lib.joule:171</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn from(e: GpuError) -&gt; Self</code></h3>
+                <p class="source">Source: lib.joule:179</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
-                <p class="source">Source: gpu/lib.joule:489</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn launch_with_budget(</code></h3>
-                <p class="source">Source: gpu/lib.joule:524</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn device_power_profile(device: &amp;GpuDevice) -&gt; (f64, f64, f64)</code></h3>
-                <p>Convenience: get a device&#x27;s backend-specific energy cost model parameters.
-Returns (estimated_idle_watts, estimated_active_watts, estimated_peak_watts).</p>
-                <p class="source">Source: gpu/lib.joule:551</p>
+                <p class="source">Source: lib.joule:185</p>
             </article>
         </section>
     </main>
