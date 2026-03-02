@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["c_constant","c_implementation","is_stdlib_module","register_module"]};

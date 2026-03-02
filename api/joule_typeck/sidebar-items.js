@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["energy_budget","generics","monomorph"],"struct":["ImplEntry","TraitMethodEntry","TypeChecker"]};
+window.SIDEBAR_ITEMS = {"mod":["const_eval","energy_budget","generics","monomorph","stdlib"],"struct":["ImplEntry","TraitMethodEntry","TypeChecker"]};
