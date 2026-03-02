@@ -166,91 +166,91 @@
             </article>
             <article class="item item-Function">
                 <h3><code>fn forward(</code></h3>
-                <p class="source">Source: inference.joule:839</p>
+                <p class="source">Source: inference.joule:873</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sample_batch(</code></h3>
-                <p class="source">Source: inference.joule:853</p>
+                <p class="source">Source: inference.joule:894</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn apply_top_p(&amp;self, logits: &amp;Tensor, top_p: f32) -&gt; Tensor</code></h3>
-                <p class="source">Source: inference.joule:900</p>
+                <p class="source">Source: inference.joule:941</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn apply_top_k(&amp;self, probs: &amp;Tensor, top_k: u32) -&gt; Tensor</code></h3>
-                <p class="source">Source: inference.joule:911</p>
+                <p class="source">Source: inference.joule:952</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn multinomial_sample(&amp;self, probs: &amp;Tensor, seed: Option&lt;u64&gt;) -&gt; Result&lt;Tensor, InferenceError&gt;</code></h3>
-                <p class="source">Source: inference.joule:920</p>
+                <p class="source">Source: inference.joule:961</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn check_stop_conditions(</code></h3>
-                <p class="source">Source: inference.joule:925</p>
+                <p class="source">Source: inference.joule:1000</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compute_metrics(&amp;self, req: &amp;ActiveRequest) -&gt; GenerationMetrics</code></h3>
-                <p class="source">Source: inference.joule:958</p>
+                <p class="source">Source: inference.joule:1033</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct EngineMetrics</code></h3>
-                <p class="source">Source: inference.joule:986</p>
+                <p class="source">Source: inference.joule:1070</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct KVCacheManager</code></h3>
                 <p>Paged KV cache manager</p>
-                <p class="source">Source: inference.joule:998</p>
+                <p class="source">Source: inference.joule:1082</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new(</code></h3>
-                <p class="source">Source: inference.joule:1018</p>
+                <p class="source">Source: inference.joule:1102</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn allocate_pages(&amp;self, count: usize) -&gt; Result&lt;Vec&lt;usize&gt;, InferenceError&gt;</code></h3>
-                <p class="source">Source: inference.joule:1056</p>
+                <p class="source">Source: inference.joule:1140</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn free_pages(&amp;self, pages: &amp;[usize])</code></h3>
-                <p class="source">Source: inference.joule:1067</p>
+                <p class="source">Source: inference.joule:1151</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn utilization(&amp;self) -&gt; f64</code></h3>
-                <p class="source">Source: inference.joule:1072</p>
+                <p class="source">Source: inference.joule:1156</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct Tokenizer</code></h3>
                 <p>Simple tokenizer wrapper</p>
-                <p class="source">Source: inference.joule:1083</p>
+                <p class="source">Source: inference.joule:1167</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn from_file(path: &amp;std::path::Path) -&gt; Result&lt;Self, String&gt;</code></h3>
                 <p>Load tokenizer from file</p>
-                <p class="source">Source: inference.joule:1092</p>
+                <p class="source">Source: inference.joule:1176</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn encode(&amp;self, text: &amp;str) -&gt; Result&lt;Vec&lt;u32&gt;, InferenceError&gt;</code></h3>
                 <p>Encode text to token IDs</p>
-                <p class="source">Source: inference.joule:1102</p>
+                <p class="source">Source: inference.joule:1186</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn decode(&amp;self, tokens: &amp;[u32]) -&gt; Result&lt;String, InferenceError&gt;</code></h3>
                 <p>Decode token IDs to text</p>
-                <p class="source">Source: inference.joule:1108</p>
+                <p class="source">Source: inference.joule:1235</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn decode_single(&amp;self, token: u32) -&gt; Result&lt;String, InferenceError&gt;</code></h3>
                 <p>Decode single token</p>
-                <p class="source">Source: inference.joule:1119</p>
+                <p class="source">Source: inference.joule:1246</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn engine() -&gt; Engine</code></h3>
                 <p>Create engine with defaults</p>
-                <p class="source">Source: inference.joule:1131</p>
+                <p class="source">Source: inference.joule:1258</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn engine_with_config(config: InferenceConfig) -&gt; Engine</code></h3>
                 <p>Create engine with config</p>
-                <p class="source">Source: inference.joule:1136</p>
+                <p class="source">Source: inference.joule:1263</p>
             </article>
         </section>
     </main>

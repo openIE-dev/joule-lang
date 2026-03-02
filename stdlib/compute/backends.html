@@ -101,230 +101,240 @@ BNNS (Basic Neural Network Subroutines) for neural network ops</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sync(&amp;self)</code></h3>
-                <p class="source">Source: backends.joule:253</p>
+                <p class="source">Source: backends.joule:286</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn default() -&gt; Self</code></h3>
-                <p class="source">Source: backends.joule:259</p>
+                <p class="source">Source: backends.joule:292</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct MetalBackend</code></h3>
                 <p>Metal Performance Shaders backend for GPU
 Uses MPS for optimized neural network and linear algebra operations</p>
-                <p class="source">Source: backends.joule:270</p>
+                <p class="source">Source: backends.joule:303</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new() -&gt; Self</code></h3>
                 <p>Create new Metal backend</p>
-                <p class="source">Source: backends.joule:278</p>
+                <p class="source">Source: backends.joule:311</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn instance() -&gt; &amp;&#x27;static Self</code></h3>
                 <p>Get singleton instance</p>
-                <p class="source">Source: backends.joule:294</p>
+                <p class="source">Source: backends.joule:327</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn device_name(&amp;self) -&gt; String</code></h3>
-                <p class="source">Source: backends.joule:301</p>
+                <p class="source">Source: backends.joule:334</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn device_name(&amp;self) -&gt; String</code></h3>
-                <p class="source">Source: backends.joule:307</p>
+                <p class="source">Source: backends.joule:340</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
-                <p class="source">Source: backends.joule:313</p>
+                <p class="source">Source: backends.joule:346</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn engine(&amp;self) -&gt; Engine</code></h3>
-                <p class="source">Source: backends.joule:317</p>
+                <p class="source">Source: backends.joule:350</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn is_available(&amp;self) -&gt; bool</code></h3>
-                <p class="source">Source: backends.joule:321</p>
+                <p class="source">Source: backends.joule:354</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn supported_dtypes(&amp;self) -&gt; Vec&lt;ComputeDType&gt;</code></h3>
-                <p class="source">Source: backends.joule:325</p>
+                <p class="source">Source: backends.joule:358</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f32(</code></h3>
-                <p class="source">Source: backends.joule:337</p>
+                <p class="source">Source: backends.joule:370</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f32(</code></h3>
-                <p class="source">Source: backends.joule:379</p>
+                <p class="source">Source: backends.joule:412</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f16(</code></h3>
-                <p class="source">Source: backends.joule:399</p>
+                <p class="source">Source: backends.joule:432</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f16(</code></h3>
-                <p class="source">Source: backends.joule:421</p>
+                <p class="source">Source: backends.joule:501</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sync(&amp;self)</code></h3>
-                <p class="source">Source: backends.joule:440</p>
+                <p class="source">Source: backends.joule:520</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn default() -&gt; Self</code></h3>
-                <p class="source">Source: backends.joule:446</p>
+                <p class="source">Source: backends.joule:526</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct CoreMLBackend</code></h3>
                 <p>Core ML backend for Neural Engine
 Uses Core ML for neural network inference on the ANE</p>
-                <p class="source">Source: backends.joule:457</p>
+                <p class="source">Source: backends.joule:537</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new() -&gt; Self</code></h3>
                 <p>Create new Core ML backend</p>
-                <p class="source">Source: backends.joule:463</p>
+                <p class="source">Source: backends.joule:543</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn instance() -&gt; &amp;&#x27;static Self</code></h3>
                 <p>Get singleton instance</p>
-                <p class="source">Source: backends.joule:478</p>
+                <p class="source">Source: backends.joule:558</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compile_mlprogram(&amp;self, _spec: &amp;MLProgramSpec) -&gt; Result&lt;CompiledModel, CoreMLError&gt;</code></h3>
-                <p class="source">Source: backends.joule:485</p>
+                <p class="source">Source: backends.joule:565</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compile_mlprogram(&amp;self, _spec: &amp;MLProgramSpec) -&gt; Result&lt;CompiledModel, CoreMLError&gt;</code></h3>
-                <p class="source">Source: backends.joule:498</p>
+                <p class="source">Source: backends.joule:578</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn predict(&amp;self, _model: &amp;CompiledModel, _inputs: &amp;[*const u8]) -&gt; Result&lt;Vec&lt;*mut u8&gt;, CoreMLError&gt;</code></h3>
-                <p class="source">Source: backends.joule:504</p>
+                <p class="source">Source: backends.joule:584</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn predict(&amp;self, _model: &amp;CompiledModel, _inputs: &amp;[*const u8]) -&gt; Result&lt;Vec&lt;*mut u8&gt;, CoreMLError&gt;</code></h3>
-                <p class="source">Source: backends.joule:514</p>
+                <p class="source">Source: backends.joule:594</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
-                <p class="source">Source: backends.joule:520</p>
+                <p class="source">Source: backends.joule:600</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn engine(&amp;self) -&gt; Engine</code></h3>
-                <p class="source">Source: backends.joule:524</p>
+                <p class="source">Source: backends.joule:604</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn is_available(&amp;self) -&gt; bool</code></h3>
-                <p class="source">Source: backends.joule:528</p>
+                <p class="source">Source: backends.joule:608</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn supported_dtypes(&amp;self) -&gt; Vec&lt;ComputeDType&gt;</code></h3>
-                <p class="source">Source: backends.joule:532</p>
+                <p class="source">Source: backends.joule:612</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f32(</code></h3>
-                <p class="source">Source: backends.joule:541</p>
+                <p class="source">Source: backends.joule:621</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_f16(</code></h3>
-                <p class="source">Source: backends.joule:562</p>
+                <p class="source">Source: backends.joule:642</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sync(&amp;self)</code></h3>
-                <p class="source">Source: backends.joule:582</p>
+                <p class="source">Source: backends.joule:662</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn default() -&gt; Self</code></h3>
-                <p class="source">Source: backends.joule:588</p>
+                <p class="source">Source: backends.joule:668</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct MLProgramSpec</code></h3>
-                <p class="source">Source: backends.joule:599</p>
+                <p class="source">Source: backends.joule:679</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct TensorSpec</code></h3>
-                <p class="source">Source: backends.joule:612</p>
+                <p class="source">Source: backends.joule:692</p>
             </article>
             <article class="item item-Enum">
                 <h3><code>enum MLOp</code></h3>
-                <p class="source">Source: backends.joule:620</p>
+                <p class="source">Source: backends.joule:700</p>
             </article>
             <article class="item item-Enum">
                 <h3><code>enum ComputeUnits</code></h3>
-                <p class="source">Source: backends.joule:697</p>
+                <p class="source">Source: backends.joule:777</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct CompiledModel</code></h3>
-                <p class="source">Source: backends.joule:710</p>
+                <p class="source">Source: backends.joule:790</p>
             </article>
             <article class="item item-Enum">
                 <h3><code>enum CoreMLError</code></h3>
-                <p class="source">Source: backends.joule:717</p>
+                <p class="source">Source: backends.joule:797</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct BackendRegistry</code></h3>
                 <p>Global backend registry</p>
-                <p class="source">Source: backends.joule:729</p>
+                <p class="source">Source: backends.joule:809</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new() -&gt; Self</code></h3>
                 <p>Create new registry with all backends</p>
-                <p class="source">Source: backends.joule:737</p>
+                <p class="source">Source: backends.joule:817</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn instance() -&gt; &amp;&#x27;static Self</code></h3>
                 <p>Get singleton instance</p>
-                <p class="source">Source: backends.joule:746</p>
+                <p class="source">Source: backends.joule:826</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn get(&amp;self, engine: Engine) -&gt; &amp;dyn ComputeBackend</code></h3>
                 <p>Get backend for engine type</p>
-                <p class="source">Source: backends.joule:752</p>
+                <p class="source">Source: backends.joule:832</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn accelerate(&amp;self) -&gt; &amp;AccelerateBackend</code></h3>
                 <p>Get Accelerate backend</p>
-                <p class="source">Source: backends.joule:762</p>
+                <p class="source">Source: backends.joule:842</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn metal(&amp;self) -&gt; &amp;MetalBackend</code></h3>
                 <p>Get Metal backend</p>
-                <p class="source">Source: backends.joule:767</p>
+                <p class="source">Source: backends.joule:847</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn coreml(&amp;self) -&gt; &amp;CoreMLBackend</code></h3>
                 <p>Get Core ML backend</p>
-                <p class="source">Source: backends.joule:772</p>
+                <p class="source">Source: backends.joule:852</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn available_backends(&amp;self) -&gt; Vec&lt;Engine&gt;</code></h3>
                 <p>List available backends</p>
-                <p class="source">Source: backends.joule:777</p>
+                <p class="source">Source: backends.joule:857</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn print_info(&amp;self)</code></h3>
                 <p>Print backend information</p>
-                <p class="source">Source: backends.joule:792</p>
+                <p class="source">Source: backends.joule:872</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn default() -&gt; Self</code></h3>
-                <p class="source">Source: backends.joule:815</p>
+                <p class="source">Source: backends.joule:895</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gemm_auto(</code></h3>
                 <p>Execute GEMM on best available backend</p>
-                <p class="source">Source: backends.joule:825</p>
+                <p class="source">Source: backends.joule:905</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn build_transformer_layer_mlprogram(</code></h3>
                 <p>Build MLProgram for transformer layer</p>
-                <p class="source">Source: backends.joule:870</p>
+                <p class="source">Source: backends.joule:950</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn f16_to_f32(h: u16) -&gt; f32</code></h3>
+                <p>Convert an IEEE 754 half-precision float (stored as u16) to f32.</p>
+                <p class="source">Source: backends.joule:1104</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn f32_to_f16(f: f32) -&gt; u16</code></h3>
+                <p>Convert an f32 to IEEE 754 half-precision float (stored as u16).</p>
+                <p class="source">Source: backends.joule:1137</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn test_backend_availability()</code></h3>
-                <p class="source">Source: backends.joule:1028</p>
+                <p class="source">Source: backends.joule:1182</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn test_mlprogram_builder()</code></h3>
-                <p class="source">Source: backends.joule:1040</p>
+                <p class="source">Source: backends.joule:1194</p>
             </article>
         </section>
     </main>

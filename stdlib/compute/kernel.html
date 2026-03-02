@@ -73,312 +73,312 @@
             </article>
             <article class="item item-Function">
                 <h3><code>fn from_source(device: &amp;GpuDevice, source: &amp;str, name: &amp;str) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:135</p>
+                <p class="source">Source: gpu/kernel.joule:136</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn from_binary(device: &amp;GpuDevice, binary: &amp;[u8], name: &amp;str) -&gt; Result&lt;Self, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:164</p>
+                <p class="source">Source: gpu/kernel.joule:165</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn device(&amp;self) -&gt; &amp;GpuDevice</code></h3>
                 <p>Get the device this kernel is compiled for</p>
-                <p class="source">Source: gpu/kernel.joule:192</p>
+                <p class="source">Source: gpu/kernel.joule:193</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn name(&amp;self) -&gt; &amp;str</code></h3>
                 <p>Get kernel name</p>
-                <p class="source">Source: gpu/kernel.joule:197</p>
+                <p class="source">Source: gpu/kernel.joule:198</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn launch(&amp;self, config: &amp;LaunchConfig, args: &amp;[KernelArg]) -&gt; Result&lt;(), GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:203</p>
+                <p class="source">Source: gpu/kernel.joule:204</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn launch_async(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:231</p>
+                <p class="source">Source: gpu/kernel.joule:232</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn max_threads_per_block(&amp;self) -&gt; u32</code></h3>
                 <p>Get maximum threads per block for this kernel</p>
-                <p class="source">Source: gpu/kernel.joule:260</p>
+                <p class="source">Source: gpu/kernel.joule:261</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuFuncGetAttribute(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:265</p>
+                <p class="source">Source: gpu/kernel.joule:266</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn shared_mem_usage(&amp;self) -&gt; usize</code></h3>
                 <p>Get shared memory usage for this kernel</p>
-                <p class="source">Source: gpu/kernel.joule:284</p>
+                <p class="source">Source: gpu/kernel.joule:285</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuFuncGetAttribute(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:289</p>
+                <p class="source">Source: gpu/kernel.joule:290</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn register_usage(&amp;self) -&gt; u32</code></h3>
                 <p>Get register usage for this kernel</p>
-                <p class="source">Source: gpu/kernel.joule:308</p>
+                <p class="source">Source: gpu/kernel.joule:309</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuFuncGetAttribute(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:313</p>
+                <p class="source">Source: gpu/kernel.joule:314</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn drop(&amp;mut self)</code></h3>
-                <p class="source">Source: gpu/kernel.joule:333</p>
+                <p class="source">Source: gpu/kernel.joule:334</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuModuleUnload(module: *mut std::ffi::c_void) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:338</p>
+                <p class="source">Source: gpu/kernel.joule:339</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hipModuleUnload(module: *mut std::ffi::c_void) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:351</p>
+                <p class="source">Source: gpu/kernel.joule:352</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compile_cuda_kernel(source: &amp;str, name: &amp;str) -&gt; Result&lt;KernelHandle, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:363</p>
+                <p class="source">Source: gpu/kernel.joule:364</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn nvrtcCreateProgram(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:365</p>
+                <p class="source">Source: gpu/kernel.joule:366</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn nvrtcCompileProgram(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:373</p>
+                <p class="source">Source: gpu/kernel.joule:374</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn nvrtcGetPTXSize(prog: *mut std::ffi::c_void, size: *mut usize) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:378</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn nvrtcGetPTX(prog: *mut std::ffi::c_void, ptx: *mut i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:379</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn nvrtcDestroyProgram(prog: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <h3><code>fn nvrtcGetPTX(prog: *mut std::ffi::c_void, ptx: *mut i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:380</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn cuModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const i8) -&gt; i32;</code></h3>
+                <h3><code>fn nvrtcDestroyProgram(prog: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:381</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn cuModuleGetFunction(</code></h3>
+                <h3><code>fn cuModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:382</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn cuModuleGetFunction(</code></h3>
+                <p class="source">Source: gpu/kernel.joule:383</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn load_cuda_kernel(binary: &amp;[u8], name: &amp;str) -&gt; Result&lt;KernelHandle, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:442</p>
+                <p class="source">Source: gpu/kernel.joule:443</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const u8) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:444</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn cuModuleGetFunction(</code></h3>
                 <p class="source">Source: gpu/kernel.joule:445</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn cuModuleGetFunction(</code></h3>
+                <p class="source">Source: gpu/kernel.joule:446</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn cuda_launch(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:470</p>
+                <p class="source">Source: gpu/kernel.joule:471</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuLaunchKernel(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:476</p>
+                <p class="source">Source: gpu/kernel.joule:477</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuda_launch_async(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:547</p>
+                <p class="source">Source: gpu/kernel.joule:548</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn cuLaunchKernel(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:554</p>
+                <p class="source">Source: gpu/kernel.joule:555</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compile_metal_kernel(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:641</p>
+                <p class="source">Source: gpu/kernel.joule:642</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compile_library(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:647</p>
+                <p class="source">Source: gpu/kernel.joule:648</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_library_new_function(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:654</p>
+                <p class="source">Source: gpu/kernel.joule:655</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_device_new_compute_pipeline(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:660</p>
+                <p class="source">Source: gpu/kernel.joule:661</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn load_metal_kernel(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:697</p>
+                <p class="source">Source: gpu/kernel.joule:698</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_load_library(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:703</p>
+                <p class="source">Source: gpu/kernel.joule:704</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_library_new_function(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:710</p>
+                <p class="source">Source: gpu/kernel.joule:711</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_device_new_compute_pipeline(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:716</p>
+                <p class="source">Source: gpu/kernel.joule:717</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn metal_launch(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:753</p>
+                <p class="source">Source: gpu/kernel.joule:754</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_device_new_command_queue(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:760</p>
+                <p class="source">Source: gpu/kernel.joule:761</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_command_queue_command_buffer(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:763</p>
+                <p class="source">Source: gpu/kernel.joule:764</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_command_buffer_compute_command_encoder(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:766</p>
+                <p class="source">Source: gpu/kernel.joule:767</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_pipeline(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:769</p>
+                <p class="source">Source: gpu/kernel.joule:770</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_buffer(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:773</p>
+                <p class="source">Source: gpu/kernel.joule:774</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_bytes(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:779</p>
+                <p class="source">Source: gpu/kernel.joule:780</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_threadgroup_memory_length(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:785</p>
+                <p class="source">Source: gpu/kernel.joule:786</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_dispatch_threadgroups(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:790</p>
+                <p class="source">Source: gpu/kernel.joule:791</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_end_encoding(encoder: *mut std::ffi::c_void);</code></h3>
-                <p class="source">Source: gpu/kernel.joule:795</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn mtl_command_buffer_commit(buffer: *mut std::ffi::c_void);</code></h3>
                 <p class="source">Source: gpu/kernel.joule:796</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn mtl_command_buffer_wait_until_completed(buffer: *mut std::ffi::c_void);</code></h3>
+                <h3><code>fn mtl_command_buffer_commit(buffer: *mut std::ffi::c_void);</code></h3>
                 <p class="source">Source: gpu/kernel.joule:797</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn mtl_command_buffer_wait_until_completed(buffer: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: gpu/kernel.joule:798</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn metal_launch_async(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:930</p>
+                <p class="source">Source: gpu/kernel.joule:931</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_command_queue_command_buffer(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:938</p>
+                <p class="source">Source: gpu/kernel.joule:939</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_command_buffer_compute_command_encoder(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:941</p>
+                <p class="source">Source: gpu/kernel.joule:942</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_pipeline(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:944</p>
+                <p class="source">Source: gpu/kernel.joule:945</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_buffer(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:948</p>
+                <p class="source">Source: gpu/kernel.joule:949</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_bytes(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:954</p>
+                <p class="source">Source: gpu/kernel.joule:955</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_set_threadgroup_memory_length(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:960</p>
+                <p class="source">Source: gpu/kernel.joule:961</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_dispatch_threadgroups(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:965</p>
+                <p class="source">Source: gpu/kernel.joule:966</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn mtl_compute_encoder_end_encoding(encoder: *mut std::ffi::c_void);</code></h3>
-                <p class="source">Source: gpu/kernel.joule:970</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn mtl_command_buffer_commit(buffer: *mut std::ffi::c_void);</code></h3>
                 <p class="source">Source: gpu/kernel.joule:971</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn mtl_command_buffer_commit(buffer: *mut std::ffi::c_void);</code></h3>
+                <p class="source">Source: gpu/kernel.joule:972</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn compile_rocm_kernel(source: &amp;str, name: &amp;str) -&gt; Result&lt;KernelHandle, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1098</p>
+                <p class="source">Source: gpu/kernel.joule:1099</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hiprtcCreateProgram(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1100</p>
+                <p class="source">Source: gpu/kernel.joule:1101</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hiprtcCompileProgram(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1108</p>
+                <p class="source">Source: gpu/kernel.joule:1109</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hiprtcGetCodeSize(prog: *mut std::ffi::c_void, size: *mut usize) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1113</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn hiprtcGetCode(prog: *mut std::ffi::c_void, code: *mut i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:1114</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn hiprtcDestroyProgram(prog: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
+                <h3><code>fn hiprtcGetCode(prog: *mut std::ffi::c_void, code: *mut i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:1115</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn hipModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const i8) -&gt; i32;</code></h3>
+                <h3><code>fn hiprtcDestroyProgram(prog: *mut *mut std::ffi::c_void) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:1116</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn hipModuleGetFunction(</code></h3>
+                <h3><code>fn hipModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const i8) -&gt; i32;</code></h3>
                 <p class="source">Source: gpu/kernel.joule:1117</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn hipModuleGetFunction(</code></h3>
+                <p class="source">Source: gpu/kernel.joule:1118</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn load_rocm_kernel(binary: &amp;[u8], name: &amp;str) -&gt; Result&lt;KernelHandle, GpuError&gt;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1173</p>
+                <p class="source">Source: gpu/kernel.joule:1174</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hipModuleLoadData(module: *mut *mut std::ffi::c_void, data: *const u8) -&gt; i32;</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1175</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn hipModuleGetFunction(</code></h3>
                 <p class="source">Source: gpu/kernel.joule:1176</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn hipModuleGetFunction(</code></h3>
+                <p class="source">Source: gpu/kernel.joule:1177</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn rocm_launch(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1201</p>
+                <p class="source">Source: gpu/kernel.joule:1202</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn rocm_launch_async(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1210</p>
+                <p class="source">Source: gpu/kernel.joule:1211</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn rocm_launch_on_stream(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1221</p>
+                <p class="source">Source: gpu/kernel.joule:1222</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hipModuleLaunchKernel(</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1228</p>
+                <p class="source">Source: gpu/kernel.joule:1229</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn fmt(&amp;self, f: &amp;mut std::fmt::Formatter&lt;&#x27;_&gt;) -&gt; std::fmt::Result</code></h3>
-                <p class="source">Source: gpu/kernel.joule:1314</p>
+                <p class="source">Source: gpu/kernel.joule:1315</p>
             </article>
         </section>
     </main>

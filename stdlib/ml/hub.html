@@ -180,106 +180,106 @@
             </article>
             <article class="item item-Function">
                 <h3><code>fn verify_sha256(&amp;self, path: &amp;Path, expected: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:899</p>
+                <p class="source">Source: hub.joule:913</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_hf_model_info(&amp;self, json: &amp;str, repo_id: &amp;str) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:903</p>
+                <p class="source">Source: hub.joule:923</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_hf_search_results(&amp;self, json: &amp;str) -&gt; Result&lt;Vec&lt;ModelInfo&gt;, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:907</p>
+                <p class="source">Source: hub.joule:932</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_ollama_list(&amp;self, json: &amp;str) -&gt; Result&lt;Vec&lt;ModelInfo&gt;, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:911</p>
+                <p class="source">Source: hub.joule:939</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_ollama_info(&amp;self, json: &amp;str, name: &amp;str) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:915</p>
+                <p class="source">Source: hub.joule:946</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_local_model(&amp;self, path: &amp;Path, format: ModelFormat) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:919</p>
+                <p class="source">Source: hub.joule:953</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn parse_local_model_dir(&amp;self, path: &amp;Path) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:962</p>
+                <p class="source">Source: hub.joule:996</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn copy_dir_recursive(&amp;self, src: &amp;Path, dst: &amp;Path) -&gt; Result&lt;(), HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:1028</p>
+                <p class="source">Source: hub.joule:1062</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct ModelCache</code></h3>
                 <p>Local model cache management</p>
-                <p class="source">Source: hub.joule:1052</p>
+                <p class="source">Source: hub.joule:1086</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct CacheEntry</code></h3>
-                <p class="source">Source: hub.joule:1057</p>
+                <p class="source">Source: hub.joule:1091</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new(base_dir: &amp;Path) -&gt; Self</code></h3>
-                <p class="source">Source: hub.joule:1066</p>
+                <p class="source">Source: hub.joule:1100</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn get(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; Option&lt;PathBuf&gt;</code></h3>
-                <p class="source">Source: hub.joule:1075</p>
+                <p class="source">Source: hub.joule:1109</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn path_for(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; PathBuf</code></h3>
-                <p class="source">Source: hub.joule:1088</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn mark_complete(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; Result&lt;(), HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:1094</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn list_all(&amp;self) -&gt; Vec&lt;ModelInfo&gt;</code></h3>
-                <p class="source">Source: hub.joule:1112</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn total_size(&amp;self) -&gt; u64</code></h3>
-                <p class="source">Source: hub.joule:1117</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn remove(&amp;self, model_id: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
                 <p class="source">Source: hub.joule:1122</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn clear_all(&amp;self) -&gt; Result&lt;(), HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:1134</p>
+                <h3><code>fn mark_complete(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1128</p>
             </article>
             <article class="item item-Function">
-                <h3><code>fn prune_to_size(&amp;self, target_bytes: u64) -&gt; Result&lt;u64, HubError&gt;</code></h3>
+                <h3><code>fn list_all(&amp;self) -&gt; Vec&lt;ModelInfo&gt;</code></h3>
                 <p class="source">Source: hub.joule:1146</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn total_size(&amp;self) -&gt; u64</code></h3>
+                <p class="source">Source: hub.joule:1151</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn remove(&amp;self, model_id: &amp;str) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1156</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clear_all(&amp;self) -&gt; Result&lt;(), HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1168</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prune_to_size(&amp;self, target_bytes: u64) -&gt; Result&lt;u64, HubError&gt;</code></h3>
+                <p class="source">Source: hub.joule:1180</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn cache_key(&amp;self, model_id: &amp;str, revision: Option&lt;&amp;str&gt;) -&gt; String</code></h3>
-                <p class="source">Source: hub.joule:1174</p>
+                <p class="source">Source: hub.joule:1208</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn dir_size(path: &amp;Path) -&gt; io::Result&lt;u64&gt;</code></h3>
-                <p class="source">Source: hub.joule:1179</p>
+                <p class="source">Source: hub.joule:1213</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn hub() -&gt; &amp;&#x27;static Hub</code></h3>
                 <p>Get the global hub instance</p>
-                <p class="source">Source: hub.joule:1203</p>
+                <p class="source">Source: hub.joule:1237</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn from_local(path: impl AsRef&lt;Path&gt;) -&gt; Result&lt;ModelInfo, HubError&gt;</code></h3>
-                <p class="source">Source: hub.joule:1236</p>
+                <p class="source">Source: hub.joule:1270</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn recommend_variant(</code></h3>
                 <p>Recommend best model variant for available memory</p>
-                <p class="source">Source: hub.joule:1277</p>
+                <p class="source">Source: hub.joule:1311</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct ModelRecommendation</code></h3>
-                <p class="source">Source: hub.joule:1286</p>
+                <p class="source">Source: hub.joule:1320</p>
             </article>
         </section>
     </main>

@@ -266,9 +266,9 @@
 <a href=#266 id=266 data-nosnippet>266</a>                    // the Select terminator stores the selected arm index and the
 <a href=#267 id=267 data-nosnippet>267</a>                    // arm body performs the actual recv.
 <a href=#268 id=268 data-nosnippet>268</a>                    //
-<a href=#269 id=269 data-nosnippet>269</a>                    // TODO: To avoid losing the value, a peek/put-back mechanism
-<a href=#270 id=270 data-nosnippet>270</a>                    // could be added. For now, the MIR select semantics treat this
-<a href=#271 id=271 data-nosnippet>271</a>                    // as a readiness check — the value is received inline.
+<a href=#269 id=269 data-nosnippet>269</a>                    // Future optimization: a peek/put-back mechanism could avoid
+<a href=#270 id=270 data-nosnippet>270</a>                    // re-receiving. For now, MIR select semantics treat this as a
+<a href=#271 id=271 data-nosnippet>271</a>                    // readiness check — the value is received inline by the arm body.
 <a href=#272 id=272 data-nosnippet>272</a>                    </span><span class="kw">return </span>i <span class="kw">as </span>u64;
 <a href=#273 id=273 data-nosnippet>273</a>                }
 <a href=#274 id=274 data-nosnippet>274</a>                <span class="prelude-val">Err</span>(<span class="kw">crate</span>::channel::TryRecvError::Closed) =&gt; {

@@ -133,152 +133,152 @@
             </article>
             <article class="item item-Function">
                 <h3><code>fn broadcast(tensor: &amp;mut Tensor, src: usize, group: &amp;ProcessGroup) -&gt; Result&lt;(), DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:344</p>
+                <p class="source">Source: distributed.joule:346</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn broadcast_tree(tensor: &amp;mut Tensor, src: usize, group: &amp;ProcessGroup) -&gt; Result&lt;(), DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:371</p>
+                <p class="source">Source: distributed.joule:373</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gather(</code></h3>
-                <p class="source">Source: distributed.joule:386</p>
+                <p class="source">Source: distributed.joule:388</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn scatter(</code></h3>
-                <p class="source">Source: distributed.joule:413</p>
+                <p class="source">Source: distributed.joule:417</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn all_gather(tensor: &amp;Tensor, group: &amp;ProcessGroup) -&gt; Result&lt;Vec&lt;Tensor&gt;, DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:435</p>
+                <p class="source">Source: distributed.joule:442</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn reduce_scatter(</code></h3>
-                <p class="source">Source: distributed.joule:448</p>
+                <p class="source">Source: distributed.joule:458</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct DistributedDataParallel</code></h3>
                 <p>Distributed Data Parallel wrapper</p>
-                <p class="source">Source: distributed.joule:466</p>
+                <p class="source">Source: distributed.joule:476</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new(module: M, process_group: ProcessGroup) -&gt; Self</code></h3>
                 <p>Wrap module for distributed training</p>
-                <p class="source">Source: distributed.joule:475</p>
+                <p class="source">Source: distributed.joule:485</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn bucket_cap_mb(mut self, cap: f64) -&gt; Self</code></h3>
                 <p>Set bucket size for gradient bucketing</p>
-                <p class="source">Source: distributed.joule:487</p>
+                <p class="source">Source: distributed.joule:497</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn find_unused_parameters(mut self) -&gt; Self</code></h3>
                 <p>Enable detection of unused parameters</p>
-                <p class="source">Source: distributed.joule:493</p>
+                <p class="source">Source: distributed.joule:503</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sync_parameters(&amp;mut self) -&gt; Result&lt;(), DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:500</p>
+                <p class="source">Source: distributed.joule:510</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn sync_gradients(&amp;mut self) -&gt; Result&lt;(), DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:509</p>
+                <p class="source">Source: distributed.joule:519</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn module(&amp;self) -&gt; &amp;M</code></h3>
                 <p>Get inner module reference</p>
-                <p class="source">Source: distributed.joule:525</p>
+                <p class="source">Source: distributed.joule:535</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn module_mut(&amp;mut self) -&gt; &amp;mut M</code></h3>
                 <p>Get mutable inner module reference</p>
-                <p class="source">Source: distributed.joule:530</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
-                <p class="source">Source: distributed.joule:536</p>
-            </article>
-            <article class="item item-Function">
-                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
                 <p class="source">Source: distributed.joule:540</p>
             </article>
             <article class="item item-Function">
+                <h3><code>fn forward(&amp;self, input: &amp;Tensor) -&gt; Tensor</code></h3>
+                <p class="source">Source: distributed.joule:546</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn parameters(&amp;self) -&gt; Vec&lt;&amp;Tensor&gt;</code></h3>
+                <p class="source">Source: distributed.joule:550</p>
+            </article>
+            <article class="item item-Function">
                 <h3><code>fn parameters_mut(&amp;mut self) -&gt; Vec&lt;&amp;mut Tensor&gt;</code></h3>
-                <p class="source">Source: distributed.joule:544</p>
+                <p class="source">Source: distributed.joule:554</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn train(&amp;mut self, mode: bool)</code></h3>
-                <p class="source">Source: distributed.joule:548</p>
+                <p class="source">Source: distributed.joule:558</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn training(&amp;self) -&gt; bool</code></h3>
-                <p class="source">Source: distributed.joule:552</p>
+                <p class="source">Source: distributed.joule:562</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn to(&amp;mut self, device: Device)</code></h3>
-                <p class="source">Source: distributed.joule:556</p>
+                <p class="source">Source: distributed.joule:566</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct PipelineStage</code></h3>
                 <p>Pipeline parallelism stage</p>
-                <p class="source">Source: distributed.joule:566</p>
+                <p class="source">Source: distributed.joule:576</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new(module: M, stage_id: usize, num_stages: usize, num_microbatches: usize) -&gt; Self</code></h3>
-                <p class="source">Source: distributed.joule:574</p>
+                <p class="source">Source: distributed.joule:584</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn forward_pipeline(&amp;self, inputs: Vec&lt;Tensor&gt;, group: &amp;ProcessGroup) -&gt; Vec&lt;Tensor&gt;</code></h3>
-                <p class="source">Source: distributed.joule:585</p>
+                <p class="source">Source: distributed.joule:595</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct TensorParallel</code></h3>
                 <p>Tensor parallel for large layers</p>
-                <p class="source">Source: distributed.joule:613</p>
+                <p class="source">Source: distributed.joule:623</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn new(module: M, tp_rank: usize, tp_size: usize, split_dim: i64) -&gt; Self</code></h3>
-                <p class="source">Source: distributed.joule:621</p>
+                <p class="source">Source: distributed.joule:631</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn forward(&amp;self, input: &amp;Tensor, group: &amp;ProcessGroup) -&gt; Result&lt;Tensor, DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:632</p>
+                <p class="source">Source: distributed.joule:642</p>
             </article>
             <article class="item item-Enum">
                 <h3><code>enum DistributedError</code></h3>
-                <p class="source">Source: distributed.joule:657</p>
+                <p class="source">Source: distributed.joule:667</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn from(e: std::io::Error) -&gt; Self</code></h3>
-                <p class="source">Source: distributed.joule:666</p>
+                <p class="source">Source: distributed.joule:676</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn launch(</code></h3>
                 <p>Launch distributed training</p>
-                <p class="source">Source: distributed.joule:676</p>
+                <p class="source">Source: distributed.joule:686</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn get_device(group: &amp;ProcessGroup) -&gt; Device</code></h3>
                 <p>Get optimal device for this rank</p>
-                <p class="source">Source: distributed.joule:705</p>
+                <p class="source">Source: distributed.joule:715</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct DistributedContext</code></h3>
                 <p>Distributed training context</p>
-                <p class="source">Source: distributed.joule:710</p>
+                <p class="source">Source: distributed.joule:720</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn init() -&gt; Result&lt;Self, DistributedError&gt;</code></h3>
-                <p class="source">Source: distributed.joule:716</p>
+                <p class="source">Source: distributed.joule:726</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn print(&amp;self, msg: &amp;str)</code></h3>
                 <p>Print only from master</p>
-                <p class="source">Source: distributed.joule:724</p>
+                <p class="source">Source: distributed.joule:734</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn barrier(&amp;self) -&gt; Result&lt;(), DistributedError&gt;</code></h3>
                 <p>Barrier synchronization</p>
-                <p class="source">Source: distributed.joule:731</p>
+                <p class="source">Source: distributed.joule:741</p>
             </article>
         </section>
     </main>

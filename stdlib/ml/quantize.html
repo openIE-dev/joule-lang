@@ -226,149 +226,149 @@
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_tensor_with_mask(</code></h3>
-                <p class="source">Source: quantize.joule:1267</p>
+                <p class="source">Source: quantize.joule:1285</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_scales(&amp;self, scales: &amp;Tensor) -&gt; Result&lt;Tensor, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1278</p>
+                <p class="source">Source: quantize.joule:1317</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compute_hessian&lt;D: Dataset&gt;(</code></h3>
-                <p class="source">Source: quantize.joule:1286</p>
+                <p class="source">Source: quantize.joule:1325</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn gptq_layer(&amp;self, weight: &amp;Tensor, hessian: &amp;Tensor) -&gt; Result&lt;QuantizedTensor, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1295</p>
+                <p class="source">Source: quantize.joule:1355</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn energy_scope(&amp;self, op: &amp;str) -&gt; Option&lt;EnergyScope&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1301</p>
+                <p class="source">Source: quantize.joule:1410</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct QuantizedTensor</code></h3>
-                <p class="source">Source: quantize.joule:1312</p>
+                <p class="source">Source: quantize.joule:1421</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn dequantize(&amp;self) -&gt; Tensor</code></h3>
-                <p class="source">Source: quantize.joule:1328</p>
+                <p class="source">Source: quantize.joule:1437</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn size_bytes(&amp;self) -&gt; usize</code></h3>
                 <p>Size in bytes</p>
-                <p class="source">Source: quantize.joule:1348</p>
+                <p class="source">Source: quantize.joule:1457</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compression_ratio(&amp;self) -&gt; f32</code></h3>
                 <p>Compression ratio vs FP16</p>
-                <p class="source">Source: quantize.joule:1360</p>
+                <p class="source">Source: quantize.joule:1469</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct QuantizedModel</code></h3>
-                <p class="source">Source: quantize.joule:1368</p>
+                <p class="source">Source: quantize.joule:1477</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn size_bytes(&amp;self) -&gt; usize</code></h3>
                 <p>Total size in bytes</p>
-                <p class="source">Source: quantize.joule:1379</p>
+                <p class="source">Source: quantize.joule:1488</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn compression_ratio(&amp;self) -&gt; f32</code></h3>
                 <p>Average compression ratio</p>
-                <p class="source">Source: quantize.joule:1384</p>
+                <p class="source">Source: quantize.joule:1493</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn get(&amp;self, name: &amp;str) -&gt; Option&lt;&amp;QuantizedTensor&gt;</code></h3>
                 <p>Get quantized weight</p>
-                <p class="source">Source: quantize.joule:1397</p>
+                <p class="source">Source: quantize.joule:1506</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn dequantize_all(&amp;self) -&gt; HashMap&lt;String, Tensor&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1403</p>
+                <p class="source">Source: quantize.joule:1512</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn save_gguf(&amp;self, path: &amp;Path) -&gt; Result&lt;(), QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1411</p>
+                <p class="source">Source: quantize.joule:1520</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn save_safetensors(&amp;self, path: &amp;Path) -&gt; Result&lt;(), QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1417</p>
+                <p class="source">Source: quantize.joule:1533</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_int8(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1428</p>
+                <p class="source">Source: quantize.joule:1551</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_int4(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1435</p>
+                <p class="source">Source: quantize.joule:1558</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_gptq&lt;D: Dataset&gt;(</code></h3>
-                <p class="source">Source: quantize.joule:1442</p>
+                <p class="source">Source: quantize.joule:1565</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_awq&lt;D: Dataset&gt;(</code></h3>
-                <p class="source">Source: quantize.joule:1453</p>
+                <p class="source">Source: quantize.joule:1576</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_int3(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1464</p>
+                <p class="source">Source: quantize.joule:1587</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_int2(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1471</p>
+                <p class="source">Source: quantize.joule:1594</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_ternary(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1478</p>
+                <p class="source">Source: quantize.joule:1601</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_binary(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1485</p>
+                <p class="source">Source: quantize.joule:1608</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_bitnet(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1492</p>
+                <p class="source">Source: quantize.joule:1615</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_one_bit(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1499</p>
+                <p class="source">Source: quantize.joule:1622</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantize_sub_one_bit(model: HashMap&lt;String, Tensor&gt;) -&gt; Result&lt;QuantizedModel, QuantError&gt;</code></h3>
-                <p class="source">Source: quantize.joule:1506</p>
+                <p class="source">Source: quantize.joule:1629</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn estimate_energy_savings(</code></h3>
                 <p>Estimate energy savings from quantization</p>
-                <p class="source">Source: quantize.joule:1512</p>
+                <p class="source">Source: quantize.joule:1635</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn bits_per_weight(method: QuantMethod) -&gt; f32</code></h3>
                 <p>Calculate bits per weight for different quantization methods</p>
-                <p class="source">Source: quantize.joule:1528</p>
+                <p class="source">Source: quantize.joule:1651</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn estimate_quantized_size(</code></h3>
                 <p>Estimate model size after quantization</p>
-                <p class="source">Source: quantize.joule:1543</p>
+                <p class="source">Source: quantize.joule:1666</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn recommend_quantization(</code></h3>
                 <p>Recommend best quantization for memory constraint</p>
-                <p class="source">Source: quantize.joule:1553</p>
+                <p class="source">Source: quantize.joule:1676</p>
             </article>
             <article class="item item-Enum">
                 <h3><code>enum QuantComplexity</code></h3>
-                <p class="source">Source: quantize.joule:1588</p>
+                <p class="source">Source: quantize.joule:1711</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct QuantTimeEstimate</code></h3>
-                <p class="source">Source: quantize.joule:1603</p>
+                <p class="source">Source: quantize.joule:1726</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn quantization_complexity(method: QuantMethod) -&gt; QuantComplexity</code></h3>
                 <p>Get complexity class for a quantization method</p>
-                <p class="source">Source: quantize.joule:1617</p>
+                <p class="source">Source: quantize.joule:1740</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn estimate_quantization_time(</code></h3>
@@ -379,35 +379,35 @@ Returns estimated duration based on:
 - Quantization method complexity
 - Hardware (CPU vs GPU)
 - Calibration requirements</p>
-                <p class="source">Source: quantize.joule:1655</p>
+                <p class="source">Source: quantize.joule:1778</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn secs_to_duration(secs: f64) -&gt; std::time::Duration</code></h3>
-                <p class="source">Source: quantize.joule:1773</p>
+                <p class="source">Source: quantize.joule:1896</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn format_duration(d: std::time::Duration) -&gt; String</code></h3>
                 <p>Format duration for display</p>
-                <p class="source">Source: quantize.joule:1778</p>
+                <p class="source">Source: quantize.joule:1901</p>
             </article>
             <article class="item item-Struct">
                 <h3><code>struct QuantTradeoff</code></h3>
-                <p class="source">Source: quantize.joule:1791</p>
+                <p class="source">Source: quantize.joule:1914</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn analyze_quantization_options(</code></h3>
                 <p>Analyze all quantization options for a model</p>
-                <p class="source">Source: quantize.joule:1801</p>
+                <p class="source">Source: quantize.joule:1924</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn print_quantization_analysis(</code></h3>
                 <p>Print quantization options as a table</p>
-                <p class="source">Source: quantize.joule:1837</p>
+                <p class="source">Source: quantize.joule:1960</p>
             </article>
             <article class="item item-Function">
                 <h3><code>fn recommend_quantization_balanced(</code></h3>
                 <p>Recommend quantization balancing time, quality, and size</p>
-                <p class="source">Source: quantize.joule:1865</p>
+                <p class="source">Source: quantize.joule:1988</p>
             </article>
         </section>
     </main>
