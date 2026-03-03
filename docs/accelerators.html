@@ -1,0 +1,433 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Accelerator Energy Measurement - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="jit.html"><strong aria-hidden="true">5.</strong> JIT Compilation</a></li><li class="chapter-item expanded "><a href="polyglot.html"><strong aria-hidden="true">6.</strong> Polyglot Energy Analysis</a></li><li class="chapter-item expanded "><a href="accelerators.html" class="active"><strong aria-hidden="true">7.</strong> Accelerator Energy Measurement</a></li><li class="chapter-item expanded "><a href="tensorforge.html"><strong aria-hidden="true">8.</strong> TensorForge ML Framework</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">9.</strong> Overview</a></li><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">10.</strong> Types</a></li><li class="chapter-item expanded "><a href="reference/expressions.html"><strong aria-hidden="true">11.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="reference/items.html"><strong aria-hidden="true">12.</strong> Items</a></li><li class="chapter-item expanded "><a href="reference/patterns.html"><strong aria-hidden="true">13.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="reference/attributes.html"><strong aria-hidden="true">14.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="reference/memory.html"><strong aria-hidden="true">15.</strong> Memory</a></li><li class="chapter-item expanded "><a href="reference/concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="reference/energy.html"><strong aria-hidden="true">17.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">18.</strong> Overview</a></li><li class="chapter-item expanded "><a href="stdlib/string.html"><strong aria-hidden="true">19.</strong> String</a></li><li class="chapter-item expanded "><a href="stdlib/vec.html"><strong aria-hidden="true">20.</strong> Vec</a></li><li class="chapter-item expanded "><a href="stdlib/option.html"><strong aria-hidden="true">21.</strong> Option</a></li><li class="chapter-item expanded "><a href="stdlib/result.html"><strong aria-hidden="true">22.</strong> Result</a></li><li class="chapter-item expanded "><a href="stdlib/hashmap.html"><strong aria-hidden="true">23.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="stdlib/primitives.html"><strong aria-hidden="true">24.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="stdlib/collections.html"><strong aria-hidden="true">25.</strong> Collections</a></li><li class="chapter-item expanded "><a href="stdlib/io.html"><strong aria-hidden="true">26.</strong> I/O</a></li><li class="chapter-item expanded "><a href="stdlib/math.html"><strong aria-hidden="true">27.</strong> Math</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="accelerator-energy-measurement"><a class="header" href="#accelerator-energy-measurement">Accelerator Energy Measurement</a></h1>
+<p>Joule measures energy consumption not just on CPUs but across GPUs, TPUs, and other accelerators. This guide covers the three-tier measurement approach, supported hardware, and how to use accelerator energy data in your programs.</p>
+<h2 id="three-tier-approach"><a class="header" href="#three-tier-approach">Three-Tier Approach</a></h2>
+<p>Joule uses a tiered strategy to maximize energy measurement coverage:</p>
+<h3 id="tier-1-static-estimation"><a class="header" href="#tier-1-static-estimation">Tier 1: Static Estimation</a></h3>
+<p>Available everywhere, no hardware access required. The compiler estimates energy from code structure using calibrated instruction costs. This is what powers <code>#[energy_budget]</code> at compile time.</p>
+<h3 id="tier-2-cpu-performance-counters"><a class="header" href="#tier-2-cpu-performance-counters">Tier 2: CPU Performance Counters</a></h3>
+<p>On supported platforms, Joule reads hardware performance counters for actual CPU energy:</p>
+<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>API</th><th>Granularity</th></tr></thead><tbody>
+<tr><td>Intel/AMD Linux</td><td>RAPL via <code>perf_event</code></td><td>Per-package, per-core</td></tr>
+<tr><td>Intel/AMD Linux</td><td>RAPL via MSR</td><td>Per-package</td></tr>
+<tr><td>Apple Silicon macOS</td><td>IOReport framework</td><td>Per-cluster</td></tr>
+</tbody></table>
+</div>
+<h3 id="tier-3-accelerator-energy"><a class="header" href="#tier-3-accelerator-energy">Tier 3: Accelerator Energy</a></h3>
+<p>For GPU and accelerator workloads, Joule queries vendor-specific APIs. Each backend in TensorForge implements the <code>EnergyTelemetry</code> trait.</p>
+<h2 id="vendor-coverage"><a class="header" href="#vendor-coverage">Vendor Coverage</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Vendor</th><th>Hardware</th><th>API</th><th>Energy</th><th>Power</th><th>Temperature</th></tr></thead><tbody>
+<tr><td>NVIDIA</td><td>GPUs (A100, H100, etc.)</td><td>NVML</td><td>Board-level</td><td>Per-GPU</td><td>Per-GPU</td></tr>
+<tr><td>AMD</td><td>GPUs (MI250, MI300, etc.)</td><td>ROCm SMI</td><td>Average power</td><td>Per-GPU</td><td>Per-GPU</td></tr>
+<tr><td>Intel</td><td>GPUs, Gaudi</td><td>Level Zero</td><td>Per-device</td><td>Per-domain</td><td>Per-device</td></tr>
+<tr><td>Google</td><td>TPU v4, v5</td><td>TPU Runtime</td><td>Per-chip</td><td>Per-chip</td><td>Per-chip</td></tr>
+<tr><td>AWS</td><td>Inferentia, Trainium</td><td>Neuron SDK</td><td>Per-core</td><td>Per-core</td><td>Per-core</td></tr>
+<tr><td>Groq</td><td>LPU</td><td>HLML</td><td>Board-level</td><td>Per-device</td><td>Per-device</td></tr>
+<tr><td>Cerebras</td><td>CS-2, CS-3</td><td>CS SDK</td><td>Wafer-scale</td><td>Per-wafer</td><td>Per-wafer</td></tr>
+<tr><td>SambaNova</td><td>SN30, SN40</td><td>DataScale API</td><td>Per-RDU</td><td>Per-RDU</td><td>Per-RDU</td></tr>
+</tbody></table>
+</div>
+<h2 id="api-details"><a class="header" href="#api-details">API Details</a></h2>
+<h3 id="nvidia-nvml"><a class="header" href="#nvidia-nvml">NVIDIA (NVML)</a></h3>
+<p>The NVIDIA Management Library provides direct energy readings:</p>
+<pre><code>nvmlDeviceGetTotalEnergyConsumption(device, &amp;energy_mj)
+</code></pre>
+<ul>
+<li>Returns total energy in millijoules since driver load</li>
+<li>Subtract start from end measurement for per-operation energy</li>
+<li>Available on all datacenter GPUs (V100, A100, H100, B100)</li>
+<li>Supported on consumer GPUs (RTX 3000/4000/5000 series)</li>
+</ul>
+<h3 id="amd-rocm-smi"><a class="header" href="#amd-rocm-smi">AMD (ROCm SMI)</a></h3>
+<p>ROCm System Management Interface provides power readings:</p>
+<pre><code>rsmi_dev_power_ave_get(device_index, sensor_id, &amp;power_uw)
+</code></pre>
+<ul>
+<li>Returns average power in microwatts</li>
+<li>Energy is derived from power * time</li>
+<li>Available on MI series (MI250, MI300) and Radeon Pro</li>
+</ul>
+<h3 id="intel-level-zero"><a class="header" href="#intel-level-zero">Intel (Level Zero)</a></h3>
+<p>Intel's Level Zero API provides power domain readings:</p>
+<pre><code>zesDeviceEnumPowerDomains(device, &amp;count, domains)
+zesPowerGetEnergyCounter(domain, &amp;energy)
+</code></pre>
+<ul>
+<li>Energy counter in microjoules</li>
+<li>Multiple power domains (package, card, memory)</li>
+<li>Supports Intel Arc GPUs and Gaudi accelerators</li>
+</ul>
+<h3 id="google-tpu-runtime"><a class="header" href="#google-tpu-runtime">Google (TPU Runtime)</a></h3>
+<pre><code>tpu_device_get_energy_consumption(device, &amp;energy_j)
+</code></pre>
+<ul>
+<li>Per-chip energy in joules</li>
+<li>Available on TPU v4 and v5 pods</li>
+<li>Accessed through the TPU runtime API</li>
+</ul>
+<h3 id="aws-neuron-sdk"><a class="header" href="#aws-neuron-sdk">AWS (Neuron SDK)</a></h3>
+<pre><code>neuron_device_get_power(device, &amp;power_mw)
+</code></pre>
+<ul>
+<li>Per-NeuronCore power in milliwatts</li>
+<li>Available on Inferentia and Trainium instances</li>
+<li>Accessed through the Neuron runtime</li>
+</ul>
+<h3 id="groq-hlml"><a class="header" href="#groq-hlml">Groq (HLML)</a></h3>
+<p>Groq's Hardware Library for Machine Learning mirrors the NVML API:</p>
+<pre><code>hlmlDeviceGetTotalEnergyConsumption(device, &amp;energy_mj)
+</code></pre>
+<ul>
+<li>Board-level energy in millijoules</li>
+<li>Available on Groq LPU cards</li>
+</ul>
+<h2 id="cloud-detection"><a class="header" href="#cloud-detection">Cloud Detection</a></h2>
+<p>Joule automatically detects available accelerators using:</p>
+<h3 id="device-files"><a class="header" href="#device-files">Device Files</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Path</th><th>Accelerator</th></tr></thead><tbody>
+<tr><td><code>/dev/nvidia*</code></td><td>NVIDIA GPU</td></tr>
+<tr><td><code>/dev/kfd</code></td><td>AMD GPU (ROCm)</td></tr>
+<tr><td><code>/dev/dri/renderD*</code></td><td>Intel GPU</td></tr>
+<tr><td><code>/dev/accel*</code></td><td>Google TPU</td></tr>
+<tr><td><code>/dev/neuron*</code></td><td>AWS Inferentia/Trainium</td></tr>
+</tbody></table>
+</div>
+<h3 id="environment-variables"><a class="header" href="#environment-variables">Environment Variables</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Accelerator</th></tr></thead><tbody>
+<tr><td><code>CUDA_VISIBLE_DEVICES</code></td><td>NVIDIA GPU</td></tr>
+<tr><td><code>ROCR_VISIBLE_DEVICES</code></td><td>AMD GPU</td></tr>
+<tr><td><code>ZE_AFFINITY_MASK</code></td><td>Intel GPU</td></tr>
+<tr><td><code>TPU_NAME</code></td><td>Google TPU</td></tr>
+<tr><td><code>NEURON_RT_NUM_CORES</code></td><td>AWS Inferentia/Trainium</td></tr>
+<tr><td><code>GROQ_DEVICE_ID</code></td><td>Groq LPU</td></tr>
+</tbody></table>
+</div>
+<h2 id="json-output"><a class="header" href="#json-output">JSON Output</a></h2>
+<p>Set <code>JOULE_ENERGY_JSON=1</code> to get structured JSON output with per-device breakdowns:</p>
+<pre><code class="language-bash">JOULE_ENERGY_JSON=1 joulec program.joule --emit c --energy-check -o program.c
+</code></pre>
+<h3 id="report-format"><a class="header" href="#report-format">Report Format</a></h3>
+<pre><code class="language-json">{
+  "program": "program.joule",
+  "timestamp": "2026-03-03T10:30:00Z",
+  "devices": [
+    {
+      "type": "cpu",
+      "vendor": "intel",
+      "model": "Xeon w9-3595X",
+      "energy_joules": 0.00042,
+      "measurement": "rapl",
+      "tier": 2
+    },
+    {
+      "type": "gpu",
+      "vendor": "nvidia",
+      "model": "H100",
+      "energy_joules": 0.0031,
+      "measurement": "nvml",
+      "tier": 3
+    }
+  ],
+  "total_energy_joules": 0.00352,
+  "functions": [
+    {
+      "name": "matrix_multiply",
+      "energy_joules": 0.0028,
+      "device": "gpu:0",
+      "confidence": 0.95,
+      "budget_joules": 0.005,
+      "status": "within_budget"
+    },
+    {
+      "name": "preprocess",
+      "energy_joules": 0.00042,
+      "device": "cpu",
+      "confidence": 0.90,
+      "budget_joules": 0.001,
+      "status": "within_budget"
+    }
+  ]
+}
+</code></pre>
+<h3 id="per-device-breakdown"><a class="header" href="#per-device-breakdown">Per-Device Breakdown</a></h3>
+<p>When multiple accelerators are present, the report includes energy per device:</p>
+<pre><code class="language-json">{
+  "devices": [
+    { "type": "cpu", "energy_joules": 0.0012, "tier": 2 },
+    { "type": "gpu", "vendor": "nvidia", "index": 0, "energy_joules": 0.045, "tier": 3 },
+    { "type": "gpu", "vendor": "nvidia", "index": 1, "energy_joules": 0.043, "tier": 3 },
+    { "type": "gpu", "vendor": "nvidia", "index": 2, "energy_joules": 0.044, "tier": 3 },
+    { "type": "gpu", "vendor": "nvidia", "index": 3, "energy_joules": 0.046, "tier": 3 }
+  ],
+  "total_energy_joules": 0.1792
+}
+</code></pre>
+<h2 id="using-accelerator-energy-in-code"><a class="header" href="#using-accelerator-energy-in-code">Using Accelerator Energy in Code</a></h2>
+<h3 id="energy-budgets-on-gpu-functions"><a class="header" href="#energy-budgets-on-gpu-functions">Energy Budgets on GPU Functions</a></h3>
+<pre><code class="language-joule">#[energy_budget(max_joules = 0.05)]
+#[gpu_kernel]
+fn batch_matmul(a: Tensor, b: Tensor) -&gt; Tensor {
+    a.matmul(b)
+}
+</code></pre>
+<p>The budget is checked against actual GPU energy consumption (Tier 3) when available, or estimated (Tier 1) otherwise.</p>
+<h3 id="runtime-energy-query"><a class="header" href="#runtime-energy-query">Runtime Energy Query</a></h3>
+<pre><code class="language-joule">use std::energy::{measure, EnergyReport};
+
+let report: EnergyReport = measure(|| {
+    model.forward(input)
+});
+
+println!("CPU energy: {} J", report.cpu_joules());
+println!("GPU energy: {} J", report.gpu_joules());
+println!("Total: {} J", report.total_joules());
+</code></pre>
+<h3 id="adaptive-energy-behavior"><a class="header" href="#adaptive-energy-behavior">Adaptive Energy Behavior</a></h3>
+<pre><code class="language-joule">use std::energy::current_power_draw;
+
+let power = current_power_draw();  // watts
+if power &gt; 200.0 {
+    // Use energy-efficient path
+    compute_sparse(data)
+} else {
+    // Full compute path
+    compute_dense(data)
+}
+</code></pre>
+<h2 id="fallback-behavior"><a class="header" href="#fallback-behavior">Fallback Behavior</a></h2>
+<p>When hardware energy APIs are unavailable, Joule falls back gracefully:</p>
+<ol>
+<li>If Tier 3 (accelerator) is unavailable, use Tier 2 (CPU counters) for CPU portions</li>
+<li>If Tier 2 is unavailable, use Tier 1 (static estimation)</li>
+<li>The confidence score reflects which tier was used</li>
+</ol>
+<p>No program crashes due to missing energy hardware. The measurement degrades gracefully with reduced precision.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="polyglot.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="tensorforge.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="polyglot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="tensorforge.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TensorForge ML Framework - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="jit.html"><strong aria-hidden="true">5.</strong> JIT Compilation</a></li><li class="chapter-item expanded "><a href="polyglot.html"><strong aria-hidden="true">6.</strong> Polyglot Energy Analysis</a></li><li class="chapter-item expanded "><a href="accelerators.html"><strong aria-hidden="true">7.</strong> Accelerator Energy Measurement</a></li><li class="chapter-item expanded "><a href="tensorforge.html" class="active"><strong aria-hidden="true">8.</strong> TensorForge ML Framework</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">9.</strong> Overview</a></li><li class="chapter-item expanded "><a href="reference/types.html"><strong aria-hidden="true">10.</strong> Types</a></li><li class="chapter-item expanded "><a href="reference/expressions.html"><strong aria-hidden="true">11.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="reference/items.html"><strong aria-hidden="true">12.</strong> Items</a></li><li class="chapter-item expanded "><a href="reference/patterns.html"><strong aria-hidden="true">13.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="reference/attributes.html"><strong aria-hidden="true">14.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="reference/memory.html"><strong aria-hidden="true">15.</strong> Memory</a></li><li class="chapter-item expanded "><a href="reference/concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="reference/energy.html"><strong aria-hidden="true">17.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="stdlib/index.html"><strong aria-hidden="true">18.</strong> Overview</a></li><li class="chapter-item expanded "><a href="stdlib/string.html"><strong aria-hidden="true">19.</strong> String</a></li><li class="chapter-item expanded "><a href="stdlib/vec.html"><strong aria-hidden="true">20.</strong> Vec</a></li><li class="chapter-item expanded "><a href="stdlib/option.html"><strong aria-hidden="true">21.</strong> Option</a></li><li class="chapter-item expanded "><a href="stdlib/result.html"><strong aria-hidden="true">22.</strong> Result</a></li><li class="chapter-item expanded "><a href="stdlib/hashmap.html"><strong aria-hidden="true">23.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="stdlib/primitives.html"><strong aria-hidden="true">24.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="stdlib/collections.html"><strong aria-hidden="true">25.</strong> Collections</a></li><li class="chapter-item expanded "><a href="stdlib/io.html"><strong aria-hidden="true">26.</strong> I/O</a></li><li class="chapter-item expanded "><a href="stdlib/math.html"><strong aria-hidden="true">27.</strong> Math</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="tensorforge"><a class="header" href="#tensorforge">TensorForge</a></h1>
+<p>TensorForge is Joule's energy-aware machine learning framework. It provides a complete ML stack -- from tensor operations to distributed training to inference -- with energy measurement built into every layer.</p>
+<h2 id="architecture"><a class="header" href="#architecture">Architecture</a></h2>
+<p>TensorForge is organized as 22 crates in the Joule workspace:</p>
+<h3 id="foundation-crates"><a class="header" href="#foundation-crates">Foundation Crates</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Crate</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>tf-core</code></td><td>Core types, <code>EnergyTelemetry</code> trait, tensor metadata</td></tr>
+<tr><td><code>tf-ir</code></td><td>TensorIR: <code>HighOp</code> (14 tensor operations), graph representation</td></tr>
+<tr><td><code>tf-compiler</code></td><td><code>OptimizationPass</code> trait, graph rewriting infrastructure, 7 optimization passes</td></tr>
+<tr><td><code>tf-autodiff</code></td><td>Automatic differentiation with real VJP (vector-Jacobian product) implementations</td></tr>
+<tr><td><code>tf-hal</code></td><td>Hardware abstraction: <code>Device</code> trait, memory management</td></tr>
+<tr><td><code>tf-runtime</code></td><td>Tensor execution runtime, memory pools, scheduling</td></tr>
+</tbody></table>
+</div>
+<h3 id="backend-crates"><a class="header" href="#backend-crates">Backend Crates</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Crate</th><th>Hardware Target</th></tr></thead><tbody>
+<tr><td><code>tf-backend-cpu</code></td><td>x86/ARM CPUs with SIMD</td></tr>
+<tr><td><code>tf-backend-cuda</code></td><td>NVIDIA GPUs via CUDA</td></tr>
+<tr><td><code>tf-backend-rocm</code></td><td>AMD GPUs via ROCm/HIP</td></tr>
+<tr><td><code>tf-backend-metal</code></td><td>Apple GPUs via Metal</td></tr>
+<tr><td><code>tf-backend-tpu</code></td><td>Google TPUs</td></tr>
+<tr><td><code>tf-backend-level0</code></td><td>Intel GPUs/accelerators via Level Zero</td></tr>
+<tr><td><code>tf-backend-neuron</code></td><td>AWS Inferentia/Trainium via Neuron SDK</td></tr>
+<tr><td><code>tf-backend-groq</code></td><td>Groq LPUs</td></tr>
+<tr><td><code>tf-backend-gaudi</code></td><td>Intel Gaudi (Habana Labs)</td></tr>
+<tr><td><code>tf-backend-estimated</code></td><td>Energy-estimated backend (no hardware required)</td></tr>
+</tbody></table>
+</div>
+<h3 id="high-level-crates"><a class="header" href="#high-level-crates">High-Level Crates</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Crate</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>tf-nn</code></td><td>Neural network modules (<code>Module</code> trait, layers, activations)</td></tr>
+<tr><td><code>tf-optim</code></td><td>Optimizers (AdamW, SGD with momentum)</td></tr>
+<tr><td><code>tf-data</code></td><td>Data loading and batching</td></tr>
+<tr><td><code>tf-serialize</code></td><td>Model serialization/deserialization</td></tr>
+<tr><td><code>tf-distributed</code></td><td>Distributed training (ring, tree, halving-doubling collectives)</td></tr>
+<tr><td><code>tf-infer</code></td><td>Inference engine (KV cache, speculative decoding, scheduling)</td></tr>
+</tbody></table>
+</div>
+<h2 id="energytelemetry-trait"><a class="header" href="#energytelemetry-trait">EnergyTelemetry Trait</a></h2>
+<p>The <code>EnergyTelemetry</code> trait is the foundation of TensorForge's energy awareness. Every backend implements it:</p>
+<pre><code class="language-joule">pub trait EnergyTelemetry {
+    fn energy_consumed_joules(&amp;self) -&gt; f64;
+    fn power_draw_watts(&amp;self) -&gt; f64;
+    fn temperature_celsius(&amp;self) -&gt; f64;
+    fn reset_counters(&amp;mut self);
+}
+</code></pre>
+<p>This means every tensor operation -- every matmul, every convolution, every activation -- has a measurable energy cost. The energy data flows up through the framework:</p>
+<ul>
+<li>Individual ops report energy via the backend's telemetry</li>
+<li>The optimizer aggregates energy per training step</li>
+<li>The training loop reports energy per epoch</li>
+<li>The distributed runtime aggregates energy across all nodes</li>
+</ul>
+<h2 id="tensorir"><a class="header" href="#tensorir">TensorIR</a></h2>
+<p>TensorForge uses a graph-based intermediate representation with 14 high-level operations:</p>
+<div class="table-wrapper"><table><thead><tr><th>Operation</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>MatMul</code></td><td>Matrix multiplication</td></tr>
+<tr><td><code>Conv2D</code></td><td>2D convolution</td></tr>
+<tr><td><code>BatchNorm</code></td><td>Batch normalization</td></tr>
+<tr><td><code>Relu</code></td><td>ReLU activation</td></tr>
+<tr><td><code>Softmax</code></td><td>Softmax</td></tr>
+<tr><td><code>Add</code></td><td>Element-wise addition</td></tr>
+<tr><td><code>Mul</code></td><td>Element-wise multiplication</td></tr>
+<tr><td><code>Reduce</code></td><td>Reduction (sum, mean, max)</td></tr>
+<tr><td><code>Reshape</code></td><td>Tensor reshape</td></tr>
+<tr><td><code>Transpose</code></td><td>Tensor transpose</td></tr>
+<tr><td><code>Concat</code></td><td>Tensor concatenation</td></tr>
+<tr><td><code>Slice</code></td><td>Tensor slicing</td></tr>
+<tr><td><code>Gather</code></td><td>Index-based gathering</td></tr>
+<tr><td><code>Scatter</code></td><td>Index-based scattering</td></tr>
+</tbody></table>
+</div>
+<h3 id="graph-optimization"><a class="header" href="#graph-optimization">Graph Optimization</a></h3>
+<p>The <code>tf-compiler</code> provides 7 optimization passes:</p>
+<ol>
+<li><strong>Operator Fusion</strong> -- Fuse sequences like Conv2D+BatchNorm+ReLU into a single kernel</li>
+<li><strong>Layout Optimization</strong> -- Choose optimal memory layout (NCHW vs NHWC) per backend</li>
+<li><strong>Constant Folding</strong> -- Evaluate constant subgraphs at compile time</li>
+<li><strong>Dead Node Elimination</strong> -- Remove unused computation</li>
+<li><strong>Common Subexpression Elimination</strong> -- Share identical computations</li>
+<li><strong>Memory Planning</strong> -- Minimize peak memory usage through buffer reuse</li>
+<li><strong>Energy-Aware Scheduling</strong> -- Reorder operations to minimize energy consumption</li>
+</ol>
+<h2 id="autodiff"><a class="header" href="#autodiff">Autodiff</a></h2>
+<p>TensorForge implements reverse-mode automatic differentiation with real VJP implementations for all operations. No stubs, no placeholders -- every backward pass computes correct gradients:</p>
+<pre><code class="language-joule">use tf_autodiff::backward;
+
+let loss = model.forward(input);
+let gradients = backward(loss);  // real gradient computation
+optimizer.step(gradients);
+</code></pre>
+<h2 id="neural-network-api"><a class="header" href="#neural-network-api">Neural Network API</a></h2>
+<p>The <code>tf-nn</code> crate provides a <code>Module</code> trait for building neural networks:</p>
+<pre><code class="language-joule">use tf_nn::{Module, Linear, Conv2d, BatchNorm2d, relu};
+
+struct ResBlock {
+    conv1: Conv2d,
+    bn1: BatchNorm2d,
+    conv2: Conv2d,
+    bn2: BatchNorm2d,
+}
+
+impl Module for ResBlock {
+    fn forward(&amp;self, x: Tensor) -&gt; Tensor {
+        let residual = x;
+        let out = self.conv1.forward(x)
+            |&gt; self.bn1.forward
+            |&gt; relu
+            |&gt; self.conv2.forward
+            |&gt; self.bn2.forward;
+        relu(out + residual)
+    }
+}
+</code></pre>
+<h2 id="optimizers"><a class="header" href="#optimizers">Optimizers</a></h2>
+<p>The <code>tf-optim</code> crate provides energy-tracked optimizers:</p>
+<pre><code class="language-joule">use tf_optim::{AdamW, SGD};
+
+// AdamW with weight decay
+let optimizer = AdamW::new(model.parameters(), lr: 0.001, weight_decay: 0.01);
+
+// SGD with momentum
+let optimizer = SGD::new(model.parameters(), lr: 0.01, momentum: 0.9);
+</code></pre>
+<p>Every optimizer step reports energy consumed:</p>
+<pre><code class="language-joule">let energy = optimizer.step(gradients);
+println!("Step energy: {} J", energy.joules());
+</code></pre>
+<h2 id="distributed-training"><a class="header" href="#distributed-training">Distributed Training</a></h2>
+<p>The <code>tf-distributed</code> crate supports multi-node training with three collective algorithms:</p>
+<div class="table-wrapper"><table><thead><tr><th>Algorithm</th><th>Pattern</th><th>Best For</th></tr></thead><tbody>
+<tr><td>Ring AllReduce</td><td>Each node sends to next neighbor</td><td>Large models, high bandwidth</td></tr>
+<tr><td>Tree AllReduce</td><td>Binary tree reduction</td><td>Low latency</td></tr>
+<tr><td>Halving-Doubling</td><td>Recursive halving then doubling</td><td>Balanced</td></tr>
+</tbody></table>
+</div>
+<p>Energy is tracked across all nodes, giving total training energy:</p>
+<pre><code class="language-joule">use tf_distributed::DistributedTrainer;
+
+let trainer = DistributedTrainer::new(
+    model,
+    world_size: 8,
+    algorithm: CollectiveAlgorithm::Ring,
+);
+
+let metrics = trainer.train(dataset, epochs: 10);
+println!("Total energy across {} nodes: {} J", 8, metrics.total_energy_joules());
+</code></pre>
+<h2 id="inference-engine"><a class="header" href="#inference-engine">Inference Engine</a></h2>
+<p>The <code>tf-infer</code> crate provides a high-performance inference engine with:</p>
+<h3 id="paged-kv-cache"><a class="header" href="#paged-kv-cache">Paged KV Cache</a></h3>
+<p>Efficient key-value caching for transformer models. Memory is allocated in pages, avoiding fragmentation:</p>
+<pre><code class="language-joule">use tf_infer::KvCache;
+
+let cache = KvCache::paged(
+    num_layers: 32,
+    num_heads: 32,
+    head_dim: 128,
+    page_size: 256,
+);
+</code></pre>
+<h3 id="continuous-batching"><a class="header" href="#continuous-batching">Continuous Batching</a></h3>
+<p>Dynamic batching that adds new requests to a running batch without waiting for all current requests to complete:</p>
+<pre><code class="language-joule">use tf_infer::ContinuousBatcher;
+
+let batcher = ContinuousBatcher::new(max_batch_size: 64);
+batcher.add_request(prompt);
+let outputs = batcher.step();  // processes all pending requests
+</code></pre>
+<h3 id="speculative-decoding"><a class="header" href="#speculative-decoding">Speculative Decoding</a></h3>
+<p>Use a smaller draft model to generate candidates, then verify with the full model:</p>
+<pre><code class="language-joule">use tf_infer::SpeculativeDecoder;
+
+let decoder = SpeculativeDecoder::new(
+    target_model: large_model,
+    draft_model: small_model,
+    num_speculative_tokens: 5,
+);
+</code></pre>
+<h3 id="sampling-pipeline"><a class="header" href="#sampling-pipeline">Sampling Pipeline</a></h3>
+<p>Configurable token sampling with temperature, top-k, top-p, and repetition penalty:</p>
+<pre><code class="language-joule">use tf_infer::SamplingConfig;
+
+let config = SamplingConfig {
+    temperature: 0.7,
+    top_k: 50,
+    top_p: 0.9,
+    repetition_penalty: 1.1,
+};
+</code></pre>
+<h3 id="energy-aware-scheduling"><a class="header" href="#energy-aware-scheduling">Energy-Aware Scheduling</a></h3>
+<p>The inference scheduler considers energy costs when choosing batch sizes and scheduling decisions. It can enforce energy budgets on inference requests:</p>
+<pre><code class="language-joule">use tf_infer::EnergyAwareScheduler;
+
+let scheduler = EnergyAwareScheduler::new(
+    max_energy_per_request: 0.5,  // joules
+    max_power_draw: 200.0,        // watts
+);
+</code></pre>
+<h2 id="compiler-integration"><a class="header" href="#compiler-integration">Compiler Integration</a></h2>
+<p>TensorForge integrates with the Joule compiler through the <code>joule-codegen-tensorforge</code> crate. When Joule code uses tensor operations, the compiler:</p>
+<ol>
+<li>Lowers tensor expressions to TensorIR</li>
+<li>Applies graph optimization passes</li>
+<li>Selects the backend based on <code>--target</code></li>
+<li>Generates backend-specific code</li>
+<li>Instruments energy telemetry calls</li>
+</ol>
+<p>This means energy budgets work with ML code:</p>
+<pre><code class="language-joule">#[energy_budget(max_joules = 10.0)]
+fn train_epoch(model: &amp;mut Model, data: DataLoader) -&gt; f64 {
+    let mut total_loss = 0.0;
+    for batch in data {
+        let loss = model.forward(batch.input);
+        let grads = backward(loss);
+        optimizer.step(grads);
+        total_loss = total_loss + loss.item();
+    }
+    total_loss
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="accelerators.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="reference/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="accelerators.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="reference/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
