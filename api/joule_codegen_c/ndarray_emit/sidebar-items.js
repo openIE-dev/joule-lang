@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["NdarrayKind"],"fn":["collect_ndarray_types","emit_ndarray_typedefs"],"struct":["NdarrayTypeInfo"]};

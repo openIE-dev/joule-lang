@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["compile_to_c","compile_to_c_split","compile_to_c_with_config","compile_to_c_with_modules"],"mod":["emit","linker_script","target"]};
+window.SIDEBAR_ITEMS = {"fn":["compile_to_c","compile_to_c_split","compile_to_c_with_config","compile_to_c_with_modules"],"mod":["emit","linker_script","ndarray_emit","simd_emit","smallvec_emit","target"]};

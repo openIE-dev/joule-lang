@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shape - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module shape</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn len[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; usize</code></h3>
+                <p>Total number of elements.</p>
+                <p class="source">Source: shape.joule:12</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn is_contiguous[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; bool</code></h3>
+                <p>Whether the array data is contiguous in memory (row-major).</p>
+                <p class="source">Source: shape.joule:18</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn reshape[T; const N: u32](self: &amp;NDArray[T; N], new_shape: &amp;[usize; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Reshape to new dimensions (total elements must match).
+Returns a new NDArray — data is copied to ensure contiguity.
+
+
+Note: &#x60;reshape&#x60; preserves rank. For rank changes, use &#x60;flatten&#x60; or constructors.</p>
+                <p class="source">Source: shape.joule:37</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn flatten[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDArray[T; 1]</code></h3>
+                <p>Flatten to rank-1 array (copies data).</p>
+                <p class="source">Source: shape.joule:43</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contiguous[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Create a contiguous copy (useful after slicing/transposing).</p>
+                <p class="source">Source: shape.joule:49</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn clone[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Deep copy of the entire array.</p>
+                <p class="source">Source: shape.joule:55</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn view[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDView[T; N]</code></h3>
+                <p>Create a zero-copy view of the entire array.
+</p>
+                <p class="source">Source: shape.joule:70</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn contiguous[T; const N: u32](self: &amp;NDView[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Materialize an NDView into an owned NDArray.
+</p>
+                <p class="source">Source: shape.joule:81</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

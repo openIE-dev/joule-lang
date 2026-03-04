@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lib - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module lib</h1>
+    </header>
+    
+    <main>
+        <section class="module-doc">&lt;p&gt;Joule Standard Library - N-Dimensional Arrays
+First-class multi-dimensional array types with compile-time rank tracking,
+zero-copy views, explicit broadcasting, and energy-aware operations.&lt;/p&gt;
+&lt;h2&gt;Core Types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;NDArray[T; N]&lt;/code&gt; — Owned heap data, compile-time rank N&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NDView[T; N]&lt;/code&gt;  — Borrowed zero-copy view into an NDArray&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CowArray[T; N]&lt;/code&gt; — Shared data with copy-on-write semantics&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DynArray[T]&lt;/code&gt;   — Dynamic rank determined at runtime&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Design Principle: Explicit Broadcasting&lt;/h2&gt;
+&lt;p&gt;Broadcasting is NEVER implicit. &lt;code&gt;a + b&lt;/code&gt; requires matching shapes.
+Use &lt;code&gt;broadcast_add(a, b)&lt;/code&gt; to make the energy cost visible.&lt;/p&gt;
+</section>
+        
+        <section class="items">
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["emit_smallvec_typedefs"],"struct":["SmallVecTypeInfo"]};

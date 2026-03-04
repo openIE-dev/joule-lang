@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>elementwise - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module elementwise</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn add[T; const N: u32](self: &amp;NDArray[T; N], other: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Element-wise addition. Shapes must match exactly.
+</p>
+                <p class="source">Source: elementwise.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub[T; const N: u32](self: &amp;NDArray[T; N], other: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Element-wise subtraction.</p>
+                <p class="source">Source: elementwise.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul[T; const N: u32](self: &amp;NDArray[T; N], other: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Element-wise multiplication (Hadamard product).</p>
+                <p class="source">Source: elementwise.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div[T; const N: u32](self: &amp;NDArray[T; N], other: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Element-wise division.</p>
+                <p class="source">Source: elementwise.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_assign[T; const N: u32](self: &amp;mut NDArray[T; N], other: &amp;NDArray[T; N])</code></h3>
+                <p>In-place addition: a[i] +&#x3D; b[i].</p>
+                <p class="source">Source: elementwise.joule:42</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn sub_assign[T; const N: u32](self: &amp;mut NDArray[T; N], other: &amp;NDArray[T; N])</code></h3>
+                <p class="source">Source: elementwise.joule:46</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mul_assign[T; const N: u32](self: &amp;mut NDArray[T; N], other: &amp;NDArray[T; N])</code></h3>
+                <p class="source">Source: elementwise.joule:50</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn div_assign[T; const N: u32](self: &amp;mut NDArray[T; N], other: &amp;NDArray[T; N])</code></h3>
+                <p class="source">Source: elementwise.joule:54</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn scale[T; const N: u32](self: &amp;NDArray[T; N], scalar: T) -&gt; NDArray[T; N]</code></h3>
+                <p>Multiply every element by a scalar.</p>
+                <p class="source">Source: elementwise.joule:64</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn add_scalar[T; const N: u32](self: &amp;NDArray[T; N], scalar: T) -&gt; NDArray[T; N]</code></h3>
+                <p>Add a scalar to every element.</p>
+                <p class="source">Source: elementwise.joule:69</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn neg[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Negate every element.</p>
+                <p class="source">Source: elementwise.joule:78</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn abs[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; NDArray[T; N]</code></h3>
+                <p>Absolute value of every element.</p>
+                <p class="source">Source: elementwise.joule:83</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn fill[T; const N: u32](self: &amp;mut NDArray[T; N], value: T)</code></h3>
+                <p>Fill all elements with a value (in-place).</p>
+                <p class="source">Source: elementwise.joule:89</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

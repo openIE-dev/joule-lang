@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linalg - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module linalg</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn matmul[T](self: &amp;NDArray[T; 2], other: &amp;NDArray[T; 2]) -&gt; NDArray[T; 2]</code></h3>
+                <p>Matrix multiplication (rank 2 only).
+
+
+For energy-conscious code, prefer smaller matrices or approximate methods.
+A 1000x1000 matmul costs ~1.2 billion MACs at 1.2 pJ each &#x3D; ~1.44 mJ.</p>
+                <p class="source">Source: linalg.joule:23</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn dot[T](self: &amp;NDArray[T; 1], other: &amp;NDArray[T; 1]) -&gt; T</code></h3>
+                <p>Dot product of two rank-1 arrays.
+</p>
+                <p class="source">Source: linalg.joule:39</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn norm[T](self: &amp;NDArray[T; 1]) -&gt; T</code></h3>
+                <p>L2 (Euclidean) norm of a rank-1 array.</p>
+                <p class="source">Source: linalg.joule:45</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn cross[T](self: &amp;NDArray[T; 1], other: &amp;NDArray[T; 1]) -&gt; NDArray[T; 1]</code></h3>
+                <p>3D cross product (only valid for arrays of length 3).</p>
+                <p class="source">Source: linalg.joule:51</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn transpose[T](self: &amp;NDArray[T; 2]) -&gt; NDView[T; 2]</code></h3>
+                <p>Transpose a matrix by swapping strides (rank 2 only).
+Returns an NDView — zero-copy, O(1).
+</p>
+                <p class="source">Source: linalg.joule:67</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

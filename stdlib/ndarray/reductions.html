@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reductions - Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">← Back</a>
+        <h1>Module reductions</h1>
+    </header>
+    
+    <main>
+        
+        <section class="items">
+            <article class="item item-Function">
+                <h3><code>fn sum[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; T</code></h3>
+                <p>Sum of all elements.
+</p>
+                <p class="source">Source: reductions.joule:17</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn prod[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; T</code></h3>
+                <p>Product of all elements.</p>
+                <p class="source">Source: reductions.joule:22</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn min[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; T</code></h3>
+                <p>Minimum element value.</p>
+                <p class="source">Source: reductions.joule:27</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn max[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; T</code></h3>
+                <p>Maximum element value.</p>
+                <p class="source">Source: reductions.joule:32</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn mean[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; T</code></h3>
+                <p>Arithmetic mean of all elements.</p>
+                <p class="source">Source: reductions.joule:38</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn argmin[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; usize</code></h3>
+                <p>Index of the minimum element (flat index into data).</p>
+                <p class="source">Source: reductions.joule:47</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn argmax[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; usize</code></h3>
+                <p>Index of the maximum element (flat index into data).</p>
+                <p class="source">Source: reductions.joule:52</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn any[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; bool</code></h3>
+                <p>True if any element is nonzero.</p>
+                <p class="source">Source: reductions.joule:61</p>
+            </article>
+            <article class="item item-Function">
+                <h3><code>fn all[T; const N: u32](self: &amp;NDArray[T; N]) -&gt; bool</code></h3>
+                <p>True if all elements are nonzero.</p>
+                <p class="source">Source: reductions.joule:66</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
