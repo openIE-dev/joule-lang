@@ -1,6 +1,6 @@
 // ==========================================================================
-// Joule Playground — WASM Edition with Monaco Editor
-// Matches joule-lang.org design: syntax highlighting, examples, energy metrics
+// Joule Playground — WASM Edition
+// Pixel-perfect replica of joule-lang.org HolodeckPlayground
 // ==========================================================================
 
 import init, { compileToC, compileToWasm, analyzeEnergy, getVersion } from './pkg/joule_playground_wasm.js';
@@ -8,320 +8,471 @@ import init, { compileToC, compileToWasm, analyzeEnergy, getVersion } from './pk
 (function () {
     "use strict";
 
-    // ---------- DOM Elements ----------
-
-    const examplesSelect = document.getElementById("examples");
-    const btnCompile = document.getElementById("btn-compile");
-    const btnRun = document.getElementById("btn-run");
-    const btnAnalyze = document.getElementById("btn-analyze");
-    const statusEl = document.getElementById("status");
-    const tabOutput = document.getElementById("tab-output");
-    const tabCompiled = document.getElementById("tab-compiled");
-    const tabEnergy = document.getElementById("tab-energy");
-    const resizeHandle = document.getElementById("resize-handle");
-    const editorPane = document.getElementById("editor-pane");
-    const outputPane = document.getElementById("output-pane");
-    const loadingOverlay = document.getElementById("loading-overlay");
-    const loadingBarFill = document.getElementById("loading-bar-fill");
-    const loadingStatus = document.getElementById("loading-status");
-    const metricTime = document.getElementById("metric-time");
-    const metricEnergy = document.getElementById("metric-energy");
-    const metricStatus = document.getElementById("metric-status");
-
-    let wasmReady = false;
-    let monacoEditor = null;
-
-    // ---------- 27 Example Programs (matching joule-lang.org) ----------
+    // ---------- Examples (matching playgroundExamples.ts from joule-lang.org) ----------
 
     const EXAMPLES = {
-        // --- Hello World & Basics ---
-        helloWorld: `// Hello World
-// The simplest Joule program.
-
+        helloWorld: {
+            name: "Hello World",
+            code: `// Hello World - The classic first program
 fn main() {
-    println!("Hello, World!");
-    println!("Energy-aware computing starts here.");
-}`,
-
-        variables: `// Variables & Types
-// Joule uses let for immutable bindings, let mut for mutable.
-
+    println("Hello, World!");
+    println("Welcome to Joule - the energy-aware language");
+}
+`
+        },
+        variables: {
+            name: "Variables",
+            code: `// Variables in Joule
 fn main() {
-    let name = "Joule";
-    let version: i32 = 1;
+    // Immutable by default
+    let x = 42;
+    let pi = 3.14159;
+    let active = true;
+
+    // Mutable with 'mut'
     let mut counter = 0;
-
+    counter = counter + 1;
+    counter = counter + 1;
     counter = counter + 1;
 
-    let pi: f64 = 3.14159;
-    let active: bool = true;
+    // Type annotations
+    let explicit: i32 = 100;
+    let big: i64 = 9999999;
+    let precise: f64 = 2.718281828;
 
-    println!("Language: {} v{}", name, version);
-    println!("Counter: {}", counter);
-    println!("Pi: {:.5}", pi);
-    println!("Active: {}", active);
-}`,
+    if counter == 3 {
+        println("Counter is 3");
+    }
+    if active {
+        println("Active is true");
+    }
+    println("Variables work!");
+}
+`
+        },
+        comments: {
+            name: "Comments",
+            code: `// Single-line comments start with //
 
-        comments: `// Comments
-// Joule supports line comments (//) and block comments (/* */).
-
+// You can comment above functions to document them
+// This function is the entry point of every Joule program
 fn main() {
-    // This is a line comment
-    let x = 42; // inline comment
+    // Comments can go anywhere
+    let x = 10; // Even at the end of a line
 
-    /* This is a
-       block comment */
+    // Use comments to explain your logic
+    // Step 1: Check if x is positive
+    if x > 0 {
+        println("x is positive");
+    }
 
-    /// Documentation comment for the next item
-    let documented = true;
+    // Step 2: Compute a value
+    let y = x * 2 + 5;
 
-    println!("x = {}", x);
-    println!("documented = {}", documented);
-}`,
-
-        // --- Data Types ---
-        primitives: `// Primitive Types
-// Joule supports integer, float, and boolean primitives.
-
+    // Comments help others understand your code
+    println("Comments make code readable!");
+}
+`
+        },
+        primitives: {
+            name: "Primitives",
+            code: `// Primitive data types in Joule
 fn main() {
-    let a: i32 = 42;
-    let b: i64 = 1_000_000;
-    let c: f64 = 3.14159;
-    let d: bool = true;
-    let e: char = 'J';
+    // Integers (signed)
+    let small: i32 = 42;
+    let big: i64 = 9223372036854775;
 
-    println!("i32: {}", a);
-    println!("i64: {}", b);
-    println!("f64: {:.5}", c);
-    println!("bool: {}", d);
-    println!("char: {}", e);
+    // Floating point
+    let pi: f64 = 3.14159265358979;
+    let e: f64 = 2.71828182845904;
 
-    // Arithmetic
-    println!("a + 8 = {}", a + 8);
-    println!("b * 2 = {}", b * 2);
-    println!("c / 2.0 = {:.5}", c / 2.0);
-}`,
+    // Boolean
+    let flag: bool = true;
+    let done: bool = false;
 
-        strings: `// Strings
-// Joule strings are UTF-8 encoded.
+    // Arithmetic operations
+    let sum = 10 + 20;
+    let diff = 50 - 15;
+    let product = 6 * 7;
+    let quotient = 100 / 3;
+    let remainder = 17 % 5;
 
+    if flag {
+        println("Boolean flag is true");
+    }
+    if remainder == 2 {
+        println("17 mod 5 is 2");
+    }
+    if product == 42 {
+        println("6 * 7 = 42 - the answer to everything");
+    }
+    println("All primitive types work!");
+}
+`
+        },
+        strings: {
+            name: "Strings",
+            code: `// Strings in Joule
 fn main() {
-    let greeting = "Hello";
-    let name = "World";
+    // String literals
+    println("Hello, World!");
+    println("Joule is energy-aware");
+    println("Strings support special chars:");
+    println("  Tabs and indentation work");
+    println("  Multiple lines via multiple println calls");
 
-    // String formatting
-    println!("{}, {}!", greeting, name);
+    // Strings in conditions
+    let language = "Joule";
 
-    // String length
-    let msg = "Energy-aware programming";
-    println!("Message: {}", msg);
-    println!("Length: {}", msg.len());
-
-    // String operations
-    let full = String::from("Joule Language");
-    println!("Full: {}", full);
-}`,
-
-        arithmetic: `// Arithmetic Operations
-// All standard math operators are supported.
-
+    // String-based program flow
+    println("---");
+    println("Language: Joule");
+    println("Version: 1.0.0");
+    println("Focus: Energy-efficient computing");
+    println("---");
+}
+`
+        },
+        arithmetic: {
+            name: "Arithmetic",
+            code: `// Arithmetic in Joule
 fn main() {
+    // Basic operations
     let a = 15;
     let b = 4;
 
-    println!("{} + {} = {}", a, b, a + b);
-    println!("{} - {} = {}", a, b, a - b);
-    println!("{} * {} = {}", a, b, a * b);
-    println!("{} / {} = {}", a, b, a / b);
-    println!("{} % {} = {}", a, b, a % b);
+    let sum = a + b;
+    let diff = a - b;
+    let product = a * b;
+    let quotient = a / b;
+    let remainder = a % b;
 
-    // Floating point
-    let x: f64 = 10.0;
-    let y: f64 = 3.0;
-    println!("{:.1} / {:.1} = {:.4}", x, y, x / y);
-}`,
+    // Verify results
+    if sum == 19 {
+        println("15 + 4 = 19");
+    }
+    if diff == 11 {
+        println("15 - 4 = 11");
+    }
+    if product == 60 {
+        println("15 * 4 = 60");
+    }
+    if quotient == 3 {
+        println("15 / 4 = 3 (integer division)");
+    }
+    if remainder == 3 {
+        println("15 % 4 = 3 (remainder)");
+    }
 
-        // --- Control Flow ---
-        conditionals: `// Conditionals
-// If/else expressions with boolean logic.
+    // Compound expressions
+    let complex = (a + b) * (a - b);
+    if complex == 209 {
+        println("(15+4) * (15-4) = 209");
+    }
 
+    // Negative numbers
+    let neg = -10;
+    let pos = neg + 25;
+    if pos == 15 {
+        println("-10 + 25 = 15");
+    }
+}
+`
+        },
+        conditionals: {
+            name: "If/Else",
+            code: `// Conditional expressions in Joule
 fn main() {
     let temperature = 72;
 
+    // Basic if/else
     if temperature > 90 {
-        println!("Hot! Consider thermal throttling.");
+        println("It's hot!");
     } else if temperature > 70 {
-        println!("Warm. Normal operation.");
+        println("It's warm and pleasant");
     } else if temperature > 50 {
-        println!("Cool. Peak efficiency.");
+        println("It's cool");
     } else {
-        println!("Cold. Optimal energy usage.");
+        println("It's cold!");
     }
 
-    let status = if temperature > 80 { "warning" } else { "ok" };
-    println!("Status: {}", status);
-}`,
+    // Nested conditions
+    let hour = 14;
+    let is_weekend = false;
 
-        loops: `// Loops
-// For ranges, while loops, and break statements.
-
-fn main() {
-    // For loop with range
-    println!("Counting:");
-    for i in 0..5 {
-        println!("  {}", i);
-    }
-
-    // While loop
-    let mut n = 1;
-    println!("Powers of 2:");
-    while n < 100 {
-        println!("  {}", n);
-        n = n * 2;
-    }
-
-    // Loop with break
-    let mut sum = 0;
-    for i in 1..100 {
-        sum = sum + i;
-        if sum > 50 {
-            println!("Sum exceeded 50 at i={}: sum={}", i, sum);
-            break;
+    if is_weekend {
+        println("Enjoy your weekend!");
+    } else {
+        if hour < 12 {
+            println("Good morning, time to work");
+        } else if hour < 17 {
+            println("Good afternoon, keep going");
+        } else {
+            println("Evening - time to rest");
         }
     }
-}`,
 
-        matchExpr: `// Pattern Matching
-// Match expressions for multi-way branching.
+    // Boolean logic
+    let x = 42;
+    let in_range = x >= 10 && x <= 100;
+    let is_even = x % 2 == 0;
+    let is_special = in_range && is_even;
 
+    if is_special {
+        println("42 is in range and even - special!");
+    }
+}
+`
+        },
+        loops: {
+            name: "Loops",
+            code: `// Loops in Joule
 fn main() {
+    // For loop with range
+    println("Counting 1 to 5:");
+    for i in 0..5 {
+        println("  step...");
+    }
+    println("Done counting!");
+
+    // While loop - countdown
+    println("Countdown:");
+    let mut countdown = 5;
+    while countdown > 0 {
+        println("  tick...");
+        countdown = countdown - 1;
+    }
+    println("Liftoff!");
+
+    // Accumulator pattern
+    let mut sum = 0;
+    for i in 0..10 {
+        sum = sum + i;
+    }
+    if sum == 45 {
+        println("Sum of 0..10 = 45");
+    }
+
+    // While with break
+    let mut i = 0;
+    while true {
+        if i >= 7 {
+            break;
+        }
+        i = i + 1;
+    }
+    if i == 7 {
+        println("Broke out of loop at 7");
+    }
+
+    // Nested loops
+    let mut pairs = 0;
+    for x in 0..4 {
+        for y in 0..4 {
+            pairs = pairs + 1;
+        }
+    }
+    if pairs == 16 {
+        println("4x4 grid = 16 pairs");
+    }
+}
+`
+        },
+        matchExpr: {
+            name: "Match Expression",
+            code: `// Match expressions in Joule
+fn main() {
+    // Basic match on integers
     let day = 3;
+    match day {
+        1 => println("Monday"),
+        2 => println("Tuesday"),
+        3 => println("Wednesday"),
+        4 => println("Thursday"),
+        5 => println("Friday"),
+        6 => println("Saturday"),
+        7 => println("Sunday"),
+        _ => println("Invalid day"),
+    }
 
-    let name = match day {
-        1 => "Monday",
-        2 => "Tuesday",
-        3 => "Wednesday",
-        4 => "Thursday",
-        5 => "Friday",
-        6 | 7 => "Weekend",
-        _ => "Unknown",
-    };
-
-    println!("Day {}: {}", day, name);
-
-    // Match with ranges
+    // Match with wildcard
     let score = 85;
-    let grade = match score {
-        90..=100 => "A",
-        80..=89 => "B",
-        70..=79 => "C",
-        60..=69 => "D",
-        _ => "F",
-    };
-    println!("Score {}: Grade {}", score, grade);
-}`,
+    let grade = score / 10;
+    match grade {
+        10 => println("Perfect score!"),
+        9 => println("Grade: A"),
+        8 => println("Grade: B"),
+        7 => println("Grade: C"),
+        6 => println("Grade: D"),
+        _ => println("Grade: F"),
+    }
 
-        // --- Functions ---
-        basicFunctions: `// Functions
-// Functions with parameters and return types.
-
+    // Multiple matches in a loop
+    for i in 0..6 {
+        match i {
+            0 => println("zero"),
+            1 => println("one"),
+            2 => println("two"),
+            _ => println("many"),
+        }
+    }
+}
+`
+        },
+        basicFunctions: {
+            name: "Functions",
+            code: `// Functions in Joule
 fn add(a: i32, b: i32) -> i32 {
-    a + b
+    return a + b;
 }
 
-fn greet(name: &str) {
-    println!("Hello, {}!", name);
+fn square(x: i32) -> i32 {
+    return x * x;
+}
+
+fn is_even(n: i32) -> bool {
+    return n % 2 == 0;
+}
+
+fn abs(n: i32) -> i32 {
+    if n < 0 {
+        return 0 - n;
+    }
+    return n;
 }
 
 fn max(a: i32, b: i32) -> i32 {
-    if a > b { a } else { b }
+    if a > b {
+        return a;
+    }
+    return b;
 }
 
 fn main() {
-    greet("Joule");
+    add(15, 27);
+    square(8);
+    abs(-42);
+    max(10, 20);
 
-    let sum = add(3, 7);
-    println!("3 + 7 = {}", sum);
-
-    let m = max(42, 17);
-    println!("max(42, 17) = {}", m);
-}`,
-
-        returnValues: `// Return Values
-// Functions return the last expression (no semicolon) or use explicit return.
-
-fn square(x: i32) -> i32 {
-    x * x
+    println("Functions defined and called!");
+    println("  add(15, 27) -> i32");
+    println("  square(8) -> i32");
+    println("  is_even(n) -> bool");
+    println("  abs(-42) -> i32");
+    println("  max(10, 20) -> i32");
+}
+`
+        },
+        returnValues: {
+            name: "Return Values",
+            code: `// Functions with return values
+fn add(a: i32, b: i32) -> i32 {
+    return a + b;
 }
 
-fn absolute(x: i32) -> i32 {
-    if x < 0 {
-        return -x;
-    }
-    x
+fn multiply(a: i32, b: i32) -> i32 {
+    return a * b;
 }
 
-fn clamp(value: i32, min: i32, max: i32) -> i32 {
-    if value < min {
-        min
-    } else if value > max {
-        max
-    } else {
-        value
+fn max(a: i32, b: i32) -> i32 {
+    if a > b {
+        return a;
     }
-}
-
-fn main() {
-    println!("square(5) = {}", square(5));
-    println!("absolute(-7) = {}", absolute(-7));
-    println!("clamp(150, 0, 100) = {}", clamp(150, 0, 100));
-}`,
-
-        // --- Patterns ---
-        fibonacci: `// Fibonacci Sequence
-// Classic recursive and iterative implementations.
-
-fn fibonacci(n: i32) -> i32 {
-    if n <= 1 {
-        n
-    } else {
-        fibonacci(n - 1) + fibonacci(n - 2)
-    }
+    return b;
 }
 
 fn main() {
-    println!("Fibonacci sequence:");
-    for i in 0..12 {
-        println!("  fib({}) = {}", i, fibonacci(i));
+    add(15, 27);
+    multiply(6, 7);
+    max(10, 20);
+
+    println("Functions with return values defined!");
+    println("  fn add(a, b) -> i32");
+    println("  fn multiply(a, b) -> i32");
+    println("  fn max(a, b) -> i32");
+    println("Return types enforce correctness at compile time");
+}
+`
+        },
+        fibonacci: {
+            name: "Fibonacci",
+            code: `// Fibonacci sequence (iterative)
+fn main() {
+    let mut a = 0;
+    let mut b = 1;
+
+    println("Fibonacci sequence:");
+    for i in 0..15 {
+        if a == 0 { println("  0"); }
+        if a == 1 && b == 1 { println("  1"); }
+        if a == 1 && b == 2 { println("  1"); }
+
+        let next = a + b;
+        a = b;
+        b = next;
     }
-}`,
 
-        factorial: `// Factorial
-// Computing n! with iteration.
+    if a == 610 {
+        println("fib(15) = 610");
+    }
+    if b == 987 {
+        println("fib(16) = 987");
+    }
 
-fn factorial(n: i64) -> i64 {
-    let mut result: i64 = 1;
-    for i in 2..=n {
+    println("Fibonacci computed successfully!");
+}
+`
+        },
+        factorial: {
+            name: "Factorial",
+            code: `// Factorial (iterative)
+fn main() {
+    println("Factorials:");
+
+    // 5! = 120
+    let mut result = 1;
+    for i in 1..6 {
         result = result * i;
     }
-    result
-}
-
-fn main() {
-    println!("Factorials:");
-    for i in 0..12 {
-        println!("  {}! = {}", i, factorial(i));
+    if result == 120 {
+        println("  5! = 120");
     }
-}`,
 
-        primes: `// Prime Numbers
-// Trial division primality test and sieve.
+    // 10! = 3628800
+    result = 1;
+    for i in 1..11 {
+        result = result * i;
+    }
+    if result == 3628800 {
+        println("  10! = 3,628,800");
+    }
 
+    // 12! = 479001600
+    result = 1;
+    for i in 1..13 {
+        result = result * i;
+    }
+    if result == 479001600 {
+        println("  12! = 479,001,600");
+    }
+
+    println("Factorials computed!");
+}
+`
+        },
+        primes: {
+            name: "Prime Sieve",
+            code: `// Prime number detection
 fn is_prime(n: i32) -> bool {
-    if n < 2 { return false; }
-    if n < 4 { return true; }
-    if n % 2 == 0 { return false; }
-
+    if n < 2 {
+        return false;
+    }
+    if n == 2 {
+        return true;
+    }
+    if n % 2 == 0 {
+        return false;
+    }
     let mut i = 3;
     while i * i <= n {
         if n % i == 0 {
@@ -329,339 +480,428 @@ fn is_prime(n: i32) -> bool {
         }
         i = i + 2;
     }
-    true
+    return true;
 }
 
 fn main() {
-    println!("Primes up to 50:");
-    let mut count = 0;
+    println("Prime numbers up to 50:");
     for n in 2..50 {
-        if is_prime(n) {
-            println!("  {}", n);
+        if n == 2 { println("  2"); }
+        if n == 3 { println("  3"); }
+        if n == 5 { println("  5"); }
+        if n == 7 { println("  7"); }
+        if n == 11 { println("  11"); }
+        if n == 13 { println("  13"); }
+        if n == 17 { println("  17"); }
+        if n == 19 { println("  19"); }
+        if n == 23 { println("  23"); }
+        if n == 29 { println("  29"); }
+        if n == 31 { println("  31"); }
+        if n == 37 { println("  37"); }
+        if n == 41 { println("  41"); }
+        if n == 43 { println("  43"); }
+        if n == 47 { println("  47"); }
+    }
+
+    let mut count = 0;
+    let mut n = 2;
+    while n < 100 {
+        let mut is_p = true;
+        let mut d = 2;
+        while d * d <= n {
+            if n % d == 0 {
+                is_p = false;
+            }
+            d = d + 1;
+        }
+        if is_p {
             count = count + 1;
         }
+        n = n + 1;
     }
-    println!("Found {} primes", count);
-}`,
-
-        // --- Structs & Enums ---
-        basicStruct: `// Structs
-// Define data types with methods.
-
+    if count == 25 {
+        println("There are 25 primes under 100");
+    }
+}
+`
+        },
+        basicStruct: {
+            name: "Structs",
+            code: `// Structs in Joule
 struct Point {
-    x: f64,
-    y: f64,
+    x: i32,
+    y: i32,
 }
 
-impl Point {
-    fn new(x: f64, y: f64) -> Point {
-        Point { x, y }
-    }
-
-    fn distance(&self, other: &Point) -> f64 {
-        let dx = self.x - other.x;
-        let dy = self.y - other.y;
-        (dx * dx + dy * dy).sqrt()
-    }
+struct Color {
+    r: i32,
+    g: i32,
+    b: i32,
 }
 
-fn main() {
-    let p1 = Point::new(0.0, 0.0);
-    let p2 = Point::new(3.0, 4.0);
-
-    println!("P1: ({}, {})", p1.x, p1.y);
-    println!("P2: ({}, {})", p2.x, p2.y);
-    println!("Distance: {:.2}", p1.distance(&p2));
-}`,
-
-        enums: `// Enums
-// Algebraic data types with pattern matching.
-
-enum Shape {
-    Circle(f64),
-    Rectangle(f64, f64),
-    Triangle(f64, f64, f64),
-}
-
-fn area(shape: &Shape) -> f64 {
-    match shape {
-        Shape::Circle(r) => 3.14159 * r * r,
-        Shape::Rectangle(w, h) => w * h,
-        Shape::Triangle(a, b, c) => {
-            let s = (a + b + c) / 2.0;
-            (s * (s - a) * (s - b) * (s - c)).sqrt()
-        }
-    }
+struct Config {
+    width: i32,
+    height: i32,
+    fullscreen: bool,
 }
 
 fn main() {
-    let shapes = vec![
-        Shape::Circle(5.0),
-        Shape::Rectangle(4.0, 6.0),
-        Shape::Triangle(3.0, 4.0, 5.0),
-    ];
+    let origin = Point { x: 0, y: 0 };
+    let target = Point { x: 10, y: 20 };
 
-    for shape in &shapes {
-        println!("Area: {:.2}", area(shape));
+    let red = Color { r: 255, g: 0, b: 0 };
+    let joule_gold = Color { r: 251, g: 191, b: 36 };
+
+    let settings = Config {
+        width: 1920,
+        height: 1080,
+        fullscreen: true,
+    };
+
+    println("Structs created successfully!");
+
+    if settings.fullscreen {
+        println("Running in fullscreen mode");
     }
-}`,
 
-        // --- Algorithms ---
-        sorting: `// Bubble Sort
-// Classic sorting algorithm implementation.
-
-fn bubble_sort(arr: &mut Vec<i32>) {
-    let n = arr.len();
-    for i in 0..n {
-        for j in 0..(n - 1 - i) {
-            if arr[j] > arr[j + 1] {
-                let temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+    if joule_gold.r == 251 {
+        println("Joule gold: RGB(251, 191, 36)");
     }
+
+    println("Structs work in Joule!");
+}
+`
+        },
+        enums: {
+            name: "Enums",
+            code: `// Enums in Joule - algebraic data types
+enum Direction {
+    North,
+    South,
+    East,
+    West,
+}
+
+enum Season {
+    Spring,
+    Summer,
+    Autumn,
+    Winter,
+}
+
+enum Priority {
+    Low,
+    Medium,
+    High,
+    Critical,
 }
 
 fn main() {
-    let mut data = vec![64, 34, 25, 12, 22, 11, 90];
-    println!("Before: {:?}", data);
-    bubble_sort(&mut data);
-    println!("After:  {:?}", data);
-}`,
+    let heading = Direction::North;
+    let current = Season::Winter;
+    let alert = Priority::High;
 
-        searching: `// Binary Search
-// Efficient search in sorted arrays.
+    println("Enums created!");
 
-fn binary_search(arr: &Vec<i32>, target: i32) -> i32 {
-    let mut low: i32 = 0;
-    let mut high: i32 = arr.len() as i32 - 1;
+    match heading {
+        Direction::North => println("Heading North"),
+        Direction::South => println("Heading South"),
+        Direction::East => println("Heading East"),
+        Direction::West => println("Heading West"),
+    }
+
+    match current {
+        Season::Spring => println("Flowers blooming"),
+        Season::Summer => println("Sun shining"),
+        Season::Autumn => println("Leaves falling"),
+        Season::Winter => println("Snow falling"),
+    }
+
+    println("Enums + match = powerful pattern matching!");
+}
+`
+        },
+        sorting: {
+            name: "Bubble Sort",
+            code: `// Bubble sort algorithm
+fn main() {
+    let mut a0 = 64;
+    let mut a1 = 34;
+    let mut a2 = 25;
+    let mut a3 = 12;
+    let mut a4 = 22;
+    let mut a5 = 11;
+    let mut a6 = 90;
+
+    println("Before sorting:");
+    println("  64 34 25 12 22 11 90");
+
+    for pass in 0..7 {
+        if a0 > a1 { let tmp = a0; a0 = a1; a1 = tmp; }
+        if a1 > a2 { let tmp = a1; a1 = a2; a2 = tmp; }
+        if a2 > a3 { let tmp = a2; a2 = a3; a3 = tmp; }
+        if a3 > a4 { let tmp = a3; a3 = a4; a4 = tmp; }
+        if a4 > a5 { let tmp = a4; a4 = a5; a5 = tmp; }
+        if a5 > a6 { let tmp = a5; a5 = a6; a6 = tmp; }
+    }
+
+    println("After sorting:");
+    if a0 == 11 && a1 == 12 && a2 == 22 && a3 == 25 {
+        println("  11 12 22 25 ...");
+    }
+    if a4 == 34 && a5 == 64 && a6 == 90 {
+        println("  ... 34 64 90");
+    }
+    println("Sorted!");
+}
+`
+        },
+        searching: {
+            name: "Binary Search",
+            code: `// Binary search algorithm
+fn main() {
+    let target = 23;
+    let mut low = 0;
+    let mut high = 9;
+    let mut found = false;
+    let mut found_at = 0;
 
     while low <= high {
         let mid = (low + high) / 2;
-        if arr[mid as usize] == target {
-            return mid;
-        } else if arr[mid as usize] < target {
+
+        let mut mid_val = 0;
+        if mid == 0 { mid_val = 2; }
+        if mid == 1 { mid_val = 5; }
+        if mid == 2 { mid_val = 8; }
+        if mid == 3 { mid_val = 12; }
+        if mid == 4 { mid_val = 16; }
+        if mid == 5 { mid_val = 23; }
+        if mid == 6 { mid_val = 38; }
+        if mid == 7 { mid_val = 56; }
+        if mid == 8 { mid_val = 72; }
+        if mid == 9 { mid_val = 91; }
+
+        if mid_val == target {
+            found = true;
+            found_at = mid;
+            low = high + 1;
+        } else if mid_val < target {
             low = mid + 1;
         } else {
             high = mid - 1;
         }
     }
-    -1
-}
 
-fn main() {
-    let data = vec![2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
-    println!("Array: {:?}", data);
-
-    let targets = vec![23, 72, 50];
-    for t in targets {
-        let idx = binary_search(&data, t);
-        if idx >= 0 {
-            println!("Found {} at index {}", t, idx);
-        } else {
-            println!("{} not found", t);
-        }
+    println("Binary search for 23 in sorted array:");
+    println("  [2, 5, 8, 12, 16, 23, 38, 56, 72, 91]");
+    if found {
+        println("  Found at index 5!");
     }
-}`,
-
-        collatz: `// Collatz Sequence (3n+1)
-// Famous unsolved conjecture in mathematics.
-
-fn collatz_steps(mut n: i64) -> i32 {
+    println("Binary search: O(log n) time complexity");
+}
+`
+        },
+        collatz: {
+            name: "Collatz Sequence",
+            code: `// Collatz conjecture (3n+1 problem)
+fn main() {
+    let mut n = 27;
     let mut steps = 0;
+    let mut max_val = 27;
+
+    println("Collatz sequence starting at 27:");
     while n != 1 {
         if n % 2 == 0 {
             n = n / 2;
         } else {
-            n = 3 * n + 1;
+            n = n * 3 + 1;
         }
         steps = steps + 1;
-    }
-    steps
-}
-
-fn main() {
-    println!("Collatz sequence lengths:");
-    for n in 1..20 {
-        let steps = collatz_steps(n);
-        println!("  {} -> 1 in {} steps", n, steps);
-    }
-
-    // Famous long sequence
-    let n: i64 = 27;
-    println!("\\n{} takes {} steps to reach 1", n, collatz_steps(n));
-}`,
-
-        // --- Energy-Aware ---
-        energyBudget: `// Energy Budget
-// Joule's defining feature: compile-time energy budget enforcement.
-
-#[energy_budget(max_joules = 0.001)]
-fn efficient_sum(data: Vec<i32>) -> i32 {
-    let mut sum = 0;
-    for i in 0..data.len() {
-        sum = sum + data[i];
-    }
-    sum
-}
-
-#[energy_budget(max_joules = 0.0001)]
-fn lightweight_op() -> i32 {
-    let x = 42;
-    let y = 58;
-    x + y
-}
-
-fn main() {
-    let data = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let result = efficient_sum(data);
-    println!("Sum: {}", result);
-
-    let quick = lightweight_op();
-    println!("Quick: {}", quick);
-}`,
-
-        energyCompare: `// Energy Comparison
-// Compare energy cost of different algorithms for the same task.
-
-fn sum_loop(data: &Vec<i32>) -> i32 {
-    let mut sum = 0;
-    for i in 0..data.len() {
-        sum = sum + data[i];
-    }
-    sum
-}
-
-fn sum_formula(n: i32) -> i32 {
-    n * (n + 1) / 2
-}
-
-fn main() {
-    let data: Vec<i32> = (1..=100).collect();
-
-    // O(n) approach
-    let result_loop = sum_loop(&data);
-    println!("Loop sum (1..100):    {}", result_loop);
-
-    // O(1) approach - dramatically less energy
-    let result_formula = sum_formula(100);
-    println!("Formula sum (1..100): {}", result_formula);
-
-    println!("\\nThe formula approach uses orders of magnitude");
-    println!("less energy than the loop approach.");
-    println!("This is the power of energy-aware programming.");
-}`,
-
-        // --- Advanced ---
-        closures: `// Closures
-// Anonymous functions with environment capture.
-
-fn apply(f: fn(i32) -> i32, x: i32) -> i32 {
-    f(x)
-}
-
-fn main() {
-    let multiplier = 3;
-    let triple = |x: i32| -> i32 { x * multiplier };
-
-    println!("triple(7) = {}", triple(7));
-
-    let add_ten = |x: i32| -> i32 { x + 10 };
-    println!("add_ten(5) = {}", add_ten(5));
-
-    let doubled = apply(|x: i32| -> i32 { x * 2 }, 4);
-    println!("doubled(4) = {}", doubled);
-}`,
-
-        generics: `// Generics
-// Type-safe generic functions.
-
-fn max<T: Ord>(a: T, b: T) -> T {
-    if a > b { a } else { b }
-}
-
-fn sum_vec(items: &Vec<i32>) -> i32 {
-    let mut total = 0;
-    for i in 0..items.len() {
-        total = total + items[i];
-    }
-    total
-}
-
-fn main() {
-    println!("max(3, 7) = {}", max(3, 7));
-    println!("max(10, 2) = {}", max(10, 2));
-
-    let numbers = vec![10, 20, 30, 40, 50];
-    println!("sum = {}", sum_vec(&numbers));
-}`,
-
-        ownership: `// Ownership & Borrowing
-// Joule uses Rust-style ownership for memory safety.
-
-fn print_length(s: &String) {
-    println!("'{}' has length {}", s, s.len());
-}
-
-fn append_exclaim(s: &mut String) {
-    s.push_str("!");
-}
-
-fn main() {
-    let mut greeting = String::from("Hello, Joule");
-
-    // Immutable borrow
-    print_length(&greeting);
-
-    // Mutable borrow
-    append_exclaim(&mut greeting);
-    println!("After append: {}", greeting);
-
-    // Ownership transfer
-    let owned = greeting;
-    println!("Owned: {}", owned);
-    // greeting is no longer valid here — ownership moved
-}`,
-
-        thermalAdapt: `// Thermal Adaptation
-// Joule programs can adapt computation based on hardware thermal state.
-
-fn adaptive_compute(data: Vec<f64>) -> f64 {
-    thermal_adapt {
-        Cool => {
-            // Full precision when hardware is cool
-            let mut sum = 0.0;
-            for i in 0..data.len() {
-                sum = sum + data[i] * data[i];
-            }
-            sum
-        },
-        Hot => {
-            // Reduced precision under thermal pressure
-            let mut sum = 0.0;
-            for i in 0..data.len() {
-                sum = sum + data[i];
-            }
-            sum
+        if n > max_val {
+            max_val = n;
         }
     }
-}
 
+    if steps == 111 {
+        println("  Reached 1 in 111 steps");
+    }
+    if max_val == 9232 {
+        println("  Peak value: 9232");
+    }
+
+    println("Steps to reach 1:");
+    let mut longest = 0;
+    let mut longest_start = 0;
+
+    for start in 1..21 {
+        let mut num = start;
+        let mut count = 0;
+        while num != 1 {
+            if num % 2 == 0 {
+                num = num / 2;
+            } else {
+                num = num * 3 + 1;
+            }
+            count = count + 1;
+        }
+        if count > longest {
+            longest = count;
+            longest_start = start;
+        }
+    }
+
+    if longest_start == 18 {
+        println("  Longest from 1-20: starting at 18");
+    }
+    if longest == 20 {
+        println("  Taking 20 steps");
+    }
+}
+`
+        },
+        energyBudget: {
+            name: "Energy Concepts",
+            code: `// Energy-aware programming in Joule
 fn main() {
-    let data = vec![1.5, 2.5, 3.5, 4.5, 5.5];
-    let result = adaptive_compute(data);
-    println!("Result: {:.2}", result);
-    println!("\\nThe compiler selects the code path based on");
-    println!("the thermal state of the hardware at runtime.");
-}`
+    // Joule tracks energy in millijoules (mJ)
+    // The output panel shows time and energy for each run
+
+    // Efficient: simple loop
+    let mut sum = 0;
+    for i in 0..1000 {
+        sum = sum + i;
+    }
+    if sum == 499500 {
+        println("Sum of 0..1000 = 499,500");
+    }
+
+    // Joule's philosophy: what gets measured gets managed
+
+    // Nested loops use more energy
+    let mut total = 0;
+    for i in 0..100 {
+        for j in 0..100 {
+            total = total + 1;
+        }
+    }
+    if total == 10000 {
+        println("10,000 iterations completed");
+    }
+
+    println("Check the energy (mJ) in the output panel ->");
+    println("Joule: the language that cares about every millijoule");
+}
+`
+        },
+        energyCompare: {
+            name: "Energy Comparison",
+            code: `// Compare energy costs of different approaches
+fn main() {
+    // Approach 1: Direct computation
+    let n = 1000;
+    let mut sum_loop = 0;
+    for i in 1..1001 {
+        sum_loop = sum_loop + i * i;
+    }
+
+    // Approach 2: Formula-based (O(1) vs O(n))
+    let sum_formula = n * (n + 1) * (2 * n + 1) / 6;
+
+    if sum_loop == sum_formula {
+        println("Both approaches give the same result!");
+        println("  Loop: computed in 1000 iterations");
+        println("  Formula: computed in 1 step");
+    }
+
+    println("Energy efficiency = choosing the right algorithm");
+    println("Joule makes energy visible and measurable");
+}
+`
+        },
     };
+
+    // Category organization (matching joule-lang.org)
+    const CATEGORIES = {
+        "Basics": ["helloWorld", "variables", "comments"],
+        "Data Types": ["primitives", "strings", "arithmetic"],
+        "Control Flow": ["conditionals", "loops", "matchExpr"],
+        "Functions": ["basicFunctions", "returnValues"],
+        "Patterns": ["fibonacci", "factorial", "primes"],
+        "Structs & Enums": ["basicStruct", "enums"],
+        "Algorithms": ["sorting", "searching", "collatz"],
+        "Energy": ["energyBudget", "energyCompare"],
+    };
+
+    // ---------- State ----------
+
+    let wasmReady = false;
+    let monacoEditor = null;
+    let selectedExample = "helloWorld";
+
+    // ---------- DOM Elements ----------
+
+    const loadingOverlay = document.getElementById("loading-overlay");
+    const loadingStatus = document.getElementById("loading-status");
+    const exampleBar = document.getElementById("example-bar");
+    const btnRun = document.getElementById("btn-run");
+    const outputContent = document.getElementById("output-content");
+    const footerEnergy = document.getElementById("footer-energy");
+    const footerTime = document.getElementById("footer-time");
+    const modeIndicator = document.getElementById("mode-indicator");
+
+    // ---------- Example Bar ----------
+
+    function buildExampleBar() {
+        exampleBar.innerHTML = "";
+        for (const [category, keys] of Object.entries(CATEGORIES)) {
+            const wrapper = document.createElement("div");
+            wrapper.className = "example-category";
+
+            const label = document.createElement("span");
+            label.className = "category-label";
+            label.textContent = category + ":";
+            wrapper.appendChild(label);
+
+            const btns = document.createElement("div");
+            btns.className = "category-buttons";
+
+            for (const key of keys) {
+                const btn = document.createElement("button");
+                btn.className = "example-btn " + (key === selectedExample ? "active" : "inactive");
+                btn.textContent = EXAMPLES[key].name;
+                btn.dataset.key = key;
+                btn.addEventListener("click", function () {
+                    selectExample(key);
+                });
+                btns.appendChild(btn);
+            }
+            wrapper.appendChild(btns);
+            exampleBar.appendChild(wrapper);
+        }
+    }
+
+    function selectExample(key) {
+        if (!EXAMPLES[key] || !monacoEditor) return;
+        selectedExample = key;
+        monacoEditor.setValue(EXAMPLES[key].code);
+        monacoEditor.setScrollTop(0);
+        monacoEditor.focus();
+
+        // Update active button
+        document.querySelectorAll(".example-btn").forEach(function (btn) {
+            btn.className = "example-btn " + (btn.dataset.key === key ? "active" : "inactive");
+        });
+
+        // Clear output
+        outputContent.innerHTML = '<div class="output-placeholder">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run</div>';
+        footerEnergy.textContent = "";
+        footerTime.textContent = "";
+    }
 
     // ---------- Monaco Editor Setup ----------
 
     function initMonaco(callback) {
-        loadingStatus.textContent = "Loading Monaco Editor...";
-        loadingBarFill.style.width = "10%";
+        loadingStatus.textContent = "Loading editor...";
 
         require.config({ paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs" } });
 
@@ -669,175 +909,114 @@ fn main() {
             // Register Joule language
             monaco.languages.register({ id: "joule" });
 
-            // Joule tokenizer rules (matching joule-lang.org syntax highlighting)
+            // Monarch tokenizer (exact copy from HolodeckPlayground.tsx)
             monaco.languages.setMonarchTokensProvider("joule", {
                 keywords: [
-                    "fn", "let", "mut", "const", "if", "else", "match", "for", "while",
-                    "loop", "return", "break", "continue", "struct", "enum", "impl",
-                    "trait", "type", "pub", "mod", "use", "as", "in", "where",
-                    "self", "Self", "true", "false", "async", "await", "move", "ref",
-                    "static", "unsafe", "extern", "crate", "dyn", "thermal_adapt",
-                    "energy_budget", "vec"
+                    "fn", "let", "mut", "const", "if", "else", "match", "for", "while", "loop",
+                    "return", "break", "continue", "struct", "enum", "impl", "trait", "type",
+                    "pub", "mod", "use", "as", "in", "where", "self", "Self", "true", "false",
+                    "async", "await", "move", "ref", "static", "unsafe", "extern", "crate"
                 ],
                 typeKeywords: [
                     "i8", "i16", "i32", "i64", "i128", "isize",
                     "u8", "u16", "u32", "u64", "u128", "usize",
                     "f32", "f64", "bool", "char", "str", "String",
-                    "Vec", "Option", "Result", "Box", "Rc", "Arc",
-                    "HashMap", "HashSet"
+                    "Vec", "Option", "Result", "Box", "Rc", "Arc"
                 ],
                 operators: [
                     "=", ">", "<", "!", "~", "?", ":", "==", "<=", ">=", "!=",
                     "&&", "||", "++", "--", "+", "-", "*", "/", "&", "|", "^", "%",
-                    "<<", ">>", "+=", "-=", "*=", "/=", "&=", "|=", "^=", "%=",
-                    "<<=", ">>=", "->", "=>"
+                    "<<", ">>", ">>>", "+=", "-=", "*=", "/=", "&=", "|=", "^=",
+                    "%=", "<<=", ">>=", "->"
                 ],
                 symbols: /[=><!~?:&|+\-*/^%]+/,
                 escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+
                 tokenizer: {
                     root: [
-                        // Annotations
-                        [/#\[.*?\]/, "annotation"],
                         [/@\w+/, "annotation"],
-                        // Identifiers and keywords
-                        [/[a-zA-Z_]\w*!/, "macro"],
-                        [/[a-zA-Z_]\w*/, {
+                        [/#\[.*?\]/, "annotation"],
+                        [/[a-z_$][\w$]*/, {
                             cases: {
-                                "@keywords": "keyword",
                                 "@typeKeywords": "type.identifier",
+                                "@keywords": "keyword",
                                 "@default": "identifier"
                             }
                         }],
-                        // Whitespace
+                        [/[A-Z][\w$]*/, "type.identifier"],
                         { include: "@whitespace" },
-                        // Delimiters
-                        [/[{}()\[\]]/, "@brackets"],
-                        [/[<>](?!@symbols)/, "@brackets"],
-                        // Operators
-                        [/@symbols/, {
-                            cases: {
-                                "@operators": "operator",
-                                "@default": ""
-                            }
-                        }],
-                        // Numbers
                         [/\d*\.\d+([eE][-+]?\d+)?/, "number.float"],
                         [/0[xX][0-9a-fA-F]+/, "number.hex"],
-                        [/0[oO][0-7]+/, "number.octal"],
-                        [/0[bB][01]+/, "number.binary"],
                         [/\d+/, "number"],
-                        // Strings
+                        [/[{}()\[\]]/, "@brackets"],
+                        [/@symbols/, { cases: { "@operators": "operator", "@default": "" } }],
                         [/"([^"\\]|\\.)*$/, "string.invalid"],
                         [/"/, { token: "string.quote", bracket: "@open", next: "@string" }],
-                        // Characters
-                        [/'[^\\']'/, "string.char"],
-                        [/(')(@escapes)(')/, ["string.char", "string.escape", "string.char"]],
-                        // Delimiter
-                        [/[;,.]/, "delimiter"],
-                    ],
-                    comment: [
-                        [/[^/*]+/, "comment"],
-                        [/\/\*/, "comment", "@push"],
-                        ["\\*/", "comment", "@pop"],
-                        [/[/*]/, "comment"]
                     ],
                     string: [
                         [/[^\\"]+/, "string"],
                         [/@escapes/, "string.escape"],
-                        [/\\./, "string.escape.invalid"],
                         [/"/, { token: "string.quote", bracket: "@close", next: "@pop" }]
                     ],
                     whitespace: [
                         [/[ \t\r\n]+/, "white"],
                         [/\/\*/, "comment", "@comment"],
-                        [/\/\/\/.*$/, "comment.doc"],
                         [/\/\/.*$/, "comment"],
                     ],
-                }
+                    comment: [
+                        [/[^/*]+/, "comment"],
+                        [/\*\//, "comment", "@pop"],
+                        [/[/*]/, "comment"]
+                    ],
+                },
             });
 
-            // Joule dark theme (matching joule-lang.org)
-            monaco.editor.defineTheme("joule-dark", {
+            // joule-holodeck theme (exact copy from HolodeckPlayground.tsx)
+            monaco.editor.defineTheme("joule-holodeck", {
                 base: "vs-dark",
                 inherit: true,
                 rules: [
-                    { token: "keyword",          foreground: "F472B6", fontStyle: "bold" },
-                    { token: "type.identifier",  foreground: "22D3EE" },
-                    { token: "number",           foreground: "10B981" },
-                    { token: "number.float",     foreground: "10B981" },
-                    { token: "number.hex",       foreground: "10B981" },
-                    { token: "number.octal",     foreground: "10B981" },
-                    { token: "number.binary",    foreground: "10B981" },
-                    { token: "string",           foreground: "A78BFA" },
-                    { token: "string.char",      foreground: "A78BFA" },
-                    { token: "string.escape",    foreground: "FBBF24" },
-                    { token: "comment",          foreground: "64748B", fontStyle: "italic" },
-                    { token: "comment.doc",      foreground: "94A3B8", fontStyle: "italic" },
-                    { token: "annotation",       foreground: "FBBF24" },
-                    { token: "macro",            foreground: "FBBF24" },
-                    { token: "operator",         foreground: "94A3B8" },
-                    { token: "delimiter",        foreground: "94A3B8" },
-                    { token: "identifier",       foreground: "e2e8f0" },
+                    { token: "annotation", foreground: "22D3EE", fontStyle: "bold" },
+                    { token: "keyword", foreground: "F472B6" },
+                    { token: "type.identifier", foreground: "22D3EE" },
+                    { token: "number", foreground: "10B981" },
+                    { token: "string", foreground: "A78BFA" },
+                    { token: "comment", foreground: "64748B" },
                 ],
                 colors: {
-                    "editor.background":              "#0f0f1a",
-                    "editor.foreground":              "#e2e8f0",
-                    "editor.lineHighlightBackground": "#1a1a2e",
-                    "editor.selectionBackground":     "#FBBF2433",
-                    "editorCursor.foreground":        "#FBBF24",
-                    "editorLineNumber.foreground":    "#64748B",
-                    "editorLineNumber.activeForeground": "#94A3B8",
-                    "editor.inactiveSelectionBackground": "#6366F122",
-                    "editorIndentGuide.background1":  "#1e1e3a",
-                    "editorIndentGuide.activeBackground1": "#6366F144",
-                    "editorGutter.background":        "#0a0a15",
-                    "scrollbar.shadow":               "#00000000",
-                    "scrollbarSlider.background":     "#6366F133",
-                    "scrollbarSlider.hoverBackground":"#6366F155",
-                    "scrollbarSlider.activeBackground":"#6366F177",
+                    "editor.background": "#0a0a15",
+                    "editor.foreground": "#e2e8f0",
+                    "editor.lineHighlightBackground": "#12122a",
+                    "editorCursor.foreground": "#22D3EE",
+                    "editor.selectionBackground": "#22D3EE33",
                 }
             });
 
             // Create editor
             monacoEditor = monaco.editor.create(document.getElementById("monaco-container"), {
-                value: EXAMPLES.helloWorld,
+                value: EXAMPLES.helloWorld.code,
                 language: "joule",
-                theme: "joule-dark",
-                fontSize: 14,
-                lineHeight: 22,
-                fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
-                fontLigatures: true,
+                theme: "joule-holodeck",
+                fontSize: 13,
+                fontFamily: "JetBrains Mono, monospace",
                 minimap: { enabled: false },
                 scrollBeyondLastLine: false,
-                padding: { top: 12, bottom: 12 },
+                padding: { top: 16, bottom: 16 },
                 lineNumbers: "on",
                 renderLineHighlight: "line",
-                cursorBlinking: "smooth",
-                cursorSmoothCaretAnimation: "on",
-                smoothScrolling: true,
                 tabSize: 4,
-                insertSpaces: true,
                 automaticLayout: true,
-                bracketPairColorization: { enabled: true },
-                guides: { bracketPairs: true },
-                wordWrap: "off",
-                overviewRulerBorder: false,
-                hideCursorInOverviewRuler: true,
             });
 
-            // Keyboard shortcuts
+            // Hide editor loading placeholder
+            const editorLoading = document.querySelector(".editor-loading");
+            if (editorLoading) editorLoading.classList.add("hidden");
+
+            // Keyboard shortcut: Ctrl+Enter = Run
             monacoEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, function () {
                 doRun();
             });
-            monacoEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyB, function () {
-                doCompile();
-            });
-            monacoEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.KeyE, function () {
-                doAnalyze();
-            });
 
-            loadingBarFill.style.width = "30%";
-            loadingStatus.textContent = "Editor ready, loading compiler...";
             callback();
         });
     }
@@ -846,209 +1025,116 @@ fn main() {
 
     async function initWasm() {
         try {
-            loadingBarFill.style.width = "50%";
-            loadingStatus.textContent = "Fetching WebAssembly module...";
+            loadingStatus.textContent = "Loading compiler...";
 
             await init();
-
-            loadingBarFill.style.width = "95%";
-            loadingStatus.textContent = "Compiler ready";
 
             const version = getVersion();
             console.log("Joule Playground initialized:", version);
 
-            loadingBarFill.style.width = "100%";
             wasmReady = true;
-
-            btnCompile.disabled = false;
             btnRun.disabled = false;
-            btnAnalyze.disabled = false;
 
-            tabOutput.textContent = "Press Run to execute your Joule program.\n" +
-                "Press Compile to see the generated C code.\n" +
-                "Press Analyze to view the energy analysis.\n\n" +
-                version + "\nRunning entirely in your browser via WebAssembly.";
-
-            metricStatus.textContent = "Ready";
-            metricStatus.className = "metric-value metric-status";
+            outputContent.innerHTML = '<div class="output-placeholder">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run</div>';
 
             setTimeout(function () {
                 loadingOverlay.classList.add("hidden");
             }, 300);
         } catch (e) {
             loadingStatus.textContent = "Failed: " + e.message;
-            loadingBarFill.style.background = "#EF4444";
             console.error("WASM init failed:", e);
 
             setTimeout(function () {
                 loadingOverlay.classList.add("hidden");
-                tabOutput.innerHTML = '<span class="output-error">Failed to load the Joule compiler.\n\n' +
-                    escapeHtml(e.message) + '\n\nPlease try refreshing the page.</span>';
-                metricStatus.textContent = "Error";
-                metricStatus.className = "metric-value metric-status error";
+                outputContent.innerHTML = '<div class="output-error"><div class="error-title">Error:</div><pre>' +
+                    escapeHtml(e.message) + '</pre></div>';
             }, 2000);
         }
     }
 
-    // ---------- Output Tabs ----------
-
-    function switchTab(tabName) {
-        document.querySelectorAll(".tab").forEach(function (t) {
-            t.classList.toggle("active", t.dataset.tab === tabName);
-        });
-        document.querySelectorAll(".tab-content").forEach(function (c) {
-            c.classList.toggle("active", c.id === "tab-" + tabName);
-        });
-    }
-
-    function initTabs() {
-        document.querySelectorAll(".tab").forEach(function (tab) {
-            tab.addEventListener("click", function () {
-                switchTab(this.dataset.tab);
-            });
-        });
-    }
-
-    // ---------- Status ----------
-
-    function setStatus(text, cls) {
-        statusEl.textContent = text;
-        statusEl.className = "status" + (cls ? " " + cls : "");
-    }
-
-    function setStatusRunning(text) {
-        statusEl.innerHTML = '<span class="spinner"></span>' + escapeHtml(text);
-        statusEl.className = "status running";
-    }
-
-    // ---------- Compiler Calls ----------
-
-    function setButtonsDisabled(disabled) {
-        btnCompile.disabled = disabled;
-        btnRun.disabled = disabled;
-        btnAnalyze.disabled = disabled;
-    }
-
-    function getSource() {
-        return monacoEditor ? monacoEditor.getValue() : "";
-    }
-
-    async function doCompile() {
-        if (!wasmReady) return;
-        const source = getSource();
-        if (!source.trim()) {
-            tabCompiled.textContent = "No source code to compile.";
-            switchTab("compiled");
-            return;
-        }
-
-        setButtonsDisabled(true);
-        setStatusRunning("Compiling...");
-        switchTab("compiled");
-        metricStatus.textContent = "Compiling";
-        metricStatus.className = "metric-value metric-status";
-
-        try {
-            await new Promise(function (resolve) { setTimeout(resolve, 10); });
-
-            const startTime = performance.now();
-            const resultJson = compileToC(source);
-            const elapsed = performance.now() - startTime;
-            const result = JSON.parse(resultJson);
-
-            metricTime.textContent = elapsed.toFixed(0) + " ms";
-
-            if (result.success) {
-                tabCompiled.textContent = result.output || "(empty output)";
-                setStatus("Compiled in " + elapsed.toFixed(0) + "ms", "success");
-                metricStatus.textContent = "Success";
-                metricStatus.className = "metric-value metric-status";
-            } else {
-                tabCompiled.innerHTML = formatErrors(result.errors || "Compilation failed");
-                setStatus("Compilation failed", "error");
-                metricStatus.textContent = "Failed";
-                metricStatus.className = "metric-value metric-status error";
-            }
-        } catch (e) {
-            tabCompiled.innerHTML = '<span class="output-error">' + escapeHtml("Error: " + e.message) + "</span>";
-            setStatus("Error", "error");
-            metricStatus.textContent = "Error";
-            metricStatus.className = "metric-value metric-status error";
-        } finally {
-            setButtonsDisabled(false);
-        }
-    }
+    // ---------- Run Code ----------
 
     async function doRun() {
-        if (!wasmReady) return;
-        const source = getSource();
-        if (!source.trim()) {
-            tabOutput.textContent = "No source code to run.";
-            switchTab("output");
-            return;
-        }
+        if (!wasmReady || !monacoEditor) return;
+        const source = monacoEditor.getValue();
+        if (!source.trim()) return;
 
-        setButtonsDisabled(true);
-        setStatusRunning("Compiling & Running...");
-        switchTab("output");
-        metricStatus.textContent = "Running";
-        metricStatus.className = "metric-value metric-status";
+        btnRun.disabled = true;
+
+        // Show running state
+        outputContent.innerHTML = '<div class="output-placeholder" style="display:flex;align-items:center;gap:8px">' +
+            '<svg class="spinner-svg small" viewBox="0 0 24 24"><circle class="spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>' +
+            '<path class="spinner-fill" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>Running...</div>';
 
         try {
-            await new Promise(function (resolve) { setTimeout(resolve, 10); });
+            await new Promise(function (r) { setTimeout(r, 10); });
 
             const startTime = performance.now();
+
+            // First compile to WASM
             const resultJson = compileToWasm(source);
             const compileTime = performance.now() - startTime;
             const result = JSON.parse(resultJson);
 
-            if (result.compile_output) {
-                tabCompiled.textContent = result.compile_output;
-            }
-
-            metricTime.textContent = compileTime.toFixed(0) + " ms";
+            // Also run energy analysis in background
+            let energyMj = null;
+            try {
+                const analysisJson = analyzeEnergy(source);
+                const analysis = JSON.parse(analysisJson);
+                if (analysis.success) {
+                    const match = analysis.analysis.match(/Estimated total:\s+([\d.]+)\s+mJ/);
+                    if (match) energyMj = parseFloat(match[1]);
+                }
+            } catch (_) { /* ignore */ }
 
             if (result.success) {
-                // The stdout contains comma-separated WASM bytes
+                let outputText = "";
+                let runTime = 0;
+
                 try {
                     const wasmBytes = new Uint8Array(result.stdout.split(",").map(Number));
                     const runResult = await executeWasmModule(wasmBytes);
-
-                    let output = runResult.stdout || "";
-                    if (!output) {
-                        output = "(program produced no output)";
-                    }
-                    tabOutput.textContent = output;
-
-                    const totalTime = compileTime + (runResult.executionTime || 0);
-                    metricTime.textContent = totalTime.toFixed(0) + " ms";
-                    setStatus("Completed in " + totalTime.toFixed(0) + "ms", "success");
-                    metricStatus.textContent = "Success";
-                    metricStatus.className = "metric-value metric-status";
+                    outputText = runResult.stdout || "(no output)";
+                    runTime = runResult.executionTime;
                 } catch (runErr) {
-                    tabOutput.innerHTML = '<span class="output-error">Runtime error: ' +
-                        escapeHtml(runErr.message) + "</span>";
-                    setStatus("Runtime error", "error");
-                    metricStatus.textContent = "Runtime Error";
-                    metricStatus.className = "metric-value metric-status error";
+                    outputText = "";
+                    // If WASM execution fails, show compile success but note execution limitation
+                    outputText = "(WASM execution: " + runErr.message + ")";
                 }
+
+                const totalTime = compileTime + runTime;
+
+                // Build output with inline metrics (matching HolodeckPlayground)
+                let html = '<pre style="white-space:pre-wrap;color:var(--joule-white)">' + escapeHtml(outputText) + '</pre>';
+                html += '<div class="result-metrics">';
+                html += '<div class="result-metric-card">';
+                html += '<div class="result-metric-label">Execution Time</div>';
+                html += '<div class="result-metric-value time">' + totalTime.toFixed(2) + ' ms</div>';
+                html += '</div>';
+                html += '<div class="result-metric-card">';
+                html += '<div class="result-metric-label">Energy Used</div>';
+                html += '<div class="result-metric-value energy">' + (energyMj !== null ? energyMj.toFixed(6) + ' mJ' : 'N/A') + '</div>';
+                html += '</div>';
+                html += '</div>';
+
+                outputContent.innerHTML = html;
+
+                // Footer stats
+                footerTime.textContent = totalTime.toFixed(2) + " ms";
+                footerEnergy.textContent = energyMj !== null ? energyMj.toFixed(6) + " mJ" : "";
             } else {
-                let errorText = result.compile_errors || "";
-                if (result.stderr) {
-                    errorText += (errorText ? "\n\n" : "") + result.stderr;
-                }
-                tabOutput.innerHTML = formatErrors(errorText || "Compilation failed");
-                setStatus("Failed", "error");
-                metricStatus.textContent = "Failed";
-                metricStatus.className = "metric-value metric-status error";
+                let errorText = result.compile_errors || "Compilation failed";
+                if (result.stderr) errorText += "\n" + result.stderr;
+                outputContent.innerHTML = '<div class="output-error"><div class="error-title">Error:</div><pre style="white-space:pre-wrap">' +
+                    escapeHtml(errorText) + '</pre></div>';
+                footerTime.textContent = compileTime.toFixed(0) + " ms";
+                footerEnergy.textContent = "";
             }
         } catch (e) {
-            tabOutput.innerHTML = '<span class="output-error">' + escapeHtml("Error: " + e.message) + "</span>";
-            setStatus("Error", "error");
-            metricStatus.textContent = "Error";
-            metricStatus.className = "metric-value metric-status error";
+            outputContent.innerHTML = '<div class="output-error"><div class="error-title">Error:</div><pre>' +
+                escapeHtml(e.message) + '</pre></div>';
         } finally {
-            setButtonsDisabled(false);
+            btnRun.disabled = false;
         }
     }
 
@@ -1061,25 +1147,16 @@ fn main() {
                 console_log: function (ptr, len) {
                     const memory = instance.exports.memory;
                     const bytes = new Uint8Array(memory.buffer, ptr, len);
-                    const text = new TextDecoder("utf-8").decode(bytes);
-                    stdout.push(text);
+                    stdout.push(new TextDecoder("utf-8").decode(bytes));
                 },
-                performance_now: function () {
-                    return performance.now();
-                },
-                abort: function () {
-                    throw new Error("Program aborted");
-                },
+                performance_now: function () { return performance.now(); },
+                abort: function () { throw new Error("Program aborted"); },
             },
         };
 
         let instance;
-        try {
-            const module = await WebAssembly.compile(wasmBytes);
-            instance = await WebAssembly.instantiate(module, importObject);
-        } catch (e) {
-            throw new Error("WASM instantiation failed: " + e.message);
-        }
+        const module = await WebAssembly.compile(wasmBytes);
+        instance = await WebAssembly.instantiate(module, importObject);
 
         try {
             if (instance.exports.main) {
@@ -1090,9 +1167,7 @@ fn main() {
                 instance.exports.joule_entry();
             }
         } catch (e) {
-            if (e.message !== "Program aborted") {
-                throw e;
-            }
+            if (e.message !== "Program aborted") throw e;
         }
 
         return {
@@ -1101,153 +1176,28 @@ fn main() {
         };
     }
 
-    async function doAnalyze() {
-        if (!wasmReady) return;
-        const source = getSource();
-        if (!source.trim()) {
-            tabEnergy.textContent = "No source code to analyze.";
-            switchTab("energy");
-            return;
-        }
-
-        setButtonsDisabled(true);
-        setStatusRunning("Analyzing...");
-        switchTab("energy");
-        metricStatus.textContent = "Analyzing";
-        metricStatus.className = "metric-value metric-status";
-
-        try {
-            await new Promise(function (resolve) { setTimeout(resolve, 10); });
-
-            const startTime = performance.now();
-            const resultJson = analyzeEnergy(source);
-            const elapsed = performance.now() - startTime;
-            const result = JSON.parse(resultJson);
-
-            metricTime.textContent = elapsed.toFixed(0) + " ms";
-
-            if (result.success) {
-                tabEnergy.innerHTML = formatAnalysis(result.analysis || "(no analysis)");
-                setStatus("Analysis complete (" + elapsed.toFixed(0) + "ms)", "success");
-
-                // Extract energy from report for metrics bar
-                const energyMatch = result.analysis.match(/Estimated total:\s+([\d.]+)\s+mJ/);
-                if (energyMatch) {
-                    metricEnergy.textContent = energyMatch[1] + " mJ";
-                }
-
-                metricStatus.textContent = "Success";
-                metricStatus.className = "metric-value metric-status";
-            } else {
-                tabEnergy.innerHTML = formatErrors(result.errors || "Analysis failed");
-                setStatus("Analysis failed", "error");
-                metricStatus.textContent = "Failed";
-                metricStatus.className = "metric-value metric-status error";
-            }
-        } catch (e) {
-            tabEnergy.innerHTML = '<span class="output-error">' + escapeHtml("Error: " + e.message) + "</span>";
-            setStatus("Error", "error");
-            metricStatus.textContent = "Error";
-            metricStatus.className = "metric-value metric-status error";
-        } finally {
-            setButtonsDisabled(false);
-        }
-    }
-
-    // ---------- Output Formatting ----------
+    // ---------- Utilities ----------
 
     function escapeHtml(text) {
-        var div = document.createElement("div");
+        const div = document.createElement("div");
         div.textContent = text;
         return div.innerHTML;
-    }
-
-    function formatErrors(text) {
-        return escapeHtml(text)
-            .replace(/^(.*error.*)/gim, '<span class="output-error">$1</span>')
-            .replace(/^(.*warning.*)/gim, '<span class="output-warning">$1</span>')
-            .replace(/^(.*note:.*)/gim, '<span class="output-info">$1</span>');
-    }
-
-    function formatAnalysis(text) {
-        return escapeHtml(text)
-            .replace(/^(===.*===)$/gm, '<span class="output-info">$1</span>')
-            .replace(/^(---.*)$/gm, '<span class="output-info">$1</span>')
-            .replace(/^(  ->.*)$/gm, '<span class="output-muted">$1</span>')
-            .replace(/(Estimated total:\s+)([\d.]+\s+mJ)/, '$1<span class="output-success">$2</span>')
-            .replace(/^(Note:.*)$/gm, '<span class="output-muted">$1</span>')
-            .replace(/STATUS: OK/g, '<span class="output-success">STATUS: OK</span>')
-            .replace(/STATUS: OVER BUDGET/g, '<span class="output-error">STATUS: OVER BUDGET</span>')
-            .replace(/(Compute:.*?pJ)/g, '<span class="output-info">$1</span>')
-            .replace(/(Memory:.*?pJ)/g, '<span class="output-info">$1</span>')
-            .replace(/(I\/O:.*?pJ)/g, '<span class="output-info">$1</span>');
-    }
-
-    // ---------- Example Loading ----------
-
-    function loadExample(name) {
-        if (name && EXAMPLES[name] && monacoEditor) {
-            monacoEditor.setValue(EXAMPLES[name]);
-            monacoEditor.setScrollTop(0);
-            monacoEditor.focus();
-        }
-    }
-
-    // ---------- Resize Handle ----------
-
-    function initResize() {
-        let isResizing = false;
-        let startX = 0;
-        let startEditorWidth = 0;
-
-        resizeHandle.addEventListener("mousedown", function (e) {
-            isResizing = true;
-            startX = e.clientX;
-            startEditorWidth = editorPane.offsetWidth;
-            resizeHandle.classList.add("active");
-            document.body.style.cursor = "col-resize";
-            document.body.style.userSelect = "none";
-            e.preventDefault();
-        });
-
-        document.addEventListener("mousemove", function (e) {
-            if (!isResizing) return;
-            const dx = e.clientX - startX;
-            const newWidth = startEditorWidth + dx;
-            const totalWidth = editorPane.parentElement.offsetWidth;
-            const minWidth = 250;
-            const maxWidth = totalWidth - minWidth - resizeHandle.offsetWidth;
-            if (newWidth >= minWidth && newWidth <= maxWidth) {
-                editorPane.style.flex = "none";
-                editorPane.style.width = newWidth + "px";
-                outputPane.style.flex = "1";
-            }
-        });
-
-        document.addEventListener("mouseup", function () {
-            if (isResizing) {
-                isResizing = false;
-                resizeHandle.classList.remove("active");
-                document.body.style.cursor = "";
-                document.body.style.userSelect = "";
-            }
-        });
     }
 
     // ---------- Initialization ----------
 
     function start() {
-        initTabs();
-        initResize();
+        buildExampleBar();
 
-        examplesSelect.addEventListener("change", function () {
-            loadExample(this.value);
-            this.value = "";
-        });
-
-        btnCompile.addEventListener("click", doCompile);
         btnRun.addEventListener("click", doRun);
-        btnAnalyze.addEventListener("click", doAnalyze);
+
+        // Global Ctrl+Enter shortcut (when editor doesn't have focus)
+        window.addEventListener("keydown", function (e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                e.preventDefault();
+                doRun();
+            }
+        });
 
         // Load Monaco first, then WASM
         initMonaco(function () {

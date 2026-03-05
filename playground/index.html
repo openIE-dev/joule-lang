@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joule Playground</title>
+    <title>Playground - Joule</title>
     <link rel="icon" type="image/svg+xml" href="/joule-lang/favicon.svg">
     <meta name="description" content="Try Joule in your browser — write, compile, run, and analyze energy usage. No installation required.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,171 +12,103 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Loading overlay shown while WASM + Monaco initialize -->
+    <!-- Loading overlay -->
     <div class="loading-overlay" id="loading-overlay">
         <div class="loading-content">
-            <div class="loading-logo">
-                <svg width="56" height="56" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="14" cy="14" r="13" stroke="#FBBF24" stroke-width="2"/>
-                    <path d="M10 7 L18 7 L16 15 L19 15 L11 23 L13 16 L10 16 Z" fill="#FBBF24"/>
+            <div class="loading-spinner">
+                <svg class="spinner-svg" viewBox="0 0 24 24">
+                    <circle class="spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
+                    <path class="spinner-fill" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                 </svg>
             </div>
-            <h2 class="loading-title">Joule Playground</h2>
-            <p class="loading-text" id="loading-status">Initializing compiler...</p>
-            <div class="loading-bar">
-                <div class="loading-bar-fill" id="loading-bar-fill"></div>
-            </div>
+            <p class="loading-text" id="loading-status">Loading editor...</p>
         </div>
     </div>
 
-    <header>
-        <div class="header-left">
-            <a href="/" class="logo-link">
-                <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="14" cy="14" r="13" stroke="#FBBF24" stroke-width="2"/>
-                    <path d="M10 7 L18 7 L16 15 L19 15 L11 23 L13 16 L10 16 Z" fill="#FBBF24"/>
-                </svg>
-                <span class="logo-text">Joule</span>
-            </a>
-            <span class="header-divider"></span>
-            <span class="header-subtitle">Playground</span>
-        </div>
-        <div class="header-center">
-            <div class="example-selector">
-                <select id="examples" aria-label="Load example">
-                    <option value="">Load Example...</option>
-
-                    <optgroup label="Hello World &amp; Basics">
-                        <option value="helloWorld">Hello World</option>
-                        <option value="variables">Variables &amp; Types</option>
-                        <option value="comments">Comments</option>
-                    </optgroup>
-
-                    <optgroup label="Data Types">
-                        <option value="primitives">Primitives</option>
-                        <option value="strings">Strings</option>
-                        <option value="arithmetic">Arithmetic</option>
-                    </optgroup>
-
-                    <optgroup label="Control Flow">
-                        <option value="conditionals">Conditionals</option>
-                        <option value="loops">Loops</option>
-                        <option value="matchExpr">Pattern Matching</option>
-                    </optgroup>
-
-                    <optgroup label="Functions">
-                        <option value="basicFunctions">Basic Functions</option>
-                        <option value="returnValues">Return Values</option>
-                    </optgroup>
-
-                    <optgroup label="Patterns">
-                        <option value="fibonacci">Fibonacci</option>
-                        <option value="factorial">Factorial</option>
-                        <option value="primes">Prime Numbers</option>
-                    </optgroup>
-
-                    <optgroup label="Structs &amp; Enums">
-                        <option value="basicStruct">Structs</option>
-                        <option value="enums">Enums</option>
-                    </optgroup>
-
-                    <optgroup label="Algorithms">
-                        <option value="sorting">Bubble Sort</option>
-                        <option value="searching">Binary Search</option>
-                        <option value="collatz">Collatz Sequence</option>
-                    </optgroup>
-
-                    <optgroup label="Energy-Aware">
-                        <option value="energyBudget">Energy Budget</option>
-                        <option value="energyCompare">Energy Comparison</option>
-                    </optgroup>
-
-                    <optgroup label="Advanced">
-                        <option value="closures">Closures</option>
-                        <option value="generics">Generics</option>
-                        <option value="ownership">Ownership</option>
-                        <option value="thermalAdapt">Thermal Adaptation</option>
-                    </optgroup>
-                </select>
-            </div>
-        </div>
-        <div class="header-right">
-            <button id="btn-compile" class="btn btn-secondary" title="Compile to C (Ctrl+Shift+B)" disabled>
-                <span class="btn-icon">&#9881;</span>
-                <span>Compile</span>
-            </button>
-            <button id="btn-run" class="btn btn-primary" title="Run (Ctrl+Enter)" disabled>
-                <span class="btn-icon">&#9654;</span>
-                <span>Run</span>
-                <kbd>Ctrl+Enter</kbd>
-            </button>
-            <button id="btn-analyze" class="btn btn-energy" title="Energy Analysis (Ctrl+Shift+E)" disabled>
-                <span class="btn-icon">&#9889;</span>
-                <span>Analyze</span>
-            </button>
-        </div>
-    </header>
-
-    <main>
-        <div class="editor-pane" id="editor-pane">
-            <div class="pane-header">
-                <span class="pane-title">
-                    <span class="pane-dot"></span>
-                    Source
-                </span>
-                <span class="file-name">playground.joule</span>
-            </div>
-            <div id="monaco-container"></div>
-        </div>
-
-        <div class="resize-handle" id="resize-handle"></div>
-
-        <div class="output-pane" id="output-pane">
-            <div class="pane-header">
-                <div class="output-tabs">
-                    <button class="tab active" data-tab="output">
-                        <span class="tab-icon">&#9654;</span> Output
-                    </button>
-                    <button class="tab" data-tab="compiled">
-                        <span class="tab-icon">&#60;/&#62;</span> Compiled C
-                    </button>
-                    <button class="tab" data-tab="energy">
-                        <span class="tab-icon">&#9889;</span> Energy
-                    </button>
+    <section class="playground-section">
+        <div class="playground-container">
+            <div class="playground-card">
+                <!-- Header -->
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="header-icon-badge">
+                            <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+                                <path d="M10 7 L18 7 L16 15 L19 15 L11 23 L13 16 L10 16 Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="header-title">Joule Playground</h2>
+                            <p class="header-subtitle">WebAssembly Compiler</p>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="mode-indicator" id="mode-indicator">
+                            <span class="mode-dot"></span>
+                            WASM
+                        </div>
+                    </div>
                 </div>
-                <span class="status" id="status"></span>
-            </div>
-            <div class="output-content">
-                <pre id="tab-output" class="tab-content active">Loading Joule compiler via WebAssembly...</pre>
-                <pre id="tab-compiled" class="tab-content"></pre>
-                <pre id="tab-energy" class="tab-content"></pre>
-            </div>
-            <div class="metrics-bar" id="metrics-bar">
-                <div class="metric">
-                    <span class="metric-label">Execution</span>
-                    <span class="metric-value metric-time" id="metric-time">—</span>
+
+                <!-- Example Selector -->
+                <div class="example-bar" id="example-bar">
+                    <!-- Categories injected by JS -->
                 </div>
-                <div class="metric">
-                    <span class="metric-label">Energy</span>
-                    <span class="metric-value metric-energy" id="metric-energy">—</span>
+
+                <!-- Main Content: 2-column grid -->
+                <div class="main-grid">
+                    <!-- Code Editor -->
+                    <div class="editor-column">
+                        <div class="column-toolbar">
+                            <span class="toolbar-label">Joule Code</span>
+                            <button id="btn-run" class="btn-run" disabled>
+                                <svg class="btn-run-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                Run
+                            </button>
+                        </div>
+                        <div class="editor-wrapper" id="monaco-container">
+                            <div class="editor-loading">
+                                <svg class="spinner-svg small" viewBox="0 0 24 24">
+                                    <circle class="spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
+                                    <path class="spinner-fill" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                                </svg>
+                                Loading editor...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="grid-divider"></div>
+
+                    <!-- Output Panel -->
+                    <div class="output-column">
+                        <div class="column-toolbar">
+                            <span class="toolbar-label">Output</span>
+                        </div>
+                        <div class="output-content" id="output-content">
+                            <div class="output-placeholder">
+                                Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to run
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric">
-                    <span class="metric-label">Status</span>
-                    <span class="metric-value metric-status" id="metric-status">Ready</span>
+
+                <!-- Footer -->
+                <div class="card-footer">
+                    <div class="footer-left">
+                        <span class="footer-stat footer-stat-energy" id="footer-energy"></span>
+                        <span class="footer-stat footer-stat-time" id="footer-time"></span>
+                    </div>
+                    <div class="footer-right">
+                        <span class="footer-note">
+                            <span class="footer-accent">*</span> Code compiles and runs via WebAssembly in your browser
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <span class="footer-brand">Joule &mdash; exposing the true energy cost of compute</span>
-        <span class="footer-badge">WASM</span>
-        <span class="footer-links">
-            <a href="/">Docs</a>
-            <a href="https://joule-lang.org" target="_blank" rel="noopener">joule-lang.org</a>
-            <a href="https://github.com/openIE-dev/joule-lang" target="_blank" rel="noopener">GitHub</a>
-        </span>
-    </footer>
+    </section>
 
     <!-- Monaco Editor from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js"></script>
