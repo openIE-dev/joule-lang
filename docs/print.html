@@ -223,35 +223,73 @@
 <p>To report bugs, request features, or ask questions, visit <a href="https://joule-lang.org">joule-lang.org</a> or open an issue on <a href="https://joule-lang.org/github">GitHub</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-with-joule"><a class="header" href="#getting-started-with-joule">Getting Started with Joule</a></h1>
 <p>This guide walks you through installing the Joule compiler and writing your first program.</p>
-<p><strong>Current version: v1.1.7</strong></p>
+<p><strong>Current version: v1.2.0</strong></p>
 <h2 id="install"><a class="header" href="#install">Install</a></h2>
-<h3 id="download"><a class="header" href="#download">Download</a></h3>
-<p>Download the latest release for your platform from <a href="https://joule-lang.org/install">joule-lang.org/install</a>:</p>
-<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>Installer</th></tr></thead><tbody>
-<tr><td>macOS (Apple Silicon)</td><td><code>joule-v1.1.7-macos-arm64.pkg</code></td></tr>
-<tr><td>macOS (Intel)</td><td><code>joule-v1.1.7-macos-x86_64.pkg</code></td></tr>
-<tr><td>Windows 11 (x64)</td><td><code>joule-v1.1.7-windows-x86_64.msi</code></td></tr>
-<tr><td>Windows 11 (ARM)</td><td><code>joule-v1.1.7-windows-arm64.msi</code></td></tr>
-<tr><td>Ubuntu (x64)</td><td><code>joule-v1.1.7-ubuntu-x86_64.deb</code></td></tr>
-<tr><td>Ubuntu (ARM)</td><td><code>joule-v1.1.7-ubuntu-arm64.deb</code></td></tr>
+<h3 id="quick-install-recommended"><a class="header" href="#quick-install-recommended">Quick Install (Recommended)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>Command</th></tr></thead><tbody>
+<tr><td>macOS / Linux</td><td><code>brew install openIE-dev/joule/joule</code></td></tr>
+<tr><td>Windows</td><td><code>winget install OpenIE.Joule</code></td></tr>
+<tr><td>Ubuntu / Debian</td><td><code>sudo apt install joule</code> (after <a href="getting-started.html#apt-ubuntudebian">adding the repo</a>)</td></tr>
+<tr><td>Arch Linux</td><td><code>yay -S joule-bin</code></td></tr>
+<tr><td>Nix</td><td><code>nix run github:openIE-dev/joule-lang</code></td></tr>
+<tr><td>Snap</td><td><code>sudo snap install joule --classic</code></td></tr>
+<tr><td>Any (curl)</td><td><code>curl -fsSL https://joule-lang.org/install.sh | sh</code></td></tr>
 </tbody></table>
 </div>
-<p><strong>macOS:</strong></p>
-<p>Double-click the <code>.pkg</code> file, or install from the command line:</p>
-<pre><code class="language-bash">sudo installer -pkg joule-v1.1.7-macos-arm64.pkg -target /
+<h3 id="macos"><a class="header" href="#macos">macOS</a></h3>
+<p><strong>Homebrew</strong> (recommended):</p>
+<pre><code class="language-bash">brew install openIE-dev/joule/joule
 </code></pre>
-<p><strong>Windows:</strong></p>
-<p>Double-click the <code>.msi</code> file. The installer adds <code>joulec</code> to your PATH automatically.</p>
-<p><strong>Ubuntu:</strong></p>
-<pre><code class="language-bash">sudo dpkg -i joule-v1.1.7-ubuntu-x86_64.deb
+<p>Or download <code>joule-macos-arm64.pkg</code> (Apple Silicon) or <code>joule-macos-x86_64.pkg</code> (Intel) from the <a href="https://github.com/openIE-dev/joule-lang/releases/latest">releases page</a>:</p>
+<pre><code class="language-bash">sudo installer -pkg joule-macos-arm64.pkg -target /
+</code></pre>
+<h3 id="windows"><a class="header" href="#windows">Windows</a></h3>
+<p><strong>Winget</strong> (recommended, built into Windows 11):</p>
+<pre><code class="language-bash">winget install OpenIE.Joule
+</code></pre>
+<p><strong>Scoop</strong>:</p>
+<pre><code class="language-bash">scoop bucket add joule https://github.com/openIE-dev/scoop-joule
+scoop install joule
+</code></pre>
+<p><strong>Chocolatey</strong>:</p>
+<pre><code class="language-bash">choco install joule
+</code></pre>
+<p>Or download <code>joule-windows-x86_64.msi</code> or <code>joule-windows-arm64.msi</code> from the <a href="https://github.com/openIE-dev/joule-lang/releases/latest">releases page</a>. The MSI installer adds <code>joulec</code> to your PATH automatically.</p>
+<h3 id="apt-ubuntudebian"><a class="header" href="#apt-ubuntudebian">APT (Ubuntu/Debian)</a></h3>
+<pre><code class="language-bash">curl -fsSL https://openie-dev.github.io/joule-lang/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/joule.gpg
+echo "deb [signed-by=/usr/share/keyrings/joule.gpg] https://openie-dev.github.io/joule-lang stable main" | sudo tee /etc/apt/sources.list.d/joule.list
+sudo apt update &amp;&amp; sudo apt install joule
+</code></pre>
+<h3 id="arch-linux-aur"><a class="header" href="#arch-linux-aur">Arch Linux (AUR)</a></h3>
+<pre><code class="language-bash">yay -S joule-bin
+</code></pre>
+<p>Or with any AUR helper: <code>paru -S joule-bin</code>, <code>trizen -S joule-bin</code>.</p>
+<h3 id="nix"><a class="header" href="#nix">Nix</a></h3>
+<pre><code class="language-bash"># Run without installing
+nix run github:openIE-dev/joule-lang
+
+# Install into profile
+nix profile install github:openIE-dev/joule-lang
+</code></pre>
+<h3 id="snap"><a class="header" href="#snap">Snap</a></h3>
+<pre><code class="language-bash">sudo snap install joule --classic
 </code></pre>
 <h3 id="install-script"><a class="header" href="#install-script">Install Script</a></h3>
-<p>Or use the one-line installer:</p>
+<p>Universal one-line installer for macOS and Linux:</p>
 <pre><code class="language-bash">curl -fsSL https://joule-lang.org/install.sh | sh
+</code></pre>
+<h3 id="from-source"><a class="header" href="#from-source">From Source</a></h3>
+<pre><code class="language-bash">git clone https://github.com/openIE-dev/joule-lang.git
+cd joule-lang &amp;&amp; cargo build --release
+</code></pre>
+<h3 id="from-c-source-zero-dependencies"><a class="header" href="#from-c-source-zero-dependencies">From C Source (Zero Dependencies)</a></h3>
+<p>Download <code>joule-c-src-*.tar.gz</code> from the <a href="https://github.com/openIE-dev/joule-lang/releases/latest">releases page</a>:</p>
+<pre><code class="language-bash">tar xzf joule-c-src-*.tar.gz &amp;&amp; cd joule-c-src-*
+make    # or: cc -O2 -o joulec output.c -lm
 </code></pre>
 <h3 id="verify"><a class="header" href="#verify">Verify</a></h3>
 <pre><code class="language-bash">joulec --version
-# joulec 1.1.7
+# joulec 1.2.0
 </code></pre>
 <h2 id="write-your-first-program"><a class="header" href="#write-your-first-program">Write Your First Program</a></h2>
 <p>Create a file called <code>hello.joule</code>:</p>
