@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en" class="coal" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cross-Language Comparison - The Joule Programming Language</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">1.</strong> Installation & First Program</a></li><li class="chapter-item expanded "><a href="../language-tour.html"><strong aria-hidden="true">2.</strong> Language Tour</a></li><li class="chapter-item expanded affix "><li class="part-title">Guides</li><li class="chapter-item expanded "><a href="../energy-guide.html"><strong aria-hidden="true">3.</strong> Energy System Guide</a></li><li class="chapter-item expanded "><a href="../compiler.html"><strong aria-hidden="true">4.</strong> Compiler Reference</a></li><li class="chapter-item expanded "><a href="../jit.html"><strong aria-hidden="true">5.</strong> JIT Compilation</a></li><li class="chapter-item expanded "><a href="../polyglot.html"><strong aria-hidden="true">6.</strong> Polyglot Energy Analysis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../polyglot/python.html"><strong aria-hidden="true">6.1.</strong> Python Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/javascript.html"><strong aria-hidden="true">6.2.</strong> JavaScript Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/typescript.html"><strong aria-hidden="true">6.3.</strong> TypeScript Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/c.html"><strong aria-hidden="true">6.4.</strong> C Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/go.html"><strong aria-hidden="true">6.5.</strong> Go Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/rust.html"><strong aria-hidden="true">6.6.</strong> Rust Guide</a></li><li class="chapter-item expanded "><a href="../polyglot/energy-optimization-walkthrough.html"><strong aria-hidden="true">6.7.</strong> Energy Optimization Walkthrough</a></li><li class="chapter-item expanded "><a href="../polyglot/cross-language-comparison.html" class="active"><strong aria-hidden="true">6.8.</strong> Cross-Language Comparison</a></li></ol></li><li class="chapter-item expanded "><a href="../accelerators.html"><strong aria-hidden="true">7.</strong> Accelerator Energy Measurement</a></li><li class="chapter-item expanded "><a href="../tensorforge.html"><strong aria-hidden="true">8.</strong> TensorForge ML Framework</a></li><li class="chapter-item expanded affix "><li class="part-title">Language Reference</li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">9.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../reference/types.html"><strong aria-hidden="true">10.</strong> Types</a></li><li class="chapter-item expanded "><a href="../reference/expressions.html"><strong aria-hidden="true">11.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="../reference/items.html"><strong aria-hidden="true">12.</strong> Items</a></li><li class="chapter-item expanded "><a href="../reference/patterns.html"><strong aria-hidden="true">13.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="../reference/attributes.html"><strong aria-hidden="true">14.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../reference/memory.html"><strong aria-hidden="true">15.</strong> Memory</a></li><li class="chapter-item expanded "><a href="../reference/concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="../reference/energy.html"><strong aria-hidden="true">17.</strong> Energy</a></li><li class="chapter-item expanded affix "><li class="part-title">Standard Library</li><li class="chapter-item expanded "><a href="../stdlib/index.html"><strong aria-hidden="true">18.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../stdlib/string.html"><strong aria-hidden="true">19.</strong> String</a></li><li class="chapter-item expanded "><a href="../stdlib/vec.html"><strong aria-hidden="true">20.</strong> Vec</a></li><li class="chapter-item expanded "><a href="../stdlib/option.html"><strong aria-hidden="true">21.</strong> Option</a></li><li class="chapter-item expanded "><a href="../stdlib/result.html"><strong aria-hidden="true">22.</strong> Result</a></li><li class="chapter-item expanded "><a href="../stdlib/hashmap.html"><strong aria-hidden="true">23.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../stdlib/primitives.html"><strong aria-hidden="true">24.</strong> Primitives</a></li><li class="chapter-item expanded "><a href="../stdlib/collections.html"><strong aria-hidden="true">25.</strong> Collections</a></li><li class="chapter-item expanded "><a href="../stdlib/smart-pointers.html"><strong aria-hidden="true">26.</strong> Smart Pointers</a></li><li class="chapter-item expanded "><a href="../stdlib/ndarray.html"><strong aria-hidden="true">27.</strong> NDArray</a></li><li class="chapter-item expanded "><a href="../stdlib/simd.html"><strong aria-hidden="true">28.</strong> SIMD</a></li><li class="chapter-item expanded "><a href="../stdlib/time.html"><strong aria-hidden="true">29.</strong> Time</a></li><li class="chapter-item expanded "><a href="../stdlib/numeric.html"><strong aria-hidden="true">30.</strong> Numeric</a></li><li class="chapter-item expanded "><a href="../stdlib/io.html"><strong aria-hidden="true">31.</strong> I/O</a></li><li class="chapter-item expanded "><a href="../stdlib/math.html"><strong aria-hidden="true">32.</strong> Math</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Joule Programming Language</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/openIE-dev/joule-lang" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="cross-language-energy-comparison"><a class="header" href="#cross-language-energy-comparison">Cross-Language Energy Comparison</a></h1>
+<p>The same algorithm, implemented in six languages, analyzed by Joule. This comparison reveals the energy cost of language abstractions and runtime overhead.</p>
+<h2 id="the-algorithm"><a class="header" href="#the-algorithm">The Algorithm</a></h2>
+<p>Iterative Fibonacci computing <code>fib(30)</code>. Chosen because it's simple enough to implement identically in every language, with enough arithmetic to produce meaningful energy differences.</p>
+<h3 id="python"><a class="header" href="#python">Python</a></h3>
+<pre><code class="language-python">def fibonacci(n):
+    if n &lt;= 1:
+        return n
+    a = 0
+    b = 1
+    for i in range(2, n + 1):
+        temp = a + b
+        a = b
+        b = temp
+    return b
+
+def main():
+    result = fibonacci(30)
+    print(result)
+
+main()
+</code></pre>
+<h3 id="javascript"><a class="header" href="#javascript">JavaScript</a></h3>
+<pre><code class="language-javascript">function fibonacci(n) {
+    if (n &lt;= 1) return n;
+    let a = 0;
+    let b = 1;
+    for (let i = 2; i &lt;= n; i++) {
+        const temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
+
+function main() {
+    const result = fibonacci(30);
+    console.log(result);
+}
+
+main();
+</code></pre>
+<h3 id="typescript"><a class="header" href="#typescript">TypeScript</a></h3>
+<pre><code class="language-typescript">function fibonacci(n: number): number {
+    if (n &lt;= 1) return n;
+    let a: number = 0;
+    let b: number = 1;
+    for (let i: number = 2; i &lt;= n; i++) {
+        const temp: number = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
+
+function main(): void {
+    const result: number = fibonacci(30);
+    console.log(result);
+}
+
+main();
+</code></pre>
+<h3 id="c"><a class="header" href="#c">C</a></h3>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int fibonacci(int n) {
+    if (n &lt;= 1) return n;
+    int a = 0;
+    int b = 1;
+    for (int i = 2; i &lt;= n; i++) {
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
+}
+
+int main() {
+    int result = fibonacci(30);
+    printf("%d\n", result);
+    return 0;
+}
+</code></pre>
+<h3 id="go"><a class="header" href="#go">Go</a></h3>
+<pre><code class="language-go">package main
+
+import "fmt"
+
+func fibonacci(n int) int {
+    if n &lt;= 1 {
+        return n
+    }
+    a := 0
+    b := 1
+    for i := 2; i &lt;= n; i++ {
+        temp := a + b
+        a = b
+        b = temp
+    }
+    return b
+}
+
+func main() {
+    result := fibonacci(30)
+    fmt.Println(result)
+}
+</code></pre>
+<h3 id="rust"><a class="header" href="#rust">Rust</a></h3>
+<pre><pre class="playground"><code class="language-rust">fn fibonacci(n: i32) -&gt; i32 {
+    if n &lt;= 1 {
+        return n;
+    }
+    let mut a = 0;
+    let mut b = 1;
+    for _i in 2..=n {
+        let temp = a + b;
+        a = b;
+        b = temp;
+    }
+    b
+}
+
+fn main() {
+    let result = fibonacci(30);
+    println!("{}", result);
+}</code></pre></pre>
+<h2 id="running-the-comparison"><a class="header" href="#running-the-comparison">Running the Comparison</a></h2>
+<pre><code class="language-bash">joulec --lift python fibonacci.py
+joulec --lift js fibonacci.js
+joulec --lift ts fibonacci.ts
+joulec --lift c fibonacci.c
+joulec --lift go fibonacci.go
+joulec --lift rust fibonacci.rs
+</code></pre>
+<h2 id="results"><a class="header" href="#results">Results</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Language</th><th>fibonacci() Energy</th><th>main() Energy</th><th>Total</th><th>Confidence</th></tr></thead><tbody>
+<tr><td>C</td><td>1.75 nJ</td><td>0.85 nJ</td><td>2.60 nJ</td><td>0.90</td></tr>
+<tr><td>Rust</td><td>1.75 nJ</td><td>1.10 nJ</td><td>2.85 nJ</td><td>0.90</td></tr>
+<tr><td>Go</td><td>1.95 nJ</td><td>1.20 nJ</td><td>3.15 nJ</td><td>0.85</td></tr>
+<tr><td>JavaScript</td><td>2.80 nJ</td><td>1.50 nJ</td><td>4.30 nJ</td><td>0.85</td></tr>
+<tr><td>TypeScript</td><td>2.80 nJ</td><td>1.50 nJ</td><td>4.30 nJ</td><td>0.85</td></tr>
+<tr><td>Python</td><td>3.40 nJ</td><td>1.80 nJ</td><td>5.20 nJ</td><td>0.80</td></tr>
+</tbody></table>
+</div>
+<p>All programs produce the correct result: <code>832040</code>.</p>
+<h2 id="analysis"><a class="header" href="#analysis">Analysis</a></h2>
+<h3 id="why-c-and-rust-are-cheapest"><a class="header" href="#why-c-and-rust-are-cheapest">Why C and Rust Are Cheapest</a></h3>
+<p>Both C and Rust map directly to integer arithmetic with no runtime overhead. The <code>fibonacci()</code> function compiles to:</p>
+<ul>
+<li>29 integer additions (0.05 pJ each = 1.45 pJ)</li>
+<li>58 register moves (~0 pJ, register-to-register)</li>
+<li>29 loop iterations with branch (0.1 pJ each = 2.9 pJ)</li>
+<li>1 comparison + branch for the <code>n &lt;= 1</code> check</li>
+</ul>
+<p>Total compute: ~4.4 pJ. The remaining energy comes from function call overhead, stack frame setup, and memory loads.</p>
+<p>Rust's slightly higher <code>main()</code> cost accounts for <code>println!</code> macro expansion, which involves formatting machinery that <code>printf</code> avoids.</p>
+<h3 id="why-go-costs-slightly-more"><a class="header" href="#why-go-costs-slightly-more">Why Go Costs Slightly More</a></h3>
+<p>Go's runtime includes goroutine scheduling infrastructure even for single-threaded programs. The <code>fmt.Println</code> call also involves reflection-based formatting that adds overhead beyond C's <code>printf</code>.</p>
+<h3 id="why-javascript-costs-more"><a class="header" href="#why-javascript-costs-more">Why JavaScript Costs More</a></h3>
+<p>JavaScript numbers are <code>f64</code> (double-precision float) even for integer arithmetic. The <code>fibonacci()</code> loop performs float addition instead of integer addition:</p>
+<ul>
+<li>Integer add: 0.05 pJ</li>
+<li>Float add: 0.35 pJ (7x more expensive)</li>
+</ul>
+<p>This single type system decision accounts for most of JavaScript's energy premium.</p>
+<h3 id="why-typescript-equals-javascript"><a class="header" href="#why-typescript-equals-javascript">Why TypeScript Equals JavaScript</a></h3>
+<p>TypeScript type annotations (<code>n: number</code>, <code>let a: number</code>) are erased before analysis. The runtime behavior is identical to JavaScript — same <code>f64</code> arithmetic, same energy profile.</p>
+<h3 id="why-python-costs-the-most"><a class="header" href="#why-python-costs-the-most">Why Python Costs the Most</a></h3>
+<p>Python's dynamic dispatch adds overhead per operation. Each <code>+</code> involves:</p>
+<ol>
+<li>Type check on both operands</li>
+<li>Method lookup (<code>__add__</code>)</li>
+<li>Result allocation (for large integers)</li>
+</ol>
+<p>The energy model accounts for this dispatch overhead, making Python ~2x more expensive than C for pure arithmetic.</p>
+<h2 id="thermal-state-impact"><a class="header" href="#thermal-state-impact">Thermal State Impact</a></h2>
+<p>Running with different thermal states changes the cost model's power efficiency factor:</p>
+<pre><code class="language-bash">joulec --lift c fibonacci.c --thermal-state cool       # aggressive optimization
+joulec --lift c fibonacci.c --thermal-state hot        # conservative, reduced SIMD
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Thermal State</th><th>C Energy</th><th>Python Energy</th><th>Ratio</th></tr></thead><tbody>
+<tr><td>cool (&lt; 50C)</td><td>2.40 nJ</td><td>4.80 nJ</td><td>2.0x</td></tr>
+<tr><td>nominal (50-70C)</td><td>2.60 nJ</td><td>5.20 nJ</td><td>2.0x</td></tr>
+<tr><td>hot (85-95C)</td><td>3.10 nJ</td><td>6.20 nJ</td><td>2.0x</td></tr>
+</tbody></table>
+</div>
+<p>The absolute energy increases with temperature (thermal resistance reduces efficiency), but the ratio between languages stays constant for this workload because the algorithm is compute-bound with no SIMD opportunities.</p>
+<h2 id="the-energy-cost-of-abstraction"><a class="header" href="#the-energy-cost-of-abstraction">The Energy Cost of Abstraction</a></h2>
+<p>This comparison quantifies something developers intuit but rarely measure: <strong>higher-level languages consume more energy for the same computation</strong>. The gap is not enormous — Python costs 2x what C costs for pure arithmetic — but it compounds across millions of function calls in production systems.</p>
+<p>Joule makes this cost visible. Whether you're choosing a language for a new project, optimizing a hot path, or justifying a rewrite, you now have picojoule-level data to inform the decision.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../polyglot/energy-optimization-walkthrough.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../accelerators.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../polyglot/energy-optimization-walkthrough.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../accelerators.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
