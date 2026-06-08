@@ -1,0 +1,21 @@
+[book]
+title = "Joule"
+authors = ["David Charlot <david@openie.dev>"]
+description = "Joule — self-hosted energy-aware programming language with compile-time energy budgets."
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/openIE-dev/joule-lang"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/openIE-dev/joule-lang/edit/main/docs/{path}"
+site-url = "/joule-lang/"
+
+[output.html.search]
+enable = true
+
+[output.html.fold]
+enable = true

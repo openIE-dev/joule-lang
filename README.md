@@ -2,6 +2,13 @@
 
 **A self-hosted programming language with compile-time energy budgets.**
 
+[![Release](https://github.com/openIE-dev/joule-lang/actions/workflows/release.yml/badge.svg)](https://github.com/openIE-dev/joule-lang/actions/workflows/release.yml)
+[![Quality](https://github.com/openIE-dev/joule-lang/actions/workflows/quality.yml/badge.svg)](https://github.com/openIE-dev/joule-lang/actions/workflows/quality.yml)
+[![Docs](https://github.com/openIE-dev/joule-lang/actions/workflows/docs.yml/badge.svg)](https://openie-dev.github.io/joule-lang)
+[![crates.io](https://img.shields.io/crates/v/joulec.svg)](https://crates.io/crates/joulec)
+[![License](https://img.shields.io/badge/license-BSL--1.1-blue.svg)](./LICENSE)
+
+
 Joule is the world's first energy-aware programming language with first-class compile-time energy budget enforcement. Every function has an energy cost. Every accelerator is measured. Every decision is accountable. The Joule self-host bootstraps from a small kernel and lowers through HIR to native (C / Cranelift / LLVM / MLIR / CUDA), WASM, and [flowG](https://github.com/openIE-dev/flow-g).
 
 This is the **public release surface**. Source is private at [`openIE-dev/joule-lang-core`](https://github.com/openIE-dev/joule-lang-core) — a 161-crate nested workspace including the self-host bootstrap, codegen passes, runtime, edge tooling, and the joule cascade.
