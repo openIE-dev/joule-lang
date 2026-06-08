@@ -1,0 +1,28 @@
+[package]
+name = "joulec"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Self-hosted energy-aware programming language. Stub installer; `cargo binstall joulec` fetches the real binary."
+license = "BSL-1.1"
+repository = "https://github.com/openIE-dev/joule-lang"
+homepage = "https://openie-dev.github.io/joule-lang"
+documentation = "https://openie-dev.github.io/joule-lang"
+readme = "../../README.md"
+keywords = ["energy", "compiler", "rust", "cli"]
+categories = ["command-line-utilities"]
+
+# Standalone package — not in any workspace
+[workspace]
+
+[[bin]]
+name = "joulec"
+path = "src/main.rs"
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/v{ version }/joulec-{ version }-{ target }.{ archive-suffix }"
+pkg-fmt = "tgz"
+bin-dir = "joulec-{ version }-{ target }/{ bin }{ binary-ext }"
+
+[package.metadata.binstall.overrides.x86_64-pc-windows-msvc]
+pkg-fmt = "zip"
