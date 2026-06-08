@@ -1,0 +1,4 @@
+// Joule hello world
+fn main() -> i32:
+    println("Hello, Joule")
+    return 0

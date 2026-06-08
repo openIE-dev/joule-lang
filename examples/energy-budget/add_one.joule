@@ -1,0 +1,12 @@
+// Energy-budgeted function: compile fails if measured cost exceeds budget.
+@energy(< 100pJ)
+fn add_one(x: f64) -> f64:
+    return x + 1.0
+
+@energy(< 50nJ)
+fn main() -> i32:
+    let mut acc: f64 = 0.0
+    for i in 0..1000:
+        acc = add_one(acc)
+    println("acc =", acc)
+    return 0
