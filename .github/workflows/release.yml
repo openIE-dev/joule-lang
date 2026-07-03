@@ -81,6 +81,18 @@ jobs:
         if: matrix.use-cross
         run: cargo install cross --locked
 
+      - name: Define openie registry
+        # The workspace manifest references a private sparse registry named
+        # `openie` (registry.openie.dev) on many workspace deps. cargo must have
+        # the registry defined just to PARSE the manifest, even though joulec
+        # itself is built from path deps only and never fetches from it. Written
+        # project-local so `cross` (Docker) picks it up via the mounted project.
+        shell: bash
+        working-directory: joulesperbit
+        run: |
+          mkdir -p .cargo
+          printf '\n[registries.openie]\nindex = "sparse+https://registry.openie.dev/api/v1/crates/"\n' >> .cargo/config.toml
+
       - name: Build
         shell: bash
         working-directory: joulesperbit
