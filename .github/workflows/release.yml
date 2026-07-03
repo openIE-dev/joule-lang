@@ -13,8 +13,12 @@ on:
 
 # REPLACE these per-project:
 env:
-  # Path to the CLI crate inside joulesperbit
-  CLI_CRATE_PATH: crates/joule-lang/bootstrap
+  # Path to the CLI crate inside joulesperbit.
+  # The Cargo package name is the last path segment; the build uses
+  # `-p ${CLI_CRATE_PATH##*/}` -> `-p joulec`. The full-pipeline Rust compiler
+  # lives at compiler/joulec (package `joulec`), not bootstrap (which is the
+  # separate `joule-bootstrap-tools` package and does not produce this binary).
+  CLI_CRATE_PATH: crates/joule-lang/compiler/joulec
   # Name of the CLI binary that ends up in target/release/
   BIN_NAME: joulec
   # Public name (what the tarball is named)
@@ -127,6 +131,11 @@ jobs:
   release:
     name: Publish Release
     needs: build
+    # Publish whatever built. With fail-fast:false the matrix legs are
+    # independent; if an unverified target (e.g. musl/windows) fails, the
+    # platforms that did build still ship. An empty dist still fails below
+    # via fail_on_unmatched_files, so a total build failure is not masked.
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
