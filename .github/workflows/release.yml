@@ -86,6 +86,17 @@ jobs:
         if: matrix.use-cross
         run: cargo install cross --locked
 
+      - name: Add target to pinned toolchain
+        # The joule-lang workspace pins a toolchain via rust-toolchain.toml, so
+        # the build uses that channel — not the `stable` the setup action added
+        # the target to. Add the target to the *pinned* toolchain by running
+        # from WORKSPACE_DIR (where the override is active). No-op for the native
+        # host target; cross handles its own targets in Docker.
+        if: ${{ !matrix.use-cross }}
+        shell: bash
+        working-directory: ${{ env.WORKSPACE_DIR }}
+        run: rustup target add ${{ matrix.target }}
+
       - name: Build
         shell: bash
         working-directory: ${{ env.WORKSPACE_DIR }}
@@ -112,15 +123,19 @@ jobs:
 
           cp LICENSE README.md "$STAGE/$BASE/" 2>/dev/null || true
 
+          # Cross-platform sha256: macOS has `shasum`, Linux/Windows-gitbash have
+          # `sha256sum`. `shasum` is absent on the Windows runner's git-bash.
+          sha256() { if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1"; else shasum -a 256 "$1"; fi; }
+
           cd "$STAGE"
           if [ "${{ matrix.archive }}" = "zip" ]; then
             (cd "$BASE" && 7z a -tzip "../${BASE}.zip" .)
             mv "${BASE}.zip" "${{ github.workspace }}/"
-            (cd "${{ github.workspace }}" && shasum -a 256 "${BASE}.zip" > "${BASE}.zip.sha256")
+            (cd "${{ github.workspace }}" && sha256 "${BASE}.zip" > "${BASE}.zip.sha256")
           else
             tar czf "${BASE}.tar.gz" "$BASE"
             mv "${BASE}.tar.gz" "${{ github.workspace }}/"
-            (cd "${{ github.workspace }}" && shasum -a 256 "${BASE}.tar.gz" > "${BASE}.tar.gz.sha256")
+            (cd "${{ github.workspace }}" && sha256 "${BASE}.tar.gz" > "${BASE}.tar.gz.sha256")
           fi
 
           ls -la "${{ github.workspace }}"/*${BASE}*
@@ -147,6 +162,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Resolve tag
+        id: tag
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "tag=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
@@ -161,6 +186,10 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          # Dispatched runs have no tag ref, so name it explicitly. The action
+          # creates the tag on the checked-out commit (main) if it doesn't exist.
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: ${{ steps.tag.outputs.tag }}
           files: dist/*
           generate_release_notes: true
           fail_on_unmatched_files: true
