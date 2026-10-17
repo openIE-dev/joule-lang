@@ -121,7 +121,7 @@ jobs:
             cp "${WORKSPACE_DIR}/target/${{ matrix.target }}/release/${BIN_NAME}" "$STAGE/$BASE/"
           fi
 
-          cp LICENSE README.md "$STAGE/$BASE/" 2>/dev/null || true
+          cp LICENSE-MIT LICENSE-APACHE COPYRIGHT README.md "$STAGE/$BASE/" 2>/dev/null || true
 
           # Cross-platform sha256: macOS has `shasum`, Linux/Windows-gitbash have
           # `sha256sum`. `shasum` is absent on the Windows runner's git-bash.
