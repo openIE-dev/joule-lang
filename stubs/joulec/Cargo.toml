@@ -1,6 +1,6 @@
 [package]
 name = "joulec"
-version = "0.1.0"
+version = "1.2.0"
 edition = "2021"
 rust-version = "1.74"
 description = "Self-hosted energy-aware programming language. Stub installer; `cargo binstall joulec` fetches the real binary."
@@ -20,7 +20,7 @@ name = "joulec"
 path = "src/main.rs"
 
 [package.metadata.binstall]
-pkg-url = "{ repo }/releases/download/v{ version }/joulec-{ version }-{ target }.{ archive-suffix }"
+pkg-url = "{ repo }/releases/download/v{ version }/joulec-{ version }-{ target }{ archive-suffix }"
 pkg-fmt = "tgz"
 bin-dir = "joulec-{ version }-{ target }/{ bin }{ binary-ext }"
 
