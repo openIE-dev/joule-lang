@@ -184,7 +184,7 @@ jobs:
           ls -la dist/
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           # Dispatched runs have no tag ref, so name it explicitly. The action
           # creates the tag on the checked-out commit (main) if it doesn't exist.
